@@ -20,9 +20,9 @@ export default function HomePage() {
       <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-6 py-8 lg:px-10">
         <header className="flex items-center justify-between">
           <div>
-            <p className="text-lg font-bold uppercase tracking-[0.28em] text-white/60 sm:text-xl">
-               StyleScore for Men
-            </p>
+           <p className="text-lg font-bold uppercase tracking-[0.28em] text-white/60 sm:text-xl">
+  StyleScore for Men
+</p>
           </div>
 
           <a
