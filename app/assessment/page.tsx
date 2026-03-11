@@ -20,195 +20,242 @@ type Question = {
 const questions: Question[] = [
   {
     id: "q1",
-    category: "Fit",
-    question: "Your build (pick what fits best):",
-    options: ["Slim", "Average", "Athletic", "Stocky", "Plus", "Prefer not to say"],
+    category: "Fit & Proportion",
+    question: "I usually buy tops that…",
+    options: [
+      "fit me well in the shoulders and chest",
+      "fit okay but are a little loose",
+      "often feel tight in one area",
+      "are mostly chosen for comfort, not fit",
+      "I’m not really sure",
+    ],
   },
   {
     id: "q2",
-    category: "Fit",
-    question: "Your common fit challenges:",
+    category: "Fit & Proportion",
+    question: "When I wear pants, they usually…",
     options: [
-      "Broad shoulders",
-      "Belly/tummy area",
-      "Big thighs",
-      "Short legs",
-      "Long torso",
-      "Clothes feel tight in chest/arms",
+      "sit cleanly and look intentional",
+      "are a bit long or bunch at the bottom",
+      "feel tight in the thigh or seat",
+      "feel loose and shapeless",
+      "I don’t pay much attention",
     ],
   },
   {
     id: "q3",
-    category: "Fit",
-    question: "When you wear shirts/tees, what happens most often?",
+    category: "Fit & Proportion",
+    question: "My clothes usually make me feel…",
     options: [
-      "Shoulder seams sit correctly",
-      "Chest feels tight",
-      "Shirt is too long/too short",
-      "Collar/neck feels loose",
-      "Sleeves feel too tight",
-      "Not sure",
+      "sharp and put together",
+      "decent, but not polished",
+      "comfortable more than stylish",
+      "slightly awkward in fit",
+      "I’m not really sure",
     ],
   },
   {
     id: "q4",
-    category: "Fit",
-    question: "Your pants usually fit like:",
+    category: "Fit & Proportion",
+    question: "When I try clothes on, I usually…",
     options: [
-      "Clean at waist (no constant adjusting)",
-      "Tight in thighs",
-      "Baggy in seat",
-      "Too long/dragging",
-      "Too short/high water",
-      "Not sure",
+      "care a lot about proportion and fit",
+      "check only whether they feel comfortable",
+      "buy if they look okay quickly",
+      "struggle to know what flatters me",
+      "rarely try before buying",
     ],
   },
   {
     id: "q5",
-    category: "Wardrobe",
-    question: "What do you own that you wear weekly?",
+    category: "Wardrobe Foundations",
+    question: "My wardrobe is mostly made up of…",
     options: [
-      "Solid tees/polos",
-      "Neutral chinos/jeans",
-      "Casual button-downs",
-      "A good jacket/overshirt",
-      "Clean sneakers",
-      "None of these",
+      "versatile basics that work together",
+      "a mix of random items",
+      "older clothes I still use",
+      "mostly athletic or lounge wear",
+      "whatever I happened to buy",
     ],
   },
   {
     id: "q6",
-    category: "Wardrobe",
-    question: "Your go-to outfit pieces are mostly:",
+    category: "Wardrobe Foundations",
+    question: "I usually wear the same few outfits because…",
     options: [
-      "Neutral basics",
-      "Logos/graphics",
-      "Random mix",
-      "Mostly athletic wear",
-      "Work uniform only",
+      "they work well and I like them",
+      "I don’t have many good alternatives",
+      "most of my wardrobe is hard to combine",
+      "I don’t enjoy planning outfits",
+      "that’s just easier",
     ],
   },
   {
     id: "q7",
-    category: "Wardrobe",
-    question: "Your clothes are mostly:",
+    category: "Wardrobe Foundations",
+    question: "When I buy clothes, I usually choose…",
     options: [
-      "Mix-and-match",
-      "Only a few repeats",
-      "Lots of items but hard to pair",
-      "Mostly impulse buys",
-      "Hand-me-downs/old",
+      "pieces that work with what I already own",
+      "whatever catches my eye",
+      "whatever is on sale",
+      "whatever feels comfortable",
+      "I don’t think much about it",
     ],
   },
   {
     id: "q8",
-    category: "Color",
-    question: "Colors you wear most:",
+    category: "Color Coordination",
+    question: "I usually wear colors that are…",
     options: [
-      "Black",
-      "White",
-      "Grey",
-      "Navy",
-      "Earth tones",
-      "Bright colors",
-      "Whatever is clean",
+      "neutral and easy to combine",
+      "mostly safe but repetitive",
+      "mixed without much planning",
+      "often bold or loud",
+      "just whatever is available",
     ],
   },
   {
     id: "q9",
-    category: "Color",
-    question: "When you dress, what do you check?",
+    category: "Color Coordination",
+    question: "Before going out, I usually check whether…",
     options: [
-      "Top + bottom match",
-      "Shoe color matches outfit",
-      "Belt matches shoes (when formal)",
-      "Socks match vibe",
-      "Nothing—I just wear",
+      "the whole outfit feels coordinated",
+      "the shoes work with the outfit",
+      "at least the clothes are clean",
+      "I don’t really check",
+      "I ask someone else",
     ],
   },
   {
     id: "q10",
-    category: "Color",
-    question: "Patterns you wear comfortably:",
-    options: ["Solid only", "Simple stripes/checks", "Loud prints", "Mix multiple patterns", "Not sure"],
-  },
-  {
-    id: "q11",
-    category: "Shoes",
-    question: "Shoes you wear most days:",
-    options: ["Clean sneakers", "Running shoes", "Loafers", "Boots", "Dress shoes", "Slides/sandals"],
-  },
-  {
-    id: "q12",
-    category: "Shoes",
-    question: "Your shoes are usually:",
+    category: "Color Coordination",
+    question: "My outfits usually look…",
     options: [
-      "Clean and presentable",
-      "Slightly dusty/scuffed",
-      "Often dirty",
-      "Falling apart",
+      "balanced and intentional",
+      "simple but fine",
+      "inconsistent from piece to piece",
+      "too plain or too random",
       "I’m not sure",
     ],
   },
   {
+    id: "q11",
+    category: "Shoes & Footwear",
+    question: "I usually wear…",
+    options: [
+      "clean casual shoes that suit most outfits",
+      "running shoes for almost everything",
+      "loafers/boots when needed and sneakers otherwise",
+      "old shoes longer than I should",
+      "whatever is nearest",
+    ],
+  },
+  {
+    id: "q12",
+    category: "Shoes & Footwear",
+    question: "My shoes are usually…",
+    options: [
+      "clean and presentable",
+      "acceptable but a little worn",
+      "visibly dirty or aging",
+      "mostly functional, not stylish",
+      "not something I focus on",
+    ],
+  },
+  {
     id: "q13",
-    category: "Shoes",
-    question: "For work or going out, you have:",
-    options: ["1 solid nice pair", "2+ nice pairs", "Only casual shoes", "Only athletic shoes", "None"],
+    category: "Shoes & Footwear",
+    question: "For going out or dressing better, I have…",
+    options: [
+      "at least one strong shoe option",
+      "something okay but not great",
+      "only athletic or casual options",
+      "no real dress-up option",
+      "I haven’t thought about it",
+    ],
   },
   {
     id: "q14",
     category: "Grooming",
-    question: "Hair routine:",
+    question: "My grooming routine is…",
     options: [
-      "Regular haircut schedule",
-      "Style hair most days",
-      "Beard trimmed/clean line",
-      "Shave regularly",
-      "No routine",
+      "regular and intentional",
+      "basic but consistent",
+      "inconsistent",
+      "minimal unless needed",
+      "almost nonexistent",
     ],
   },
   {
     id: "q15",
     category: "Grooming",
-    question: "Skin routine:",
-    options: ["Face wash", "Moisturizer", "Sunscreen", "Beard oil/balm", "None"],
+    question: "My hair and facial grooming usually look…",
+    options: [
+      "clean and well-maintained",
+      "okay but not sharp",
+      "uneven or overdue",
+      "mostly ignored",
+      "I’m not sure",
+    ],
   },
   {
     id: "q16",
     category: "Grooming",
-    question: "Nails + hygiene basics:",
-    options: ["Nails trimmed", "Clean shoes/socks", "Deodorant daily", "Breath care", "I ignore these"],
+    question: "My daily presentation habits are…",
+    options: [
+      "solid and consistent",
+      "decent but basic",
+      "inconsistent",
+      "reactive, not planned",
+      "not something I prioritize",
+    ],
   },
   {
     id: "q17",
-    category: "Fragrance",
-    question: "Fragrance usage:",
-    options: ["Daily (light)", "Only events", "Deodorant only", "I avoid fragrance", "Not sure what suits me"],
+    category: "Occasion Styling",
+    question: "For important occasions, I usually…",
+    options: [
+      "dress a level above average",
+      "dress appropriately, not memorably",
+      "wear some version of what I always wear",
+      "underdress more than I should",
+      "feel unsure what to wear",
+    ],
   },
   {
     id: "q18",
-    category: "Fragrance",
-    question: "Main issue with fragrance:",
-    options: ["Too strong/headaches", "Doesn’t last", "Confusing choices", "Don’t want to spend", "No issue"],
+    category: "Occasion Styling",
+    question: "At work or in social settings, my style usually feels…",
+    options: [
+      "polished and appropriate",
+      "good enough",
+      "too casual",
+      "inconsistent",
+      "not really intentional",
+    ],
   },
   {
     id: "q19",
-    category: "Accessories",
-    question: "Accessories you use:",
-    options: ["Watch", "Belt that fits well", "Sunglasses", "Simple chain/ring", "Neat bag/backpack", "None"],
+    category: "Occasion Styling",
+    question: "When I want to look impressive, I rely on…",
+    options: [
+      "a few well-built outfits that work",
+      "one decent fallback outfit",
+      "trial and error",
+      "the same outfit every time",
+      "luck",
+    ],
   },
   {
     id: "q20",
-    category: "Occasion",
-    question: "When you dress for an occasion, you usually:",
+    category: "Overall Self-View",
+    question: "Overall, my style today feels like…",
     options: [
-      "Dress slightly better than average",
-      "Same outfit everywhere",
-      "Under-dress often",
-      "Over-dress often",
-      "I ask someone",
-      "Not sure",
+      "a real strength",
+      "decent with room to improve",
+      "average and forgettable",
+      "underdeveloped",
+      "something I want help with",
     ],
   },
 ];
@@ -229,136 +276,104 @@ function buildPersonalizedRecommendations(
     const tips: string[] = [];
 
     if (area === "shoes") {
-      if (has("q12", "Often dirty")) {
-        tips.push("Start by cleaning or replacing your most-used shoes.");
+      if (has("q12", "visibly dirty or aging")) {
+        tips.push("Start by cleaning or replacing the pair you use most often.");
       }
-      if (has("q12", "Falling apart")) {
-        tips.push("Retire visibly worn-out pairs and replace them with one versatile everyday option.");
+      if (has("q11", "old shoes longer than I should")) {
+        tips.push("Rotate out worn shoes faster — old footwear quietly lowers the whole outfit.");
       }
-      if (has("q13", "Only athletic shoes")) {
-        tips.push("Add one non-athletic pair like clean white sneakers or loafers.");
+      if (has("q13", "only athletic or casual options")) {
+        tips.push("Add one non-athletic option like clean minimal sneakers, loafers, or smart casual shoes.");
       }
-      if (has("q13", "None")) {
-        tips.push("Get one solid 'nice' pair first for work, outings, or events.");
+      if (has("q13", "no real dress-up option")) {
+        tips.push("Get one reliable ‘dress-better’ shoe first before buying more casual pairs.");
       }
       if (tips.length === 0) {
-        tips.push("Add one clean white sneaker for versatile casual wear.");
-        tips.push("Keep one nicer pair ready for outings or work.");
+        tips.push("Upgrade to one clean, versatile shoe that works across multiple outfits.");
+        tips.push("Make shoe upkeep a regular part of your weekly presentation routine.");
       }
     }
 
     if (area === "grooming") {
-      if (has("q14", "No routine")) {
-        tips.push("Create a simple grooming base: haircut schedule, beard cleanup, and daily hygiene.");
+      if (has("q14", "almost nonexistent")) {
+        tips.push("Build a minimal grooming baseline: haircut rhythm, beard cleanup, deodorant, and daily hygiene.");
       }
-      if (has("q15", "None")) {
-        tips.push("Start with just 2 basics: face wash and moisturizer.");
+      if (has("q15", "uneven or overdue")) {
+        tips.push("Small maintenance matters here — sharper grooming creates an immediate lift.");
       }
-      if (has("q16", "I ignore these")) {
-        tips.push("Fix hygiene basics first: nails, deodorant, breath care, and clean socks.");
+      if (has("q16", "reactive, not planned") || has("q16", "not something I prioritize")) {
+        tips.push("Make presentation automatic instead of last-minute: simple systems work better than motivation.");
       }
       if (tips.length === 0) {
-        tips.push("Maintain a regular haircut schedule.");
-        tips.push("Use basic moisturizer and sunscreen daily.");
+        tips.push("Create a grooming routine that is consistent enough to become effortless.");
+        tips.push("The goal is not complexity — it is reliable sharpness.");
       }
     }
 
     if (area === "fit") {
-      if (has("q3", "Chest feels tight")) {
-        tips.push("Try shirts with more room in the chest and shoulders instead of sizing down.");
+      if (has("q1", "often feel tight in one area")) {
+        tips.push("Prioritize fit corrections before new style purchases — tightness in one area usually ruins the whole look.");
       }
-      if (has("q3", "Shirt is too long/too short")) {
-        tips.push("Prioritize better shirt length so tops end cleanly around your mid-zip area.");
+      if (has("q2", "are a bit long or bunch at the bottom")) {
+        tips.push("Fix trouser length first — better hems create instant visual polish.");
       }
-      if (has("q4", "Too long/dragging")) {
-        tips.push("Hem your pants or choose shorter inseams to avoid bunching.");
+      if (has("q2", "feel loose and shapeless")) {
+        tips.push("Move away from shapeless silhouettes and toward cleaner lines.");
       }
-      if (has("q4", "Tight in thighs")) {
-        tips.push("Look for tapered pants with thigh room and some stretch.");
-      }
-      if (has("q2", "Short legs")) {
-        tips.push("Use mid-rise pants and cleaner leg lines to improve proportion.");
+      if (has("q4", "struggle to know what flatters me")) {
+        tips.push("Use fit as your first filter: shoulders, waist line, trouser break, and length.");
       }
       if (tips.length === 0) {
-        tips.push("Choose clothes that follow your body shape better.");
-        tips.push("Avoid overly baggy or overly tight tops.");
+        tips.push("Sharper proportions will improve your style faster than buying trendier pieces.");
+        tips.push("A better fit usually makes even simple clothing look more expensive.");
       }
     }
 
     if (area === "wardrobe") {
-      if (has("q5", "None of these")) {
-        tips.push("Build your wardrobe foundation first: solid tees, neutral bottoms, and one jacket.");
+      if (has("q5", "a mix of random items") || has("q5", "whatever I happened to buy")) {
+        tips.push("You need more coherence, not more pieces. Build around versatile basics first.");
       }
-      if (has("q6", "Random mix")) {
-        tips.push("Reduce randomness and build around neutral basics that work together.");
+      if (has("q6", "most of my wardrobe is hard to combine")) {
+        tips.push("Stop thinking item-by-item. Build outfits that can share the same core pieces.");
       }
-      if (has("q7", "Lots of items but hard to pair")) {
-        tips.push("Stop adding more pieces. Focus on mix-and-match basics instead.");
-      }
-      if (has("q7", "Mostly impulse buys")) {
-        tips.push("Buy with a plan: each new item should work with at least 3 existing outfits.");
+      if (has("q7", "whatever catches my eye") || has("q7", "whatever is on sale")) {
+        tips.push("Buy fewer, better-aligned pieces that fit your actual style direction.");
       }
       if (tips.length === 0) {
-        tips.push("Add more neutral basics like navy, white, grey, and black.");
-        tips.push("Own at least one solid jacket or overshirt.");
+        tips.push("A stronger wardrobe comes from repeatable combinations, not volume.");
+        tips.push("Your wardrobe should feel easier to use, not larger.");
       }
     }
 
     if (area === "color") {
-      if (has("q8", "Whatever is clean")) {
-        tips.push("Start planning outfits instead of wearing whatever is available.");
+      if (has("q8", "mixed without much planning") || has("q8", "just whatever is available")) {
+        tips.push("Move toward a more intentional base palette — neutrals make everything easier.");
       }
-      if (has("q9", "Nothing—I just wear")) {
-        tips.push("Before leaving, do one quick check: top, bottom, shoes.");
+      if (has("q9", "I don’t really check")) {
+        tips.push("A 10-second coordination check before leaving will improve consistency immediately.");
       }
-      if (has("q10", "Mix multiple patterns")) {
-        tips.push("Keep only one pattern per outfit until your coordination improves.");
-      }
-      if (has("q10", "Loud prints")) {
-        tips.push("Balance loud pieces with plain neutrals.");
+      if (has("q10", "inconsistent from piece to piece") || has("q10", "too plain or too random")) {
+        tips.push("You do not need louder outfits — you need cleaner, more deliberate coordination.");
       }
       if (tips.length === 0) {
-        tips.push("Stick to simpler color combinations.");
-        tips.push("Use neutrals as the base of most outfits.");
+        tips.push("Color works best when it feels controlled rather than accidental.");
+        tips.push("Start by making your base colors more repeatable across outfits.");
       }
     }
 
     if (area === "occasion") {
-      if (has("q20", "Same outfit everywhere")) {
-        tips.push("Create separate go-to outfits for daily wear, work, and occasions.");
+      if (has("q17", "wear some version of what I always wear")) {
+        tips.push("Occasion dressing improves when you have a separate ‘elevated’ lane, not just a casual default.");
       }
-      if (has("q20", "Under-dress often")) {
-        tips.push("Upgrade one level for important settings: better shoes, better outer layer, cleaner fit.");
+      if (has("q17", "underdress more than I should")) {
+        tips.push("Upgrade one level more than your current instinct for important settings.");
       }
-      if (has("q20", "Over-dress often")) {
-        tips.push("Simplify by matching the formality of the event more closely.");
-      }
-      if (tips.length === 0) {
-        tips.push("Keep one polished outfit ready for important occasions.");
-        tips.push("Dress slightly better than average for key events.");
-      }
-    }
-
-    if (area === "fragrance") {
-      if (has("q18", "Too strong/headaches")) {
-        tips.push("Use lighter fragrances and fewer sprays.");
-      }
-      if (has("q18", "Confusing choices")) {
-        tips.push("Start with one versatile fragrance instead of trying many.");
+      if (has("q19", "trial and error") || has("q19", "luck")) {
+        tips.push("Build 1–2 reliable occasion outfits so you are not improvising when it matters.");
       }
       if (tips.length === 0) {
-        tips.push("Use light fragrance only if it suits you.");
-        tips.push("Avoid overspraying.");
-      }
-    }
-
-    if (area === "accessories") {
-      if (has("q19", "None")) {
-        tips.push("Start with one useful accessory: a watch or a well-fitted belt.");
-      }
-      if (tips.length === 0) {
-        tips.push("Keep accessories simple and clean.");
-        tips.push("Choose items that match your wardrobe basics.");
+        tips.push("Your occasion style improves fastest when you pre-build go-to looks instead of reacting in the moment.");
+        tips.push("Occasion dressing is more about preparation than owning more clothes.");
       }
     }
 
@@ -380,92 +395,70 @@ function buildRecommendedNeeds(
     const items: string[] = [];
 
     if (area === "shoes") {
-      if (has("q12", "Often dirty") || has("q12", "Falling apart")) {
-        items.push("white minimalist sneakers");
-      }
-      if (has("q13", "Only athletic shoes") || has("q13", "None")) {
-        items.push("one versatile going-out shoe");
-      }
+      if (has("q12", "visibly dirty or aging")) items.push("clean white minimalist sneakers");
+      if (has("q13", "only athletic or casual options")) items.push("one versatile smart-casual shoe");
+      if (has("q13", "no real dress-up option")) items.push("one polished dress-better shoe");
       if (items.length === 0) {
-        items.push("clean white sneakers");
-        items.push("brown loafers or smart casual shoes");
+        items.push("clean everyday sneakers");
+        items.push("one versatile going-out shoe");
       }
     }
 
     if (area === "grooming") {
-      if (has("q15", "None")) {
-        items.push("basic face wash");
-        items.push("daily moisturizer");
-      }
-      if (has("q14", "No routine")) {
-        items.push("hair styling product");
-      }
-      if (has("q16", "I ignore these")) {
-        items.push("deodorant");
-        items.push("nail clipper or grooming kit");
-      }
+      if (has("q14", "almost nonexistent")) items.push("basic grooming starter set");
+      if (has("q15", "uneven or overdue")) items.push("hair or beard maintenance tool");
+      if (has("q16", "not something I prioritize")) items.push("simple daily grooming essentials");
       if (items.length === 0) {
-        items.push("basic skincare starter set");
-        items.push("grooming essentials");
+        items.push("minimal skincare routine");
+        items.push("reliable grooming essentials");
       }
     }
 
     if (area === "fit") {
-      if (has("q4", "Tight in thighs")) {
-        items.push("tapered stretch chinos");
-      }
-      if (has("q4", "Too long/dragging")) {
-        items.push("better-length trousers or hemming");
-      }
-      if (has("q3", "Chest feels tight")) {
-        items.push("better-fitting shirts with more chest room");
-      }
-      if (has("q2", "Short legs")) {
-        items.push("mid-rise tapered pants");
-      }
+      if (has("q2", "are a bit long or bunch at the bottom")) items.push("better-length trousers or hemming");
+      if (has("q2", "feel tight in the thigh or seat")) items.push("tapered stretch trousers");
+      if (has("q1", "often feel tight in one area")) items.push("better-fitting shirts with more room where needed");
       if (items.length === 0) {
-        items.push("well-fitted chinos");
-        items.push("proper-length shirts");
+        items.push("better-fitting chinos");
+        items.push("cleaner-proportion tops");
       }
     }
 
     if (area === "wardrobe") {
-      if (has("q5", "None of these")) {
-        items.push("solid neutral t-shirts");
-        items.push("neutral chinos or jeans");
-        items.push("casual button-down shirt");
+      if (has("q5", "a mix of random items") || has("q5", "whatever I happened to buy")) {
+        items.push("neutral wardrobe basics");
       }
-      if (has("q6", "Random mix") || has("q7", "Mostly impulse buys")) {
-        items.push("mix-and-match wardrobe basics");
+      if (has("q6", "most of my wardrobe is hard to combine")) {
+        items.push("mix-and-match core pieces");
       }
       if (items.length === 0) {
-        items.push("neutral basics");
-        items.push("structured overshirt or jacket");
+        items.push("versatile basics");
+        items.push("one structured layer");
       }
     }
 
     if (area === "color") {
-      if (has("q8", "Whatever is clean") || has("q9", "Nothing—I just wear")) {
-        items.push("neutral wardrobe basics");
+      if (has("q8", "just whatever is available") || has("q8", "mixed without much planning")) {
+        items.push("navy, white, grey, and black basics");
       }
-      if (has("q10", "Loud prints") || has("q10", "Mix multiple patterns")) {
-        items.push("solid color shirts");
+      if (has("q10", "too plain or too random")) {
+        items.push("more coordinated solid-color tops");
       }
       if (items.length === 0) {
-        items.push("navy, white, grey, and black basics");
+        items.push("neutral color foundation");
       }
     }
 
     if (area === "occasion") {
-      if (has("q20", "Under-dress often")) {
+      if (has("q17", "underdress more than I should")) {
         items.push("one polished occasion outfit");
-        items.push("smart casual shoes");
+        items.push("smart-casual shoes");
       }
-      if (has("q20", "Same outfit everywhere")) {
-        items.push("separate work and occasion outfit options");
+      if (has("q19", "trial and error") || has("q19", "luck")) {
+        items.push("one reliable go-to occasion combination");
       }
       if (items.length === 0) {
-        items.push("one polished outfit for key occasions");
+        items.push("occasion-ready outfit formula");
       }
     }
 
@@ -473,6 +466,118 @@ function buildRecommendedNeeds(
   });
 
   return needs;
+}
+
+function getStyleArchetype(
+  overallScore: number,
+  categoryScores: Record<string, number>
+) {
+  const sortedHighToLow = Object.entries(categoryScores).sort(
+    (a, b) => b[1] - a[1]
+  );
+
+  const strongest = sortedHighToLow[0][0];
+  const weakest = sortedHighToLow[sortedHighToLow.length - 1][0];
+
+  if (overallScore >= 80) {
+    if (strongest === "occasion") {
+      return {
+        title: "The Occasion Specialist",
+        description:
+          "You already know how to present yourself well when it counts. Your style is polished, intentional, and close to being a true strength.",
+      };
+    }
+
+    return {
+      title: "The Sharp Minimalist",
+      description:
+        "You already have a strong style foundation. Your presentation feels deliberate, clean, and well above average.",
+      };
+  }
+
+  if (overallScore >= 65) {
+    if (strongest === "occasion") {
+      return {
+        title: "The Emerging Professional",
+        description:
+          "You already show up well in important settings. The next step is making your everyday style as strong as your occasion presence.",
+      };
+    }
+
+    return {
+      title: "The Casual Optimizer",
+      description:
+        "You have a good base and clear upside. With a few focused upgrades, your style can move from decent to consistently sharp.",
+      };
+  }
+
+  if (overallScore >= 50) {
+    return {
+      title: "The Untapped Potential",
+      description:
+        "Your style has real potential, but a few weak categories are holding back the full picture. The right fixes will create visible gains quickly.",
+    };
+  }
+
+  if (weakest === "grooming" || weakest === "shoes") {
+    return {
+      title: "The Style Rebuilder",
+      description:
+        "Your current style needs a reset in a few high-impact areas. Starting with the basics will give you the fastest visible improvement.",
+    };
+  }
+
+  return {
+    title: "The Early Stage Improver",
+    description:
+      "You are still building your style foundation. The good news is that a stronger wardrobe, better fit, and cleaner presentation can change the outcome quickly.",
+  };
+}
+
+function getArchetypeStyleSuggestions(archetypeTitle: string): string[] {
+  const suggestions: Record<string, string[]> = {
+    "The Occasion Specialist": [
+      "Bring the same polish from special occasions into your everyday looks.",
+      "Focus on consistency, not reinvention — your base is already strong.",
+      "Upgrade weaker categories so your overall style matches your best moments.",
+    ],
+    "The Sharp Minimalist": [
+      "Keep your wardrobe clean, repeatable, and intentional.",
+      "Avoid adding noise — your strength is clarity and restraint.",
+      "Invest in better versions of your essentials rather than chasing trends.",
+    ],
+    "The Emerging Professional": [
+      "Turn occasion-level effort into everyday reliability.",
+      "Build a few strong weekday outfits so you are not relying on effort in the moment.",
+      "Sharpen shoes, grooming, and fit first for the fastest lift.",
+    ],
+    "The Casual Optimizer": [
+      "You do not need a new identity — you need more consistency.",
+      "Prioritize upgrades that make your existing style cleaner and sharper.",
+      "Make your wardrobe easier to use, not just bigger.",
+    ],
+    "The Untapped Potential": [
+      "A few stronger basics will change your style faster than buying more random pieces.",
+      "Start with fit, shoes, and grooming before worrying about trendiness.",
+      "You do not need more fashion knowledge yet — you need better foundations.",
+    ],
+    "The Style Rebuilder": [
+      "Reset the visible basics first: shoes, grooming, fit, and clean wardrobe anchors.",
+      "Avoid impulse buying while rebuilding your style base.",
+      "Think in terms of simple, reliable upgrades, not dramatic reinvention.",
+    ],
+    "The Early Stage Improver": [
+      "Build your style around a small number of reliable pieces.",
+      "Choose functionally sharp basics before experimenting.",
+      "Your goal is to become clearer and more intentional, not more complicated.",
+    ],
+  };
+
+  return suggestions[archetypeTitle] || [
+    "Focus on consistency across your wardrobe, fit, shoes, and grooming.",
+    "Improve the basics first before adding complexity.",
+    "Build a style that is easy to repeat and easy to trust.",
+  ];
 }
 
 function glassCard(extra = "") {
@@ -556,29 +661,10 @@ export default function AssessmentPage() {
     setResultsUnlocked(true);
   }
 
-  async function shareScore() {
-    const text = "I just checked my StyleScore. Try yours.";
-    const url = window.location.href;
-
-    try {
-      if (navigator.share) {
-        await navigator.share({
-          title: "StyleScore for Men",
-          text,
-          url,
-        });
-      } else {
-        await navigator.clipboard.writeText(url);
-        setShareMessage("Link copied. Share your style score.");
-        setTimeout(() => setShareMessage(""), 2500);
-      }
-    } catch {
-      // user cancelled share; ignore
-    }
-  }
-
   const result = calculateScore(
     onboardingData || {
+      ageRange: "",
+      climate: "",
       workStyle: "",
       budget: "",
       stylePreference: "",
@@ -598,6 +684,32 @@ export default function AssessmentPage() {
     grooming: "Grooming",
     occasion: "Occasion Styling",
   };
+
+  async function shareScore() {
+    const archetype = getStyleArchetype(
+      result.overall_score,
+      result.category_scores
+    );
+
+    const text = `My StyleScore is ${result.overall_score}/100 — ${archetype.title}. Check yours on stylescore.live`;
+    const url = window.location.href;
+
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: "StyleScore for Men",
+          text,
+          url,
+        });
+      } else {
+        await navigator.clipboard.writeText(`${text} ${url}`);
+        setShareMessage("Link copied. Share your style score.");
+        setTimeout(() => setShareMessage(""), 2500);
+      }
+    } catch {
+      // ignored
+    }
+  }
 
   if (showResult) {
     const strongestArea = Object.entries(result.category_scores).sort(
@@ -619,6 +731,13 @@ export default function AssessmentPage() {
       result.focus_top_3
     );
 
+    const archetype = getStyleArchetype(
+      result.overall_score,
+      result.category_scores
+    );
+
+    const archetypeSuggestions = getArchetypeStyleSuggestions(archetype.title);
+
     return (
       <main className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_#1f2937,_#0f172a_40%,_#020617_100%)] px-4 py-10 text-white">
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -628,19 +747,6 @@ export default function AssessmentPage() {
         </div>
 
         <div className="relative mx-auto max-w-4xl space-y-6">
-          <div className="text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/50">
-              Personal Style Intelligence
-            </p>
-            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-              Your style, measured with clarity.
-            </h1>
-            <p className="mx-auto mt-3 max-w-2xl text-base text-white/70">
-              See where your style is strongest, where it needs work, and what to
-              upgrade first.
-            </p>
-          </div>
-
           <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 text-white backdrop-blur-2xl shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/50">
               Overall Fashion Score
@@ -674,6 +780,29 @@ export default function AssessmentPage() {
                 </p>
               </div>
             </div>
+          </div>
+
+          <div className={glassCard("p-6")}>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
+              Your Style Archetype
+            </p>
+            <h3 className="mt-3 text-3xl font-semibold text-white">
+              {archetype.title}
+            </h3>
+            <p className="mt-3 max-w-2xl leading-7 text-white/70">
+              {archetype.description}
+            </p>
+          </div>
+
+          <div className={glassCard("p-6")}>
+            <h3 className="text-xl font-semibold text-white">
+              Archetype Style Direction
+            </h3>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-white/75">
+              {archetypeSuggestions.map((tip, i) => (
+                <li key={i}>{tip}</li>
+              ))}
+            </ul>
           </div>
 
           <div className={glassCard("p-6")}>

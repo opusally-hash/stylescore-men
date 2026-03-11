@@ -1,4 +1,6 @@
 export type OnboardingData = {
+  ageRange?: string;
+  climate?: string;
   workStyle?: string;
   budget?: string;
   stylePreference?: string;
@@ -30,12 +32,20 @@ function clamp(value: number, min = 0, max = 100) {
   return Math.max(min, Math.min(max, value));
 }
 
-function hasAny(answers: Record<string, string[]>, questionId: string, options: string[]) {
+function hasAny(
+  answers: Record<string, string[]>,
+  questionId: string,
+  options: string[]
+) {
   const selected = answers[questionId] || [];
   return options.some((option) => selected.includes(option));
 }
 
-function countSelected(answers: Record<string, string[]>, questionId: string, options: string[]) {
+function countSelected(
+  answers: Record<string, string[]>,
+  questionId: string,
+  options: string[]
+) {
   const selected = answers[questionId] || [];
   return options.filter((option) => selected.includes(option)).length;
 }
@@ -44,7 +54,7 @@ export function calculateScore(
   onboarding: OnboardingData,
   answers: Record<string, string[]>
 ): ScoreResult {
-  const categoryScores: CategoryScores = {
+  const rawScores: CategoryScores = {
     fit: 50,
     wardrobe: 50,
     color: 50,
@@ -53,254 +63,385 @@ export function calculateScore(
     occasion: 50,
   };
 
+  const weights: Record<CategoryKey, number> = {
+    fit: 1,
+    wardrobe: 1,
+    color: 1,
+    shoes: 1,
+    grooming: 1,
+    occasion: 1,
+  };
+
   let contradictionCount = 0;
   let notSureCount = 0;
 
-  const addScore = (category: CategoryKey, points: number) => {
-    categoryScores[category] += points;
+  const add = (category: CategoryKey, points: number) => {
+    rawScores[category] += points;
   };
 
-  const addNotSurePenalty = (questionId: string) => {
-    if (hasAny(answers, questionId, ["Not sure", "I’m not sure", "Not sure what suits me"])) {
+  const trackUncertainty = (questionId: string) => {
+    if (
+      hasAny(answers, questionId, [
+        "I’m not really sure",
+        "I don’t pay much attention",
+        "I’m not sure",
+        "Not sure",
+      ])
+    ) {
       notSureCount += 1;
     }
   };
 
-  // Q1 Build
-  if (hasAny(answers, "q1", ["Athletic", "Average"])) addScore("fit", 4);
-  if (hasAny(answers, "q1", ["Stocky", "Plus"])) addScore("fit", -3);
-  addNotSurePenalty("q1");
+  // Q1
+  if (hasAny(answers, "q1", ["fit me well in the shoulders and chest"])) add("fit", 12);
+  if (hasAny(answers, "q1", ["fit okay but are a little loose"])) add("fit", 4);
+  if (hasAny(answers, "q1", ["often feel tight in one area"])) add("fit", -10);
+  if (hasAny(answers, "q1", ["are mostly chosen for comfort, not fit"])) add("fit", -8);
+  trackUncertainty("q1");
 
-  // Q2 Fit challenges
-  addScore("fit", -4 * countSelected(answers, "q2", [
-    "Broad shoulders",
-    "Belly/tummy area",
-    "Big thighs",
-    "Short legs",
-    "Long torso",
-    "Clothes feel tight in chest/arms",
-  ]));
+  // Q2
+  if (hasAny(answers, "q2", ["sit cleanly and look intentional"])) add("fit", 12);
+  if (hasAny(answers, "q2", ["are a bit long or bunch at the bottom"])) add("fit", -8);
+  if (hasAny(answers, "q2", ["feel tight in the thigh or seat"])) add("fit", -10);
+  if (hasAny(answers, "q2", ["feel loose and shapeless"])) add("fit", -10);
+  if (hasAny(answers, "q2", ["I don’t pay much attention"])) add("fit", -6);
+  trackUncertainty("q2");
 
-  // Q3 Shirt fit
-  if (hasAny(answers, "q3", ["Shoulder seams sit correctly"])) addScore("fit", 12);
-  if (hasAny(answers, "q3", ["Chest feels tight"])) addScore("fit", -10);
-  if (hasAny(answers, "q3", ["Shirt is too long/too short"])) addScore("fit", -8);
-  if (hasAny(answers, "q3", ["Collar/neck feels loose"])) addScore("fit", -5);
-  if (hasAny(answers, "q3", ["Sleeves feel too tight"])) addScore("fit", -7);
-  addNotSurePenalty("q3");
+  // Q3
+  if (hasAny(answers, "q3", ["sharp and put together"])) add("fit", 10);
+  if (hasAny(answers, "q3", ["decent, but not polished"])) add("fit", 3);
+  if (hasAny(answers, "q3", ["comfortable more than stylish"])) add("fit", -4);
+  if (hasAny(answers, "q3", ["slightly awkward in fit"])) add("fit", -12);
+  trackUncertainty("q3");
 
-  // Q4 Pant fit
-  if (hasAny(answers, "q4", ["Clean at waist (no constant adjusting)"])) addScore("fit", 12);
-  if (hasAny(answers, "q4", ["Tight in thighs"])) addScore("fit", -8);
-  if (hasAny(answers, "q4", ["Baggy in seat"])) addScore("fit", -8);
-  if (hasAny(answers, "q4", ["Too long/dragging"])) addScore("fit", -10);
-  if (hasAny(answers, "q4", ["Too short/high water"])) addScore("fit", -8);
-  addNotSurePenalty("q4");
+  // Q4
+  if (hasAny(answers, "q4", ["care a lot about proportion and fit"])) add("fit", 10);
+  if (hasAny(answers, "q4", ["check only whether they feel comfortable"])) add("fit", -3);
+  if (hasAny(answers, "q4", ["buy if they look okay quickly"])) add("fit", -5);
+  if (hasAny(answers, "q4", ["struggle to know what flatters me"])) add("fit", -10);
+  if (hasAny(answers, "q4", ["rarely try before buying"])) add("fit", -6);
 
-  // Q5 Wardrobe basics
-  addScore("wardrobe", 6 * countSelected(answers, "q5", [
-    "Solid tees/polos",
-    "Neutral chinos/jeans",
-    "Casual button-downs",
-    "A good jacket/overshirt",
-    "Clean sneakers",
-  ]));
-  if (hasAny(answers, "q5", ["None of these"])) addScore("wardrobe", -18);
+  // Q5
+  if (hasAny(answers, "q5", ["versatile basics that work together"])) add("wardrobe", 14);
+  if (hasAny(answers, "q5", ["a mix of random items"])) add("wardrobe", -8);
+  if (hasAny(answers, "q5", ["older clothes I still use"])) add("wardrobe", -5);
+  if (hasAny(answers, "q5", ["mostly athletic or lounge wear"])) add("wardrobe", -8);
+  if (hasAny(answers, "q5", ["whatever I happened to buy"])) add("wardrobe", -10);
 
-  // Q6 Go-to outfit pieces
-  if (hasAny(answers, "q6", ["Neutral basics"])) addScore("wardrobe", 10);
-  if (hasAny(answers, "q6", ["Logos/graphics"])) addScore("wardrobe", -5);
-  if (hasAny(answers, "q6", ["Random mix"])) addScore("wardrobe", -8);
-  if (hasAny(answers, "q6", ["Mostly athletic wear"])) addScore("wardrobe", -6);
-  if (hasAny(answers, "q6", ["Work uniform only"])) addScore("wardrobe", -4);
+  // Q6
+  if (hasAny(answers, "q6", ["they work well and I like them"])) add("wardrobe", 6);
+  if (hasAny(answers, "q6", ["I don’t have many good alternatives"])) add("wardrobe", -6);
+  if (hasAny(answers, "q6", ["most of my wardrobe is hard to combine"])) add("wardrobe", -12);
+  if (hasAny(answers, "q6", ["I don’t enjoy planning outfits"])) add("wardrobe", -4);
+  if (hasAny(answers, "q6", ["that’s just easier"])) add("wardrobe", -3);
 
-  // Q7 Closet quality
-  if (hasAny(answers, "q7", ["Mix-and-match"])) addScore("wardrobe", 12);
-  if (hasAny(answers, "q7", ["Only a few repeats"])) addScore("wardrobe", -4);
-  if (hasAny(answers, "q7", ["Lots of items but hard to pair"])) addScore("wardrobe", -10);
-  if (hasAny(answers, "q7", ["Mostly impulse buys"])) addScore("wardrobe", -8);
-  if (hasAny(answers, "q7", ["Hand-me-downs/old"])) addScore("wardrobe", -10);
+  // Q7
+  if (hasAny(answers, "q7", ["pieces that work with what I already own"])) add("wardrobe", 12);
+  if (hasAny(answers, "q7", ["whatever catches my eye"])) add("wardrobe", -8);
+  if (hasAny(answers, "q7", ["whatever is on sale"])) add("wardrobe", -5);
+  if (hasAny(answers, "q7", ["whatever feels comfortable"])) add("wardrobe", -4);
+  if (hasAny(answers, "q7", ["I don’t think much about it"])) add("wardrobe", -8);
 
-  // Q8 Colors
-  addScore("color", 4 * countSelected(answers, "q8", [
-    "Black",
-    "White",
-    "Grey",
-    "Navy",
-    "Earth tones",
-  ]));
-  if (hasAny(answers, "q8", ["Bright colors"])) addScore("color", -2);
-  if (hasAny(answers, "q8", ["Whatever is clean"])) addScore("color", -10);
+  // Q8
+  if (hasAny(answers, "q8", ["neutral and easy to combine"])) add("color", 12);
+  if (hasAny(answers, "q8", ["mostly safe but repetitive"])) add("color", 5);
+  if (hasAny(answers, "q8", ["mixed without much planning"])) add("color", -8);
+  if (hasAny(answers, "q8", ["often bold or loud"])) add("color", -4);
+  if (hasAny(answers, "q8", ["just whatever is available"])) add("color", -12);
 
-  // Q9 Coordination checks
-  addScore("color", 4 * countSelected(answers, "q9", [
-    "Top + bottom match",
-    "Shoe color matches outfit",
-    "Belt matches shoes (when formal)",
-    "Socks match vibe",
-  ]));
-  if (hasAny(answers, "q9", ["Nothing—I just wear"])) addScore("color", -16);
+  // Q9
+  add(
+    "color",
+    4 *
+      countSelected(answers, "q9", [
+        "the whole outfit feels coordinated",
+        "the shoes work with the outfit",
+      ])
+  );
+  if (hasAny(answers, "q9", ["at least the clothes are clean"])) add("color", -2);
+  if (hasAny(answers, "q9", ["I don’t really check"])) add("color", -12);
+  if (hasAny(answers, "q9", ["I ask someone else"])) add("color", -3);
 
-  // Q10 Patterns
-  if (hasAny(answers, "q10", ["Solid only"])) addScore("color", 6);
-  if (hasAny(answers, "q10", ["Simple stripes/checks"])) addScore("color", 8);
-  if (hasAny(answers, "q10", ["Loud prints"])) addScore("color", -6);
-  if (hasAny(answers, "q10", ["Mix multiple patterns"])) addScore("color", -10);
-  addNotSurePenalty("q10");
+  // Q10
+  if (hasAny(answers, "q10", ["balanced and intentional"])) add("color", 12);
+  if (hasAny(answers, "q10", ["simple but fine"])) add("color", 6);
+  if (hasAny(answers, "q10", ["inconsistent from piece to piece"])) add("color", -8);
+  if (hasAny(answers, "q10", ["too plain or too random"])) add("color", -6);
+  trackUncertainty("q10");
 
-  // Q11 Shoes worn most
-  if (hasAny(answers, "q11", ["Clean sneakers", "Loafers", "Boots", "Dress shoes"])) addScore("shoes", 8);
-  if (hasAny(answers, "q11", ["Running shoes"])) addScore("shoes", -4);
-  if (hasAny(answers, "q11", ["Slides/sandals"])) addScore("shoes", -8);
+  // Q11
+  if (hasAny(answers, "q11", ["clean casual shoes that suit most outfits"])) add("shoes", 12);
+  if (hasAny(answers, "q11", ["running shoes for almost everything"])) add("shoes", -8);
+  if (hasAny(answers, "q11", ["loafers/boots when needed and sneakers otherwise"])) add("shoes", 8);
+  if (hasAny(answers, "q11", ["old shoes longer than I should"])) add("shoes", -12);
+  if (hasAny(answers, "q11", ["whatever is nearest"])) add("shoes", -6);
 
-  // Q12 Shoe condition
-  if (hasAny(answers, "q12", ["Clean and presentable"])) addScore("shoes", 16);
-  if (hasAny(answers, "q12", ["Slightly dusty/scuffed"])) addScore("shoes", -5);
-  if (hasAny(answers, "q12", ["Often dirty"])) addScore("shoes", -15);
-  if (hasAny(answers, "q12", ["Falling apart"])) addScore("shoes", -20);
-  addNotSurePenalty("q12");
+  // Q12
+  if (hasAny(answers, "q12", ["clean and presentable"])) add("shoes", 16);
+  if (hasAny(answers, "q12", ["acceptable but a little worn"])) add("shoes", -2);
+  if (hasAny(answers, "q12", ["visibly dirty or aging"])) add("shoes", -15);
+  if (hasAny(answers, "q12", ["mostly functional, not stylish"])) add("shoes", -8);
+  if (hasAny(answers, "q12", ["not something I focus on"])) add("shoes", -10);
 
-  // Q13 Nice shoe options
-  if (hasAny(answers, "q13", ["1 solid nice pair"])) addScore("shoes", 8);
-  if (hasAny(answers, "q13", ["2+ nice pairs"])) addScore("shoes", 14);
-  if (hasAny(answers, "q13", ["Only casual shoes"])) addScore("shoes", -6);
-  if (hasAny(answers, "q13", ["Only athletic shoes"])) addScore("shoes", -12);
-  if (hasAny(answers, "q13", ["None"])) addScore("shoes", -16);
+  // Q13
+  if (hasAny(answers, "q13", ["at least one strong shoe option"])) add("shoes", 12);
+  if (hasAny(answers, "q13", ["something okay but not great"])) add("shoes", 4);
+  if (hasAny(answers, "q13", ["only athletic or casual options"])) add("shoes", -10);
+  if (hasAny(answers, "q13", ["no real dress-up option"])) add("shoes", -14);
+  if (hasAny(answers, "q13", ["I haven’t thought about it"])) add("shoes", -6);
 
-  // Q14 Hair routine
-  addScore("grooming", 5 * countSelected(answers, "q14", [
-    "Regular haircut schedule",
-    "Style hair most days",
-    "Beard trimmed/clean line",
-    "Shave regularly",
-  ]));
-  if (hasAny(answers, "q14", ["No routine"])) addScore("grooming", -18);
+  // Q14
+  if (hasAny(answers, "q14", ["regular and intentional"])) add("grooming", 14);
+  if (hasAny(answers, "q14", ["basic but consistent"])) add("grooming", 8);
+  if (hasAny(answers, "q14", ["inconsistent"])) add("grooming", -6);
+  if (hasAny(answers, "q14", ["minimal unless needed"])) add("grooming", -10);
+  if (hasAny(answers, "q14", ["almost nonexistent"])) add("grooming", -16);
 
-  // Q15 Skin routine
-  addScore("grooming", 4 * countSelected(answers, "q15", [
-    "Face wash",
-    "Moisturizer",
-    "Sunscreen",
-    "Beard oil/balm",
-  ]));
-  if (hasAny(answers, "q15", ["None"])) addScore("grooming", -12);
+  // Q15
+  if (hasAny(answers, "q15", ["clean and well-maintained"])) add("grooming", 12);
+  if (hasAny(answers, "q15", ["okay but not sharp"])) add("grooming", 3);
+  if (hasAny(answers, "q15", ["uneven or overdue"])) add("grooming", -10);
+  if (hasAny(answers, "q15", ["mostly ignored"])) add("grooming", -14);
+  trackUncertainty("q15");
 
-  // Q16 Hygiene
-  addScore("grooming", 4 * countSelected(answers, "q16", [
-    "Nails trimmed",
-    "Clean shoes/socks",
-    "Deodorant daily",
-    "Breath care",
-  ]));
-  if (hasAny(answers, "q16", ["I ignore these"])) addScore("grooming", -18);
+  // Q16
+  if (hasAny(answers, "q16", ["solid and consistent"])) add("grooming", 10);
+  if (hasAny(answers, "q16", ["decent but basic"])) add("grooming", 4);
+  if (hasAny(answers, "q16", ["inconsistent"])) add("grooming", -6);
+  if (hasAny(answers, "q16", ["reactive, not planned"])) add("grooming", -8);
+  if (hasAny(answers, "q16", ["not something I prioritize"])) add("grooming", -12);
 
-  // Q17 Fragrance
-  if (hasAny(answers, "q17", ["Daily (light)", "Only events"])) addScore("grooming", 4);
-  if (hasAny(answers, "q17", ["Deodorant only"])) addScore("grooming", 1);
-  if (hasAny(answers, "q17", ["I avoid fragrance"])) addScore("grooming", 0);
-  addNotSurePenalty("q17");
+  // Q17
+  if (hasAny(answers, "q17", ["dress a level above average"])) add("occasion", 16);
+  if (hasAny(answers, "q17", ["dress appropriately, not memorably"])) add("occasion", 8);
+  if (hasAny(answers, "q17", ["wear some version of what I always wear"])) add("occasion", -8);
+  if (hasAny(answers, "q17", ["underdress more than I should"])) add("occasion", -14);
+  trackUncertainty("q17");
 
-  // Q18 Fragrance issue
-  if (hasAny(answers, "q18", ["No issue"])) addScore("grooming", 2);
-  if (hasAny(answers, "q18", ["Too strong/headaches", "Doesn’t last", "Confusing choices", "Don’t want to spend"])) {
-    addScore("grooming", -2);
+  // Q18
+  if (hasAny(answers, "q18", ["polished and appropriate"])) add("occasion", 12);
+  if (hasAny(answers, "q18", ["good enough"])) add("occasion", 4);
+  if (hasAny(answers, "q18", ["too casual"])) add("occasion", -10);
+  if (hasAny(answers, "q18", ["inconsistent"])) add("occasion", -6);
+  if (hasAny(answers, "q18", ["not really intentional"])) add("occasion", -10);
+
+  // Q19
+  if (hasAny(answers, "q19", ["a few well-built outfits that work"])) add("occasion", 12);
+  if (hasAny(answers, "q19", ["one decent fallback outfit"])) add("occasion", 5);
+  if (hasAny(answers, "q19", ["trial and error"])) add("occasion", -6);
+  if (hasAny(answers, "q19", ["the same outfit every time"])) add("occasion", -10);
+  if (hasAny(answers, "q19", ["luck"])) add("occasion", -12);
+
+  // Q20
+  if (hasAny(answers, "q20", ["a real strength"])) {
+    add("fit", 3);
+    add("wardrobe", 3);
+    add("color", 3);
+    add("shoes", 3);
+    add("grooming", 3);
+    add("occasion", 3);
+  }
+  if (hasAny(answers, "q20", ["decent with room to improve"])) {
+    add("fit", 1);
+    add("wardrobe", 1);
+    add("color", 1);
+    add("shoes", 1);
+    add("grooming", 1);
+    add("occasion", 1);
+  }
+  if (hasAny(answers, "q20", ["average and forgettable"])) {
+    add("fit", -3);
+    add("wardrobe", -3);
+    add("color", -3);
+    add("shoes", -3);
+    add("grooming", -3);
+    add("occasion", -3);
+  }
+  if (hasAny(answers, "q20", ["underdeveloped"])) {
+    add("fit", -6);
+    add("wardrobe", -6);
+    add("color", -6);
+    add("shoes", -6);
+    add("grooming", -6);
+    add("occasion", -6);
+  }
+  if (hasAny(answers, "q20", ["something I want help with"])) {
+    add("fit", -3);
+    add("wardrobe", -3);
+    add("color", -3);
+    add("shoes", -3);
+    add("grooming", -3);
+    add("occasion", -3);
   }
 
-  // Q19 Accessories
-  const accessoryCount = countSelected(answers, "q19", [
-    "Watch",
-    "Belt that fits well",
-    "Sunglasses",
-    "Simple chain/ring",
-    "Neat bag/backpack",
-  ]);
-  addScore("wardrobe", accessoryCount * 2);
-  addScore("occasion", accessoryCount * 2);
-  if (hasAny(answers, "q19", ["None"])) {
-    addScore("wardrobe", -4);
-    addScore("occasion", -4);
+  // Pre-assessment: contextual weights
+  if (onboarding.workStyle === "Corporate") {
+    weights.occasion += 0.2;
+    weights.grooming += 0.1;
+    weights.shoes += 0.1;
   }
 
-  // Q20 Occasion dressing
-  if (hasAny(answers, "q20", ["Dress slightly better than average"])) addScore("occasion", 16);
-  if (hasAny(answers, "q20", ["Same outfit everywhere"])) addScore("occasion", -14);
-  if (hasAny(answers, "q20", ["Under-dress often"])) addScore("occasion", -16);
-  if (hasAny(answers, "q20", ["Over-dress often"])) addScore("occasion", -6);
-  if (hasAny(answers, "q20", ["I ask someone"])) addScore("occasion", 2);
-  addNotSurePenalty("q20");
+  if (onboarding.workStyle === "Sales/Client-facing") {
+    weights.occasion += 0.15;
+    weights.grooming += 0.1;
+    weights.color += 0.05;
+  }
 
-  // Onboarding adjustments
-  if (onboarding.workStyle === "Corporate") addScore("occasion", 8);
-  if (onboarding.workStyle === "Sales/Client-facing") addScore("occasion", 6);
+  if (onboarding.workStyle === "Remote/Casual") {
+    weights.fit += 0.1;
+    weights.wardrobe += 0.1;
+  }
+
   if (onboarding.workStyle === "Ops/Warehouse") {
-    addScore("occasion", -2);
-    addScore("shoes", 2);
+    weights.fit += 0.05;
+    weights.shoes += 0.1;
+    weights.occasion -= 0.05;
   }
 
-  if (onboarding.stylePreference === "Classic" || onboarding.stylePreference === "Minimalist") {
-    addScore("color", 6);
-    addScore("wardrobe", 6);
+  if (onboarding.goals?.includes("Dating")) {
+    weights.grooming += 0.2;
+    weights.shoes += 0.15;
+    weights.fit += 0.15;
+  }
+
+  if (onboarding.goals?.includes("Promotion")) {
+    weights.occasion += 0.15;
+    weights.grooming += 0.1;
+    weights.wardrobe += 0.1;
+  }
+
+  if (onboarding.goals?.includes("Confidence")) {
+    weights.fit += 0.1;
+    weights.grooming += 0.1;
+    weights.shoes += 0.05;
+  }
+
+  if (onboarding.goals?.includes("Minimalist")) {
+    weights.wardrobe += 0.15;
+    weights.color += 0.1;
+  }
+
+  if (onboarding.stylePreference === "Classic") {
+    weights.occasion += 0.1;
+    weights.color += 0.1;
+    add("occasion", 2);
+    add("color", 2);
+  }
+
+  if (onboarding.stylePreference === "Minimalist") {
+    weights.wardrobe += 0.1;
+    weights.color += 0.1;
+    add("wardrobe", 2);
+    add("color", 2);
   }
 
   if (onboarding.stylePreference === "Streetwear") {
-    addScore("wardrobe", 2);
-    addScore("occasion", -2);
+    weights.wardrobe += 0.05;
+    weights.fit += 0.05;
+    weights.occasion -= 0.05;
+  }
+
+  if (onboarding.stylePreference === "Smart casual") {
+    weights.occasion += 0.08;
+    weights.shoes += 0.05;
   }
 
   if (onboarding.budget === "Low") {
-    addScore("wardrobe", -3);
-    addScore("shoes", -3);
+    add("wardrobe", -2);
+    add("shoes", -2);
   }
 
   if (onboarding.budget === "High") {
-    addScore("wardrobe", 3);
-    addScore("shoes", 3);
+    add("wardrobe", 2);
+    add("shoes", 2);
   }
 
   if (onboarding.build === "Stocky" || onboarding.build === "Plus") {
-    addScore("fit", -4);
+    weights.fit += 0.1;
+    add("fit", -2);
   }
 
-  if (onboarding.fitChallenges?.includes("Short legs")) addScore("fit", -4);
-  if (onboarding.fitChallenges?.includes("Belly/tummy area")) addScore("fit", -4);
-  if (onboarding.fitChallenges?.includes("Big thighs")) addScore("fit", -3);
+  if (onboarding.fitChallenges?.includes("Short legs")) {
+    weights.fit += 0.08;
+    add("fit", -3);
+  }
+
+  if (onboarding.fitChallenges?.includes("Belly/tummy area")) {
+    weights.fit += 0.08;
+    add("fit", -3);
+  }
+
+  if (onboarding.fitChallenges?.includes("Big thighs")) {
+    weights.fit += 0.06;
+    add("fit", -2);
+  }
+
+  if (onboarding.climate === "Hot/Humid") {
+    weights.grooming += 0.05;
+    weights.fit += 0.05;
+  }
 
   // Contradictions
   if (
-    hasAny(answers, "q9", ["Top + bottom match", "Shoe color matches outfit"]) &&
-    hasAny(answers, "q9", ["Nothing—I just wear"])
+    hasAny(answers, "q9", ["the whole outfit feels coordinated"]) &&
+    hasAny(answers, "q9", ["I don’t really check"])
   ) {
     contradictionCount += 1;
   }
 
   if (
-    hasAny(answers, "q12", ["Clean and presentable"]) &&
-    hasAny(answers, "q13", ["None"])
+    hasAny(answers, "q12", ["clean and presentable"]) &&
+    hasAny(answers, "q12", ["visibly dirty or aging"])
   ) {
     contradictionCount += 1;
   }
 
   if (
-    hasAny(answers, "q14", ["Regular haircut schedule"]) &&
-    hasAny(answers, "q14", ["No routine"])
+    hasAny(answers, "q14", ["regular and intentional"]) &&
+    hasAny(answers, "q14", ["almost nonexistent"])
   ) {
     contradictionCount += 1;
   }
 
-  // Clamp final scores
-  (Object.keys(categoryScores) as CategoryKey[]).forEach((key) => {
-    categoryScores[key] = clamp(Math.round(categoryScores[key]));
-  });
+  // Final displayed category scores
+  const category_scores: CategoryScores = {
+    fit: clamp(Math.round(rawScores.fit)),
+    wardrobe: clamp(Math.round(rawScores.wardrobe)),
+    color: clamp(Math.round(rawScores.color)),
+    shoes: clamp(Math.round(rawScores.shoes)),
+    grooming: clamp(Math.round(rawScores.grooming)),
+    occasion: clamp(Math.round(rawScores.occasion)),
+  };
 
-  const overall_score = Math.round(
-    Object.values(categoryScores).reduce((sum, value) => sum + value, 0) /
-      Object.values(categoryScores).length
-  );
+  // Weighted overall score
+  const weightedNumerator =
+    category_scores.fit * weights.fit +
+    category_scores.wardrobe * weights.wardrobe +
+    category_scores.color * weights.color +
+    category_scores.shoes * weights.shoes +
+    category_scores.grooming * weights.grooming +
+    category_scores.occasion * weights.occasion;
 
-  const focus_top_3 = Object.entries(categoryScores)
-    .sort((a, b) => a[1] - b[1])
+  const weightSum =
+    weights.fit +
+    weights.wardrobe +
+    weights.color +
+    weights.shoes +
+    weights.grooming +
+    weights.occasion;
+
+  const overall_score = clamp(Math.round(weightedNumerator / weightSum));
+
+  // Weighted urgency for focus areas
+  const urgency = (Object.keys(category_scores) as CategoryKey[]).map((key) => ({
+    key,
+    score: (100 - category_scores[key]) * weights[key],
+  }));
+
+  const focus_top_3 = urgency
+    .sort((a, b) => b.score - a.score)
     .slice(0, 3)
-    .map(([key]) => key);
+    .map((item) => item.key);
 
   const answeredCount = Object.keys(answers).filter(
     (key) => (answers[key] || []).length > 0
@@ -316,7 +457,7 @@ export function calculateScore(
 
   return {
     overall_score,
-    category_scores: categoryScores,
+    category_scores,
     focus_top_3,
     confidence_level,
   };
