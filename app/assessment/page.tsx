@@ -650,16 +650,45 @@ export default function AssessmentPage() {
     }
   }
 
-  function unlockResults() {
-    if (!isValidEmail(email)) {
-      setEmailError("Please enter a valid email address.");
+async function unlockResults() {
+  if (!isValidEmail(email)) {
+    setEmailError("Please enter a valid email address.");
+    return;
+  }
+
+  try {
+    const archetype = getStyleArchetype(
+      result.overall_score,
+      result.category_scores
+    );
+
+    const response = await fetch("/api/leads", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        score: result.overall_score,
+        archetype: archetype.title,
+        focus_top_3: result.focus_top_3,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      setEmailError(data.error || "Could not save your email. Please try again.");
       return;
     }
 
     localStorage.setItem("stylescore_email", email);
     setEmailError("");
     setResultsUnlocked(true);
+  } catch (error) {
+    setEmailError("Could not save your email. Please try again.");
   }
+}
 
   const result = calculateScore(
     onboardingData || {
