@@ -36,7 +36,7 @@ export default function HomePage() {
         <section className="flex flex-1 items-center py-14 lg:py-10">
           <div className="grid w-full items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.38em] text-white/45">
+              <p className="text-sm font-semibold uppercase tracking-[0.38em] text-white/60">
                 Personal Style Intelligence
               </p>
 
