@@ -866,41 +866,67 @@ async function unlockResults() {
           </div>
 
           {!resultsUnlocked && (
-            <div className={glassCard("p-6")}>
-              <h3 className="text-xl font-semibold text-white">
-                Unlock Your Full Style Plan
-              </h3>
-              <p className="mt-2 text-white/70">
-                Enter your email to unlock your full diagnosis, style profile,
-                focus areas, and personalized upgrade recommendations.
-              </p>
+           <div className={glassCard("p-6")}>
+  <div className="mb-2">
+    <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
+      Your Style Blueprint Is Ready
+    </p>
+    <h3 className="mt-3 text-3xl font-semibold text-white">
+      Reveal what to fix first
+    </h3>
+    <p className="mt-3 max-w-2xl leading-7 text-white/70">
+      Enter your email to unlock your complete style breakdown, your archetype,
+      and the exact areas that will improve your appearance fastest.
+    </p>
+  </div>
 
-              <div className="mt-5 space-y-3">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none placeholder:text-white/35 focus:border-white/30"
-                />
+  <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5">
+    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/45">
+      You’ll unlock
+    </p>
 
-                {emailError && (
-                  <p className="text-sm text-red-300">{emailError}</p>
-                )}
+    <ul className="mt-4 space-y-3 text-white/80">
+      <li className="flex items-start gap-3">
+        <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
+        <span>Your full StyleScore breakdown across all categories</span>
+      </li>
+      <li className="flex items-start gap-3">
+        <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
+        <span>Your personal style archetype and what it means</span>
+      </li>
+      <li className="flex items-start gap-3">
+        <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
+        <span>The top 3 upgrades that will improve your look fastest</span>
+      </li>
+    </ul>
+  </div>
 
-                <button
-                  type="button"
-                  onClick={unlockResults}
-                  className="rounded-2xl bg-white px-6 py-3 font-medium text-black transition hover:bg-white/90"
-                >
-                  Unlock Full Results
-                </button>
+  <div className="mt-6 space-y-4">
+    <input
+      type="email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      placeholder="Enter your email"
+      className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-white outline-none placeholder:text-white/35 focus:border-orange-300"
+    />
 
-                <p className="text-sm text-white/45">
-                  No spam. We only send useful style insights and updates.
-                </p>
-              </div>
-            </div>
+    {emailError && (
+      <p className="text-sm text-red-300">{emailError}</p>
+    )}
+
+    <button
+      type="button"
+      onClick={unlockResults}
+      className="premium-glow w-full rounded-2xl bg-orange-400 px-6 py-4 text-base font-semibold text-black transition hover:bg-orange-300"
+    >
+      Reveal My Style Blueprint
+    </button>
+
+    <p className="text-center text-sm text-white/45">
+      No spam. Only your personalized style report and updates.
+    </p>
+  </div>
+</div>
           )}
 
           {resultsUnlocked && (
