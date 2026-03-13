@@ -27,7 +27,7 @@ export default function HomePage() {
 
           <a
             href="/onboarding"
-            className="rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-medium text-white transition hover:bg-white/10"
+            className="premium-glow rounded-2xl bg-orange-400 px-5 py-3 text-sm font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_24px_rgba(251,146,60,0.4)]"
           >
             Get My Style Score
           </a>
