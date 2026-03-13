@@ -492,7 +492,7 @@ function getStyleArchetype(
       title: "The Sharp Minimalist",
       description:
         "You already have a strong style foundation. Your presentation feels deliberate, clean, and well above average.",
-      };
+    };
   }
 
   if (overallScore >= 65) {
@@ -508,7 +508,7 @@ function getStyleArchetype(
       title: "The Casual Optimizer",
       description:
         "You have a good base and clear upside. With a few focused upgrades, your style can move from decent to consistently sharp.",
-      };
+    };
   }
 
   if (overallScore >= 50) {
@@ -614,6 +614,7 @@ export default function AssessmentPage() {
 
   const currentQuestion = questions[currentIndex];
   const selectedAnswers = answers[currentQuestion.id] || [];
+  const canProceed = selectedAnswers.length > 0;
 
   const progress = useMemo(() => {
     return Math.round(((currentIndex + 1) / questions.length) * 100);
@@ -637,6 +638,8 @@ export default function AssessmentPage() {
   }
 
   function nextQuestion() {
+    if (!canProceed) return;
+
     if (currentIndex < questions.length - 1) {
       setCurrentIndex((prev) => prev + 1);
     } else {
@@ -650,45 +653,45 @@ export default function AssessmentPage() {
     }
   }
 
-async function unlockResults() {
-  if (!isValidEmail(email)) {
-    setEmailError("Please enter a valid email address.");
-    return;
-  }
-
-  try {
-    const archetype = getStyleArchetype(
-      result.overall_score,
-      result.category_scores
-    );
-
-    const response = await fetch("/api/leads", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        score: result.overall_score,
-        archetype: archetype.title,
-        focus_top_3: result.focus_top_3,
-      }),
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      setEmailError(data.error || "Could not save your email. Please try again.");
+  async function unlockResults() {
+    if (!isValidEmail(email)) {
+      setEmailError("Please enter a valid email address.");
       return;
     }
 
-    localStorage.setItem("stylescore_email", email);
-    setEmailError("");
-    setResultsUnlocked(true);
-  } catch (error) {
-    setEmailError("Could not save your email. Please try again.");
+    try {
+      const archetype = getStyleArchetype(
+        result.overall_score,
+        result.category_scores
+      );
+
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          score: result.overall_score,
+          archetype: archetype.title,
+          focus_top_3: result.focus_top_3,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setEmailError(data.error || "Could not save your email. Please try again.");
+        return;
+      }
+
+      localStorage.setItem("stylescore_email", email);
+      setEmailError("");
+      setResultsUnlocked(true);
+    } catch (error) {
+      setEmailError("Could not save your email. Please try again.");
+    }
   }
-}
 
   const result = calculateScore(
     onboardingData || {
@@ -736,7 +739,7 @@ async function unlockResults() {
         setTimeout(() => setShareMessage(""), 2500);
       }
     } catch {
-      // ignored
+      // ignore
     }
   }
 
@@ -824,9 +827,7 @@ async function unlockResults() {
           </div>
 
           <div className={glassCard("p-6")}>
-            <h3 className="text-xl font-semibold text-white">
-              Archetype Style Direction
-            </h3>
+            <h3 className="text-xl font-semibold text-white">Archetype Style Direction</h3>
             <ul className="mt-4 list-disc space-y-2 pl-5 text-white/75">
               {archetypeSuggestions.map((tip, i) => (
                 <li key={i}>{tip}</li>
@@ -866,67 +867,67 @@ async function unlockResults() {
           </div>
 
           {!resultsUnlocked && (
-           <div className={glassCard("p-6")}>
-  <div className="mb-2">
-    <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
-      Your Style Blueprint Is Ready
-    </p>
-    <h3 className="mt-3 text-3xl font-semibold text-white">
-      Reveal what to fix first
-    </h3>
-    <p className="mt-3 max-w-2xl leading-7 text-white/70">
-      Enter your email to unlock your complete style breakdown, your archetype,
-      and the exact areas that will improve your appearance fastest.
-    </p>
-  </div>
+            <div className={glassCard("p-6")}>
+              <div className="mb-2">
+                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
+                  Your Style Blueprint Is Ready
+                </p>
+                <h3 className="mt-3 text-3xl font-semibold text-white">
+                  Reveal what to fix first
+                </h3>
+                <p className="mt-3 max-w-2xl leading-7 text-white/70">
+                  Enter your email to unlock your complete style breakdown, your archetype,
+                  and the exact areas that will improve your appearance fastest.
+                </p>
+              </div>
 
-  <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5">
-    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/45">
-      You’ll unlock
-    </p>
+              <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/45">
+                  You’ll unlock
+                </p>
 
-    <ul className="mt-4 space-y-3 text-white/80">
-      <li className="flex items-start gap-3">
-        <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
-        <span>Your full StyleScore breakdown across all categories</span>
-      </li>
-      <li className="flex items-start gap-3">
-        <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
-        <span>Your personal style archetype and what it means</span>
-      </li>
-      <li className="flex items-start gap-3">
-        <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
-        <span>The top 3 upgrades that will improve your look fastest</span>
-      </li>
-    </ul>
-  </div>
+                <ul className="mt-4 space-y-3 text-white/80">
+                  <li className="flex items-start gap-3">
+                    <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
+                    <span>Your full StyleScore breakdown across all categories</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
+                    <span>Your personal style archetype and what it means</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
+                    <span>The top 3 upgrades that will improve your look fastest</span>
+                  </li>
+                </ul>
+              </div>
 
-  <div className="mt-6 space-y-4">
-    <input
-      type="email"
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-      placeholder="Enter your email"
-      className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-white outline-none placeholder:text-white/35 focus:border-orange-300"
-    />
+              <div className="mt-6 space-y-4">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-white outline-none placeholder:text-white/35 focus:border-orange-300"
+                />
 
-    {emailError && (
-      <p className="text-sm text-red-300">{emailError}</p>
-    )}
+                {emailError && (
+                  <p className="text-sm text-red-300">{emailError}</p>
+                )}
 
-    <button
-      type="button"
-      onClick={unlockResults}
-      className="premium-glow w-full rounded-2xl bg-orange-400 px-6 py-4 text-base font-semibold text-black transition hover:bg-orange-300"
-    >
-      Reveal My Style Blueprint
-    </button>
+                <button
+                  type="button"
+                  onClick={unlockResults}
+                  className="premium-glow w-full rounded-2xl bg-orange-400 px-6 py-4 text-base font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_30px_rgba(251,146,60,0.45)]"
+                >
+                  Reveal My Style Blueprint
+                </button>
 
-    <p className="text-center text-sm text-white/45">
-      No spam. Only your personalized style report and updates.
-    </p>
-  </div>
-</div>
+                <p className="text-center text-sm text-white/45">
+                  No spam. Only your personalized style report and updates.
+                </p>
+              </div>
+            </div>
           )}
 
           {resultsUnlocked && (
@@ -1097,7 +1098,10 @@ async function unlockResults() {
               setShowResult(false);
               setCurrentIndex(0);
               setAnswers({});
+              setEmail("");
+              setResultsUnlocked(false);
               localStorage.removeItem("stylescore_answers");
+              localStorage.removeItem("stylescore_email");
             }}
             className="rounded-2xl bg-white px-6 py-3 font-medium text-black transition hover:bg-white/90"
           >
@@ -1170,6 +1174,12 @@ async function unlockResults() {
             })}
           </div>
 
+          {!canProceed && (
+            <p className="mt-4 text-sm text-amber-200">
+              Please select at least one option to continue.
+            </p>
+          )}
+
           <div className="mt-8 flex items-center gap-3">
             <button
               type="button"
@@ -1183,7 +1193,12 @@ async function unlockResults() {
             <button
               type="button"
               onClick={nextQuestion}
-              className="rounded-2xl bg-white px-5 py-3 font-medium text-black transition hover:bg-white/90"
+              disabled={!canProceed}
+              className={`rounded-2xl px-5 py-3 font-medium transition ${
+                canProceed
+                  ? "bg-white text-black hover:bg-white/90"
+                  : "cursor-not-allowed bg-white/20 text-white/40"
+              }`}
             >
               {currentIndex === questions.length - 1 ? "See Result" : "Next"}
             </button>
