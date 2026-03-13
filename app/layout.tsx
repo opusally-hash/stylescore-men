@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "StyleScore – Find Your Style Score",
+  title: "StyleScore for Men – Find Your Style Score Online",
   description:
-    "Take the 2-minute StyleScore test and discover your fashion strengths, weak spots, and what to improve first.",
+    "Take the 2-minute StyleScore test to discover your fashion strengths, weak spots, and the exact upgrades that will improve your look fastest.",
   metadataBase: new URL("https://stylescore.live"),
   openGraph: {
-    title: "Find Your StyleScore",
+    title: "StyleScore for Men – Find Your Style Score Online",
     description:
-      "Take the 2-minute StyleScore test and get your style score, archetype, and top upgrades.",
+      "Take the 2-minute StyleScore test to discover your fashion strengths, weak spots, and the exact upgrades that will improve your look fastest.",
     url: "https://stylescore.live",
     siteName: "StyleScore",
     images: [
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "StyleScore preview image",
+        alt: "StyleScore for Men social preview",
       },
     ],
     locale: "en_US",
@@ -25,21 +25,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Find Your StyleScore",
+    title: "StyleScore for Men – Find Your Style Score Online",
     description:
-      "Take the 2-minute StyleScore test and get your style score, archetype, and top upgrades.",
+      "Take the 2-minute StyleScore test to discover your fashion strengths, weak spots, and the exact upgrades that will improve your look fastest.",
     images: ["/og-image.png"],
   },
 };
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  );
-}
