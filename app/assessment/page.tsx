@@ -264,6 +264,10 @@ function isValidEmail(email: string) {
   return /\S+@\S+\.\S+/.test(email);
 }
 
+function glassCard(extra = "") {
+  return `rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.35)] ${extra}`;
+}
+
 function buildPersonalizedRecommendations(
   answers: Record<string, string[]>,
   focusTop3: string[]
@@ -283,26 +287,26 @@ function buildPersonalizedRecommendations(
         tips.push("Rotate out worn shoes faster — old footwear quietly lowers the whole outfit.");
       }
       if (has("q13", "only athletic or casual options")) {
-        tips.push("Add one non-athletic option like clean minimal sneakers, loafers, or smart casual shoes.");
+        tips.push("Add one non-athletic option like clean minimal sneakers, loafers, or smart-casual shoes.");
       }
       if (has("q13", "no real dress-up option")) {
-        tips.push("Get one reliable ‘dress-better’ shoe first before buying more casual pairs.");
+        tips.push("Get one reliable dress-better shoe before buying more casual pairs.");
       }
       if (tips.length === 0) {
         tips.push("Upgrade to one clean, versatile shoe that works across multiple outfits.");
-        tips.push("Make shoe upkeep a regular part of your weekly presentation routine.");
+        tips.push("Make shoe upkeep part of your weekly presentation routine.");
       }
     }
 
     if (area === "grooming") {
       if (has("q14", "almost nonexistent")) {
-        tips.push("Build a minimal grooming baseline: haircut rhythm, beard cleanup, deodorant, and daily hygiene.");
+        tips.push("Build a simple grooming baseline: haircut rhythm, beard cleanup, deodorant, and hygiene.");
       }
       if (has("q15", "uneven or overdue")) {
         tips.push("Small maintenance matters here — sharper grooming creates an immediate lift.");
       }
       if (has("q16", "reactive, not planned") || has("q16", "not something I prioritize")) {
-        tips.push("Make presentation automatic instead of last-minute: simple systems work better than motivation.");
+        tips.push("Make presentation automatic instead of last-minute. Simple systems work better than motivation.");
       }
       if (tips.length === 0) {
         tips.push("Create a grooming routine that is consistent enough to become effortless.");
@@ -312,7 +316,7 @@ function buildPersonalizedRecommendations(
 
     if (area === "fit") {
       if (has("q1", "often feel tight in one area")) {
-        tips.push("Prioritize fit corrections before new style purchases — tightness in one area usually ruins the whole look.");
+        tips.push("Prioritize fit corrections before new style purchases — poor fit ruins the whole look.");
       }
       if (has("q2", "are a bit long or bunch at the bottom")) {
         tips.push("Fix trouser length first — better hems create instant visual polish.");
@@ -325,7 +329,7 @@ function buildPersonalizedRecommendations(
       }
       if (tips.length === 0) {
         tips.push("Sharper proportions will improve your style faster than buying trendier pieces.");
-        tips.push("A better fit usually makes even simple clothing look more expensive.");
+        tips.push("Better fit usually makes even simple clothing look more expensive.");
       }
     }
 
@@ -334,14 +338,14 @@ function buildPersonalizedRecommendations(
         tips.push("You need more coherence, not more pieces. Build around versatile basics first.");
       }
       if (has("q6", "most of my wardrobe is hard to combine")) {
-        tips.push("Stop thinking item-by-item. Build outfits that can share the same core pieces.");
+        tips.push("Stop thinking item by item. Build outfits that can share the same core pieces.");
       }
       if (has("q7", "whatever catches my eye") || has("q7", "whatever is on sale")) {
         tips.push("Buy fewer, better-aligned pieces that fit your actual style direction.");
       }
       if (tips.length === 0) {
         tips.push("A stronger wardrobe comes from repeatable combinations, not volume.");
-        tips.push("Your wardrobe should feel easier to use, not larger.");
+        tips.push("Your wardrobe should feel easier to use, not just larger.");
       }
     }
 
@@ -363,7 +367,7 @@ function buildPersonalizedRecommendations(
 
     if (area === "occasion") {
       if (has("q17", "wear some version of what I always wear")) {
-        tips.push("Occasion dressing improves when you have a separate ‘elevated’ lane, not just a casual default.");
+        tips.push("Occasion dressing improves when you have a separate elevated lane, not just a casual default.");
       }
       if (has("q17", "underdress more than I should")) {
         tips.push("Upgrade one level more than your current instinct for important settings.");
@@ -372,7 +376,7 @@ function buildPersonalizedRecommendations(
         tips.push("Build 1–2 reliable occasion outfits so you are not improvising when it matters.");
       }
       if (tips.length === 0) {
-        tips.push("Your occasion style improves fastest when you pre-build go-to looks instead of reacting in the moment.");
+        tips.push("Occasion style improves fastest when you pre-build go-to looks instead of reacting in the moment.");
         tips.push("Occasion dressing is more about preparation than owning more clothes.");
       }
     }
@@ -580,10 +584,6 @@ function getArchetypeStyleSuggestions(archetypeTitle: string): string[] {
   ];
 }
 
-function glassCard(extra = "") {
-  return `rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.35)] ${extra}`;
-}
-
 export default function AssessmentPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string[]>>({});
@@ -653,6 +653,30 @@ export default function AssessmentPage() {
     }
   }
 
+  const result = calculateScore(
+    onboardingData || {
+      ageRange: "",
+      climate: "",
+      workStyle: "",
+      budget: "",
+      stylePreference: "",
+      build: "",
+      fitChallenges: [],
+      goals: [],
+      constraints: [],
+    },
+    answers
+  );
+
+  const categoryLabels: Record<string, string> = {
+    fit: "Fit & Proportion",
+    wardrobe: "Wardrobe Foundations",
+    color: "Color Coordination",
+    shoes: "Shoes & Footwear",
+    grooming: "Grooming",
+    occasion: "Occasion Styling",
+  };
+
   async function unlockResults() {
     if (!isValidEmail(email)) {
       setEmailError("Please enter a valid email address.");
@@ -688,34 +712,10 @@ export default function AssessmentPage() {
       localStorage.setItem("stylescore_email", email);
       setEmailError("");
       setResultsUnlocked(true);
-    } catch (error) {
+    } catch {
       setEmailError("Could not save your email. Please try again.");
     }
   }
-
-  const result = calculateScore(
-    onboardingData || {
-      ageRange: "",
-      climate: "",
-      workStyle: "",
-      budget: "",
-      stylePreference: "",
-      build: "",
-      fitChallenges: [],
-      goals: [],
-      constraints: [],
-    },
-    answers
-  );
-
-  const categoryLabels: Record<string, string> = {
-    fit: "Fit & Proportion",
-    wardrobe: "Wardrobe Foundations",
-    color: "Color Coordination",
-    shoes: "Shoes & Footwear",
-    grooming: "Grooming",
-    occasion: "Occasion Styling",
-  };
 
   async function shareScore() {
     const archetype = getStyleArchetype(
@@ -723,8 +723,8 @@ export default function AssessmentPage() {
       result.category_scores
     );
 
-    const text = `My StyleScore is ${result.overall_score}/100 — ${archetype.title}. Check yours on stylescore.live`;
-    const url = window.location.href;
+    const text = `My StyleScore is ${result.overall_score}/100 — ${archetype.title}. Can you beat it? Check yours on stylescore.live`;
+    const url = "https://stylescore.live";
 
     try {
       if (navigator.share) {
@@ -735,11 +735,11 @@ export default function AssessmentPage() {
         });
       } else {
         await navigator.clipboard.writeText(`${text} ${url}`);
-        setShareMessage("Link copied. Share your style score.");
+        setShareMessage("Link copied. Share your StyleScore.");
         setTimeout(() => setShareMessage(""), 2500);
       }
     } catch {
-      // ignore
+      // ignored
     }
   }
 
@@ -781,7 +781,7 @@ export default function AssessmentPage() {
         <div className="relative mx-auto max-w-4xl space-y-6">
           <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 text-white backdrop-blur-2xl shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/50">
-              Overall Fashion Score
+              Your StyleScore
             </p>
 
             <div className="mt-5 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
@@ -799,7 +799,7 @@ export default function AssessmentPage() {
                     ? "Good base, clear upgrade path"
                     : result.overall_score >= 50
                     ? "Average right now, with big improvement potential"
-                    : "Early stage style foundation"}
+                    : "Early-stage style foundation"}
                 </p>
               </div>
 
@@ -815,89 +815,55 @@ export default function AssessmentPage() {
           </div>
 
           <div className={glassCard("p-6")}>
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
-              Your Style Archetype
-            </p>
-            <h3 className="mt-3 text-3xl font-semibold text-white">
-              {archetype.title}
-            </h3>
-            <p className="mt-3 max-w-2xl leading-7 text-white/70">
-              {archetype.description}
-            </p>
-          </div>
-
-          <div className={glassCard("p-6")}>
-            <h3 className="text-xl font-semibold text-white">Archetype Style Direction</h3>
-            <ul className="mt-4 list-disc space-y-2 pl-5 text-white/75">
-              {archetypeSuggestions.map((tip, i) => (
-                <li key={i}>{tip}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div className={glassCard("p-6")}>
             <h3 className="text-xl font-semibold text-white">Style Diagnosis</h3>
             <p className="mt-3 leading-7 text-white/75">
-              {strongestArea === "occasion" ? (
-                <>
-                  Your styling is best during{" "}
-                  <span className="font-semibold text-white">occasions</span>. Your
-                  biggest opportunity right now is{" "}
-                  <span className="font-semibold text-white">
-                    {categoryLabels[result.focus_top_3[0]] || result.focus_top_3[0]}
-                  </span>
-                  . Fixing your top 3 focus areas first will improve your score
-                  faster than trying to upgrade everything at once.
-                </>
-              ) : (
-                <>
-                  Your strongest area is{" "}
-                  <span className="font-semibold text-white">
-                    {categoryLabels[strongestArea] || strongestArea}
-                  </span>
-                  . Your biggest opportunity right now is{" "}
-                  <span className="font-semibold text-white">
-                    {categoryLabels[result.focus_top_3[0]] || result.focus_top_3[0]}
-                  </span>
-                  . Fixing your top 3 focus areas first will improve your score
-                  faster than trying to upgrade everything at once.
-                </>
-              )}
+              Your strongest area is{" "}
+              <span className="font-semibold text-white">
+                {categoryLabels[strongestArea] || strongestArea}
+              </span>
+              . Your biggest opportunity right now is{" "}
+              <span className="font-semibold text-white">
+                {categoryLabels[result.focus_top_3[0]] || result.focus_top_3[0]}
+              </span>
+              . Fixing your top 3 focus areas first will improve your score faster
+              than trying to upgrade everything at once.
             </p>
           </div>
 
           {!resultsUnlocked && (
             <div className={glassCard("p-6")}>
-              <div className="mb-2">
-                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
-                  Your Style Blueprint Is Ready
-                </p>
-                <h3 className="mt-3 text-3xl font-semibold text-white">
-                  Reveal what to fix first
+              <div className="text-center">
+                <h3 className="text-3xl font-semibold text-white">
+                  🔒 Your Style Report Is Ready
                 </h3>
-                <p className="mt-3 max-w-2xl leading-7 text-white/70">
-                  Enter your email to unlock your complete style breakdown, your archetype,
-                  and the exact areas that will improve your appearance fastest.
+
+                <p className="mt-3 text-white/70">
+                  Your answers are saved for this session. Unlock your complete style
+                  report before leaving this page.
                 </p>
               </div>
 
               <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/45">
-                  You’ll unlock
+                  Unlock to see
                 </p>
 
                 <ul className="mt-4 space-y-3 text-white/80">
                   <li className="flex items-start gap-3">
                     <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
-                    <span>Your full StyleScore breakdown across all categories</span>
+                    <span>Your full StyleScore category breakdown</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
-                    <span>Your personal style archetype and what it means</span>
+                    <span>Your personal style archetype</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
-                    <span>The top 3 upgrades that will improve your look fastest</span>
+                    <span>The top 3 upgrades that will improve your appearance fastest</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
+                    <span>Personalized style and product recommendations</span>
                   </li>
                 </ul>
               </div>
@@ -911,187 +877,207 @@ export default function AssessmentPage() {
                   className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-white outline-none placeholder:text-white/35 focus:border-orange-300"
                 />
 
-                {emailError && (
-                  <p className="text-sm text-red-300">{emailError}</p>
-                )}
+                {emailError && <p className="text-sm text-red-300">{emailError}</p>}
 
                 <button
                   type="button"
                   onClick={unlockResults}
                   className="premium-glow w-full rounded-2xl bg-orange-400 px-6 py-4 text-base font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_30px_rgba(251,146,60,0.45)]"
                 >
-                  Reveal My Style Blueprint
+                  Unlock My Full Style Report
                 </button>
 
                 <p className="text-center text-sm text-white/45">
-                  No spam. Only your personalized style report and updates.
+                  Free report • No spam • Takes 2 seconds
                 </p>
               </div>
             </div>
           )}
 
-          {resultsUnlocked && (
-            <>
-              <div className={glassCard("p-6")}>
-                <h3 className="text-xl font-semibold text-white">Style Profile</h3>
-                <p className="mt-2 text-sm text-white/60">
-                  This chart shows how your score is distributed across key style
-                  categories.
-                </p>
+          <div
+            className={`space-y-6 ${
+              !resultsUnlocked ? "blur-md opacity-60 pointer-events-none select-none" : ""
+            }`}
+          >
+            <div className={glassCard("p-6")}>
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
+                Your Style Archetype
+              </p>
+              <h3 className="mt-3 text-3xl font-semibold text-white">
+                {archetype.title}
+              </h3>
+              <p className="mt-3 max-w-2xl leading-7 text-white/70">
+                {archetype.description}
+              </p>
+            </div>
 
-                <div className="mt-6 h-[340px] w-full">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <RadarChart data={radarData}>
-                      <PolarGrid stroke="rgba(255,255,255,0.12)" />
-                      <PolarAngleAxis
-                        dataKey="category"
-                        tick={{ fill: "rgba(255,255,255,0.75)", fontSize: 13 }}
-                      />
-                      <Radar
-                        dataKey="score"
-                        stroke="#ffffff"
-                        fill="#ffffff"
-                        fillOpacity={0.18}
-                      />
-                    </RadarChart>
-                  </ResponsiveContainer>
-                </div>
+            <div className={glassCard("p-6")}>
+              <h3 className="text-xl font-semibold text-white">
+                Archetype Style Direction
+              </h3>
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-white/75">
+                {archetypeSuggestions.map((tip, i) => (
+                  <li key={i}>{tip}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className={glassCard("p-6")}>
+              <h3 className="text-xl font-semibold text-white">Style Profile</h3>
+              <p className="mt-2 text-sm text-white/60">
+                This chart shows how your score is distributed across key style categories.
+              </p>
+
+              <div className="mt-6 h-[340px] w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                  <RadarChart data={radarData}>
+                    <PolarGrid stroke="rgba(255,255,255,0.12)" />
+                    <PolarAngleAxis
+                      dataKey="category"
+                      tick={{ fill: "rgba(255,255,255,0.75)", fontSize: 13 }}
+                    />
+                    <Radar
+                      dataKey="score"
+                      stroke="#ffffff"
+                      fill="#ffffff"
+                      fillOpacity={0.18}
+                    />
+                  </RadarChart>
+                </ResponsiveContainer>
               </div>
+            </div>
 
-              <div className={glassCard("p-6")}>
-                <h3 className="text-xl font-semibold text-white">Category Scores</h3>
-                <div className="mt-5 space-y-5">
-                  {Object.entries(result.category_scores).map(
-                    ([key, value]: [string, number]) => (
-                      <div key={key}>
-                        <div className="mb-2 flex justify-between">
-                          <span className="font-medium text-white/85">
-                            {categoryLabels[key] || key}
-                          </span>
-                          <span className="font-semibold text-white">{value}</span>
-                        </div>
-
-                        <div className="h-3 w-full rounded-full bg-white/10">
-                          <div
-                            className="h-3 rounded-full bg-white"
-                            style={{ width: `${value}%` }}
-                          />
-                        </div>
-                      </div>
-                    )
-                  )}
-                </div>
-              </div>
-
-              <div className={glassCard("p-6")}>
-                <h3 className="text-xl font-semibold text-white">Focus Top 3</h3>
-                <ul className="mt-4 space-y-3">
-                  {result.focus_top_3.map((item) => (
-                    <li
-                      key={item}
-                      className="rounded-2xl border border-white/10 bg-white/5 p-4 font-medium text-white/90"
-                    >
-                      {categoryLabels[item] || item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className={glassCard("p-6")}>
-                <h3 className="text-xl font-semibold text-white">
-                  Recommended Improvements
-                </h3>
-
-                <div className="mt-4 space-y-4">
-                  {result.focus_top_3.map((area) => (
-                    <div
-                      key={area}
-                      className="rounded-2xl border border-white/10 bg-white/5 p-5"
-                    >
-                      <h4 className="text-lg font-semibold text-white">
-                        {categoryLabels[area] || area}
-                      </h4>
-                      <ul className="mt-3 list-disc space-y-2 pl-5 text-white/75">
-                        {personalizedRecommendations[area]?.map((tip, i) => (
-                          <li key={i}>{tip}</li>
-                        ))}
-                      </ul>
+            <div className={glassCard("p-6")}>
+              <h3 className="text-xl font-semibold text-white">Category Scores</h3>
+              <div className="mt-5 space-y-5">
+                {Object.entries(result.category_scores).map(([key, value]) => (
+                  <div key={key}>
+                    <div className="mb-2 flex justify-between">
+                      <span className="font-medium text-white/85">
+                        {categoryLabels[key] || key}
+                      </span>
+                      <span className="font-semibold text-white">{value}</span>
                     </div>
-                  ))}
-                </div>
-              </div>
 
-              <div className={glassCard("p-6")}>
-                <h3 className="text-xl font-semibold text-white">Recommended Needs</h3>
-                <p className="mt-2 text-sm text-white/60">
-                  Suggested starter search terms based on your current priorities.
-                </p>
-
-                <div className="mt-4 space-y-4">
-                  {result.focus_top_3.map((area) => (
-                    <div
-                      key={area}
-                      className="rounded-2xl border border-white/10 bg-white/5 p-5"
-                    >
-                      <h4 className="text-lg font-semibold text-white">
-                        {categoryLabels[area] || area}
-                      </h4>
-
-                      <ul className="mt-4 space-y-3 text-white/80">
-                        {recommendedNeeds[area]?.map((item, i) => (
-                          <li
-                            key={i}
-                            className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-black/10 p-4"
-                          >
-                            <span className="capitalize text-white">{item}</span>
-
-                            <div className="flex flex-col gap-3 sm:flex-row">
-                              <a
-                                href={`https://www.amazon.com/s?k=${encodeURIComponent(
-                                  item + " men"
-                                )}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 text-sm font-medium text-black transition hover:bg-white/90"
-                              >
-                                Search Amazon
-                              </a>
-
-                              <a
-                                href={`https://www.google.com/search?tbm=shop&q=${encodeURIComponent(
-                                  item + " men"
-                                )}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/10"
-                              >
-                                Search Google Shopping
-                              </a>
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
+                    <div className="h-3 w-full rounded-full bg-white/10">
+                      <div
+                        className="h-3 rounded-full bg-white"
+                        style={{ width: `${value}%` }}
+                      />
                     </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <button
-                  onClick={shareScore}
-                  className="rounded-2xl border border-white/15 bg-white/5 px-5 py-3 font-medium text-white transition hover:bg-white/10"
-                >
-                  Share Your Score
-                </button>
-
-                {shareMessage && (
-                  <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-white/70">
-                    {shareMessage}
                   </div>
-                )}
+                ))}
               </div>
-            </>
-          )}
+            </div>
+
+            <div className={glassCard("p-6")}>
+              <h3 className="text-xl font-semibold text-white">Focus Top 3</h3>
+              <ul className="mt-4 space-y-3">
+                {result.focus_top_3.map((item) => (
+                  <li
+                    key={item}
+                    className="rounded-2xl border border-white/10 bg-white/5 p-4 font-medium text-white/90"
+                  >
+                    {categoryLabels[item] || item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className={glassCard("p-6")}>
+              <h3 className="text-xl font-semibold text-white">
+                Recommended Improvements
+              </h3>
+
+              <div className="mt-4 space-y-4">
+                {result.focus_top_3.map((area) => (
+                  <div
+                    key={area}
+                    className="rounded-2xl border border-white/10 bg-white/5 p-5"
+                  >
+                    <h4 className="text-lg font-semibold text-white">
+                      {categoryLabels[area] || area}
+                    </h4>
+                    <ul className="mt-3 list-disc space-y-2 pl-5 text-white/75">
+                      {personalizedRecommendations[area]?.map((tip, i) => (
+                        <li key={i}>{tip}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className={glassCard("p-6")}>
+              <h3 className="text-xl font-semibold text-white">Recommended Needs</h3>
+              <p className="mt-2 text-sm text-white/60">
+                Suggested starter search terms based on your current priorities.
+              </p>
+
+              <div className="mt-4 space-y-4">
+                {result.focus_top_3.map((area) => (
+                  <div
+                    key={area}
+                    className="rounded-2xl border border-white/10 bg-white/5 p-5"
+                  >
+                    <h4 className="text-lg font-semibold text-white">
+                      {categoryLabels[area] || area}
+                    </h4>
+
+                    <ul className="mt-4 space-y-3 text-white/80">
+                      {recommendedNeeds[area]?.map((item, i) => (
+                        <li
+                          key={i}
+                          className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-black/10 p-4"
+                        >
+                          <span className="capitalize text-white">{item}</span>
+
+                          <div className="flex flex-col gap-3 sm:flex-row">
+                            <a
+                              href={`https://www.amazon.com/s?k=${encodeURIComponent(
+                                item + " men"
+                              )}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 text-sm font-medium text-black transition hover:bg-white/90"
+                            >
+                              Search Amazon
+                            </a>
+
+                            <a
+                              href={`https://www.google.com/search?tbm=shop&q=${encodeURIComponent(
+                                item + " men"
+                              )}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/10"
+                            >
+                              Search Google Shopping
+                            </a>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <button
+              onClick={shareScore}
+              className="rounded-2xl border border-white/15 bg-white/5 px-5 py-3 font-medium text-white transition hover:bg-white/10"
+            >
+              Share Your Score
+            </button>
+
+            {shareMessage && (
+              <div className="rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-white/70">
+                {shareMessage}
+              </div>
+            )}
+          </div>
 
           <button
             onClick={() => {
@@ -1102,6 +1088,7 @@ export default function AssessmentPage() {
               setResultsUnlocked(false);
               localStorage.removeItem("stylescore_answers");
               localStorage.removeItem("stylescore_email");
+              localStorage.removeItem("stylescore_onboarding");
             }}
             className="rounded-2xl bg-white px-6 py-3 font-medium text-black transition hover:bg-white/90"
           >
@@ -1138,6 +1125,7 @@ export default function AssessmentPage() {
           <p className="mb-2 text-sm font-medium text-white/55">
             {currentQuestion.category}
           </p>
+
           <h2 className="text-2xl font-semibold text-white">
             {currentQuestion.question}
           </h2>
