@@ -12,7 +12,6 @@ export async function POST(req: Request) {
     }
 
     const stripe = new Stripe(stripeKey);
-
     const { email } = await req.json();
 
     const origin =
