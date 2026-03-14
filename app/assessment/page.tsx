@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { jsPDF } from "jspdf";
 import {
-  Radar,
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
   ResponsiveContainer,
+  Radar as RechartsRadar,
 } from "recharts";
 import { calculateScore } from "../lib/scoring";
 
@@ -17,12 +18,59 @@ type Question = {
   options: string[];
 };
 
-type AffiliateProduct = {
+type AIReport = {
   title: string;
   subtitle: string;
-  description: string;
-  affiliateUrl: string;
+  snapshot: string;
+  strengths: string[];
+  opportunities: string[];
+  topPriorities: string[];
+  buyNext: string[];
+  bestPlacesToShop: {
+    challenge: string;
+    whatToShop: string;
+    whereToBuy: string[];
+    reason: string;
+  }[];
+  plan30Days: {
+    days: string;
+    focus: string;
+    actions: string[];
+  }[];
+  confidenceAdvice: string;
 };
+
+function GeneratingOverlay({ message }: { message: string }) {
+  return (
+    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/75 px-4 backdrop-blur-sm">
+      <div className="w-full max-w-lg rounded-3xl border border-white/10 bg-slate-950/95 p-8 text-center shadow-[0_30px_120px_rgba(0,0,0,0.65)]">
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-white/10 bg-white/5">
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-white/20 border-t-orange-400" />
+        </div>
+
+        <p className="mt-5 text-sm font-semibold uppercase tracking-[0.25em] text-white/40">
+          AI stylist at work
+        </p>
+
+        <h3 className="mt-3 text-2xl font-semibold text-white">
+          Generating your personalized report...
+        </h3>
+
+        <p className="mt-3 leading-7 text-white/65">{message}</p>
+
+        <div className="mt-5 flex items-center justify-center gap-2">
+          <span className="h-2.5 w-2.5 animate-bounce rounded-full bg-orange-400 [animation-delay:-0.3s]" />
+          <span className="h-2.5 w-2.5 animate-bounce rounded-full bg-orange-400 [animation-delay:-0.15s]" />
+          <span className="h-2.5 w-2.5 animate-bounce rounded-full bg-orange-400" />
+        </div>
+
+        <p className="mt-4 text-sm text-white/45">
+          Usually takes around 5–10 seconds.
+        </p>
+      </div>
+    </div>
+  );
+}
 
 const questions: Question[] = [
   {
@@ -267,130 +315,12 @@ const questions: Question[] = [
   },
 ];
 
-const affiliateProductsByArea: Record<string, AffiliateProduct[]> = {
-  shoes: [
-    {
-      title: "Clean White Sneakers",
-      subtitle: "Shoes",
-      description:
-        "A versatile starter shoe that upgrades most casual outfits quickly.",
-      affiliateUrl: "https://amzn.to/4blu1Ux",
-    },
-    {
-      title: "Smart Casual Shoes",
-      subtitle: "Shoes",
-      description:
-        "Useful when you want to look sharper than sneakers without going fully formal.",
-      affiliateUrl: "https://amzn.to/4rsoPUQ",
-    },
-    {
-      title: "Dress Shoes",
-      subtitle: "Shoes",
-      description:
-        "A strong option for interviews, dinners, occasions, and elevated outfits.",
-      affiliateUrl: "https://amzn.to/4lsbZVv",
-    },
-  ],
-  grooming: [
-    {
-      title: "Beard Trimmer",
-      subtitle: "Grooming",
-      description:
-        "A basic grooming tool that helps you look more intentional immediately.",
-      affiliateUrl: "https://amzn.to/40q92ev",
-    },
-    {
-      title: "Face Wash",
-      subtitle: "Grooming",
-      description:
-        "Simple skincare improves your overall presentation quickly.",
-      affiliateUrl: "https://amzn.to/4b4V1sI",
-    },
-    {
-      title: "Everyday Fragrance",
-      subtitle: "Grooming",
-      description:
-        "A subtle fragrance adds polish without changing your outfit.",
-      affiliateUrl: "https://amzn.to/3Pi5oRk",
-    },
-  ],
-  wardrobe: [
-    {
-      title: "Oxford Shirt",
-      subtitle: "Wardrobe",
-      description:
-        "A reliable shirt that works across both casual and smart settings.",
-      affiliateUrl: "https://amzn.to/46Ywa7z",
-    },
-    {
-      title: "Slim Chinos",
-      subtitle: "Wardrobe",
-      description:
-        "Cleaner trouser shape improves your appearance immediately.",
-      affiliateUrl: "https://amzn.to/4s2KUdX",
-    },
-    {
-      title: "Overshirt / Jacket",
-      subtitle: "Wardrobe",
-      description:
-        "A structured layer that instantly makes outfits look more intentional.",
-      affiliateUrl: "https://amzn.to/4lrU0OY",
-    },
-  ],
-  accessories: [
-    {
-      title: "Sunglasses",
-      subtitle: "Accessories",
-      description: "A simple upgrade that adds personality and polish.",
-      affiliateUrl: "https://amzn.to/4s2EknG",
-    },
-    {
-      title: "Watch",
-      subtitle: "Accessories",
-      description: "One clean everyday watch elevates most outfits.",
-      affiliateUrl: "https://amzn.to/4sNWMAF",
-    },
-    {
-      title: "Leather Belt",
-      subtitle: "Accessories",
-      description: "A proper belt brings the whole outfit together.",
-      affiliateUrl: "https://amzn.to/4rmTOBL",
-    },
-    {
-      title: "Caps",
-      subtitle: "Accessories",
-      description: "Casual caps that add relaxed personality to outfits.",
-      affiliateUrl: "https://amzn.to/4uwCPA0",
-    },
-  ],
-};
-
 function isValidEmail(email: string) {
   return /\S+@\S+\.\S+/.test(email);
 }
 
 function glassCard(extra = "") {
   return `rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.35)] ${extra}`;
-}
-
-function AffiliateCard({ product }: { product: AffiliateProduct }) {
-  return (
-    <a
-      href={product.affiliateUrl}
-      target="_blank"
-      rel="noopener noreferrer sponsored"
-      className="block rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:bg-white/10"
-    >
-      <p className="text-xs uppercase tracking-wider text-white/50">
-        {product.subtitle}
-      </p>
-      <h4 className="mt-1 text-lg font-semibold text-white">{product.title}</h4>
-      <p className="mt-2 text-sm text-white/70">{product.description}</p>
-      <div className="mt-4 inline-flex items-center rounded-xl bg-orange-400 px-4 py-2 text-sm font-semibold text-black">
-        View Product
-      </div>
-    </a>
-  );
 }
 
 function buildPersonalizedRecommendations(
@@ -431,7 +361,7 @@ function buildPersonalizedRecommendations(
         tips.push("Small maintenance matters here — sharper grooming creates an immediate lift.");
       }
       if (has("q16", "reactive, not planned") || has("q16", "not something I prioritize")) {
-        tips.push("Make presentation automatic instead of last-minute: simple systems work better than motivation.");
+        tips.push("Make presentation automatic instead of last-minute. Simple systems work better than motivation.");
       }
       if (tips.length === 0) {
         tips.push("Create a grooming routine that is consistent enough to become effortless.");
@@ -441,7 +371,7 @@ function buildPersonalizedRecommendations(
 
     if (area === "fit") {
       if (has("q1", "often feel tight in one area")) {
-        tips.push("Prioritize fit corrections before new style purchases — tightness in one area usually ruins the whole look.");
+        tips.push("Prioritize fit corrections before new style purchases — poor fit ruins the whole look.");
       }
       if (has("q2", "are a bit long or bunch at the bottom")) {
         tips.push("Fix trouser length first — better hems create instant visual polish.");
@@ -454,7 +384,7 @@ function buildPersonalizedRecommendations(
       }
       if (tips.length === 0) {
         tips.push("Sharper proportions will improve your style faster than buying trendier pieces.");
-        tips.push("A better fit usually makes even simple clothing look more expensive.");
+        tips.push("Better fit usually makes even simple clothing look more expensive.");
       }
     }
 
@@ -470,7 +400,7 @@ function buildPersonalizedRecommendations(
       }
       if (tips.length === 0) {
         tips.push("A stronger wardrobe comes from repeatable combinations, not volume.");
-        tips.push("Your wardrobe should feel easier to use, not larger.");
+        tips.push("Your wardrobe should feel easier to use, not just bigger.");
       }
     }
 
@@ -702,31 +632,13 @@ function getArchetypeStyleSuggestions(archetypeTitle: string): string[] {
     ],
   };
 
-  return suggestions[archetypeTitle] || [
-    "Focus on consistency across your wardrobe, fit, shoes, and grooming.",
-    "Improve the basics first before adding complexity.",
-    "Build a style that is easy to repeat and easy to trust.",
-  ];
-}
-
-function getAffiliateProductsForFocus(focusAreas: string[]) {
-  const products: AffiliateProduct[] = [];
-
-  focusAreas.forEach((area) => {
-    if (affiliateProductsByArea[area]) {
-      products.push(...affiliateProductsByArea[area]);
-    }
-  });
-
-  // always add some accessories to increase monetization potential
-  products.push(...affiliateProductsByArea.accessories);
-
-  const seen = new Set<string>();
-  return products.filter((product) => {
-    if (seen.has(product.title)) return false;
-    seen.add(product.title);
-    return true;
-  });
+  return (
+    suggestions[archetypeTitle] || [
+      "Focus on consistency across your wardrobe, fit, shoes, and grooming.",
+      "Improve the basics first before adding complexity.",
+      "Build a style that is easy to repeat and easy to trust.",
+    ]
+  );
 }
 
 export default function AssessmentPage() {
@@ -738,24 +650,128 @@ export default function AssessmentPage() {
   const [resultsUnlocked, setResultsUnlocked] = useState(false);
   const [emailError, setEmailError] = useState("");
   const [shareMessage, setShareMessage] = useState("");
+  const [aiReport, setAiReport] = useState<AIReport | null>(null);
+  const [loadingReport, setLoadingReport] = useState(false);
+  const [loadingCheckout, setLoadingCheckout] = useState(false);
+  const [aiError, setAiError] = useState("");
+  const [showAiModal, setShowAiModal] = useState(false);
+  const [paidSessionId, setPaidSessionId] = useState<string | null>(null);
+  const [postPaymentMessage, setPostPaymentMessage] = useState("");
 
   useEffect(() => {
     const saved = localStorage.getItem("stylescore_onboarding");
-    if (saved) {
-      setOnboardingData(JSON.parse(saved));
-    }
+    if (saved) setOnboardingData(JSON.parse(saved));
 
     const savedAnswers = localStorage.getItem("stylescore_answers");
-    if (savedAnswers) {
-      setAnswers(JSON.parse(savedAnswers));
-    }
+    if (savedAnswers) setAnswers(JSON.parse(savedAnswers));
 
     const savedEmail = localStorage.getItem("stylescore_email");
     if (savedEmail) {
       setEmail(savedEmail);
       setResultsUnlocked(true);
     }
+
+    const params = new URLSearchParams(window.location.search);
+    const stripeStatus = params.get("stripe_status");
+    const sessionId = params.get("session_id");
+
+    if (stripeStatus === "success" && sessionId) {
+      setShowResult(true);
+      setPaidSessionId(sessionId);
+    }
+
+    if (stripeStatus || sessionId) {
+      const cleanUrl = window.location.pathname;
+      window.history.replaceState({}, "", cleanUrl);
+    }
   }, []);
+
+  const result = calculateScore(
+    onboardingData || {
+      ageRange: "",
+      climate: "",
+      workStyle: "",
+      budget: "",
+      stylePreference: "",
+      build: "",
+      fitChallenges: [],
+      goals: [],
+      constraints: [],
+    },
+    answers
+  );
+
+  useEffect(() => {
+    async function finalizePaidReport() {
+      if (!paidSessionId || !showResult) return;
+
+      try {
+        setPostPaymentMessage(
+          "Payment successful. We’re building your 30-day style blueprint now."
+        );
+        setAiError("");
+
+        const verifyRes = await fetch(
+          `/api/verify-checkout-session?session_id=${encodeURIComponent(
+            paidSessionId
+          )}`
+        );
+        const verifyData = await verifyRes.json();
+
+        if (!verifyRes.ok || !verifyData.paid) {
+          setAiError("Payment could not be verified.");
+          setPostPaymentMessage("");
+          return;
+        }
+
+        const archetype = getStyleArchetype(
+          result.overall_score,
+          result.category_scores
+        );
+
+        setLoadingReport(true);
+
+        const response = await fetch("/api/style-report", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            score: result.overall_score,
+            archetype: archetype.title,
+            focusAreas: result.focus_top_3,
+            categoryScores: result.category_scores,
+            onboardingData,
+            answers,
+          }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          setAiError(data.error || "Failed to generate style report.");
+          setPostPaymentMessage("");
+          return;
+        }
+
+        setAiReport(data.report);
+
+        setTimeout(() => {
+          setShowAiModal(true);
+          setPostPaymentMessage("");
+        }, 1200);
+
+        setPaidSessionId(null);
+      } catch {
+        setAiError("Failed to verify payment or generate report.");
+        setPostPaymentMessage("");
+      } finally {
+        setLoadingReport(false);
+      }
+    }
+
+    finalizePaidReport();
+  }, [paidSessionId, showResult, onboardingData, answers, result]);
 
   const currentQuestion = questions[currentIndex];
   const selectedAnswers = answers[currentQuestion.id] || [];
@@ -797,21 +813,6 @@ export default function AssessmentPage() {
       setCurrentIndex((prev) => prev - 1);
     }
   }
-
-  const result = calculateScore(
-    onboardingData || {
-      ageRange: "",
-      climate: "",
-      workStyle: "",
-      budget: "",
-      stylePreference: "",
-      build: "",
-      fitChallenges: [],
-      goals: [],
-      constraints: [],
-    },
-    answers
-  );
 
   const categoryLabels: Record<string, string> = {
     fit: "Fit & Proportion",
@@ -862,6 +863,140 @@ export default function AssessmentPage() {
     }
   }
 
+  async function startPremiumCheckout() {
+    try {
+      if (!resultsUnlocked) {
+        setAiError("Unlock your full report first.");
+        return;
+      }
+
+      setLoadingCheckout(true);
+      setAiError("");
+
+      const response = await fetch("/api/create-checkout-session", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.url) {
+        setAiError(data.error || "Failed to start checkout.");
+        return;
+      }
+
+      window.location.href = data.url;
+    } catch {
+      setAiError("Failed to start checkout.");
+    } finally {
+      setLoadingCheckout(false);
+    }
+  }
+
+  function downloadAIReportPDF() {
+    if (!aiReport) return;
+
+    const doc = new jsPDF({
+      unit: "pt",
+      format: "a4",
+    });
+
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const margin = 40;
+    const maxWidth = pageWidth - margin * 2;
+    let y = 50;
+
+    const addSectionTitle = (title: string) => {
+      if (y > 760) {
+        doc.addPage();
+        y = 50;
+      }
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(16);
+      doc.text(title, margin, y);
+      y += 22;
+    };
+
+    const addBody = (text: string) => {
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(11);
+      const lines = doc.splitTextToSize(text, maxWidth);
+      lines.forEach((line: string) => {
+        if (y > 780) {
+          doc.addPage();
+          y = 50;
+        }
+        doc.text(line, margin, y);
+        y += 16;
+      });
+      y += 10;
+    };
+
+    const addBullets = (items: string[]) => {
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(11);
+      items.forEach((item) => {
+        const lines = doc.splitTextToSize(`• ${item}`, maxWidth);
+        lines.forEach((line: string) => {
+          if (y > 780) {
+            doc.addPage();
+            y = 50;
+          }
+          doc.text(line, margin, y);
+          y += 16;
+        });
+      });
+      y += 10;
+    };
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(22);
+    doc.text(aiReport.title || "Your 30-Day Style Upgrade Plan", margin, y);
+    y += 26;
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(12);
+    addBody(aiReport.subtitle || "");
+
+    addSectionTitle("Style Snapshot");
+    addBody(aiReport.snapshot);
+
+    addSectionTitle("What You Already Do Well");
+    addBullets(aiReport.strengths || []);
+
+    addSectionTitle("What Is Holding You Back");
+    addBullets(aiReport.opportunities || []);
+
+    addSectionTitle("Your Top 3 Priorities");
+    addBullets(aiReport.topPriorities || []);
+
+    addSectionTitle("What To Buy Next");
+    addBullets(aiReport.buyNext || []);
+
+    addSectionTitle("Best Places To Shop");
+    (aiReport.bestPlacesToShop || []).forEach((item) => {
+      addBody(`${item.challenge} — Shop for: ${item.whatToShop}`);
+      addBody(`Where to buy: ${(item.whereToBuy || []).join(", ")}`);
+      addBody(item.reason || "");
+    });
+
+    addSectionTitle("30-Day Style Upgrade Plan");
+    (aiReport.plan30Days || []).forEach((block) => {
+      addBody(`${block.days} — ${block.focus}`);
+      addBullets(block.actions || []);
+    });
+
+    addSectionTitle("Final Confidence Advice");
+    addBody(aiReport.confidenceAdvice || "");
+
+    doc.save("stylescore-30-day-style-upgrade-plan.pdf");
+  }
+
   async function shareScore() {
     const archetype = getStyleArchetype(
       result.overall_score,
@@ -893,10 +1028,13 @@ export default function AssessmentPage() {
       (a, b) => b[1] - a[1]
     )[0][0];
 
-    const radarData = Object.entries(result.category_scores).map(([key, value]) => ({
-      category: categoryLabels[key] || key.charAt(0).toUpperCase() + key.slice(1),
-      score: value,
-    }));
+    const radarData = Object.entries(result.category_scores).map(
+      ([key, value]) => ({
+        category:
+          categoryLabels[key] || key.charAt(0).toUpperCase() + key.slice(1),
+        score: value,
+      })
+    );
 
     const personalizedRecommendations = buildPersonalizedRecommendations(
       answers,
@@ -914,7 +1052,6 @@ export default function AssessmentPage() {
     );
 
     const archetypeSuggestions = getArchetypeStyleSuggestions(archetype.title);
-    const affiliateProducts = getAffiliateProductsForFocus(result.focus_top_3);
 
     return (
       <main className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_#1f2937,_#0f172a_40%,_#020617_100%)] px-4 py-10 text-white">
@@ -923,6 +1060,8 @@ export default function AssessmentPage() {
           <div className="absolute top-1/3 right-[-100px] h-80 w-80 rounded-full bg-slate-300/10 blur-3xl" />
           <div className="absolute bottom-[-100px] left-1/3 h-72 w-72 rounded-full bg-blue-400/10 blur-3xl" />
         </div>
+
+        {postPaymentMessage && <GeneratingOverlay message={postPaymentMessage} />}
 
         <div className="relative mx-auto max-w-4xl space-y-6">
           <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 text-white backdrop-blur-2xl shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
@@ -966,10 +1105,11 @@ export default function AssessmentPage() {
               {strongestArea === "occasion" ? (
                 <>
                   Your styling is best during{" "}
-                  <span className="font-semibold text-white">occasions</span>. Your
-                  biggest opportunity right now is{" "}
+                  <span className="font-semibold text-white">occasions</span>.
+                  Your biggest opportunity right now is{" "}
                   <span className="font-semibold text-white">
-                    {categoryLabels[result.focus_top_3[0]] || result.focus_top_3[0]}
+                    {categoryLabels[result.focus_top_3[0]] ||
+                      result.focus_top_3[0]}
                   </span>
                   . Fixing your top 3 focus areas first will improve your score
                   faster than trying to upgrade everything at once.
@@ -982,7 +1122,8 @@ export default function AssessmentPage() {
                   </span>
                   . Your biggest opportunity right now is{" "}
                   <span className="font-semibold text-white">
-                    {categoryLabels[result.focus_top_3[0]] || result.focus_top_3[0]}
+                    {categoryLabels[result.focus_top_3[0]] ||
+                      result.focus_top_3[0]}
                   </span>
                   . Fixing your top 3 focus areas first will improve your score
                   faster than trying to upgrade everything at once.
@@ -999,7 +1140,8 @@ export default function AssessmentPage() {
                 </h3>
 
                 <p className="mt-3 text-white/70">
-                  Your answers are saved for this session. Unlock your complete style report before leaving this page.
+                  Your answers are saved for this session. Unlock your complete
+                  style report before leaving this page.
                 </p>
               </div>
 
@@ -1023,7 +1165,7 @@ export default function AssessmentPage() {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
-                    <span>Personalized recommendations and starter product picks</span>
+                    <span>Personalized recommendations and starter product searches</span>
                   </li>
                 </ul>
               </div>
@@ -1037,7 +1179,9 @@ export default function AssessmentPage() {
                   className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-white outline-none placeholder:text-white/35 focus:border-orange-300"
                 />
 
-                {emailError && <p className="text-sm text-red-300">{emailError}</p>}
+                {emailError && (
+                  <p className="text-sm text-red-300">{emailError}</p>
+                )}
 
                 <button
                   type="button"
@@ -1058,12 +1202,19 @@ export default function AssessmentPage() {
             <div className="py-2 text-center text-white/70">
               🔒 Unlock your full Style Report to see:
               <div className="mt-2 text-sm text-white/55">
-                • Category breakdown • Style archetype • Personalized recommendations
+                • Category breakdown • Style archetype • Personalized
+                recommendations
               </div>
             </div>
           )}
 
-          <div className={!resultsUnlocked ? "space-y-6 blur-md opacity-60 pointer-events-none" : "space-y-6"}>
+          <div
+            className={
+              !resultsUnlocked
+                ? "space-y-6 blur-md opacity-60 pointer-events-none"
+                : "space-y-6"
+            }
+          >
             <div className={glassCard("p-6")}>
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
                 Your Style Archetype
@@ -1090,7 +1241,8 @@ export default function AssessmentPage() {
             <div className={glassCard("p-6")}>
               <h3 className="text-xl font-semibold text-white">Style Profile</h3>
               <p className="mt-2 text-sm text-white/60">
-                This chart shows how your score is distributed across key style categories.
+                This chart shows how your score is distributed across key style
+                categories.
               </p>
 
               <div className="mt-6 h-[340px] w-full">
@@ -1101,7 +1253,7 @@ export default function AssessmentPage() {
                       dataKey="category"
                       tick={{ fill: "rgba(255,255,255,0.75)", fontSize: 13 }}
                     />
-                    <Radar
+                    <RechartsRadar
                       dataKey="score"
                       stroke="#ffffff"
                       fill="#ffffff"
@@ -1113,7 +1265,9 @@ export default function AssessmentPage() {
             </div>
 
             <div className={glassCard("p-6")}>
-              <h3 className="text-xl font-semibold text-white">Category Scores</h3>
+              <h3 className="text-xl font-semibold text-white">
+                Category Scores
+              </h3>
               <div className="mt-5 space-y-5">
                 {Object.entries(result.category_scores).map(([key, value]) => (
                   <div key={key}>
@@ -1174,7 +1328,9 @@ export default function AssessmentPage() {
             </div>
 
             <div className={glassCard("p-6")}>
-              <h3 className="text-xl font-semibold text-white">Recommended Needs</h3>
+              <h3 className="text-xl font-semibold text-white">
+                Recommended Needs
+              </h3>
               <p className="mt-2 text-sm text-white/60">
                 Suggested starter search terms based on your current priorities.
               </p>
@@ -1193,9 +1349,33 @@ export default function AssessmentPage() {
                       {recommendedNeeds[area]?.map((item, i) => (
                         <li
                           key={i}
-                          className="rounded-2xl border border-white/10 bg-black/10 p-4 capitalize text-white"
+                          className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-black/10 p-4"
                         >
-                          {item}
+                          <span className="capitalize text-white">{item}</span>
+
+                          <div className="flex flex-col gap-3 sm:flex-row">
+                            <a
+                              href={`https://www.amazon.com/s?k=${encodeURIComponent(
+                                item + " men"
+                              )}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 text-sm font-medium text-black transition hover:bg-white/90"
+                            >
+                              Search Amazon
+                            </a>
+
+                            <a
+                              href={`https://www.google.com/search?tbm=shop&q=${encodeURIComponent(
+                                item + " men"
+                              )}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/10"
+                            >
+                              Search Google Shopping
+                            </a>
+                          </div>
                         </li>
                       ))}
                     </ul>
@@ -1203,26 +1383,231 @@ export default function AssessmentPage() {
                 ))}
               </div>
             </div>
-
-            <div className={glassCard("p-6")}>
-              <h3 className="text-xl font-semibold text-white">
-                Recommended Products
-              </h3>
-              <p className="mt-2 text-sm text-white/60">
-                Curated starter picks based on your weakest areas.
-              </p>
-
-              <div className="mt-5 grid gap-4 sm:grid-cols-2">
-                {affiliateProducts.map((product) => (
-                  <AffiliateCard key={product.title} product={product} />
-                ))}
-              </div>
-
-              <p className="mt-4 text-xs text-white/40">
-                Some links may be affiliate links. We may earn a commission if you buy through them.
-              </p>
-            </div>
           </div>
+
+          {resultsUnlocked && (
+            <div className={glassCard("p-6")}>
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
+                AI Personal Stylist Report
+              </p>
+              <h3 className="mt-3 text-3xl font-semibold text-white">
+                Upgrade Your Style in 30 Days
+              </h3>
+              <p className="mt-3 max-w-3xl leading-7 text-white/70">
+                Get a detailed AI-powered style blueprint built from your quiz
+                answers, body type, work environment, budget, and lifestyle.
+              </p>
+
+              <ul className="mt-5 space-y-3 text-white/80">
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
+                  <span>Your style strengths and blind spots</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
+                  <span>The 3 fastest upgrades for your appearance</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
+                  <span>Exactly what clothes you should buy next</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
+                  <span>Best places to shop for your budget</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
+                  <span>A practical 30-day style upgrade roadmap</span>
+                </li>
+              </ul>
+
+              <div className="mt-6">
+                <button
+                  type="button"
+                  onClick={startPremiumCheckout}
+                  className="premium-glow w-full rounded-2xl bg-orange-400 px-6 py-4 text-base font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_30px_rgba(251,146,60,0.45)]"
+                >
+                  {loadingCheckout
+                    ? "Redirecting to secure checkout..."
+                    : "Get My 30-Day Style Upgrade Plan — $1"}
+                </button>
+
+                <p className="mt-3 text-center text-sm text-white/45">
+                  Normally $9.49 • Instant report • One-time payment • No subscription
+                </p>
+
+                {aiError && (
+                  <p className="mt-3 text-sm text-red-300">{aiError}</p>
+                )}
+              </div>
+            </div>
+          )}
+
+          {showAiModal && aiReport && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 py-6 backdrop-blur-sm">
+              <div className="max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-3xl border border-white/10 bg-slate-950 p-6 shadow-[0_30px_120px_rgba(0,0,0,0.6)]">
+                <div className="flex flex-col gap-4 border-b border-white/10 pb-5 sm:flex-row sm:items-start sm:justify-between">
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/40">
+                      Premium AI Report
+                    </p>
+                    <h2 className="mt-2 text-3xl font-semibold text-white">
+                      {aiReport.title || "Your 30-Day Style Upgrade Plan"}
+                    </h2>
+                    <p className="mt-2 max-w-2xl leading-7 text-white/65">
+                      {aiReport.subtitle}
+                    </p>
+                  </div>
+
+                  <div className="flex gap-3">
+                    <button
+                      onClick={downloadAIReportPDF}
+                      className="rounded-2xl bg-white px-4 py-2 text-sm font-medium text-black transition hover:bg-white/90"
+                    >
+                      Download PDF
+                    </button>
+                    <button
+                      onClick={() => setShowAiModal(false)}
+                      className="rounded-2xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/10"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+
+                <div className="mt-6 grid gap-4">
+                  <div className="rounded-3xl border border-blue-400/30 bg-blue-400/10 p-5">
+                    <h3 className="text-xl font-semibold text-white">
+                      🧭 Style Snapshot
+                    </h3>
+                    <p className="mt-3 leading-8 text-white/80">
+                      {aiReport.snapshot}
+                    </p>
+                  </div>
+
+                  <div className="rounded-3xl border border-green-400/30 bg-green-400/10 p-5">
+                    <h3 className="text-xl font-semibold text-white">
+                      ✅ What You Already Do Well
+                    </h3>
+                    <ul className="mt-3 space-y-3 text-white/80">
+                      {aiReport.strengths?.map((item, i) => (
+                        <li key={i}>• {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="rounded-3xl border border-orange-400/30 bg-orange-400/10 p-5">
+                    <h3 className="text-xl font-semibold text-white">
+                      ⚠ What Is Holding You Back
+                    </h3>
+                    <ul className="mt-3 space-y-3 text-white/80">
+                      {aiReport.opportunities?.map((item, i) => (
+                        <li key={i}>• {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="rounded-3xl border border-amber-400/30 bg-amber-400/10 p-5">
+                    <h3 className="text-xl font-semibold text-white">
+                      🎯 Your Top 3 Priorities
+                    </h3>
+                    <ul className="mt-3 space-y-3 text-white/80">
+                      {aiReport.topPriorities?.map((item, i) => (
+                        <li key={i}>• {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="rounded-3xl border border-purple-400/30 bg-purple-400/10 p-5">
+                    <h3 className="text-xl font-semibold text-white">
+                      🛍 What To Buy Next
+                    </h3>
+                    <ul className="mt-3 space-y-3 text-white/80">
+                      {aiReport.buyNext?.map((item, i) => (
+                        <li key={i}>• {item}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="rounded-3xl border border-teal-400/30 bg-teal-400/10 p-5">
+                    <h3 className="text-xl font-semibold text-white">
+                      🏬 Best Places To Shop
+                    </h3>
+
+                    <div className="mt-4 space-y-4">
+                      {aiReport.bestPlacesToShop?.map((item, i) => (
+                        <div
+                          key={i}
+                          className="rounded-2xl border border-white/10 bg-black/10 p-4"
+                        >
+                          <p className="text-sm uppercase tracking-[0.18em] text-white/45">
+                            {item.challenge}
+                          </p>
+                          <h4 className="mt-2 text-lg font-semibold text-white">
+                            Shop for: {item.whatToShop}
+                          </h4>
+
+                          <div className="mt-3 flex flex-wrap gap-2">
+                            {item.whereToBuy?.map((store, idx) => (
+                              <span
+                                key={idx}
+                                className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-sm text-white/85"
+                              >
+                                {store}
+                              </span>
+                            ))}
+                          </div>
+
+                          <p className="mt-3 leading-7 text-white/75">
+                            {item.reason}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="rounded-3xl border border-fuchsia-400/30 bg-fuchsia-400/10 p-5">
+                    <h3 className="text-xl font-semibold text-white">
+                      📅 Your 30-Day Style Upgrade Plan
+                    </h3>
+
+                    <div className="mt-4 grid gap-4">
+                      {aiReport.plan30Days?.map((block, i) => (
+                        <div
+                          key={i}
+                          className="rounded-2xl border border-white/10 bg-black/10 p-4"
+                        >
+                          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                            <h4 className="text-lg font-semibold text-white">
+                              {block.days}
+                            </h4>
+                            <span className="rounded-full bg-white/10 px-3 py-1 text-sm text-white/70">
+                              {block.focus}
+                            </span>
+                          </div>
+
+                          <ul className="mt-3 space-y-3 text-white/80">
+                            {block.actions?.map((action, idx) => (
+                              <li key={idx}>• {action}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="rounded-3xl border border-pink-400/30 bg-pink-400/10 p-5">
+                    <h3 className="text-xl font-semibold text-white">
+                      🔥 Final Confidence Advice
+                    </h3>
+                    <p className="mt-3 leading-8 text-white/80">
+                      {aiReport.confidenceAdvice}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
 
           <div className="flex flex-col gap-3 sm:flex-row">
             <button
@@ -1246,6 +1631,12 @@ export default function AssessmentPage() {
               setAnswers({});
               setEmail("");
               setResultsUnlocked(false);
+              setShareMessage("");
+              setAiReport(null);
+              setAiError("");
+              setShowAiModal(false);
+              setPaidSessionId(null);
+              setPostPaymentMessage("");
               localStorage.removeItem("stylescore_answers");
               localStorage.removeItem("stylescore_email");
               localStorage.removeItem("stylescore_onboarding");
