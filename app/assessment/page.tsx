@@ -1,7 +1,6 @@
 "use client";
-
+import { downloadAIReportPDF } from "../lib/pdf";
 import { useEffect, useMemo, useState } from "react";
-import { jsPDF } from "jspdf";
 import {
   RadarChart,
   PolarGrid,
@@ -360,7 +359,10 @@ function buildPersonalizedRecommendations(
       if (has("q15", "uneven or overdue")) {
         tips.push("Small maintenance matters here — sharper grooming creates an immediate lift.");
       }
-      if (has("q16", "reactive, not planned") || has("q16", "not something I prioritize")) {
+      if (
+        has("q16", "reactive, not planned") ||
+        has("q16", "not something I prioritize")
+      ) {
         tips.push("Make presentation automatic instead of last-minute. Simple systems work better than motivation.");
       }
       if (tips.length === 0) {
@@ -389,13 +391,19 @@ function buildPersonalizedRecommendations(
     }
 
     if (area === "wardrobe") {
-      if (has("q5", "a mix of random items") || has("q5", "whatever I happened to buy")) {
+      if (
+        has("q5", "a mix of random items") ||
+        has("q5", "whatever I happened to buy")
+      ) {
         tips.push("You need more coherence, not more pieces. Build around versatile basics first.");
       }
       if (has("q6", "most of my wardrobe is hard to combine")) {
         tips.push("Stop thinking item by item. Build outfits that can share the same core pieces.");
       }
-      if (has("q7", "whatever catches my eye") || has("q7", "whatever is on sale")) {
+      if (
+        has("q7", "whatever catches my eye") ||
+        has("q7", "whatever is on sale")
+      ) {
         tips.push("Buy fewer, better-aligned pieces that fit your actual style direction.");
       }
       if (tips.length === 0) {
@@ -405,13 +413,19 @@ function buildPersonalizedRecommendations(
     }
 
     if (area === "color") {
-      if (has("q8", "mixed without much planning") || has("q8", "just whatever is available")) {
+      if (
+        has("q8", "mixed without much planning") ||
+        has("q8", "just whatever is available")
+      ) {
         tips.push("Move toward a more intentional base palette — neutrals make everything easier.");
       }
       if (has("q9", "I don’t really check")) {
         tips.push("A 10-second coordination check before leaving will improve consistency immediately.");
       }
-      if (has("q10", "inconsistent from piece to piece") || has("q10", "too plain or too random")) {
+      if (
+        has("q10", "inconsistent from piece to piece") ||
+        has("q10", "too plain or too random")
+      ) {
         tips.push("You do not need louder outfits — you need cleaner, more deliberate coordination.");
       }
       if (tips.length === 0) {
@@ -484,7 +498,10 @@ function buildRecommendedNeeds(
     }
 
     if (area === "wardrobe") {
-      if (has("q5", "a mix of random items") || has("q5", "whatever I happened to buy")) {
+      if (
+        has("q5", "a mix of random items") ||
+        has("q5", "whatever I happened to buy")
+      ) {
         items.push("neutral wardrobe basics");
       }
       if (has("q6", "most of my wardrobe is hard to combine")) {
@@ -497,7 +514,10 @@ function buildRecommendedNeeds(
     }
 
     if (area === "color") {
-      if (has("q8", "just whatever is available") || has("q8", "mixed without much planning")) {
+      if (
+        has("q8", "just whatever is available") ||
+        has("q8", "mixed without much planning")
+      ) {
         items.push("navy, white, grey, and black basics");
       }
       if (has("q10", "too plain or too random")) {
@@ -681,8 +701,7 @@ export default function AssessmentPage() {
     }
 
     if (stripeStatus || sessionId) {
-      const cleanUrl = window.location.pathname;
-      window.history.replaceState({}, "", cleanUrl);
+      window.history.replaceState({}, "", window.location.pathname);
     }
   }, []);
 
@@ -777,9 +796,10 @@ export default function AssessmentPage() {
   const selectedAnswers = answers[currentQuestion.id] || [];
   const canProceed = selectedAnswers.length > 0;
 
-  const progress = useMemo(() => {
-    return Math.round(((currentIndex + 1) / questions.length) * 100);
-  }, [currentIndex]);
+  const progress = useMemo(
+    () => Math.round(((currentIndex + 1) / questions.length) * 100),
+    [currentIndex]
+  );
 
   function toggleOption(questionId: string, option: string) {
     setAnswers((prev) => {
@@ -800,7 +820,6 @@ export default function AssessmentPage() {
 
   function nextQuestion() {
     if (!canProceed) return;
-
     if (currentIndex < questions.length - 1) {
       setCurrentIndex((prev) => prev + 1);
     } else {
@@ -878,9 +897,7 @@ export default function AssessmentPage() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          email,
-        }),
+        body: JSON.stringify({ email }),
       });
 
       const data = await response.json();
@@ -896,105 +913,6 @@ export default function AssessmentPage() {
     } finally {
       setLoadingCheckout(false);
     }
-  }
-
-  function downloadAIReportPDF() {
-    if (!aiReport) return;
-
-    const doc = new jsPDF({
-      unit: "pt",
-      format: "a4",
-    });
-
-    const pageWidth = doc.internal.pageSize.getWidth();
-    const margin = 40;
-    const maxWidth = pageWidth - margin * 2;
-    let y = 50;
-
-    const addSectionTitle = (title: string) => {
-      if (y > 760) {
-        doc.addPage();
-        y = 50;
-      }
-      doc.setFont("helvetica", "bold");
-      doc.setFontSize(16);
-      doc.text(title, margin, y);
-      y += 22;
-    };
-
-    const addBody = (text: string) => {
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(11);
-      const lines = doc.splitTextToSize(text, maxWidth);
-      lines.forEach((line: string) => {
-        if (y > 780) {
-          doc.addPage();
-          y = 50;
-        }
-        doc.text(line, margin, y);
-        y += 16;
-      });
-      y += 10;
-    };
-
-    const addBullets = (items: string[]) => {
-      doc.setFont("helvetica", "normal");
-      doc.setFontSize(11);
-      items.forEach((item) => {
-        const lines = doc.splitTextToSize(`• ${item}`, maxWidth);
-        lines.forEach((line: string) => {
-          if (y > 780) {
-            doc.addPage();
-            y = 50;
-          }
-          doc.text(line, margin, y);
-          y += 16;
-        });
-      });
-      y += 10;
-    };
-
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(22);
-    doc.text(aiReport.title || "Your 30-Day Style Upgrade Plan", margin, y);
-    y += 26;
-
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(12);
-    addBody(aiReport.subtitle || "");
-
-    addSectionTitle("Style Snapshot");
-    addBody(aiReport.snapshot);
-
-    addSectionTitle("What You Already Do Well");
-    addBullets(aiReport.strengths || []);
-
-    addSectionTitle("What Is Holding You Back");
-    addBullets(aiReport.opportunities || []);
-
-    addSectionTitle("Your Top 3 Priorities");
-    addBullets(aiReport.topPriorities || []);
-
-    addSectionTitle("What To Buy Next");
-    addBullets(aiReport.buyNext || []);
-
-    addSectionTitle("Best Places To Shop");
-    (aiReport.bestPlacesToShop || []).forEach((item) => {
-      addBody(`${item.challenge} — Shop for: ${item.whatToShop}`);
-      addBody(`Where to buy: ${(item.whereToBuy || []).join(", ")}`);
-      addBody(item.reason || "");
-    });
-
-    addSectionTitle("30-Day Style Upgrade Plan");
-    (aiReport.plan30Days || []).forEach((block) => {
-      addBody(`${block.days} — ${block.focus}`);
-      addBullets(block.actions || []);
-    });
-
-    addSectionTitle("Final Confidence Advice");
-    addBody(aiReport.confidenceAdvice || "");
-
-    doc.save("stylescore-30-day-style-upgrade-plan.pdf");
   }
 
   async function shareScore() {
@@ -1461,7 +1379,15 @@ export default function AssessmentPage() {
 
                   <div className="flex gap-3">
                     <button
-                      onClick={downloadAIReportPDF}
+                      onClick={() =>
+                   aiReport &&
+                 downloadAIReportPDF({
+                  aiReport,
+                  result,
+                categoryLabels,
+               getStyleArchetype,
+                  })
+                  }
                       className="rounded-2xl bg-white px-4 py-2 text-sm font-medium text-black transition hover:bg-white/90"
                     >
                       Download PDF
