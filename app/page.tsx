@@ -18,12 +18,13 @@ export default function HomePage() {
       <BackgroundGlow />
 
       <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-6 py-8 lg:px-10">
-        <header className="flex items-center justify-between">
-          <div>
-           <p className="text-lg font-bold uppercase tracking-[0.28em] text-white/60 sm:text-xl">
-  StyleScore for Men
-</p>
-          </div>
+        <header className="flex items-center justify-between py-2">
+          <a
+            href="/"
+            className="text-lg font-bold uppercase tracking-[0.28em] text-white/60 sm:text-xl"
+          >
+            StyleScore for Men
+          </a>
 
           <a
             href="/onboarding"
@@ -68,6 +69,13 @@ export default function HomePage() {
                   className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-7 py-4 text-base font-medium text-white transition hover:bg-white/10"
                 >
                   See How It Works
+                </a>
+
+                <a
+                  href="/blog"
+                  className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-7 py-4 text-base font-medium text-white transition hover:bg-white/10"
+                >
+                  Blog
                 </a>
               </div>
 
@@ -116,6 +124,75 @@ export default function HomePage() {
               title="Upgrade the right way"
               text="Receive specific improvements, recommended needs, and direct shopping searches for the pieces that matter most."
             />
+          </div>
+        </section>
+
+        <section className="pb-20 pt-4">
+          <div className="mb-8 flex items-end justify-between gap-6">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/45">
+                From the blog
+              </p>
+              <h2
+                className={`mt-4 text-3xl tracking-tight text-white sm:text-4xl ${displayFont.className}`}
+              >
+                Style advice that actually improves how you look
+              </h2>
+            </div>
+
+            <a
+              href="/blog"
+              className="hidden rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white transition hover:bg-white/10 sm:inline-flex"
+            >
+              View all articles
+            </a>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            <a
+              href="/blog/mens-style-test"
+              className="rounded-[1.6rem] border border-white/10 bg-white/5 p-5 backdrop-blur-xl transition hover:bg-white/10"
+            >
+              <h3 className="text-lg font-semibold text-white">
+                Take the Ultimate Men&apos;s Style Test
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-white/60">
+                Discover your score and what to improve first.
+              </p>
+            </a>
+
+            <a
+              href="/blog/style-mistakes-men"
+              className="rounded-[1.6rem] border border-white/10 bg-white/5 p-5 backdrop-blur-xl transition hover:bg-white/10"
+            >
+              <h3 className="text-lg font-semibold text-white">
+                10 Style Mistakes Most Men Make
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-white/60">
+                The common mistakes that quietly ruin appearance.
+              </p>
+            </a>
+
+            <a
+              href="/blog/how-to-improve-style"
+              className="rounded-[1.6rem] border border-white/10 bg-white/5 p-5 backdrop-blur-xl transition hover:bg-white/10"
+            >
+              <h3 className="text-lg font-semibold text-white">
+                How to Improve Your Style in 30 Days
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-white/60">
+                A practical style upgrade roadmap.
+              </p>
+            </a>
+          </div>
+
+          <div className="mt-6 sm:hidden">
+            <a
+              href="/blog"
+              className="inline-flex rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white transition hover:bg-white/10"
+            >
+              View all articles
+            </a>
           </div>
         </section>
       </div>

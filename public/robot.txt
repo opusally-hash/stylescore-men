@@ -1,0 +1,1 @@
+User-agent: * Allow: / Sitemap: https://stylescore.live/sitemap.xml
