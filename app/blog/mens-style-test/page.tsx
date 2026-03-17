@@ -106,3 +106,32 @@ export default function Page() {
     </div>
   );
 }
+< div className="mt-12">
+<h2 className="text-2xl font-semibold mt-12 mb-4">
+  Frequently Asked Questions
+</h2>
+
+<div className="text-white/70 space-y-4">
+
+  <div>
+    <h3 className="font-semibold">Is this men's style test free?</h3>
+    <p>Yes, the StyleScore test is completely free and takes less than 2 minutes.</p>
+  </div>
+
+  <div>
+    <h3 className="font-semibold">How accurate is the StyleScore?</h3>
+    <p>The score is based on key style fundamentals like fit, grooming, and coordination, making it a practical and realistic assessment.</p>
+  </div>
+
+  <div>
+    <h3 className="font-semibold">Can I improve my style quickly?</h3>
+    <p>Yes. Most users see improvement by focusing on fit, shoes, and grooming first.</p>
+  </div>
+
+  <div>
+    <h3 className="font-semibold">Do I need expensive clothes to look stylish?</h3>
+    <p>No. Style is more about fit, color coordination, and consistency than price.</p>
+  </div>
+
+</div>
+</div>

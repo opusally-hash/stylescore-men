@@ -12,9 +12,15 @@ const bodyFont = Manrope({
 
 export const metadata = {
   title: "How to Improve Your Style in 30 Days | StyleScore",
+  
   description:
     "Learn how to improve your style in 30 days with simple upgrades in fit, shoes, grooming, and wardrobe basics.",
 };
+
+<p className="text-white/70 mb-6">
+  Want a personalized plan? Take the <a href="/onboarding" className="underline">StyleScore test</a> and get exact recommendations.
+</p>
+
 
 export default function Page() {
   return (
