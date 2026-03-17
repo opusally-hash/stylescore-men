@@ -3,7 +3,7 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 
 export const metadata: Metadata = {
-  verification:{google: "googleb85d8b3df40fdf93"},
+  verification:{google: "H0SH3hnxkTAqXoR5__j3y9Rc4xpRsFgZzuADypzwHuw"},
   title: "StyleScore for Men – Find Your Style Score Online",
   description:
     "Take the 2-minute StyleScore test to discover your fashion strengths, weak spots, and the exact upgrades that will improve your look fastest.",
