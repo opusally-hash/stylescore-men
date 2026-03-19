@@ -1,4 +1,5 @@
 "use client";
+
 import { downloadAIReportPDF } from "../lib/pdf";
 import { useEffect, useMemo, useState } from "react";
 import {
@@ -9,6 +10,25 @@ import {
   Radar as RechartsRadar,
 } from "recharts";
 import { calculateScore } from "../lib/scoring";
+
+declare global {
+  interface Window {
+    gtag?: (
+      command: "event",
+      eventName: string,
+      params?: Record<string, string | number | boolean | string[]>
+    ) => void;
+  }
+}
+
+function trackEvent(
+  eventName: string,
+  params?: Record<string, string | number | boolean | string[]>
+) {
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("event", eventName, params);
+  }
+}
 
 type Question = {
   id: string;
@@ -338,55 +358,85 @@ function buildPersonalizedRecommendations(
         tips.push("Start by cleaning or replacing the pair you use most often.");
       }
       if (has("q11", "old shoes longer than I should")) {
-        tips.push("Rotate out worn shoes faster — old footwear quietly lowers the whole outfit.");
+        tips.push(
+          "Rotate out worn shoes faster — old footwear quietly lowers the whole outfit."
+        );
       }
       if (has("q13", "only athletic or casual options")) {
-        tips.push("Add one non-athletic option like clean minimal sneakers, loafers, or smart-casual shoes.");
+        tips.push(
+          "Add one non-athletic option like clean minimal sneakers, loafers, or smart-casual shoes."
+        );
       }
       if (has("q13", "no real dress-up option")) {
-        tips.push("Get one reliable dress-better shoe before buying more casual pairs.");
+        tips.push(
+          "Get one reliable dress-better shoe before buying more casual pairs."
+        );
       }
       if (tips.length === 0) {
-        tips.push("Upgrade to one clean, versatile shoe that works across multiple outfits.");
-        tips.push("Make shoe upkeep a regular part of your weekly presentation routine.");
+        tips.push(
+          "Upgrade to one clean, versatile shoe that works across multiple outfits."
+        );
+        tips.push(
+          "Make shoe upkeep a regular part of your weekly presentation routine."
+        );
       }
     }
 
     if (area === "grooming") {
       if (has("q14", "almost nonexistent")) {
-        tips.push("Build a minimal grooming baseline: haircut rhythm, beard cleanup, deodorant, and daily hygiene.");
+        tips.push(
+          "Build a minimal grooming baseline: haircut rhythm, beard cleanup, deodorant, and daily hygiene."
+        );
       }
       if (has("q15", "uneven or overdue")) {
-        tips.push("Small maintenance matters here — sharper grooming creates an immediate lift.");
+        tips.push(
+          "Small maintenance matters here — sharper grooming creates an immediate lift."
+        );
       }
       if (
         has("q16", "reactive, not planned") ||
         has("q16", "not something I prioritize")
       ) {
-        tips.push("Make presentation automatic instead of last-minute. Simple systems work better than motivation.");
+        tips.push(
+          "Make presentation automatic instead of last-minute. Simple systems work better than motivation."
+        );
       }
       if (tips.length === 0) {
-        tips.push("Create a grooming routine that is consistent enough to become effortless.");
+        tips.push(
+          "Create a grooming routine that is consistent enough to become effortless."
+        );
         tips.push("The goal is not complexity — it is reliable sharpness.");
       }
     }
 
     if (area === "fit") {
       if (has("q1", "often feel tight in one area")) {
-        tips.push("Prioritize fit corrections before new style purchases — poor fit ruins the whole look.");
+        tips.push(
+          "Prioritize fit corrections before new style purchases — poor fit ruins the whole look."
+        );
       }
       if (has("q2", "are a bit long or bunch at the bottom")) {
-        tips.push("Fix trouser length first — better hems create instant visual polish.");
+        tips.push(
+          "Fix trouser length first — better hems create instant visual polish."
+        );
       }
       if (has("q2", "feel loose and shapeless")) {
-        tips.push("Move away from shapeless silhouettes and toward cleaner lines.");
+        tips.push(
+          "Move away from shapeless silhouettes and toward cleaner lines."
+        );
       }
       if (has("q4", "struggle to know what flatters me")) {
-        tips.push("Use fit as your first filter: shoulders, waist line, trouser break, and length.");
+        tips.push(
+          "Use fit as your first filter: shoulders, waist line, trouser break, and length."
+        );
       }
       if (tips.length === 0) {
-        tips.push("Sharper proportions will improve your style faster than buying trendier pieces.");
-        tips.push("Better fit usually makes even simple clothing look more expensive.");
+        tips.push(
+          "Sharper proportions will improve your style faster than buying trendier pieces."
+        );
+        tips.push(
+          "Better fit usually makes even simple clothing look more expensive."
+        );
       }
     }
 
@@ -395,19 +445,27 @@ function buildPersonalizedRecommendations(
         has("q5", "a mix of random items") ||
         has("q5", "whatever I happened to buy")
       ) {
-        tips.push("You need more coherence, not more pieces. Build around versatile basics first.");
+        tips.push(
+          "You need more coherence, not more pieces. Build around versatile basics first."
+        );
       }
       if (has("q6", "most of my wardrobe is hard to combine")) {
-        tips.push("Stop thinking item by item. Build outfits that can share the same core pieces.");
+        tips.push(
+          "Stop thinking item by item. Build outfits that can share the same core pieces."
+        );
       }
       if (
         has("q7", "whatever catches my eye") ||
         has("q7", "whatever is on sale")
       ) {
-        tips.push("Buy fewer, better-aligned pieces that fit your actual style direction.");
+        tips.push(
+          "Buy fewer, better-aligned pieces that fit your actual style direction."
+        );
       }
       if (tips.length === 0) {
-        tips.push("A stronger wardrobe comes from repeatable combinations, not volume.");
+        tips.push(
+          "A stronger wardrobe comes from repeatable combinations, not volume."
+        );
         tips.push("Your wardrobe should feel easier to use, not just bigger.");
       }
     }
@@ -417,36 +475,56 @@ function buildPersonalizedRecommendations(
         has("q8", "mixed without much planning") ||
         has("q8", "just whatever is available")
       ) {
-        tips.push("Move toward a more intentional base palette — neutrals make everything easier.");
+        tips.push(
+          "Move toward a more intentional base palette — neutrals make everything easier."
+        );
       }
       if (has("q9", "I don’t really check")) {
-        tips.push("A 10-second coordination check before leaving will improve consistency immediately.");
+        tips.push(
+          "A 10-second coordination check before leaving will improve consistency immediately."
+        );
       }
       if (
         has("q10", "inconsistent from piece to piece") ||
         has("q10", "too plain or too random")
       ) {
-        tips.push("You do not need louder outfits — you need cleaner, more deliberate coordination.");
+        tips.push(
+          "You do not need louder outfits — you need cleaner, more deliberate coordination."
+        );
       }
       if (tips.length === 0) {
-        tips.push("Color works best when it feels controlled rather than accidental.");
-        tips.push("Start by making your base colors more repeatable across outfits.");
+        tips.push(
+          "Color works best when it feels controlled rather than accidental."
+        );
+        tips.push(
+          "Start by making your base colors more repeatable across outfits."
+        );
       }
     }
 
     if (area === "occasion") {
       if (has("q17", "wear some version of what I always wear")) {
-        tips.push("Occasion dressing improves when you have a separate elevated lane, not just a casual default.");
+        tips.push(
+          "Occasion dressing improves when you have a separate elevated lane, not just a casual default."
+        );
       }
       if (has("q17", "underdress more than I should")) {
-        tips.push("Upgrade one level more than your current instinct for important settings.");
+        tips.push(
+          "Upgrade one level more than your current instinct for important settings."
+        );
       }
       if (has("q19", "trial and error") || has("q19", "luck")) {
-        tips.push("Build 1–2 reliable occasion outfits so you are not improvising when it matters.");
+        tips.push(
+          "Build 1–2 reliable occasion outfits so you are not improvising when it matters."
+        );
       }
       if (tips.length === 0) {
-        tips.push("Your occasion style improves fastest when you pre-build go-to looks instead of reacting in the moment.");
-        tips.push("Occasion dressing is more about preparation than owning more clothes.");
+        tips.push(
+          "Your occasion style improves fastest when you pre-build go-to looks instead of reacting in the moment."
+        );
+        tips.push(
+          "Occasion dressing is more about preparation than owning more clothes."
+        );
       }
     }
 
@@ -468,9 +546,12 @@ function buildRecommendedNeeds(
     const items: string[] = [];
 
     if (area === "shoes") {
-      if (has("q12", "visibly dirty or aging")) items.push("clean white minimalist sneakers");
-      if (has("q13", "only athletic or casual options")) items.push("one versatile smart-casual shoe");
-      if (has("q13", "no real dress-up option")) items.push("one polished dress-better shoe");
+      if (has("q12", "visibly dirty or aging"))
+        items.push("clean white minimalist sneakers");
+      if (has("q13", "only athletic or casual options"))
+        items.push("one versatile smart-casual shoe");
+      if (has("q13", "no real dress-up option"))
+        items.push("one polished dress-better shoe");
       if (items.length === 0) {
         items.push("clean everyday sneakers");
         items.push("one versatile going-out shoe");
@@ -478,9 +559,12 @@ function buildRecommendedNeeds(
     }
 
     if (area === "grooming") {
-      if (has("q14", "almost nonexistent")) items.push("basic grooming starter set");
-      if (has("q15", "uneven or overdue")) items.push("hair or beard maintenance tool");
-      if (has("q16", "not something I prioritize")) items.push("simple daily grooming essentials");
+      if (has("q14", "almost nonexistent"))
+        items.push("basic grooming starter set");
+      if (has("q15", "uneven or overdue"))
+        items.push("hair or beard maintenance tool");
+      if (has("q16", "not something I prioritize"))
+        items.push("simple daily grooming essentials");
       if (items.length === 0) {
         items.push("minimal skincare routine");
         items.push("reliable grooming essentials");
@@ -488,9 +572,12 @@ function buildRecommendedNeeds(
     }
 
     if (area === "fit") {
-      if (has("q2", "are a bit long or bunch at the bottom")) items.push("better-length trousers or hemming");
-      if (has("q2", "feel tight in the thigh or seat")) items.push("tapered stretch trousers");
-      if (has("q1", "often feel tight in one area")) items.push("better-fitting shirts with more room where needed");
+      if (has("q2", "are a bit long or bunch at the bottom"))
+        items.push("better-length trousers or hemming");
+      if (has("q2", "feel tight in the thigh or seat"))
+        items.push("tapered stretch trousers");
+      if (has("q1", "often feel tight in one area"))
+        items.push("better-fitting shirts with more room where needed");
       if (items.length === 0) {
         items.push("better-fitting chinos");
         items.push("cleaner-proportion tops");
@@ -743,6 +830,13 @@ export default function AssessmentPage() {
           return;
         }
 
+        trackEvent("purchase", {
+          transaction_id: paidSessionId,
+          value: 1,
+          currency: "USD",
+          item_name: "StyleScore Premium AI Style Blueprint",
+        });
+
         const archetype = getStyleArchetype(
           result.overall_score,
           result.category_scores
@@ -877,6 +971,12 @@ export default function AssessmentPage() {
       localStorage.setItem("stylescore_email", email);
       setEmailError("");
       setResultsUnlocked(true);
+
+      trackEvent("email_capture", {
+        method: "form",
+        score: result.overall_score,
+        archetype: archetype.title,
+      });
     } catch {
       setEmailError("Could not save your email. Please try again.");
     }
@@ -891,6 +991,12 @@ export default function AssessmentPage() {
 
       setLoadingCheckout(true);
       setAiError("");
+
+      trackEvent("begin_checkout", {
+        currency: "USD",
+        value: 1,
+        item_name: "StyleScore Premium AI Style Blueprint",
+      });
 
       const response = await fetch("/api/create-checkout-session", {
         method: "POST",
@@ -1079,11 +1185,16 @@ export default function AssessmentPage() {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
-                    <span>The top 3 upgrades that will improve your appearance fastest</span>
+                    <span>
+                      The top 3 upgrades that will improve your appearance
+                      fastest
+                    </span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
-                    <span>Personalized recommendations and starter product searches</span>
+                    <span>
+                      Personalized recommendations and starter product searches
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -1351,7 +1462,8 @@ export default function AssessmentPage() {
                 </button>
 
                 <p className="mt-3 text-center text-sm text-white/45">
-                  Normally $9.49 • Instant report • One-time payment • No subscription
+                  Normally $9.49 • Instant report • One-time payment • No
+                  subscription
                 </p>
 
                 {aiError && (
@@ -1380,14 +1492,14 @@ export default function AssessmentPage() {
                   <div className="flex gap-3">
                     <button
                       onClick={() =>
-                   aiReport &&
-                 downloadAIReportPDF({
-                  aiReport,
-                  result,
-                categoryLabels,
-               getStyleArchetype,
-                  })
-                  }
+                        aiReport &&
+                        downloadAIReportPDF({
+                          aiReport,
+                          result,
+                          categoryLabels,
+                          getStyleArchetype,
+                        })
+                      }
                       className="rounded-2xl bg-white px-4 py-2 text-sm font-medium text-black transition hover:bg-white/90"
                     >
                       Download PDF
