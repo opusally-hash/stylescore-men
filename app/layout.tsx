@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next"
+import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  verification:{google: "H0SH3hnxkTAqXoR5__j3y9Rc4xpRsFgZzuADypzwHuw"},
+  verification: { google: "H0SH3hnxkTAqXoR5__j3y9Rc4xpRsFgZzuADypzwHuw" },
   title: "StyleScore for Men – Find Your Style Score Online",
   description:
     "Take the 2-minute StyleScore test to discover your fashion strengths, weak spots, and the exact upgrades that will improve your look fastest.",
@@ -41,6 +42,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-K6WM7Q9F5M"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-K6WM7Q9F5M');
+          `}
+        </Script>
+      </body>
     </html>
-  )}
+  );
+}
