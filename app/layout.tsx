@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  verification:{google: "H0SH3hnxkTAqXoR5__j3y9Rc4xpRsFgZzuADypzwHuw"},
+  verification: {
+    google: "H0SH3hnxkTAqXoR5__j3y9Rc4xpRsFgZzuADypzwHuw",
+  },
   title: "StyleScore for Men – Find Your Style Score Online",
   description:
     "Take the 2-minute StyleScore test to discover your fashion strengths, weak spots, and the exact upgrades that will improve your look fastest.",
@@ -42,6 +45,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>{children}</body>
+
+      <Analytics />
+
+      {process.env.NEXT_PUBLIC_GA_ID ? (
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+      ) : null}
     </html>
   );
 }
