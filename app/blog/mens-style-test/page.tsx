@@ -11,9 +11,9 @@ const bodyFont = Manrope({
 });
 
 export const metadata = {
-  title: "Take the Ultimate Men's Style Test (Free) | StyleScore",
+  title: "Men's Style Quiz: Find Your Style Score Online | StyleScore",
   description:
-    "Take a free men's style test and discover your StyleScore across fit, wardrobe, shoes, grooming, and occasion dressing.",
+    "Take a free men's style quiz and discover your style score across fit, wardrobe, shoes, grooming, and occasion dressing.",
 };
 
 export default function Page() {
@@ -31,7 +31,7 @@ export default function Page() {
           ← Back to Blog
         </a>
 
-        <div className="mt-10">
+        <article className="mt-10">
           <p className="text-sm font-semibold uppercase tracking-[0.32em] text-white/45">
             StyleScore Blog
           </p>
@@ -39,230 +39,184 @@ export default function Page() {
           <h1
             className={`mt-5 max-w-3xl text-4xl leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl ${displayFont.className}`}
           >
-            Take the Ultimate Men&apos;s Style Test (Free)
+            Men&apos;s Style Quiz: Find Your Style Score Online
           </h1>
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/70">
-            Most men think they dress well — until they actually measure it.
-            The truth is, style is not about expensive clothes or chasing every
-            trend. It is about fit, coordination, grooming, shoes, and
-            consistency. A man wearing simple clothes that fit well will almost
-            always look better than someone wearing expensive but poorly fitted
-            outfits.
+            Most men do not actually know how strong their style is. They may
+            feel decent in what they wear, but that is very different from
+            knowing whether their fit, shoes, grooming, and wardrobe choices are
+            really working together. That is why a men&apos;s style quiz is so
+            useful. It turns style from a vague feeling into something more
+            measurable.
           </p>
 
           <p className="mt-4 max-w-3xl leading-8 text-white/70">
-            If you’ve ever wondered why some men look sharp effortlessly while
-            others struggle, the answer usually lies in understanding their
-            current style level. That is exactly what this men&apos;s style test
-            helps you do — it gives you a measurable score and shows you what to
-            fix first.
+            A good style quiz does not just flatter you. It shows where your
+            appearance is strong, where it is average, and where you are
+            quietly losing points. That clarity is powerful because most men do
+            not need more fashion information. They need a better diagnosis.
           </p>
-        </div>
 
-        <div className="mt-10 rounded-[1.75rem] border border-orange-400/20 bg-orange-400/10 p-6 backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.25)]">
-          <h2 className="text-2xl font-semibold text-white">
-            Get Your StyleScore in 2 Minutes
-          </h2>
-          <p className="mt-3 max-w-2xl leading-7 text-white/70">
-            Find out how strong your style really is across fit, wardrobe,
-            shoes, grooming, color coordination, and occasion dressing.
-          </p>
-          <a
-            href="/onboarding"
-            className="premium-glow mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_24px_rgba(251,146,60,0.4)]"
-          >
-            Take the Style Test →
-          </a>
-        </div>
-
-        <article className="mt-12 space-y-10">
-          <Section
-            title="What is a men’s style test?"
-            text={[
-              "A men’s style test is a structured way to evaluate how well you dress across the areas that matter most. Instead of relying on guesses, compliments, or vague fashion advice, it measures your style using real fundamentals such as fit, grooming, footwear, coordination, and overall presentation.",
-              "Most men do not actually need more clothes. They need better clarity. A style test helps you understand whether your appearance is being lifted or hurt by the small choices you make every day. That is what makes it useful. It turns style from something abstract into something measurable and actionable.",
-            ]}
-          />
-
-          <Section
-            title="Why most men get style wrong"
-            text={[
-              "Most men struggle with style because they focus on the wrong thing. They think style means buying more clothes, following trends, or spending more money. In reality, style is usually won or lost in a few core areas: how your clothes fit, how clean your shoes look, how sharp your grooming is, and how intentional your outfits feel.",
-              "Another big reason men misjudge their own style is familiarity. When you wear the same kinds of outfits every week, you stop noticing what is not working. Loose shirts start to feel normal. Worn-out sneakers stop standing out. Weak grooming feels acceptable because it has become routine.",
-            ]}
-          />
-
-          <ListSection
-            title="The most common mistakes men make"
-            items={[
-              "They focus only on clothes and ignore grooming",
-              "They wear poor-fitting outfits that ruin their shape",
-              "They ignore shoes even though people notice them quickly",
-              "They have no system for color coordination",
-              "They dress randomly without consistency",
-            ]}
-          />
-
-          <Section
-            title="What your StyleScore measures"
-            text={[
-              "Your StyleScore is built around the categories that define how well you present yourself. This is not just a surface-level personality quiz. It is a practical style assessment that looks at the most visible parts of your appearance.",
-              "A weak score in even one area can drag your full look down. That is why the breakdown matters more than the ego boost. The real value is knowing what needs attention first.",
-            ]}
-          />
-
-          <ListSection
-            title="Core categories in the StyleScore"
-            items={[
-              "Fit & Proportion — do your clothes actually suit your body?",
-              "Clothing Selection — are your outfits clean, balanced, and intentional?",
-              "Shoes — are you wearing the right footwear for the situation?",
-              "Grooming — hair, beard, skin, and overall polish",
-              "Fragrance — the finishing detail many men ignore",
-            ]}
-          />
-
-          <Section
-            title="What is a good style score?"
-            text={[
-              "A score above 80 usually indicates strong style awareness and consistency. These are men who understand fit, grooming, and presentation well. A score between 60 and 80 means you are doing okay, but there are clear improvements available. Most men fall into this range.",
-              "A score below 60 suggests that there are major gaps — usually in fit, grooming, shoes, or coordination. The good news is that this is also the range where improvement is often fastest and most visible. When the basics are weak, even a few smart upgrades can create a big transformation.",
-            ]}
-          />
-
-          <Section
-            title="How to improve your style fast"
-            text={[
-              "Improving your style does not require rebuilding your entire wardrobe in one weekend. In fact, the fastest results usually come from fixing a few high-impact things. Start where people notice first: fit, shoes, and grooming.",
-              "Before making random purchases, take the ",
-            ]}
-          />
-
-          <p className="leading-8 text-white/70">
-            Before making random purchases, take the{" "}
+          <div className="mt-10 rounded-[1.75rem] border border-orange-400/20 bg-orange-400/10 p-6 backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.25)]">
+            <h2 className="text-2xl font-semibold text-white">
+              Take the free StyleScore quiz
+            </h2>
+            <p className="mt-3 max-w-2xl leading-7 text-white/75">
+              Get your score across fit, wardrobe, shoes, grooming, color
+              coordination, and occasion styling in just a couple of minutes.
+            </p>
             <a
               href="/onboarding"
-              className="underline decoration-orange-300 underline-offset-4 text-orange-300"
+              className="premium-glow mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_24px_rgba(251,146,60,0.4)]"
             >
-              StyleScore assessment
-            </a>{" "}
-            and get exact recommendations based on your current weak spots.
-          </p>
-
-          <ListSection
-            title="The fastest upgrades most men can make"
-            items={[
-              "Wear better-fitting clothes — this is the biggest visual upgrade",
-              "Upgrade your shoes — clean white sneakers or simple leather shoes go a long way",
-              "Fix your grooming routine — haircut, beard line, skincare, nails",
-              "Stick to neutral colors like black, white, navy, grey, and olive",
-              "Dress more intentionally for the occasion instead of wearing the same thing everywhere",
-            ]}
-          />
-
-          <p className="leading-8 text-white/70">
-            If you want a structured next step after this article, read{" "}
-            <a
-              href="/blog/how-to-improve-style"
-              className="underline decoration-orange-300 underline-offset-4 text-orange-300"
-            >
-              how to improve your style in 30 days
-            </a>{" "}
-            for a more step-by-step upgrade plan.
-          </p>
-
-          <Section
-            title="Why StyleScore is different"
-            text={[
-              "Most style advice online is vague. It tells everyone to dress better, groom more, or buy basics, but it rarely tells you what is actually wrong with your own presentation. StyleScore is different because it gives you a score, a breakdown, and a direction.",
-              "Instead of guessing what to fix, you get a clearer view of where you are already strong and where your appearance is being held back. That makes improvement faster, cheaper, and much more practical.",
-            ]}
-          />
-
-          <ListSection
-            title="What makes the StyleScore useful"
-            items={[
-              "A clear score out of 100",
-              "Category-wise breakdown instead of one vague result",
-              "Focus on what to improve first",
-              "A practical path instead of generic fashion clichés",
-            ]}
-          />
-
-          <Section
-            title="Final takeaway"
-            text={[
-              "A men’s style test matters because style is much easier to improve once it becomes measurable. The moment you understand where you stand, you stop guessing. You start making better decisions.",
-              "You do not need to become a fashion expert. You just need to know what is helping you, what is hurting you, and what to fix next. That is what StyleScore is designed to do.",
-            ]}
-          />
-
-          <div className="mt-12">
-            <h2 className="mb-4 text-2xl font-semibold">
-              Frequently Asked Questions
-            </h2>
-
-            <div className="space-y-5 text-white/70">
-              <div>
-                <h3 className="font-semibold text-white">
-                  Is this men&apos;s style test free?
-                </h3>
-                <p className="mt-1 leading-7">
-                  Yes. The StyleScore test is free and takes only a couple of
-                  minutes to complete.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-semibold text-white">
-                  How accurate is the StyleScore?
-                </h3>
-                <p className="mt-1 leading-7">
-                  The score is based on key style fundamentals like fit,
-                  grooming, shoes, and coordination, so it is designed to be
-                  practical rather than random.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-semibold text-white">
-                  Can I improve my style quickly?
-                </h3>
-                <p className="mt-1 leading-7">
-                  Yes. Most men see the fastest improvements by focusing on fit,
-                  shoes, and grooming first.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="font-semibold text-white">
-                  Do I need expensive clothes to look stylish?
-                </h3>
-                <p className="mt-1 leading-7">
-                  No. Style is more about fit, coordination, and consistency
-                  than price.
-                </p>
-              </div>
-            </div>
+              Start the Style Quiz
+            </a>
           </div>
-        </article>
 
-        <div className="mt-14 rounded-[1.75rem] border border-orange-400/20 bg-orange-400/10 p-6 text-center">
-          <h2 className="text-2xl font-semibold text-white">
-            Find Your StyleScore Now
-          </h2>
-          <p className="mx-auto mt-3 max-w-2xl leading-7 text-white/75">
-            Get a clear score, understand your weaknesses, and start improving
-            with direction.
-          </p>
-          <a
-            href="/onboarding"
-            className="premium-glow mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_24px_rgba(251,146,60,0.4)]"
-          >
-            Start Free Test →
-          </a>
-        </div>
+          <section className="mt-12 space-y-10">
+            <Section
+              title="What is a men’s style quiz?"
+              paragraphs={[
+                "A men’s style quiz is a structured way to evaluate how well you dress across the areas that matter most. Instead of relying on random feedback, compliments, or your own assumptions, a good quiz looks at practical style fundamentals. These usually include how your clothes fit, whether your shoes support the rest of your outfit, how intentional your grooming is, and whether your overall presentation feels coordinated.",
+                "That matters because most men do not have a single massive problem. They have several smaller weak areas that add up. One man may have good clothes but weak shoes. Another may look fine casually but dress poorly for occasions. Someone else may have decent wardrobe basics but poor grooming consistency. A style quiz helps identify those weaker categories clearly.",
+              ]}
+            />
+
+            <Section
+              title="Why most men misjudge their style"
+              paragraphs={[
+                "Most men judge style from inside their habits. If you wear the same kinds of outfits every week, you stop noticing what is not working. Loose shirts start feeling normal. Worn sneakers stop standing out. A weak haircut routine becomes invisible because it is familiar.",
+                "Another reason is that men often reduce style to clothes only. In reality, appearance is built from multiple categories working together. Clothes, shoes, grooming, fit, and occasion awareness all combine to create the final impression. When one of those pieces is weak, the full look drops.",
+              ]}
+            />
+
+            <ListSection
+              title="The most common reasons men score lower than they expect"
+              items={[
+                "Clothes fit poorly even if the pieces are decent",
+                "Shoes are too sporty, too worn, or mismatched",
+                "Grooming is inconsistent",
+                "Wardrobe feels random instead of cohesive",
+                "Color combinations are safe but unintentional",
+                "There is no separate plan for dressing better on important occasions",
+              ]}
+            />
+
+            <Section
+              title="What a good style score should measure"
+              paragraphs={[
+                "A good men’s style quiz should not care about how trendy you are. It should care about whether your appearance looks deliberate, clean, and well put together. That is why StyleScore focuses on categories that actually change how a man looks in real life.",
+                "The first is fit and proportion. This is almost always the biggest factor. If your clothes fit your shoulders, chest, waist, and legs properly, everything looks better. Then comes wardrobe foundation, which is about whether your clothes work together easily. Shoes matter because they are more visible than most men realize. Grooming matters because it multiplies the effect of everything else. Color coordination and occasion dressing show whether your style feels random or intentional.",
+              ]}
+            />
+
+            <ListSection
+              title="Core areas inside the quiz"
+              items={[
+                "Fit & Proportion",
+                "Wardrobe Foundations",
+                "Color Coordination",
+                "Shoes & Footwear",
+                "Grooming",
+                "Occasion Styling",
+              ]}
+            />
+
+            <Section
+              title="What is a good style score?"
+              paragraphs={[
+                "A good style score is not about perfection. It is about whether your appearance feels balanced and intentional. In practical terms, a score above 80 usually suggests strong style awareness. That means you have a good handle on fit, shoes, grooming, and presentation.",
+                "A score between 60 and 80 means you are doing fine, but there are visible areas to improve. This is where many men fall. The good news is that this range responds quickly to smart upgrades. A score below 60 often means one or two basics are dragging the full look down, but it also means improvement can be fast and obvious.",
+              ]}
+            />
+
+            <Section
+              title="Why style quizzes are useful even if you already care about fashion"
+              paragraphs={[
+                "Some men assume a style quiz is only for beginners. That is not true. Even men who already care about fashion can have blind spots. You may know brands, silhouettes, and trends, but still be weak in shoes or grooming. Or you may dress well in one context and underperform in another.",
+                "A style quiz is useful because it creates structure. It forces you to look at your style category by category instead of relying on your general feeling. That makes it easier to see what is already working and what deserves attention first.",
+              ]}
+            />
+
+            <Section
+              title="How to use your quiz result properly"
+              paragraphs={[
+                "The biggest mistake after taking a men’s style quiz is trying to fix everything at once. Do not do that. The smarter move is to focus on the weakest one or two categories first. That is where your style score is being dragged down most.",
+                "For example, if your weakest area is shoes, buying more shirts will not solve the main issue. If your grooming is weak, better trousers will only help so much. If your fit is off, even good wardrobe pieces will still underperform. The best improvement path is targeted, not random.",
+              ]}
+            />
+
+            <ListSection
+              title="The smartest way to improve after taking the quiz"
+              items={[
+                "Fix the weakest category first",
+                "Prioritize fit before trendiness",
+                "Upgrade shoes before expanding wardrobe",
+                "Create a simple grooming routine you can maintain",
+                "Build a small set of reliable outfits instead of buying randomly",
+              ]}
+            />
+
+            <Section
+              title="Why StyleScore is different from generic quizzes"
+              paragraphs={[
+                "Many online style quizzes are entertainment-only. They tell you that you are classic, casual, edgy, or minimal and leave it there. That can be fun, but it does not tell you what to fix. StyleScore is more useful because it is diagnostic.",
+                "Instead of giving you a vague identity label, it shows where you are strong and where you are weak. It gives you a score, a breakdown, and a direction. That makes it much easier to improve. You are not just learning who you are. You are learning what to do next.",
+              ]}
+            />
+
+            <p className="leading-8 text-white/70">
+              If you want a more detailed improvement path after taking the quiz,
+              read{" "}
+              <a
+                href="/blog/how-to-improve-style"
+                className="underline decoration-orange-300 underline-offset-4 text-orange-300"
+              >
+                how to improve your style in 30 days
+              </a>
+              .
+            </p>
+
+            <p className="leading-8 text-white/70">
+              And if you want a broader breakdown of how your current style
+              stacks up, check our{" "}
+              <a
+                href="/blog/mens-style-test"
+                className="underline decoration-orange-300 underline-offset-4 text-orange-300"
+              >
+                free men’s style test
+              </a>{" "}
+              as well.
+            </p>
+
+            <Section
+              title="Final takeaway"
+              paragraphs={[
+                "A men’s style quiz is valuable because it turns style into something measurable. Once you know your score, your strong categories, and your weak points, you stop guessing. And when you stop guessing, your style improves faster.",
+                "You do not need a perfect wardrobe to look better. You need better fit, sharper shoes, cleaner grooming, and more intentional choices. A good quiz helps you see exactly where to begin.",
+              ]}
+            />
+
+            <FaqSection />
+
+            <div className="rounded-[1.75rem] border border-orange-400/20 bg-orange-400/10 p-6 text-center">
+              <h2 className="text-2xl font-semibold text-white">
+                Ready to see your style score?
+              </h2>
+              <p className="mx-auto mt-3 max-w-2xl leading-7 text-white/75">
+                Take the free quiz and find out what is helping your appearance
+                and what is holding it back.
+              </p>
+              <a
+                href="/onboarding"
+                className="premium-glow mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_24px_rgba(251,146,60,0.4)]"
+              >
+                Take the Quiz Now
+              </a>
+            </div>
+          </section>
+        </article>
       </div>
     </main>
   );
@@ -270,18 +224,18 @@ export default function Page() {
 
 function Section({
   title,
-  text,
+  paragraphs,
 }: {
   title: string;
-  text: string[];
+  paragraphs: string[];
 }) {
   return (
     <section>
       <h2 className="text-2xl font-semibold text-white">{title}</h2>
       <div className="mt-4 space-y-4">
-        {text.map((p, i) => (
-          <p key={i} className="leading-8 text-white/70">
-            {p}
+        {paragraphs.map((paragraph, index) => (
+          <p key={index} className="leading-8 text-white/70">
+            {paragraph}
           </p>
         ))}
       </div>
@@ -300,10 +254,50 @@ function ListSection({
     <section>
       <h2 className="text-2xl font-semibold text-white">{title}</h2>
       <ul className="mt-5 list-disc space-y-3 pl-6 text-white/75">
-        {items.map((item, i) => (
-          <li key={i}>{item}</li>
+        {items.map((item, index) => (
+          <li key={index}>{item}</li>
         ))}
       </ul>
+    </section>
+  );
+}
+
+function FaqSection() {
+  const faqs = [
+    {
+      q: "Is this men’s style quiz free?",
+      a: "Yes. The StyleScore quiz is free and takes only a couple of minutes.",
+    },
+    {
+      q: "What does the quiz actually measure?",
+      a: "It measures practical style categories like fit, wardrobe, shoes, grooming, color coordination, and occasion dressing.",
+    },
+    {
+      q: "Do I need expensive clothes to get a high score?",
+      a: "No. Strong style usually comes more from fit, grooming, shoes, and consistency than from price.",
+    },
+    {
+      q: "Can I improve my score quickly?",
+      a: "Yes. Most men can improve their score fairly quickly by fixing fit, upgrading shoes, and improving grooming first.",
+    },
+  ];
+
+  return (
+    <section>
+      <h2 className="text-2xl font-semibold text-white">
+        Frequently Asked Questions
+      </h2>
+      <div className="mt-5 space-y-5">
+        {faqs.map((faq, index) => (
+          <div
+            key={index}
+            className="rounded-2xl border border-white/10 bg-white/5 p-5"
+          >
+            <h3 className="font-semibold text-white">{faq.q}</h3>
+            <p className="mt-2 leading-7 text-white/70">{faq.a}</p>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
@@ -319,3 +313,5 @@ function BackgroundGlow() {
     </div>
   );
 }
+
+ 
