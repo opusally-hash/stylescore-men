@@ -41,6 +41,16 @@ export default function Page() {
           >
             Men&apos;s Style Quiz: Find Your Style Score Online
           </h1>
+           <p className="text-white/70 mt-4">
+  Want to know how you actually score in style? 
+</p>
+
+<a
+  href="/onboarding"
+  className="inline-block mt-4 bg-orange-400 text-black px-5 py-3 rounded-xl font-semibold"
+>
+  Take the Free StyleScore →
+</a>
 
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/70">
             Most men do not actually know how strong their style is. They may
@@ -315,3 +325,33 @@ function BackgroundGlow() {
 }
 
  
+<section className="mt-16">
+  <h2 className="text-2xl font-semibold mb-6">
+    Frequently Asked Questions
+  </h2>
+
+  <div className="space-y-6 text-white/70">
+
+    <div>
+      <h3 className="font-semibold">Is this men's style test free?</h3>
+      <p>Yes, the StyleScore test is completely free and takes less than 2 minutes.</p>
+    </div>
+
+    <div>
+      <h3 className="font-semibold">How accurate is the StyleScore?</h3>
+      <p>The score is based on key style fundamentals like fit, grooming, and coordination, making it a practical and realistic assessment.</p>
+    </div>
+
+    <div>
+      <h3 className="font-semibold">Can I improve my style quickly?</h3>
+      <p>Yes. Most users see noticeable improvement by focusing on fit, shoes, and grooming first.</p>
+    </div>
+
+    <div>
+      <h3 className="font-semibold">Do I need expensive clothes to look good?</h3>
+      <p>No. Style is more about fit, cleanliness, and coordination than price.</p>
+    </div>
+
+  </div>
+</section>
+

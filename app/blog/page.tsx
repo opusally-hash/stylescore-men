@@ -59,6 +59,13 @@ const articles = [
     description: "Easy outfit formulas that still look intentional.",
     href: "/blog/casual-outfits-men",
   },
+   {
+    title: "7 Signs You Dress Well as a Man (And How to Improve fast)",
+    description: "Easy outfit formulas that still look intentional.",
+    href: "/blog/7-signs-dress-well",
+  },
+
+  
 ];
 
 export default function BlogPage() {
