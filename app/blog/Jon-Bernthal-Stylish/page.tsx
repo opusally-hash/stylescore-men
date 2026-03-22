@@ -57,7 +57,7 @@ export default function Page() {
 
           <div className="mt-10 overflow-hidden rounded-[1.75rem] border border-white/10">
   <img
-    src="public/amirr-zolfaghari-f_hXDi6xTvE-unsplash.jpg"
+    src="/amirr-zolfaghari-f_hXDi6xTvE-unsplash.jpg"
     alt="rugged masculine style"
     className="h-full w-full object-cover"
   />
