@@ -5,20 +5,26 @@ const articles = [
     href: "/blog/mens-style-test",
   },
    {
+    title: "How to Improve Your Style in 30 Days",
+    description: "A practical guide to upgrading your appearance.",
+    href: "/blog/how-to-improve-style",
+  },
+   {
     title: "How to know if you dress well",
     description: "Discover your style score and how to improve it.",
     href: "/blog/How-to-know-if-you-dress-well",
+  },
+  {
+    title: "7 Signs You Dress Well as a Man (And How to Improve fast)",
+    description: "Easy outfit formulas that still look intentional.",
+    href: "/blog/7-signs-dress-well",
   },
   {
     title: "10 Style Mistakes Most Men Make",
     description: "Avoid these common fashion mistakes instantly.",
     href: "/blog/style-mistakes-men",
   },
-  {
-    title: "How to Improve Your Style in 30 Days",
-    description: "A practical guide to upgrading your appearance.",
-    href: "/blog/how-to-improve-style",
-  },
+ 
   {
     title: "Best White Sneakers for Men",
     description: "One of the easiest upgrades for a cleaner, sharper look.",
@@ -64,11 +70,7 @@ const articles = [
     description: "Easy outfit formulas that still look intentional.",
     href: "/blog/casual-outfits-men",
   },
-   {
-    title: "7 Signs You Dress Well as a Man (And How to Improve fast)",
-    description: "Easy outfit formulas that still look intentional.",
-    href: "/blog/7-signs-dress-well",
-  },
+   
 
   
 ];
