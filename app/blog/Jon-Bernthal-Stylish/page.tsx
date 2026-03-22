@@ -56,12 +56,12 @@ export default function Page() {
           </p>
 
           <div className="mt-10 overflow-hidden rounded-[1.75rem] border border-white/10">
-            <img
-              src="https://images.unsplash.com/photo-1520975922284-9a3c1c2c1d2d?q=80&w=1400&auto=format&fit=crop"
-              alt="rugged masculine style"
-              className="h-full w-full object-cover"
-            />
-          </div>
+  <img
+    src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1400&q=80"
+    alt="rugged masculine style"
+    className="h-full w-full object-cover"
+  />
+</div>
 
           <div className="mt-10 rounded-[1.75rem] border border-orange-400/20 bg-orange-400/10 p-6 backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.25)]">
             <h2 className="text-2xl font-semibold text-white">
