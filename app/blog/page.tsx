@@ -5,6 +5,11 @@ const articles = [
     href: "/blog/mens-style-test",
   },
    {
+    title: "Why Jon Bernthal Looks Effortlessly Stylish (And What Men Can Learn) ",
+    description: "Discover your style score and how to improve it.",
+    href: "/blog/Jon-Bernthal-Stylish",
+  },
+   {
     title: "How to Improve Your Style in 30 Days",
     description: "A practical guide to upgrading your appearance.",
     href: "/blog/how-to-improve-style",
