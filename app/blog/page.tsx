@@ -4,6 +4,11 @@ const articles = [
     description: "Discover your style score and how to improve it.",
     href: "/blog/mens-style-test",
   },
+   {
+    title: "How to know if you dress well",
+    description: "Discover your style score and how to improve it.",
+    href: "/blog/How-to-know-if-you-dress-well",
+  },
   {
     title: "10 Style Mistakes Most Men Make",
     description: "Avoid these common fashion mistakes instantly.",
