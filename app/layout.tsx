@@ -4,7 +4,11 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  verification: { google: "H0SH3hnxkTAqXoR5__j3y9Rc4xpRsFgZzuADypzwHuw" },
+  verification: { google: "H0SH3hnxkTAqXoR5__j3y9Rc4xpRsFgZzuADypzwHuw" ,
+  other:{
+    "p:domain_verify" :"a5cc47c8747a86255bef6fed44d0a073",
+  },
+},
   title: "StyleScore for Men – Find Your Style Score Online",
   description:
     "Take the 2-minute StyleScore test to discover your fashion strengths, weak spots, and the exact upgrades that will improve your look fastest.",
