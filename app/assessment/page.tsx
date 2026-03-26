@@ -2,12 +2,19 @@
 
 import { PersonalizationForm } from "../components/personalization-form";
 import {
+  buildFallbackDiagnosis,
+  categoryLabels,
+  getSelectedAnswer,
+  getStyleArchetype,
+  type FreeAssessmentReport,
+} from "../lib/assessment-report";
+import {
   hasCustomizedOnboardingData,
   mergeOnboardingData,
   type OnboardingForm,
 } from "../lib/onboarding";
 import { downloadAIReportPDF } from "../lib/pdf";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   RadarChart,
   PolarGrid,
@@ -73,6 +80,11 @@ const CALCULATION_STEPS = [
   "Scoring 6 style categories...",
   "Building your style profile...",
 ] as const;
+const DIAGNOSIS_CACHE_KEY = "stylescore_diagnosis";
+const DIAGNOSIS_SIGNATURE_KEY = "stylescore_diagnosis_signature";
+const FREE_REPORT_CACHE_KEY = "stylescore_free_report";
+const FREE_REPORT_SIGNATURE_KEY = "stylescore_free_report_signature";
+const EMAIL_CONFIRMED_KEY = "stylescore_email_confirmed";
 
 function GeneratingOverlay({ message }: { message: string }) {
   return (
@@ -295,411 +307,8 @@ function glassCard(extra = "") {
   return `rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.35)] ${extra}`;
 }
 
-function getSelectedAnswer(answers: Record<string, string[]>, questionId: string) {
-  return answers[questionId]?.[0] || null;
-}
-
-function buildPersonalizedRecommendations(
-  answers: Record<string, string[]>,
-  focusTop3: string[]
-): Record<string, string[]> {
-  const personalized: Record<string, string[]> = {};
-  const has = (questionId: string, option: string) =>
-    (answers[questionId] || []).includes(option);
-
-  focusTop3.forEach((area) => {
-    const tips: string[] = [];
-
-    if (area === "shoes") {
-      if (has("q12", "visibly dirty or aging")) {
-        tips.push("Start by cleaning or replacing the pair you use most often.");
-      }
-      if (has("q11", "old shoes longer than I should")) {
-        tips.push(
-          "Rotate out worn shoes faster. Old footwear quietly lowers the whole outfit."
-        );
-      }
-      if (has("q11", "running shoes for almost everything")) {
-        tips.push(
-          "Add one non-athletic option like clean minimal sneakers, loafers, or smart-casual shoes."
-        );
-      }
-      if (has("q11", "whatever is nearest")) {
-        tips.push(
-          "Choose one reliable shoe rotation instead of defaulting to whatever is closest."
-        );
-      }
-      if (tips.length === 0) {
-        tips.push(
-          "Upgrade to one clean, versatile shoe that works across multiple outfits."
-        );
-        tips.push(
-          "Make shoe upkeep a regular part of your weekly presentation routine."
-        );
-      }
-    }
-
-    if (area === "grooming") {
-      if (has("q14", "almost nonexistent")) {
-        tips.push(
-          "Build a minimal grooming baseline: haircut rhythm, beard cleanup, deodorant, and daily hygiene."
-        );
-      }
-      if (has("q14", "minimal unless needed")) {
-        tips.push(
-          "Small maintenance matters here. Sharper grooming creates an immediate lift."
-        );
-      }
-      if (has("q14", "inconsistent")) {
-        tips.push(
-          "Make presentation automatic instead of last-minute. Simple systems work better than motivation."
-        );
-      }
-      if (tips.length === 0) {
-        tips.push(
-          "Create a grooming routine that is consistent enough to become effortless."
-        );
-        tips.push("The goal is not complexity. It is reliable sharpness.");
-      }
-    }
-
-    if (area === "fit") {
-      if (has("q1", "often feel tight in one area")) {
-        tips.push(
-          "Prioritize fit corrections before new style purchases. Poor fit ruins the whole look."
-        );
-      }
-      if (has("q1", "are mostly chosen for comfort, not fit")) {
-        tips.push(
-          "Move from comfort-first sizing to cleaner proportions in the shoulders, chest, and waist."
-        );
-      }
-      if (has("q3", "comfortable more than stylish")) {
-        tips.push(
-          "Keep comfort, but tighten up the silhouette so your clothes look intentional instead of passive."
-        );
-      }
-      if (has("q3", "slightly awkward in fit")) {
-        tips.push(
-          "Use fit as your first filter: shoulders, waist line, trouser break, and length."
-        );
-      }
-      if (tips.length === 0) {
-        tips.push(
-          "Sharper proportions will improve your style faster than buying trendier pieces."
-        );
-        tips.push(
-          "Better fit usually makes even simple clothing look more expensive."
-        );
-      }
-    }
-
-    if (area === "wardrobe") {
-      if (
-        has("q5", "a mix of random items") ||
-        has("q5", "whatever I happened to buy")
-      ) {
-        tips.push(
-          "You need more coherence, not more pieces. Build around versatile basics first."
-        );
-      }
-      if (has("q5", "older clothes I still use")) {
-        tips.push(
-          "Refresh your oldest workhorse pieces first so your baseline wardrobe stops looking dated."
-        );
-      }
-      if (has("q5", "mostly athletic or lounge wear")) {
-        tips.push(
-          "Add a few non-athletic anchors so your daily style feels intentional even when you keep things casual."
-        );
-      }
-      if (tips.length === 0) {
-        tips.push(
-          "A stronger wardrobe comes from repeatable combinations, not volume."
-        );
-        tips.push("Your wardrobe should feel easier to use, not just bigger.");
-      }
-    }
-
-    if (area === "color") {
-      if (
-        has("q8", "mixed without much planning") ||
-        has("q8", "just whatever is available")
-      ) {
-        tips.push(
-          "Move toward a more intentional base palette. Neutrals make everything easier."
-        );
-      }
-      if (has("q9", "I don't really check")) {
-        tips.push(
-          "A 10-second coordination check before leaving will improve consistency immediately."
-        );
-      }
-      if (has("q9", "I ask someone else") || has("q8", "often bold or loud")) {
-        tips.push(
-          "You do not need louder outfits. You need cleaner, more deliberate coordination."
-        );
-      }
-      if (tips.length === 0) {
-        tips.push(
-          "Color works best when it feels controlled rather than accidental."
-        );
-        tips.push(
-          "Start by making your base colors more repeatable across outfits."
-        );
-      }
-    }
-
-    if (area === "occasion") {
-      if (has("q17", "wear some version of what I always wear")) {
-        tips.push(
-          "Occasion dressing improves when you have a separate elevated lane, not just a casual default."
-        );
-      }
-      if (has("q17", "underdress more than I should")) {
-        tips.push(
-          "Upgrade one level more than your current instinct for important settings."
-        );
-      }
-      if (
-        has("q17", "wear some version of what I always wear") ||
-        has("q17", "feel unsure what to wear")
-      ) {
-        tips.push(
-          "Build 1-2 reliable occasion outfits so you are not improvising when it matters."
-        );
-      }
-      if (tips.length === 0) {
-        tips.push(
-          "Your occasion style improves fastest when you pre-build go-to looks instead of reacting in the moment."
-        );
-        tips.push(
-          "Occasion dressing is more about preparation than owning more clothes."
-        );
-      }
-    }
-
-    personalized[area] = tips.slice(0, 3);
-  });
-
-  return personalized;
-}
-
-function buildRecommendedNeeds(
-  answers: Record<string, string[]>,
-  focusTop3: string[]
-): Record<string, string[]> {
-  const needs: Record<string, string[]> = {};
-  const has = (questionId: string, option: string) =>
-    (answers[questionId] || []).includes(option);
-
-  focusTop3.forEach((area) => {
-    const items: string[] = [];
-
-    if (area === "shoes") {
-      if (has("q12", "visibly dirty or aging"))
-        items.push("clean white minimalist sneakers");
-      if (has("q11", "running shoes for almost everything"))
-        items.push("one versatile smart-casual shoe");
-      if (has("q11", "whatever is nearest"))
-        items.push("one polished dress-better shoe");
-      if (items.length === 0) {
-        items.push("clean everyday sneakers");
-        items.push("one versatile going-out shoe");
-      }
-    }
-
-    if (area === "grooming") {
-      if (has("q14", "almost nonexistent"))
-        items.push("basic grooming starter set");
-      if (has("q14", "inconsistent") || has("q14", "minimal unless needed"))
-        items.push("simple daily grooming essentials");
-      if (items.length === 0) {
-        items.push("minimal skincare routine");
-        items.push("reliable grooming essentials");
-      }
-    }
-
-    if (area === "fit") {
-      if (has("q1", "often feel tight in one area"))
-        items.push("better-fitting shirts with more room where needed");
-      if (has("q3", "slightly awkward in fit"))
-        items.push("one tailored or hemmed core outfit");
-      if (items.length === 0) {
-        items.push("better-fitting chinos");
-        items.push("cleaner-proportion tops");
-      }
-    }
-
-    if (area === "wardrobe") {
-      if (
-        has("q5", "a mix of random items") ||
-        has("q5", "whatever I happened to buy")
-      ) {
-        items.push("neutral wardrobe basics");
-      }
-      if (has("q5", "mostly athletic or lounge wear")) {
-        items.push("mix-and-match casual essentials");
-      }
-      if (items.length === 0) {
-        items.push("versatile basics");
-        items.push("one structured layer");
-      }
-    }
-
-    if (area === "color") {
-      if (
-        has("q8", "just whatever is available") ||
-        has("q8", "mixed without much planning")
-      ) {
-        items.push("navy, white, grey, and black basics");
-      }
-      if (has("q9", "I ask someone else")) {
-        items.push("more coordinated solid-color tops");
-      }
-      if (items.length === 0) {
-        items.push("neutral color foundation");
-      }
-    }
-
-    if (area === "occasion") {
-      if (has("q17", "underdress more than I should")) {
-        items.push("one polished occasion outfit");
-        items.push("smart-casual shoes");
-      }
-      if (
-        has("q17", "wear some version of what I always wear") ||
-        has("q17", "feel unsure what to wear")
-      ) {
-        items.push("one reliable go-to occasion combination");
-      }
-      if (items.length === 0) {
-        items.push("occasion-ready outfit formula");
-      }
-    }
-
-    needs[area] = Array.from(new Set(items)).slice(0, 4);
-  });
-
-  return needs;
-}
-
-function getStyleArchetype(
-  overallScore: number,
-  categoryScores: Record<string, number>,
-  selfView: string | null = null
-) {
-  const sortedHighToLow = Object.entries(categoryScores).sort(
-    (a, b) => b[1] - a[1]
-  );
-
-  const strongest = sortedHighToLow[0][0];
-  const weakest = sortedHighToLow[sortedHighToLow.length - 1][0];
-  const feelsStrong = selfView === "a real strength";
-  const feelsStuck =
-    selfView === "underdeveloped" || selfView === "something I want help with";
-
-  if (overallScore >= 80 && feelsStrong) {
-    if (strongest === "occasion") {
-      return {
-        title: "The Occasion Specialist",
-        description:
-          "You already know how to present yourself well when it counts. Your style is polished, intentional, and close to being a true strength.",
-      };
-    }
-
-    return {
-      title: "The Sharp Minimalist",
-      description:
-        "You already have a strong style foundation. Your presentation feels deliberate, clean, and well above average.",
-    };
-  }
-
-  if (overallScore >= 68) {
-    if (strongest === "occasion") {
-      return {
-        title: "The Emerging Professional",
-        description:
-          "You already show up well in important settings. The next step is making your everyday style as strong as your occasion presence.",
-      };
-    }
-
-    return {
-      title: "The Casual Optimizer",
-      description:
-        "You have a good base and clear upside. With a few focused upgrades, your style can move from decent to consistently sharp.",
-    };
-  }
-
-  if (overallScore >= 52) {
-    return {
-      title: "The Untapped Potential",
-      description:
-        "Your style has real potential, but a few weak categories are holding back the full picture. The right fixes will create visible gains quickly.",
-    };
-  }
-
-  if (weakest === "grooming" || weakest === "shoes" || feelsStuck) {
-    return {
-      title: "The Style Rebuilder",
-      description:
-        "Your current style needs a reset in a few high-impact areas. Starting with the basics will give you the fastest visible improvement.",
-    };
-  }
-
-  return {
-    title: "The Early Stage Improver",
-    description:
-      "You are still building your style foundation. The good news is that a stronger wardrobe, better fit, and cleaner presentation can change the outcome quickly.",
-  };
-}
-
-function getArchetypeStyleSuggestions(archetypeTitle: string): string[] {
-  const suggestions: Record<string, string[]> = {
-    "The Occasion Specialist": [
-      "Bring the same polish from special occasions into your everyday looks.",
-      "Focus on consistency, not reinvention — your base is already strong.",
-      "Upgrade weaker categories so your overall style matches your best moments.",
-    ],
-    "The Sharp Minimalist": [
-      "Keep your wardrobe clean, repeatable, and intentional.",
-      "Avoid adding noise — your strength is clarity and restraint.",
-      "Invest in better versions of your essentials rather than chasing trends.",
-    ],
-    "The Emerging Professional": [
-      "Turn occasion-level effort into everyday reliability.",
-      "Build a few strong weekday outfits so you are not relying on effort in the moment.",
-      "Sharpen shoes, grooming, and fit first for the fastest lift.",
-    ],
-    "The Casual Optimizer": [
-      "You do not need a new identity — you need more consistency.",
-      "Prioritize upgrades that make your existing style cleaner and sharper.",
-      "Make your wardrobe easier to use, not just bigger.",
-    ],
-    "The Untapped Potential": [
-      "A few stronger basics will change your style faster than buying more random pieces.",
-      "Start with fit, shoes, and grooming before worrying about trendiness.",
-      "You do not need more fashion knowledge yet — you need better foundations.",
-    ],
-    "The Style Rebuilder": [
-      "Reset the visible basics first: shoes, grooming, fit, and clean wardrobe anchors.",
-      "Avoid impulse buying while rebuilding your style base.",
-      "Think in terms of simple, reliable upgrades, not dramatic reinvention.",
-    ],
-    "The Early Stage Improver": [
-      "Build your style around a small number of reliable pieces.",
-      "Choose functionally sharp basics before experimenting.",
-      "Your goal is to become clearer and more intentional, not more complicated.",
-    ],
-  };
-
-  return (
-    suggestions[archetypeTitle] || [
-      "Focus on consistency across your wardrobe, fit, shoes, and grooming.",
-      "Improve the basics first before adding complexity.",
-      "Build a style that is easy to repeat and easy to trust.",
-    ]
-  );
+function getCategoryLabel(key: string) {
+  return categoryLabels[key as keyof typeof categoryLabels] || key;
 }
 
 export default function AssessmentPage() {
@@ -719,8 +328,15 @@ export default function AssessmentPage() {
     null
   );
   const [email, setEmail] = useState("");
+  const [emailConfirmed, setEmailConfirmed] = useState(false);
   const [resultsUnlocked, setResultsUnlocked] = useState(false);
   const [emailError, setEmailError] = useState("");
+  const [diagnosis, setDiagnosis] = useState("");
+  const [freeReport, setFreeReport] = useState<FreeAssessmentReport | null>(
+    null
+  );
+  const [unlockingResults, setUnlockingResults] = useState(false);
+  const [unlockedReportError, setUnlockedReportError] = useState("");
   const [shareMessage, setShareMessage] = useState("");
   const [showPersonalizationForm, setShowPersonalizationForm] = useState(false);
   const [personalizationMessage, setPersonalizationMessage] = useState("");
@@ -756,12 +372,22 @@ export default function AssessmentPage() {
         "stylescore_answers",
         JSON.stringify(filteredAnswers)
       );
+
+      if (Object.keys(filteredAnswers).length === questions.length) {
+        setShowResult(true);
+      }
     }
 
     const savedEmail = localStorage.getItem("stylescore_email");
+    const savedEmailConfirmed =
+      localStorage.getItem(EMAIL_CONFIRMED_KEY) === "true";
+
     if (savedEmail) {
       setEmail(savedEmail);
-      setResultsUnlocked(true);
+    }
+
+    if (savedEmail && savedEmailConfirmed) {
+      setEmailConfirmed(true);
     }
 
     const params = new URLSearchParams(window.location.search);
@@ -795,12 +421,178 @@ export default function AssessmentPage() {
       ),
     [result, selfViewAnswer]
   );
+  const diagnosisSignature = useMemo(
+    () =>
+      JSON.stringify({
+        overall: result.overall_score,
+        categories: result.category_scores,
+        archetype: archetype.title,
+        focus: result.focus_top_3,
+      }),
+    [result, archetype.title]
+  );
+  const freeReportSignature = useMemo(
+    () => JSON.stringify({ answers }),
+    [answers]
+  );
+  const diagnosisFallback = useMemo(
+    () =>
+      buildFallbackDiagnosis({
+        overallScore: result.overall_score,
+        categoryScores: result.category_scores,
+        focusAreas: result.focus_top_3,
+      }),
+    [result]
+  );
+
+  const requestDiagnosis = useCallback(async () => {
+    if (typeof window !== "undefined") {
+      const cachedSignature = window.sessionStorage.getItem(
+        DIAGNOSIS_SIGNATURE_KEY
+      );
+      const cachedDiagnosis = window.sessionStorage.getItem(DIAGNOSIS_CACHE_KEY);
+
+      if (cachedSignature === diagnosisSignature && cachedDiagnosis) {
+        return cachedDiagnosis;
+      }
+    }
+
+    try {
+      const response = await fetch("/api/style-diagnosis", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          overallScore: result.overall_score,
+          categoryScores: result.category_scores,
+          archetypeName: archetype.title,
+          focusAreas: result.focus_top_3,
+        }),
+      });
+
+      const data = await response.json();
+      const nextDiagnosis = data.diagnosis || diagnosisFallback;
+
+      if (typeof window !== "undefined") {
+        window.sessionStorage.setItem(DIAGNOSIS_CACHE_KEY, nextDiagnosis);
+        window.sessionStorage.setItem(
+          DIAGNOSIS_SIGNATURE_KEY,
+          diagnosisSignature
+        );
+      }
+
+      return nextDiagnosis;
+    } catch {
+      if (typeof window !== "undefined") {
+        window.sessionStorage.setItem(DIAGNOSIS_CACHE_KEY, diagnosisFallback);
+        window.sessionStorage.setItem(
+          DIAGNOSIS_SIGNATURE_KEY,
+          diagnosisSignature
+        );
+      }
+
+      return diagnosisFallback;
+    }
+  }, [
+    archetype.title,
+    diagnosisFallback,
+    diagnosisSignature,
+    result.category_scores,
+    result.focus_top_3,
+    result.overall_score,
+  ]);
+
+  const fetchUnlockedReport = useCallback(async (force = false) => {
+    if (typeof window !== "undefined" && !force) {
+      const cachedSignature = window.sessionStorage.getItem(
+        FREE_REPORT_SIGNATURE_KEY
+      );
+      const cachedReport = window.sessionStorage.getItem(FREE_REPORT_CACHE_KEY);
+
+      if (cachedSignature === freeReportSignature && cachedReport) {
+        setFreeReport(JSON.parse(cachedReport) as FreeAssessmentReport);
+        setResultsUnlocked(true);
+        setUnlockedReportError("");
+        return true;
+      }
+    }
+
+    try {
+      setUnlockingResults(true);
+      setUnlockedReportError("");
+
+      const response = await fetch("/api/free-report", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          answers,
+          onboardingData: effectiveOnboardingData,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.report) {
+        setUnlockedReportError(
+          data.error || "Could not load your unlocked report."
+        );
+        return false;
+      }
+
+      if (typeof window !== "undefined") {
+        window.sessionStorage.setItem(
+          FREE_REPORT_CACHE_KEY,
+          JSON.stringify(data.report)
+        );
+        window.sessionStorage.setItem(
+          FREE_REPORT_SIGNATURE_KEY,
+          freeReportSignature
+        );
+      }
+
+      setFreeReport(data.report as FreeAssessmentReport);
+      setResultsUnlocked(true);
+      return true;
+    } catch {
+      setUnlockedReportError("Could not load your unlocked report.");
+      return false;
+    } finally {
+      setUnlockingResults(false);
+    }
+  }, [answers, effectiveOnboardingData, freeReportSignature]);
 
   useEffect(() => {
     return () => {
       clearScheduledTransitions();
     };
   }, []);
+
+  useEffect(() => {
+    if (!showResult || typeof window === "undefined") return;
+
+    const cachedSignature = window.sessionStorage.getItem(
+      DIAGNOSIS_SIGNATURE_KEY
+    );
+    const cachedDiagnosis = window.sessionStorage.getItem(DIAGNOSIS_CACHE_KEY);
+
+    if (cachedSignature === diagnosisSignature && cachedDiagnosis) {
+      setDiagnosis(cachedDiagnosis);
+      return;
+    }
+
+    if (!diagnosis) {
+      void requestDiagnosis();
+    }
+  }, [
+    showResult,
+    diagnosisSignature,
+    diagnosis,
+    diagnosisFallback,
+    requestDiagnosis,
+  ]);
 
   useEffect(() => {
     if (quizPhase !== "calculating" || showResult) return;
@@ -817,24 +609,53 @@ export default function AssessmentPage() {
     const thirdStep = window.setTimeout(() => {
       setCalculationStepIndex(2);
     }, 3000);
-    const finish = window.setTimeout(() => {
+
+    calculationTimerRefs.current = [progressKickoff, secondStep, thirdStep];
+
+    let cancelled = false;
+    const minimumDelay = new Promise<void>((resolve) => {
+      const finishTimer = window.setTimeout(resolve, CALCULATION_SCREEN_MS);
+      calculationTimerRefs.current.push(finishTimer);
+    });
+
+    const completeResultsTransition = async () => {
+      const diagnosisText = await requestDiagnosis();
+      await minimumDelay;
+
+      if (cancelled) return;
+
+      setDiagnosis(diagnosisText);
       setShowResult(true);
       setQuizPhase("question");
       setCalculationProgress(0);
-    }, CALCULATION_SCREEN_MS);
+    };
 
-    calculationTimerRefs.current = [
-      progressKickoff,
-      secondStep,
-      thirdStep,
-      finish,
-    ];
+    void completeResultsTransition();
 
     return () => {
+      cancelled = true;
       calculationTimerRefs.current.forEach((timer) => window.clearTimeout(timer));
       calculationTimerRefs.current = [];
     };
-  }, [quizPhase, showResult]);
+  }, [
+    quizPhase,
+    showResult,
+    diagnosisSignature,
+    diagnosisFallback,
+    requestDiagnosis,
+  ]);
+
+  useEffect(() => {
+    if (!showResult || !emailConfirmed || !email) return;
+
+    void fetchUnlockedReport();
+  }, [
+    showResult,
+    emailConfirmed,
+    email,
+    freeReportSignature,
+    fetchUnlockedReport,
+  ]);
 
   useEffect(() => {
     async function finalizePaidReport() {
@@ -1014,15 +835,6 @@ export default function AssessmentPage() {
     );
   }
 
-  const categoryLabels: Record<string, string> = {
-    fit: "Fit & Proportion",
-    wardrobe: "Wardrobe Foundations",
-    color: "Color Coordination",
-    shoes: "Shoes & Footwear",
-    grooming: "Grooming",
-    occasion: "Occasion Styling",
-  };
-
   async function unlockResults() {
     if (!isValidEmail(email)) {
       setEmailError("Please enter a valid email address.");
@@ -1051,16 +863,25 @@ export default function AssessmentPage() {
       }
 
       localStorage.setItem("stylescore_email", email);
+      localStorage.setItem(EMAIL_CONFIRMED_KEY, "true");
       setEmailError("");
-      setResultsUnlocked(true);
-      setShowPersonalizationForm(!hasCustomizedOnboardingData(onboardingData));
-      setPersonalizationMessage("");
+      setEmailConfirmed(true);
 
       trackEvent("email_capture", {
         method: "form",
         score: result.overall_score,
         archetype: archetype.title,
       });
+
+      const unlocked = await fetchUnlockedReport(true);
+
+      if (!unlocked) {
+        setEmailError("Email saved, but we could not load your unlocked report.");
+        return;
+      }
+
+      setShowPersonalizationForm(!hasCustomizedOnboardingData(onboardingData));
+      setPersonalizationMessage("");
     } catch {
       setEmailError("Could not save your email. Please try again.");
     }
@@ -1127,30 +948,9 @@ export default function AssessmentPage() {
   }
 
   if (showResult) {
-    const strongestArea = Object.entries(result.category_scores).sort(
-      (a, b) => b[1] - a[1]
-    )[0][0];
-
-    const radarData = Object.entries(result.category_scores).map(
-      ([key, value]) => ({
-        category:
-          categoryLabels[key] || key.charAt(0).toUpperCase() + key.slice(1),
-        score: value,
-      })
-    );
-
-    const personalizedRecommendations = buildPersonalizedRecommendations(
-      answers,
-      result.focus_top_3
-    );
-
-    const recommendedNeeds = buildRecommendedNeeds(
-      answers,
-      result.focus_top_3
-    );
-
-    const archetypeSuggestions = getArchetypeStyleSuggestions(archetype.title);
     const hasSavedPersonalization = hasCustomizedOnboardingData(onboardingData);
+    const teaserTarget = resultsUnlocked ? "#premium-plan" : "#email-gate";
+    const visibleDiagnosis = diagnosis || diagnosisFallback;
 
     return (
       <main className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_#1f2937,_#0f172a_40%,_#020617_100%)] px-4 py-10 text-white">
@@ -1200,45 +1000,17 @@ export default function AssessmentPage() {
 
           <div className={glassCard("p-6")}>
             <h3 className="text-xl font-semibold text-white">Style Diagnosis</h3>
-            <p className="mt-3 leading-7 text-white/75">
-              {selfViewAnswer && (
-                <>
-                  You described your current style as{" "}
-                  <span className="font-semibold text-white">{selfViewAnswer}</span>.{" "}
-                </>
-              )}
-              {strongestArea === "occasion" ? (
-                <>
-                  Your styling is best during{" "}
-                  <span className="font-semibold text-white">occasions</span>.
-                  Your biggest opportunity right now is{" "}
-                  <span className="font-semibold text-white">
-                    {categoryLabels[result.focus_top_3[0]] ||
-                      result.focus_top_3[0]}
-                  </span>
-                  . Fixing your top 3 focus areas first will improve your score
-                  faster than trying to upgrade everything at once.
-                </>
-              ) : (
-                <>
-                  Your strongest area is{" "}
-                  <span className="font-semibold text-white">
-                    {categoryLabels[strongestArea] || strongestArea}
-                  </span>
-                  . Your biggest opportunity right now is{" "}
-                  <span className="font-semibold text-white">
-                    {categoryLabels[result.focus_top_3[0]] ||
-                      result.focus_top_3[0]}
-                  </span>
-                  . Fixing your top 3 focus areas first will improve your score
-                  faster than trying to upgrade everything at once.
-                </>
-              )}
-            </p>
+            <p className="mt-3 leading-7 text-white/75">{visibleDiagnosis}</p>
+            <a
+              href={teaserTarget}
+              className="mt-5 inline-flex text-sm font-medium text-orange-300 transition hover:text-orange-200"
+            >
+              Your full 30-day upgrade plan breaks this down into weekly steps. →
+            </a>
           </div>
 
           {!resultsUnlocked && (
-            <div className={glassCard("p-6")}>
+            <div id="email-gate" className={glassCard("p-6")}>
               <div className="text-center">
                 <h3 className="text-3xl font-semibold text-white">
                   🔒 Your Style Report Is Ready
@@ -1296,10 +1068,17 @@ export default function AssessmentPage() {
                 <button
                   type="button"
                   onClick={unlockResults}
+                  disabled={unlockingResults}
                   className="premium-glow w-full rounded-2xl bg-orange-400 px-6 py-4 text-base font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_30px_rgba(251,146,60,0.45)]"
                 >
-                  Unlock My Full Style Report
+                  {unlockingResults
+                    ? "Unlocking your full report..."
+                    : "Unlock My Full Style Report"}
                 </button>
+
+                {unlockedReportError && (
+                  <p className="text-sm text-red-300">{unlockedReportError}</p>
+                )}
 
                 <p className="text-center text-sm text-white/45">
                   Free report • No spam • Takes 2 seconds
@@ -1318,22 +1097,17 @@ export default function AssessmentPage() {
             </div>
           )}
 
-          <div
-            className={
-              !resultsUnlocked
-                ? "space-y-6 blur-md opacity-60 pointer-events-none"
-                : "space-y-6"
-            }
-          >
+          {resultsUnlocked && freeReport && (
+            <div className="space-y-6">
             <div className={glassCard("p-6")}>
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
                 Your Style Archetype
               </p>
               <h3 className="mt-3 text-3xl font-semibold text-white">
-                {archetype.title}
+                {freeReport.archetype.title}
               </h3>
               <p className="mt-3 max-w-2xl leading-7 text-white/70">
-                {archetype.description}
+                {freeReport.archetype.description}
               </p>
             </div>
 
@@ -1342,7 +1116,7 @@ export default function AssessmentPage() {
                 Archetype Style Direction
               </h3>
               <ul className="mt-4 list-disc space-y-2 pl-5 text-white/75">
-                {archetypeSuggestions.map((tip, i) => (
+                {freeReport.archetypeSuggestions.map((tip, i) => (
                   <li key={i}>{tip}</li>
                 ))}
               </ul>
@@ -1357,7 +1131,7 @@ export default function AssessmentPage() {
 
               <div className="mt-6 h-[340px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
-                  <RadarChart data={radarData}>
+                  <RadarChart data={freeReport.radarData}>
                     <PolarGrid stroke="rgba(255,255,255,0.12)" />
                     <PolarAngleAxis
                       dataKey="category"
@@ -1379,11 +1153,11 @@ export default function AssessmentPage() {
                 Category Scores
               </h3>
               <div className="mt-5 space-y-5">
-                {Object.entries(result.category_scores).map(([key, value]) => (
+                {Object.entries(freeReport.result.category_scores).map(([key, value]) => (
                   <div key={key}>
                     <div className="mb-2 flex justify-between">
                       <span className="font-medium text-white/85">
-                        {categoryLabels[key] || key}
+                        {getCategoryLabel(key)}
                       </span>
                       <span className="font-semibold text-white">{value}</span>
                     </div>
@@ -1402,12 +1176,12 @@ export default function AssessmentPage() {
             <div className={glassCard("p-6")}>
               <h3 className="text-xl font-semibold text-white">Focus Top 3</h3>
               <ul className="mt-4 space-y-3">
-                {result.focus_top_3.map((item) => (
+                {freeReport.result.focus_top_3.map((item) => (
                   <li
                     key={item}
                     className="rounded-2xl border border-white/10 bg-white/5 p-4 font-medium text-white/90"
                   >
-                    {categoryLabels[item] || item}
+                    {getCategoryLabel(item)}
                   </li>
                 ))}
               </ul>
@@ -1419,16 +1193,16 @@ export default function AssessmentPage() {
               </h3>
 
               <div className="mt-4 space-y-4">
-                {result.focus_top_3.map((area) => (
+                {freeReport.result.focus_top_3.map((area) => (
                   <div
                     key={area}
                     className="rounded-2xl border border-white/10 bg-white/5 p-5"
                   >
                     <h4 className="text-lg font-semibold text-white">
-                      {categoryLabels[area] || area}
+                      {getCategoryLabel(area)}
                     </h4>
                     <ul className="mt-3 list-disc space-y-2 pl-5 text-white/75">
-                      {personalizedRecommendations[area]?.map((tip, i) => (
+                      {freeReport.personalizedRecommendations[area]?.map((tip, i) => (
                         <li key={i}>{tip}</li>
                       ))}
                     </ul>
@@ -1446,17 +1220,17 @@ export default function AssessmentPage() {
               </p>
 
               <div className="mt-4 space-y-4">
-                {result.focus_top_3.map((area) => (
+                {freeReport.result.focus_top_3.map((area) => (
                   <div
                     key={area}
                     className="rounded-2xl border border-white/10 bg-white/5 p-5"
                   >
                     <h4 className="text-lg font-semibold text-white">
-                      {categoryLabels[area] || area}
+                      {getCategoryLabel(area)}
                     </h4>
 
                     <ul className="mt-4 space-y-3 text-white/80">
-                      {recommendedNeeds[area]?.map((item, i) => (
+                      {freeReport.recommendedNeeds[area]?.map((item, i) => (
                         <li
                           key={i}
                           className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-black/10 p-4"
@@ -1493,10 +1267,11 @@ export default function AssessmentPage() {
                 ))}
               </div>
             </div>
-          </div>
+            </div>
+          )}
 
-          {resultsUnlocked && (
-            <div className={glassCard("p-6")}>
+          {resultsUnlocked && freeReport && (
+            <div id="premium-plan" className={glassCard("p-6")}>
               {!showPersonalizationForm ? (
                 <>
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
@@ -1834,7 +1609,12 @@ export default function AssessmentPage() {
               setAnswers({});
               setOnboardingData(null);
               setEmail("");
+              setEmailConfirmed(false);
+              setDiagnosis("");
+              setFreeReport(null);
               setResultsUnlocked(false);
+              setUnlockingResults(false);
+              setUnlockedReportError("");
               setShareMessage("");
               setShowPersonalizationForm(false);
               setPersonalizationMessage("");
@@ -1845,7 +1625,12 @@ export default function AssessmentPage() {
               setPostPaymentMessage("");
               localStorage.removeItem("stylescore_answers");
               localStorage.removeItem("stylescore_email");
+              localStorage.removeItem(EMAIL_CONFIRMED_KEY);
               localStorage.removeItem("stylescore_onboarding");
+              sessionStorage.removeItem(DIAGNOSIS_CACHE_KEY);
+              sessionStorage.removeItem(DIAGNOSIS_SIGNATURE_KEY);
+              sessionStorage.removeItem(FREE_REPORT_CACHE_KEY);
+              sessionStorage.removeItem(FREE_REPORT_SIGNATURE_KEY);
             }}
             className="rounded-2xl bg-white px-6 py-3 font-medium text-black transition hover:bg-white/90"
           >

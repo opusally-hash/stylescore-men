@@ -77,7 +77,7 @@ export function PersonalizationForm({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-5">
       <div className={glassCard("p-6")}>
         <div className="mb-6">
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
@@ -133,33 +133,31 @@ export function PersonalizationForm({
       </div>
 
       <div className={glassCard("p-6")}>
-        <CheckboxGroup
-          label="Goals"
-          subtitle="Select all that apply."
-          options={[...multiSelectFields.goals]}
-          selected={form.goals}
-          onToggle={(value) => toggleValue("goals", value)}
-        />
-      </div>
+        <div className="space-y-7">
+          <CheckboxGroup
+            label="Goals"
+            subtitle="Select all that apply."
+            options={[...multiSelectFields.goals]}
+            selected={form.goals}
+            onToggle={(value) => toggleValue("goals", value)}
+          />
 
-      <div className={glassCard("p-6")}>
-        <CheckboxGroup
-          label="Constraints"
-          subtitle="Select any constraints we should consider."
-          options={[...multiSelectFields.constraints]}
-          selected={form.constraints}
-          onToggle={(value) => toggleValue("constraints", value)}
-        />
-      </div>
+          <CheckboxGroup
+            label="Constraints"
+            subtitle="Select any constraints we should consider."
+            options={[...multiSelectFields.constraints]}
+            selected={form.constraints}
+            onToggle={(value) => toggleValue("constraints", value)}
+          />
 
-      <div className={glassCard("p-6")}>
-        <CheckboxGroup
-          label="Fit challenges"
-          subtitle="Select any fit issues you commonly face."
-          options={[...multiSelectFields.fitChallenges]}
-          selected={form.fitChallenges}
-          onToggle={(value) => toggleValue("fitChallenges", value)}
-        />
+          <CheckboxGroup
+            label="Fit challenges"
+            subtitle="Select any fit issues you commonly face."
+            options={[...multiSelectFields.fitChallenges]}
+            selected={form.fitChallenges}
+            onToggle={(value) => toggleValue("fitChallenges", value)}
+          />
+        </div>
       </div>
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -230,26 +228,26 @@ function CheckboxGroup({
 }) {
   return (
     <section>
-      <h2 className="text-2xl font-semibold text-white">{label}</h2>
-      {subtitle && <p className="mt-2 text-sm text-white/65">{subtitle}</p>}
+      <h2 className="text-lg font-semibold text-white">{label}</h2>
+      {subtitle && <p className="mt-1 text-sm text-white/65">{subtitle}</p>}
 
-      <div className="mt-5 grid gap-3 sm:grid-cols-2">
+      <div className="mt-4 space-y-2.5">
         {options.map((option) => {
           const active = selected.includes(option);
 
           return (
-            <button
+            <label
               key={option}
-              type="button"
-              onClick={() => onToggle(option)}
-              className={`rounded-2xl border px-4 py-4 text-left transition ${
-                active
-                  ? "border-white bg-white text-black shadow-lg"
-                  : "border-white/10 bg-white/5 text-white hover:bg-white/10"
-              }`}
+              className="flex cursor-pointer items-center gap-3 rounded-xl px-1 py-1 text-sm text-white/80 transition hover:bg-white/5"
             >
-              {option}
-            </button>
+              <input
+                type="checkbox"
+                checked={active}
+                onChange={() => onToggle(option)}
+                className="h-4 w-4 shrink-0 rounded border-white/20 bg-transparent accent-orange-400"
+              />
+              <span className="truncate">{option}</span>
+            </label>
           );
         })}
       </div>
