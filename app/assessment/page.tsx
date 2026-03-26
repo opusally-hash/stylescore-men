@@ -410,7 +410,10 @@ export default function AssessmentPage() {
     [onboardingData]
   );
 
-  const result = calculateScore(effectiveOnboardingData, answers);
+  const result = useMemo(
+    () => calculateScore(effectiveOnboardingData, answers),
+    [effectiveOnboardingData, answers]
+  );
   const selfViewAnswer = getSelectedAnswer(answers, "q20");
   const archetype = useMemo(
     () =>
