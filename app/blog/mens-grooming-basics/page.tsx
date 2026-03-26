@@ -2,7 +2,7 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-black text-white px-6 py-12 max-w-3xl mx-auto">
       <h1 className="text-4xl font-bold mb-6">
-        Men's Grooming Basics (Most Ignored Style Upgrade)
+        Men&apos;s Grooming Basics (Most Ignored Style Upgrade)
       </h1>
 
       <p className="text-gray-300 mb-6">

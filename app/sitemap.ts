@@ -6,7 +6,7 @@ export default function sitemap() {
       priority: 1,
     },
     {
-      url: "https://stylescore.live/onboarding",
+      url: "https://stylescore.live/assessment",
       lastModified: new Date(),
       priority: 0.9,
     },

@@ -435,13 +435,15 @@ This should feel like a premium stylist report someone would gladly pay for.
     }
 
     return NextResponse.json({ report });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const reportError = error as { message?: string };
+
     console.error("Style report error:", error);
 
     return NextResponse.json(
       {
         error:
-          error?.message ||
+          reportError.message ||
           "Failed to generate personalized style report.",
       },
       { status: 500 }

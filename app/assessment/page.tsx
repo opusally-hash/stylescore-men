@@ -1,7 +1,13 @@
-"use client";
+﻿"use client";
 
+import { PersonalizationForm } from "../components/personalization-form";
+import {
+  hasCustomizedOnboardingData,
+  mergeOnboardingData,
+  type OnboardingForm,
+} from "../lib/onboarding";
 import { downloadAIReportPDF } from "../lib/pdf";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   RadarChart,
   PolarGrid,
@@ -59,6 +65,15 @@ type AIReport = {
   confidenceAdvice: string;
 };
 
+const AUTO_ADVANCE_DELAY_MS = 300;
+const CATEGORY_INTERSTITIAL_MS = 1200;
+const CALCULATION_SCREEN_MS = 4500;
+const CALCULATION_STEPS = [
+  "Analyzing your responses...",
+  "Scoring 6 style categories...",
+  "Building your style profile...",
+] as const;
+
 function GeneratingOverlay({ message }: { message: string }) {
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/75 px-4 backdrop-blur-sm">
@@ -91,59 +106,93 @@ function GeneratingOverlay({ message }: { message: string }) {
   );
 }
 
+function CategoryInterstitial({
+  completed,
+  next,
+}: {
+  completed: string;
+  next: string;
+}) {
+  return (
+    <div className="interstitial-enter rounded-3xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
+      <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-emerald-400/20 bg-emerald-400/10 text-2xl text-emerald-300">
+        ✓
+      </div>
+      <p className="mt-5 text-sm font-semibold uppercase tracking-[0.28em] text-white/45">
+        Section Complete
+      </p>
+      <h2 className="mt-3 text-3xl font-semibold text-white">
+        {completed} - done
+      </h2>
+      <p className="mt-3 text-lg text-white/70">Next: {next}</p>
+    </div>
+  );
+}
+
+function ScoreCalculationScreen({
+  stepIndex,
+  progress,
+}: {
+  stepIndex: number;
+  progress: number;
+}) {
+  return (
+    <div className="results-fade-in rounded-3xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
+      <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-white/10 bg-white/5">
+        <div className="h-10 w-10 animate-spin rounded-full border-4 border-white/15 border-t-orange-400" />
+      </div>
+
+      <p className="mt-6 text-sm font-semibold uppercase tracking-[0.28em] text-white/45">
+        Building Your Style Score
+      </p>
+      <h2 className="mt-3 text-3xl font-semibold text-white">
+        {CALCULATION_STEPS[stepIndex]}
+      </h2>
+      <p className="mt-3 text-white/65">
+        Matching your answers to the 6 style categories and your overall profile.
+      </p>
+
+      <div className="mt-8 h-3 w-full overflow-hidden rounded-full bg-white/10">
+        <div
+          className="h-full rounded-full bg-gradient-to-r from-orange-300 via-orange-400 to-white transition-[width] duration-500 ease-out"
+          style={{ width: `${progress}%` }}
+        />
+      </div>
+
+      <p className="mt-4 text-sm text-white/45">{Math.round(progress)}% complete</p>
+    </div>
+  );
+}
+
 const questions: Question[] = [
   {
     id: "q1",
     category: "Fit & Proportion",
-    question: "I usually buy tops that…",
+    question: "I usually buy tops that...",
     options: [
       "fit me well in the shoulders and chest",
       "fit okay but are a little loose",
       "often feel tight in one area",
       "are mostly chosen for comfort, not fit",
-      "I’m not really sure",
-    ],
-  },
-  {
-    id: "q2",
-    category: "Fit & Proportion",
-    question: "When I wear pants, they usually…",
-    options: [
-      "sit cleanly and look intentional",
-      "are a bit long or bunch at the bottom",
-      "feel tight in the thigh or seat",
-      "feel loose and shapeless",
-      "I don’t pay much attention",
+      "I'm not really sure",
     ],
   },
   {
     id: "q3",
     category: "Fit & Proportion",
-    question: "My clothes usually make me feel…",
+    question: "My clothes usually make me feel...",
     options: [
       "sharp and put together",
       "decent, but not polished",
       "comfortable more than stylish",
       "slightly awkward in fit",
-      "I’m not really sure",
-    ],
-  },
-  {
-    id: "q4",
-    category: "Fit & Proportion",
-    question: "When I try clothes on, I usually…",
-    options: [
-      "care a lot about proportion and fit",
-      "check only whether they feel comfortable",
-      "buy if they look okay quickly",
-      "struggle to know what flatters me",
-      "rarely try before buying",
+      "I'm not really sure",
     ],
   },
   {
     id: "q5",
     category: "Wardrobe Foundations",
-    question: "My wardrobe is mostly made up of…",
+    question: "My wardrobe is mostly made up of...",
     options: [
       "versatile basics that work together",
       "a mix of random items",
@@ -153,33 +202,9 @@ const questions: Question[] = [
     ],
   },
   {
-    id: "q6",
-    category: "Wardrobe Foundations",
-    question: "I usually wear the same few outfits because…",
-    options: [
-      "they work well and I like them",
-      "I don’t have many good alternatives",
-      "most of my wardrobe is hard to combine",
-      "I don’t enjoy planning outfits",
-      "that’s just easier",
-    ],
-  },
-  {
-    id: "q7",
-    category: "Wardrobe Foundations",
-    question: "When I buy clothes, I usually choose…",
-    options: [
-      "pieces that work with what I already own",
-      "whatever catches my eye",
-      "whatever is on sale",
-      "whatever feels comfortable",
-      "I don’t think much about it",
-    ],
-  },
-  {
     id: "q8",
     category: "Color Coordination",
-    question: "I usually wear colors that are…",
+    question: "I usually wear colors that are...",
     options: [
       "neutral and easy to combine",
       "mostly safe but repetitive",
@@ -191,35 +216,23 @@ const questions: Question[] = [
   {
     id: "q9",
     category: "Color Coordination",
-    question: "Before going out, I usually check whether…",
+    question: "Before going out, I usually check whether...",
     options: [
       "the whole outfit feels coordinated",
       "the shoes work with the outfit",
       "at least the clothes are clean",
-      "I don’t really check",
+      "I don't really check",
       "I ask someone else",
-    ],
-  },
-  {
-    id: "q10",
-    category: "Color Coordination",
-    question: "My outfits usually look…",
-    options: [
-      "balanced and intentional",
-      "simple but fine",
-      "inconsistent from piece to piece",
-      "too plain or too random",
-      "I’m not sure",
     ],
   },
   {
     id: "q11",
     category: "Shoes & Footwear",
-    question: "I usually wear…",
+    question: "I usually wear...",
     options: [
       "clean casual shoes that suit most outfits",
       "running shoes for almost everything",
-      "loafers/boots when needed and sneakers otherwise",
+      "loafers or boots when needed and sneakers otherwise",
       "old shoes longer than I should",
       "whatever is nearest",
     ],
@@ -227,7 +240,7 @@ const questions: Question[] = [
   {
     id: "q12",
     category: "Shoes & Footwear",
-    question: "My shoes are usually…",
+    question: "My shoes are usually...",
     options: [
       "clean and presentable",
       "acceptable but a little worn",
@@ -237,21 +250,9 @@ const questions: Question[] = [
     ],
   },
   {
-    id: "q13",
-    category: "Shoes & Footwear",
-    question: "For going out or dressing better, I have…",
-    options: [
-      "at least one strong shoe option",
-      "something okay but not great",
-      "only athletic or casual options",
-      "no real dress-up option",
-      "I haven’t thought about it",
-    ],
-  },
-  {
     id: "q14",
     category: "Grooming",
-    question: "My grooming routine is…",
+    question: "My grooming routine is...",
     options: [
       "regular and intentional",
       "basic but consistent",
@@ -261,33 +262,9 @@ const questions: Question[] = [
     ],
   },
   {
-    id: "q15",
-    category: "Grooming",
-    question: "My hair and facial grooming usually look…",
-    options: [
-      "clean and well-maintained",
-      "okay but not sharp",
-      "uneven or overdue",
-      "mostly ignored",
-      "I’m not sure",
-    ],
-  },
-  {
-    id: "q16",
-    category: "Grooming",
-    question: "My daily presentation habits are…",
-    options: [
-      "solid and consistent",
-      "decent but basic",
-      "inconsistent",
-      "reactive, not planned",
-      "not something I prioritize",
-    ],
-  },
-  {
     id: "q17",
     category: "Occasion Styling",
-    question: "For important occasions, I usually…",
+    question: "For important occasions, I usually...",
     options: [
       "dress a level above average",
       "dress appropriately, not memorably",
@@ -297,33 +274,9 @@ const questions: Question[] = [
     ],
   },
   {
-    id: "q18",
-    category: "Occasion Styling",
-    question: "At work or in social settings, my style usually feels…",
-    options: [
-      "polished and appropriate",
-      "good enough",
-      "too casual",
-      "inconsistent",
-      "not really intentional",
-    ],
-  },
-  {
-    id: "q19",
-    category: "Occasion Styling",
-    question: "When I want to look impressive, I rely on…",
-    options: [
-      "a few well-built outfits that work",
-      "one decent fallback outfit",
-      "trial and error",
-      "the same outfit every time",
-      "luck",
-    ],
-  },
-  {
     id: "q20",
     category: "Overall Self-View",
-    question: "Overall, my style today feels like…",
+    question: "Overall, my style today feels like...",
     options: [
       "a real strength",
       "decent with room to improve",
@@ -340,6 +293,10 @@ function isValidEmail(email: string) {
 
 function glassCard(extra = "") {
   return `rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.35)] ${extra}`;
+}
+
+function getSelectedAnswer(answers: Record<string, string[]>, questionId: string) {
+  return answers[questionId]?.[0] || null;
 }
 
 function buildPersonalizedRecommendations(
@@ -359,17 +316,17 @@ function buildPersonalizedRecommendations(
       }
       if (has("q11", "old shoes longer than I should")) {
         tips.push(
-          "Rotate out worn shoes faster — old footwear quietly lowers the whole outfit."
+          "Rotate out worn shoes faster. Old footwear quietly lowers the whole outfit."
         );
       }
-      if (has("q13", "only athletic or casual options")) {
+      if (has("q11", "running shoes for almost everything")) {
         tips.push(
           "Add one non-athletic option like clean minimal sneakers, loafers, or smart-casual shoes."
         );
       }
-      if (has("q13", "no real dress-up option")) {
+      if (has("q11", "whatever is nearest")) {
         tips.push(
-          "Get one reliable dress-better shoe before buying more casual pairs."
+          "Choose one reliable shoe rotation instead of defaulting to whatever is closest."
         );
       }
       if (tips.length === 0) {
@@ -388,15 +345,12 @@ function buildPersonalizedRecommendations(
           "Build a minimal grooming baseline: haircut rhythm, beard cleanup, deodorant, and daily hygiene."
         );
       }
-      if (has("q15", "uneven or overdue")) {
+      if (has("q14", "minimal unless needed")) {
         tips.push(
-          "Small maintenance matters here — sharper grooming creates an immediate lift."
+          "Small maintenance matters here. Sharper grooming creates an immediate lift."
         );
       }
-      if (
-        has("q16", "reactive, not planned") ||
-        has("q16", "not something I prioritize")
-      ) {
+      if (has("q14", "inconsistent")) {
         tips.push(
           "Make presentation automatic instead of last-minute. Simple systems work better than motivation."
         );
@@ -405,27 +359,27 @@ function buildPersonalizedRecommendations(
         tips.push(
           "Create a grooming routine that is consistent enough to become effortless."
         );
-        tips.push("The goal is not complexity — it is reliable sharpness.");
+        tips.push("The goal is not complexity. It is reliable sharpness.");
       }
     }
 
     if (area === "fit") {
       if (has("q1", "often feel tight in one area")) {
         tips.push(
-          "Prioritize fit corrections before new style purchases — poor fit ruins the whole look."
+          "Prioritize fit corrections before new style purchases. Poor fit ruins the whole look."
         );
       }
-      if (has("q2", "are a bit long or bunch at the bottom")) {
+      if (has("q1", "are mostly chosen for comfort, not fit")) {
         tips.push(
-          "Fix trouser length first — better hems create instant visual polish."
+          "Move from comfort-first sizing to cleaner proportions in the shoulders, chest, and waist."
         );
       }
-      if (has("q2", "feel loose and shapeless")) {
+      if (has("q3", "comfortable more than stylish")) {
         tips.push(
-          "Move away from shapeless silhouettes and toward cleaner lines."
+          "Keep comfort, but tighten up the silhouette so your clothes look intentional instead of passive."
         );
       }
-      if (has("q4", "struggle to know what flatters me")) {
+      if (has("q3", "slightly awkward in fit")) {
         tips.push(
           "Use fit as your first filter: shoulders, waist line, trouser break, and length."
         );
@@ -449,17 +403,14 @@ function buildPersonalizedRecommendations(
           "You need more coherence, not more pieces. Build around versatile basics first."
         );
       }
-      if (has("q6", "most of my wardrobe is hard to combine")) {
+      if (has("q5", "older clothes I still use")) {
         tips.push(
-          "Stop thinking item by item. Build outfits that can share the same core pieces."
+          "Refresh your oldest workhorse pieces first so your baseline wardrobe stops looking dated."
         );
       }
-      if (
-        has("q7", "whatever catches my eye") ||
-        has("q7", "whatever is on sale")
-      ) {
+      if (has("q5", "mostly athletic or lounge wear")) {
         tips.push(
-          "Buy fewer, better-aligned pieces that fit your actual style direction."
+          "Add a few non-athletic anchors so your daily style feels intentional even when you keep things casual."
         );
       }
       if (tips.length === 0) {
@@ -476,20 +427,17 @@ function buildPersonalizedRecommendations(
         has("q8", "just whatever is available")
       ) {
         tips.push(
-          "Move toward a more intentional base palette — neutrals make everything easier."
+          "Move toward a more intentional base palette. Neutrals make everything easier."
         );
       }
-      if (has("q9", "I don’t really check")) {
+      if (has("q9", "I don't really check")) {
         tips.push(
           "A 10-second coordination check before leaving will improve consistency immediately."
         );
       }
-      if (
-        has("q10", "inconsistent from piece to piece") ||
-        has("q10", "too plain or too random")
-      ) {
+      if (has("q9", "I ask someone else") || has("q8", "often bold or loud")) {
         tips.push(
-          "You do not need louder outfits — you need cleaner, more deliberate coordination."
+          "You do not need louder outfits. You need cleaner, more deliberate coordination."
         );
       }
       if (tips.length === 0) {
@@ -513,9 +461,12 @@ function buildPersonalizedRecommendations(
           "Upgrade one level more than your current instinct for important settings."
         );
       }
-      if (has("q19", "trial and error") || has("q19", "luck")) {
+      if (
+        has("q17", "wear some version of what I always wear") ||
+        has("q17", "feel unsure what to wear")
+      ) {
         tips.push(
-          "Build 1–2 reliable occasion outfits so you are not improvising when it matters."
+          "Build 1-2 reliable occasion outfits so you are not improvising when it matters."
         );
       }
       if (tips.length === 0) {
@@ -548,9 +499,9 @@ function buildRecommendedNeeds(
     if (area === "shoes") {
       if (has("q12", "visibly dirty or aging"))
         items.push("clean white minimalist sneakers");
-      if (has("q13", "only athletic or casual options"))
+      if (has("q11", "running shoes for almost everything"))
         items.push("one versatile smart-casual shoe");
-      if (has("q13", "no real dress-up option"))
+      if (has("q11", "whatever is nearest"))
         items.push("one polished dress-better shoe");
       if (items.length === 0) {
         items.push("clean everyday sneakers");
@@ -561,9 +512,7 @@ function buildRecommendedNeeds(
     if (area === "grooming") {
       if (has("q14", "almost nonexistent"))
         items.push("basic grooming starter set");
-      if (has("q15", "uneven or overdue"))
-        items.push("hair or beard maintenance tool");
-      if (has("q16", "not something I prioritize"))
+      if (has("q14", "inconsistent") || has("q14", "minimal unless needed"))
         items.push("simple daily grooming essentials");
       if (items.length === 0) {
         items.push("minimal skincare routine");
@@ -572,12 +521,10 @@ function buildRecommendedNeeds(
     }
 
     if (area === "fit") {
-      if (has("q2", "are a bit long or bunch at the bottom"))
-        items.push("better-length trousers or hemming");
-      if (has("q2", "feel tight in the thigh or seat"))
-        items.push("tapered stretch trousers");
       if (has("q1", "often feel tight in one area"))
         items.push("better-fitting shirts with more room where needed");
+      if (has("q3", "slightly awkward in fit"))
+        items.push("one tailored or hemmed core outfit");
       if (items.length === 0) {
         items.push("better-fitting chinos");
         items.push("cleaner-proportion tops");
@@ -591,8 +538,8 @@ function buildRecommendedNeeds(
       ) {
         items.push("neutral wardrobe basics");
       }
-      if (has("q6", "most of my wardrobe is hard to combine")) {
-        items.push("mix-and-match core pieces");
+      if (has("q5", "mostly athletic or lounge wear")) {
+        items.push("mix-and-match casual essentials");
       }
       if (items.length === 0) {
         items.push("versatile basics");
@@ -607,7 +554,7 @@ function buildRecommendedNeeds(
       ) {
         items.push("navy, white, grey, and black basics");
       }
-      if (has("q10", "too plain or too random")) {
+      if (has("q9", "I ask someone else")) {
         items.push("more coordinated solid-color tops");
       }
       if (items.length === 0) {
@@ -620,7 +567,10 @@ function buildRecommendedNeeds(
         items.push("one polished occasion outfit");
         items.push("smart-casual shoes");
       }
-      if (has("q19", "trial and error") || has("q19", "luck")) {
+      if (
+        has("q17", "wear some version of what I always wear") ||
+        has("q17", "feel unsure what to wear")
+      ) {
         items.push("one reliable go-to occasion combination");
       }
       if (items.length === 0) {
@@ -636,7 +586,8 @@ function buildRecommendedNeeds(
 
 function getStyleArchetype(
   overallScore: number,
-  categoryScores: Record<string, number>
+  categoryScores: Record<string, number>,
+  selfView: string | null = null
 ) {
   const sortedHighToLow = Object.entries(categoryScores).sort(
     (a, b) => b[1] - a[1]
@@ -644,8 +595,11 @@ function getStyleArchetype(
 
   const strongest = sortedHighToLow[0][0];
   const weakest = sortedHighToLow[sortedHighToLow.length - 1][0];
+  const feelsStrong = selfView === "a real strength";
+  const feelsStuck =
+    selfView === "underdeveloped" || selfView === "something I want help with";
 
-  if (overallScore >= 80) {
+  if (overallScore >= 80 && feelsStrong) {
     if (strongest === "occasion") {
       return {
         title: "The Occasion Specialist",
@@ -661,7 +615,7 @@ function getStyleArchetype(
     };
   }
 
-  if (overallScore >= 65) {
+  if (overallScore >= 68) {
     if (strongest === "occasion") {
       return {
         title: "The Emerging Professional",
@@ -677,7 +631,7 @@ function getStyleArchetype(
     };
   }
 
-  if (overallScore >= 50) {
+  if (overallScore >= 52) {
     return {
       title: "The Untapped Potential",
       description:
@@ -685,7 +639,7 @@ function getStyleArchetype(
     };
   }
 
-  if (weakest === "grooming" || weakest === "shoes") {
+  if (weakest === "grooming" || weakest === "shoes" || feelsStuck) {
     return {
       title: "The Style Rebuilder",
       description:
@@ -752,25 +706,57 @@ export default function AssessmentPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string[]>>({});
   const [showResult, setShowResult] = useState(false);
-  const [onboardingData, setOnboardingData] = useState<any>(null);
+  const [quizPhase, setQuizPhase] = useState<
+    "question" | "interstitial" | "calculating"
+  >("question");
+  const [interstitialInfo, setInterstitialInfo] = useState<{
+    completed: string;
+    next: string;
+  } | null>(null);
+  const [calculationStepIndex, setCalculationStepIndex] = useState(0);
+  const [calculationProgress, setCalculationProgress] = useState(0);
+  const [onboardingData, setOnboardingData] = useState<OnboardingForm | null>(
+    null
+  );
   const [email, setEmail] = useState("");
   const [resultsUnlocked, setResultsUnlocked] = useState(false);
   const [emailError, setEmailError] = useState("");
   const [shareMessage, setShareMessage] = useState("");
+  const [showPersonalizationForm, setShowPersonalizationForm] = useState(false);
+  const [personalizationMessage, setPersonalizationMessage] = useState("");
   const [aiReport, setAiReport] = useState<AIReport | null>(null);
-  const [loadingReport, setLoadingReport] = useState(false);
+  const [, setLoadingReport] = useState(false);
   const [loadingCheckout, setLoadingCheckout] = useState(false);
   const [aiError, setAiError] = useState("");
   const [showAiModal, setShowAiModal] = useState(false);
   const [paidSessionId, setPaidSessionId] = useState<string | null>(null);
   const [postPaymentMessage, setPostPaymentMessage] = useState("");
+  const advanceTimerRef = useRef<number | null>(null);
+  const calculationTimerRefs = useRef<number[]>([]);
+  const interstitialTimerRef = useRef<number | null>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem("stylescore_onboarding");
-    if (saved) setOnboardingData(JSON.parse(saved));
+    if (saved) {
+      setOnboardingData(JSON.parse(saved));
+    }
 
     const savedAnswers = localStorage.getItem("stylescore_answers");
-    if (savedAnswers) setAnswers(JSON.parse(savedAnswers));
+    if (savedAnswers) {
+      const activeQuestionIds = new Set(questions.map((question) => question.id));
+      const parsedAnswers = JSON.parse(savedAnswers) as Record<string, string[]>;
+      const filteredAnswers = Object.fromEntries(
+        Object.entries(parsedAnswers).filter(([questionId]) =>
+          activeQuestionIds.has(questionId)
+        )
+      );
+
+      setAnswers(filteredAnswers);
+      localStorage.setItem(
+        "stylescore_answers",
+        JSON.stringify(filteredAnswers)
+      );
+    }
 
     const savedEmail = localStorage.getItem("stylescore_email");
     if (savedEmail) {
@@ -785,6 +771,7 @@ export default function AssessmentPage() {
     if (stripeStatus === "success" && sessionId) {
       setShowResult(true);
       setPaidSessionId(sessionId);
+      setQuizPhase("question");
     }
 
     if (stripeStatus || sessionId) {
@@ -792,20 +779,62 @@ export default function AssessmentPage() {
     }
   }, []);
 
-  const result = calculateScore(
-    onboardingData || {
-      ageRange: "",
-      climate: "",
-      workStyle: "",
-      budget: "",
-      stylePreference: "",
-      build: "",
-      fitChallenges: [],
-      goals: [],
-      constraints: [],
-    },
-    answers
+  const effectiveOnboardingData = useMemo(
+    () => mergeOnboardingData(onboardingData),
+    [onboardingData]
   );
+
+  const result = calculateScore(effectiveOnboardingData, answers);
+  const selfViewAnswer = getSelectedAnswer(answers, "q20");
+  const archetype = useMemo(
+    () =>
+      getStyleArchetype(
+        result.overall_score,
+        result.category_scores,
+        selfViewAnswer
+      ),
+    [result, selfViewAnswer]
+  );
+
+  useEffect(() => {
+    return () => {
+      clearScheduledTransitions();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (quizPhase !== "calculating" || showResult) return;
+
+    setCalculationStepIndex(0);
+    setCalculationProgress(0);
+
+    const progressKickoff = window.setTimeout(() => {
+      setCalculationProgress(100);
+    }, 60);
+    const secondStep = window.setTimeout(() => {
+      setCalculationStepIndex(1);
+    }, 1500);
+    const thirdStep = window.setTimeout(() => {
+      setCalculationStepIndex(2);
+    }, 3000);
+    const finish = window.setTimeout(() => {
+      setShowResult(true);
+      setQuizPhase("question");
+      setCalculationProgress(0);
+    }, CALCULATION_SCREEN_MS);
+
+    calculationTimerRefs.current = [
+      progressKickoff,
+      secondStep,
+      thirdStep,
+      finish,
+    ];
+
+    return () => {
+      calculationTimerRefs.current.forEach((timer) => window.clearTimeout(timer));
+      calculationTimerRefs.current = [];
+    };
+  }, [quizPhase, showResult]);
 
   useEffect(() => {
     async function finalizePaidReport() {
@@ -837,11 +866,6 @@ export default function AssessmentPage() {
           item_name: "StyleScore Premium AI Style Blueprint",
         });
 
-        const archetype = getStyleArchetype(
-          result.overall_score,
-          result.category_scores
-        );
-
         setLoadingReport(true);
 
         const response = await fetch("/api/style-report", {
@@ -854,7 +878,7 @@ export default function AssessmentPage() {
             archetype: archetype.title,
             focusAreas: result.focus_top_3,
             categoryScores: result.category_scores,
-            onboardingData,
+            onboardingData: effectiveOnboardingData,
             answers,
           }),
         });
@@ -884,47 +908,110 @@ export default function AssessmentPage() {
     }
 
     finalizePaidReport();
-  }, [paidSessionId, showResult, onboardingData, answers, result]);
+  }, [paidSessionId, showResult, effectiveOnboardingData, answers, result, archetype]);
 
   const currentQuestion = questions[currentIndex];
-  const selectedAnswers = answers[currentQuestion.id] || [];
-  const canProceed = selectedAnswers.length > 0;
+  const selectedAnswer = getSelectedAnswer(answers, currentQuestion.id);
 
   const progress = useMemo(
     () => Math.round(((currentIndex + 1) / questions.length) * 100),
     [currentIndex]
   );
 
-  function toggleOption(questionId: string, option: string) {
-    setAnswers((prev) => {
-      const existing = prev[questionId] || [];
-      const alreadySelected = existing.includes(option);
+  function clearScheduledTransitions() {
+    if (advanceTimerRef.current !== null) {
+      window.clearTimeout(advanceTimerRef.current);
+      advanceTimerRef.current = null;
+    }
 
+    if (interstitialTimerRef.current !== null) {
+      window.clearTimeout(interstitialTimerRef.current);
+      interstitialTimerRef.current = null;
+    }
+
+    calculationTimerRefs.current.forEach((timer) => window.clearTimeout(timer));
+    calculationTimerRefs.current = [];
+  }
+
+  function advanceToNextStep(questionIndex: number) {
+    const nextIndex = questionIndex + 1;
+
+    if (questionIndex >= questions.length - 1) {
+      setInterstitialInfo(null);
+      setQuizPhase("calculating");
+      return;
+    }
+
+    const nextQuestion = questions[nextIndex];
+
+    if (nextQuestion.category !== questions[questionIndex].category) {
+      setInterstitialInfo({
+        completed: questions[questionIndex].category,
+        next: nextQuestion.category,
+      });
+      setQuizPhase("interstitial");
+
+      interstitialTimerRef.current = window.setTimeout(() => {
+        setCurrentIndex(nextIndex);
+        setQuizPhase("question");
+        setInterstitialInfo(null);
+        interstitialTimerRef.current = null;
+      }, CATEGORY_INTERSTITIAL_MS);
+
+      return;
+    }
+
+    setCurrentIndex(nextIndex);
+  }
+
+  function handleAnswerSelect(option: string) {
+    if (quizPhase !== "question") return;
+
+    const questionId = currentQuestion.id;
+    const questionIndex = currentIndex;
+
+    setAnswers((prev) => {
       const updated = {
         ...prev,
-        [questionId]: alreadySelected
-          ? existing.filter((item: string) => item !== option)
-          : [...existing, option],
+        [questionId]: [option],
       };
 
       localStorage.setItem("stylescore_answers", JSON.stringify(updated));
       return updated;
     });
-  }
 
-  function nextQuestion() {
-    if (!canProceed) return;
-    if (currentIndex < questions.length - 1) {
-      setCurrentIndex((prev) => prev + 1);
-    } else {
-      setShowResult(true);
-    }
+    clearScheduledTransitions();
+    advanceTimerRef.current = window.setTimeout(() => {
+      advanceTimerRef.current = null;
+      advanceToNextStep(questionIndex);
+    }, AUTO_ADVANCE_DELAY_MS);
   }
 
   function previousQuestion() {
+    clearScheduledTransitions();
+
     if (currentIndex > 0) {
+      setInterstitialInfo(null);
+      setQuizPhase("question");
       setCurrentIndex((prev) => prev - 1);
     }
+  }
+
+  function handlePersonalizationSave(form: OnboardingForm) {
+    setOnboardingData(form);
+    setShowPersonalizationForm(false);
+    setPersonalizationMessage(
+      "Personalization saved. Your premium report will now use those details."
+    );
+  }
+
+  function handlePersonalizationSkip() {
+    setShowPersonalizationForm(false);
+    setPersonalizationMessage(
+      hasCustomizedOnboardingData(onboardingData)
+        ? "Personalization unchanged."
+        : "Using sensible defaults for personalization. You can update this anytime before checkout."
+    );
   }
 
   const categoryLabels: Record<string, string> = {
@@ -943,11 +1030,6 @@ export default function AssessmentPage() {
     }
 
     try {
-      const archetype = getStyleArchetype(
-        result.overall_score,
-        result.category_scores
-      );
-
       const response = await fetch("/api/leads", {
         method: "POST",
         headers: {
@@ -971,6 +1053,8 @@ export default function AssessmentPage() {
       localStorage.setItem("stylescore_email", email);
       setEmailError("");
       setResultsUnlocked(true);
+      setShowPersonalizationForm(!hasCustomizedOnboardingData(onboardingData));
+      setPersonalizationMessage("");
 
       trackEvent("email_capture", {
         method: "form",
@@ -1022,11 +1106,6 @@ export default function AssessmentPage() {
   }
 
   async function shareScore() {
-    const archetype = getStyleArchetype(
-      result.overall_score,
-      result.category_scores
-    );
-
     const text = `My StyleScore is ${result.overall_score}/100 — ${archetype.title}. Can you beat it? Take yours on https://stylescore.live`;
     const url = "https://stylescore.live";
 
@@ -1070,12 +1149,8 @@ export default function AssessmentPage() {
       result.focus_top_3
     );
 
-    const archetype = getStyleArchetype(
-      result.overall_score,
-      result.category_scores
-    );
-
     const archetypeSuggestions = getArchetypeStyleSuggestions(archetype.title);
+    const hasSavedPersonalization = hasCustomizedOnboardingData(onboardingData);
 
     return (
       <main className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_#1f2937,_#0f172a_40%,_#020617_100%)] px-4 py-10 text-white">
@@ -1087,7 +1162,7 @@ export default function AssessmentPage() {
 
         {postPaymentMessage && <GeneratingOverlay message={postPaymentMessage} />}
 
-        <div className="relative mx-auto max-w-4xl space-y-6">
+        <div className="relative mx-auto max-w-4xl space-y-6 results-fade-in">
           <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 text-white backdrop-blur-2xl shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/50">
               Overall Fashion Score
@@ -1126,6 +1201,12 @@ export default function AssessmentPage() {
           <div className={glassCard("p-6")}>
             <h3 className="text-xl font-semibold text-white">Style Diagnosis</h3>
             <p className="mt-3 leading-7 text-white/75">
+              {selfViewAnswer && (
+                <>
+                  You described your current style as{" "}
+                  <span className="font-semibold text-white">{selfViewAnswer}</span>.{" "}
+                </>
+              )}
               {strongestArea === "occasion" ? (
                 <>
                   Your styling is best during{" "}
@@ -1416,6 +1497,80 @@ export default function AssessmentPage() {
 
           {resultsUnlocked && (
             <div className={glassCard("p-6")}>
+              {!showPersonalizationForm ? (
+                <>
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                    <div>
+                      <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
+                        Optional Personalization
+                      </p>
+                      <h3 className="mt-3 text-3xl font-semibold text-white">
+                        Personalize your premium report
+                      </h3>
+                      <p className="mt-3 max-w-3xl leading-7 text-white/70">
+                        The score is already final. Add your age, climate, work
+                        style, budget, and fit context if you want the paid
+                        report to feel more tailored.
+                      </p>
+                    </div>
+
+                    <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/75">
+                      {hasSavedPersonalization
+                        ? "Saved personalization"
+                        : "Using sensible defaults"}
+                    </div>
+                  </div>
+
+                  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setShowPersonalizationForm(true);
+                        setPersonalizationMessage("");
+                      }}
+                      className="rounded-2xl bg-white px-6 py-3 font-medium text-black transition hover:bg-white/90"
+                    >
+                      {hasSavedPersonalization
+                        ? "Edit Personalization"
+                        : "Personalize My Report"}
+                    </button>
+
+                    {!hasSavedPersonalization && (
+                      <button
+                        type="button"
+                        onClick={handlePersonalizationSkip}
+                        className="rounded-2xl border border-white/15 bg-white/5 px-6 py-3 font-medium text-white transition hover:bg-white/10"
+                      >
+                        Skip for now
+                      </button>
+                    )}
+                  </div>
+
+                  {personalizationMessage && (
+                    <p className="mt-4 text-sm text-white/60">
+                      {personalizationMessage}
+                    </p>
+                  )}
+                </>
+              ) : (
+                <PersonalizationForm
+                  title="Personalize your premium report"
+                  description="Optional. These details do not change your score. They only make the premium report and shopping advice more tailored."
+                  submitLabel={
+                    hasSavedPersonalization
+                      ? "Update personalization"
+                      : "Save personalization"
+                  }
+                  showSkip
+                  onSaved={handlePersonalizationSave}
+                  onSkip={handlePersonalizationSkip}
+                />
+              )}
+            </div>
+          )}
+
+          {resultsUnlocked && (
+            <div className={glassCard("p-6")}>
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
                 AI Personal Stylist Report
               </p>
@@ -1497,7 +1652,12 @@ export default function AssessmentPage() {
                           aiReport,
                           result,
                           categoryLabels,
-                          getStyleArchetype,
+                          getStyleArchetype: (overallScore, categoryScores) =>
+                            getStyleArchetype(
+                              overallScore,
+                              categoryScores,
+                              selfViewAnswer
+                            ),
                         })
                       }
                       className="rounded-2xl bg-white px-4 py-2 text-sm font-medium text-black transition hover:bg-white/90"
@@ -1664,12 +1824,20 @@ export default function AssessmentPage() {
 
           <button
             onClick={() => {
+              clearScheduledTransitions();
               setShowResult(false);
+              setQuizPhase("question");
+              setInterstitialInfo(null);
+              setCalculationStepIndex(0);
+              setCalculationProgress(0);
               setCurrentIndex(0);
               setAnswers({});
+              setOnboardingData(null);
               setEmail("");
               setResultsUnlocked(false);
               setShareMessage("");
+              setShowPersonalizationForm(false);
+              setPersonalizationMessage("");
               setAiReport(null);
               setAiError("");
               setShowAiModal(false);
@@ -1710,77 +1878,73 @@ export default function AssessmentPage() {
           </p>
         </div>
 
-        <div className={glassCard("p-6")}>
-          <p className="mb-2 text-sm font-medium text-white/55">
-            {currentQuestion.category}
-          </p>
-          <h2 className="text-2xl font-semibold text-white">
-            {currentQuestion.question}
-          </h2>
-
-          <div className="mt-4 h-2.5 w-full rounded-full bg-white/10">
-            <div
-              className="h-2.5 rounded-full bg-white transition-all"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
-
-          <p className="mt-3 text-sm text-white/55">
-            Question {currentIndex + 1} of {questions.length}
-          </p>
-
-          <div className="mt-6 grid gap-3">
-            {currentQuestion.options.map((option) => {
-              const active = selectedAnswers.includes(option);
-
-              return (
-                <button
-                  key={option}
-                  type="button"
-                  onClick={() => toggleOption(currentQuestion.id, option)}
-                  className={`rounded-2xl border px-4 py-4 text-left transition ${
-                    active
-                      ? "border-white bg-white text-black shadow-lg"
-                      : "border-white/10 bg-white/5 text-white hover:bg-white/10"
-                  }`}
-                >
-                  {option}
-                </button>
-              );
-            })}
-          </div>
-
-          {!canProceed && (
-            <p className="mt-4 text-sm text-amber-200">
-              Please select at least one option to continue.
+        {quizPhase === "calculating" ? (
+          <ScoreCalculationScreen
+            stepIndex={calculationStepIndex}
+            progress={calculationProgress}
+          />
+        ) : quizPhase === "interstitial" && interstitialInfo ? (
+          <CategoryInterstitial
+            completed={interstitialInfo.completed}
+            next={interstitialInfo.next}
+          />
+        ) : (
+          <div key={currentQuestion.id} className={`${glassCard("p-6")} quiz-card-enter`}>
+            <p className="mb-2 text-sm font-medium text-white/55">
+              {currentQuestion.category}
             </p>
-          )}
+            <h2 className="text-2xl font-semibold text-white">
+              {currentQuestion.question}
+            </h2>
 
-          <div className="mt-8 flex items-center gap-3">
-            <button
-              type="button"
-              onClick={previousQuestion}
-              disabled={currentIndex === 0}
-              className="rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-white transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
-            >
-              Previous
-            </button>
+            <div className="mt-4 h-2.5 w-full rounded-full bg-white/10">
+              <div
+                className="h-2.5 rounded-full bg-white transition-all"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
 
-            <button
-              type="button"
-              onClick={nextQuestion}
-              disabled={!canProceed}
-              className={`rounded-2xl px-5 py-3 font-medium transition ${
-                canProceed
-                  ? "bg-white text-black hover:bg-white/90"
-                  : "cursor-not-allowed bg-white/20 text-white/40"
-              }`}
-            >
-              {currentIndex === questions.length - 1 ? "See Result" : "Next"}
-            </button>
+            <p className="mt-3 text-sm text-white/55">
+              Question {currentIndex + 1} of {questions.length}
+            </p>
+
+            <div className="mt-6 grid gap-3">
+              {currentQuestion.options.map((option) => {
+                const active = selectedAnswer === option;
+
+                return (
+                  <button
+                    key={option}
+                    type="button"
+                    onClick={() => handleAnswerSelect(option)}
+                    className={`rounded-2xl border px-4 py-4 text-left transition ${
+                      active
+                        ? "border-white bg-white text-black shadow-lg"
+                        : "border-white/10 bg-white/5 text-white hover:bg-white/10"
+                    }`}
+                  >
+                    {option}
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="mt-8 flex items-center justify-between gap-3">
+              <button
+                type="button"
+                onClick={previousQuestion}
+                disabled={currentIndex === 0}
+                className="rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-white transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-40"
+              >
+                Previous
+              </button>
+
+              <p className="text-sm text-white/45">Tap an answer to continue.</p>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </main>
   );
 }
+

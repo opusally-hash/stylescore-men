@@ -66,7 +66,7 @@ export default function Page() {
               wardrobe, shoes, grooming, and occasion styling.
             </p>
             <a
-              href="/onboarding"
+              href="/assessment"
               className="premium-glow mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_24px_rgba(251,146,60,0.4)]"
             >
               Check Your StyleScore →
@@ -97,7 +97,7 @@ export default function Page() {
                 Not sure if your shoes are helping or hurting your style?
               </p>
               <a
-                href="/onboarding"
+                href="/assessment"
                 className="mt-4 inline-flex rounded-2xl bg-orange-400 px-5 py-3 font-semibold text-black transition hover:bg-orange-300"
               >
                 Take the Free Style Test →
@@ -188,7 +188,7 @@ export default function Page() {
                 across the style fundamentals that matter most.
               </p>
               <a
-                href="/onboarding"
+                href="/assessment"
                 className="premium-glow mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_24px_rgba(251,146,60,0.4)]"
               >
                 Get Your StyleScore →

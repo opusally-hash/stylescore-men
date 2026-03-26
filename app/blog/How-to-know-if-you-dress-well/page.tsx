@@ -169,7 +169,7 @@ export default function Page() {
           </p>
 
           <a
-            href="/onboarding"
+            href="/assessment"
             className="inline-block bg-orange-400 text-black px-5 py-3 rounded-xl font-semibold"
           >
             Check Your StyleScore →

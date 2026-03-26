@@ -40,13 +40,18 @@ export async function POST(req: Request) {
     });
 
     return Response.json({ url: session.url });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const stripeError = error as {
+      message?: string;
+      raw?: { message?: string };
+    };
+
     console.error("Stripe checkout error:", error);
     return Response.json(
       {
         error:
-          error?.message ||
-          error?.raw?.message ||
+          stripeError.message ||
+          stripeError.raw?.message ||
           "Failed to create checkout session.",
       },
       { status: 500 }

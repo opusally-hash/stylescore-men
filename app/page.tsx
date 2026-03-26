@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 
 const displayFont = Cormorant_Garamond({
@@ -19,19 +20,19 @@ export default function HomePage() {
 
       <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-6 py-8 lg:px-10">
         <header className="flex items-center justify-between py-2">
-          <a
+          <Link
             href="/"
             className="text-lg font-bold uppercase tracking-[0.28em] text-white/60 sm:text-xl"
           >
             StyleScore for Men
-          </a>
+          </Link>
 
-          <a
-            href="/onboarding"
+          <Link
+            href="/assessment"
             className="premium-glow rounded-2xl bg-orange-400 px-5 py-3 text-sm font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_24px_rgba(251,146,60,0.4)]"
           >
             Get My Style Score
-          </a>
+          </Link>
         </header>
 
         <section className="flex flex-1 items-center py-14 lg:py-10">
@@ -57,12 +58,12 @@ export default function HomePage() {
               </p>
 
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
-                <a
-                  href="/onboarding"
+                <Link
+                  href="/assessment"
                   className="inline-flex items-center justify-center rounded-2xl bg-white px-7 py-4 text-base font-semibold text-black transition hover:bg-white/90"
                 >
                   Get My Style Score
-                </a>
+                </Link>
 
                 <a
                   href="#how-it-works"
@@ -71,16 +72,16 @@ export default function HomePage() {
                   See How It Works
                 </a>
 
-                <a
+                <Link
                   href="/blog"
                   className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-7 py-4 text-base font-medium text-white transition hover:bg-white/10"
                 >
                   Blog
-                </a>
+                </Link>
               </div>
 
               <div className="mt-10 flex flex-wrap gap-3">
-                <Badge>20 smart questions</Badge>
+                <Badge>10 smart questions</Badge>
                 <Badge>Personalized diagnosis</Badge>
                 <Badge>Shopping-ready upgrades</Badge>
               </div>
@@ -140,16 +141,16 @@ export default function HomePage() {
               </h2>
             </div>
 
-            <a
+            <Link
               href="/blog"
               className="hidden rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white transition hover:bg-white/10 sm:inline-flex"
             >
               View all articles
-            </a>
+            </Link>
           </div>
 
           <div className="grid gap-4 md:grid-cols-3">
-            <a
+            <Link
               href="/blog/mens-style-test"
               className="rounded-[1.6rem] border border-white/10 bg-white/5 p-5 backdrop-blur-xl transition hover:bg-white/10"
             >
@@ -159,9 +160,9 @@ export default function HomePage() {
               <p className="mt-2 text-sm leading-6 text-white/60">
                 Discover your score and what to improve first.
               </p>
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/blog/style-mistakes-men"
               className="rounded-[1.6rem] border border-white/10 bg-white/5 p-5 backdrop-blur-xl transition hover:bg-white/10"
             >
@@ -171,9 +172,9 @@ export default function HomePage() {
               <p className="mt-2 text-sm leading-6 text-white/60">
                 The common mistakes that quietly ruin appearance.
               </p>
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/blog/how-to-improve-style"
               className="rounded-[1.6rem] border border-white/10 bg-white/5 p-5 backdrop-blur-xl transition hover:bg-white/10"
             >
@@ -183,16 +184,16 @@ export default function HomePage() {
               <p className="mt-2 text-sm leading-6 text-white/60">
                 A practical style upgrade roadmap.
               </p>
-            </a>
+            </Link>
           </div>
 
           <div className="mt-6 sm:hidden">
-            <a
+            <Link
               href="/blog"
               className="inline-flex rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white transition hover:bg-white/10"
             >
               View all articles
-            </a>
+            </Link>
           </div>
         </section>
       </div>

@@ -46,7 +46,7 @@ export default function Page() {
 </p>
 
 <a
-  href="/onboarding"
+  href="/assessment"
   className="inline-block mt-4 bg-orange-400 text-black px-5 py-3 rounded-xl font-semibold"
 >
   Take the Free StyleScore →
@@ -77,7 +77,7 @@ export default function Page() {
               coordination, and occasion styling in just a couple of minutes.
             </p>
             <a
-              href="/onboarding"
+              href="/assessment"
               className="premium-glow mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_24px_rgba(251,146,60,0.4)]"
             >
               Start the Style Quiz
@@ -219,7 +219,7 @@ export default function Page() {
                 and what is holding it back.
               </p>
               <a
-                href="/onboarding"
+                href="/assessment"
                 className="premium-glow mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_24px_rgba(251,146,60,0.4)]"
               >
                 Take the Quiz Now
@@ -333,7 +333,7 @@ function BackgroundGlow() {
   <div className="space-y-6 text-white/70">
 
     <div>
-      <h3 className="font-semibold">Is this men's style test free?</h3>
+      <h3 className="font-semibold">Is this men&apos;s style test free?</h3>
       <p>Yes, the StyleScore test is completely free and takes less than 2 minutes.</p>
     </div>
 
