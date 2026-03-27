@@ -21,9 +21,9 @@ export const metadata: Metadata = {
     siteName: "StyleScore",
     images: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
+        url: "/og-image-share.png",
+        width: 1368,
+        height: 768,
         alt: "StyleScore for Men social preview",
       },
     ],
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "StyleScore for Men – Find Your Style Score Online",
     description:
       "Take the 2-minute StyleScore test to discover your fashion strengths, weak spots, and the exact upgrades that will improve your look fastest.",
-    images: ["/og-image.png"],
+    images: ["/og-image-share.png"],
   },
 };
 
