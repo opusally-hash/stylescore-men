@@ -1,24 +1,26 @@
+import { LegacyBlogFaq } from "../_components/legacy-blog-extras";
+
 export default function Page() {
   return (
-    <div className="min-h-screen bg-black text-white px-6 py-12 max-w-3xl mx-auto">
-      <h1 className="text-4xl font-bold mb-6">
-        Best Clothes for Muscular Men
-      </h1>
+    <div className="min-h-screen max-w-3xl mx-auto bg-black px-6 py-12 text-white">
+      <h1 className="mb-6 text-4xl font-bold">Best Clothes for Muscular Men</h1>
 
-      <ul className="list-disc pl-6 text-gray-300 mb-8">
+      <ul className="mb-8 list-disc pl-6 text-gray-300">
         <li>Wear athletic fit shirts</li>
         <li>Avoid oversized clothes</li>
         <li>Use structured fabrics</li>
       </ul>
 
-      <div className="bg-orange-500 text-black p-6 rounded-xl text-center">
-        <h2 className="text-xl font-semibold mb-2">
+      <div className="rounded-xl bg-orange-500 p-6 text-center text-black">
+        <h2 className="mb-2 text-xl font-semibold">
           Are your clothes hiding your physique?
         </h2>
-        <a href="/assessment" className="underline font-bold">
-          Find Out →
+        <a href="/assessment" className="font-bold underline">
+          Find Out -&gt;
         </a>
       </div>
+
+      <LegacyBlogFaq />
     </div>
   );
 }
