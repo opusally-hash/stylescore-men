@@ -4,19 +4,24 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  verification: { google: "H0SH3hnxkTAqXoR5__j3y9Rc4xpRsFgZzuADypzwHuw" ,
-  other:{
-    "p:domain_verify" :"a5cc47c8747a86255bef6fed44d0a073",
-  },
-},
-  title: "StyleScore for Men – Find Your Style Score Online",
-  description:
-    "Take the 2-minute StyleScore test to discover your fashion strengths, weak spots, and the exact upgrades that will improve your look fastest.",
   metadataBase: new URL("https://stylescore.live"),
+  applicationName: "StyleScore",
+  title: "StyleScore for Men",
+  description:
+    "Take the 2-minute men's style quiz to get your StyleScore, category breakdown, diagnosis, and the next upgrades that will improve your look fastest.",
+  alternates: {
+    canonical: "https://stylescore.live",
+  },
+  verification: {
+    google: "H0SH3hnxkTAqXoR5__j3y9Rc4xpRsFgZzuADypzwHuw",
+    other: {
+      "p:domain_verify": "a5cc47c8747a86255bef6fed44d0a073",
+    },
+  },
   openGraph: {
-    title: "StyleScore for Men – Find Your Style Score Online",
+    title: "StyleScore for Men",
     description:
-      "Take the 2-minute StyleScore test to discover your fashion strengths, weak spots, and the exact upgrades that will improve your look fastest.",
+      "Take the 2-minute men's style quiz to get your StyleScore, category breakdown, diagnosis, and the next upgrades that will improve your look fastest.",
     url: "https://stylescore.live",
     siteName: "StyleScore",
     images: [
@@ -32,9 +37,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "StyleScore for Men – Find Your Style Score Online",
+    title: "StyleScore for Men",
     description:
-      "Take the 2-minute StyleScore test to discover your fashion strengths, weak spots, and the exact upgrades that will improve your look fastest.",
+      "Take the 2-minute men's style quiz to get your StyleScore, category breakdown, diagnosis, and the next upgrades that will improve your look fastest.",
     images: ["/og-image-share.png"],
   },
 };

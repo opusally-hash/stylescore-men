@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import { ContactSection } from "./components/contact-section";
@@ -11,6 +12,37 @@ const bodyFont = Manrope({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
 });
+
+export const metadata: Metadata = {
+  title: "StyleScore for Men - Men's Style Quiz and Diagnosis",
+  description:
+    "Take the 2-minute men's style quiz to get your StyleScore, category breakdown, diagnosis, and a clear upgrade path.",
+  alternates: {
+    canonical: "https://stylescore.live",
+  },
+  openGraph: {
+    title: "StyleScore for Men - Men's Style Quiz and Diagnosis",
+    description:
+      "Take the 2-minute men's style quiz to get your StyleScore, category breakdown, diagnosis, and a clear upgrade path.",
+    url: "https://stylescore.live",
+    type: "website",
+    images: [
+      {
+        url: "/og-image-share.png",
+        width: 1368,
+        height: 768,
+        alt: "StyleScore for Men social preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "StyleScore for Men - Men's Style Quiz and Diagnosis",
+    description:
+      "Take the 2-minute men's style quiz to get your StyleScore, category breakdown, diagnosis, and a clear upgrade path.",
+    images: ["/og-image-share.png"],
+  },
+};
 
 export default function HomePage() {
   return (
