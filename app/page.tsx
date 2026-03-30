@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { ContactSection } from "./components/contact-section";
 
 const displayFont = Cormorant_Garamond({
   subsets: ["latin"],
@@ -19,7 +20,7 @@ export default function HomePage() {
       <BackgroundGlow />
 
       <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col px-6 py-8 lg:px-10">
-        <header className="flex items-center justify-between py-2">
+        <header className="flex items-center justify-between gap-6 py-2">
           <Link
             href="/"
             className="text-lg font-bold uppercase tracking-[0.28em] text-white/60 sm:text-xl"
@@ -27,9 +28,24 @@ export default function HomePage() {
             StyleScore for Men
           </Link>
 
+          <nav className="hidden items-center gap-6 text-sm text-white/65 lg:flex">
+            <a href="#about" className="transition hover:text-white">
+              About
+            </a>
+            <a href="#how-it-works" className="transition hover:text-white">
+              How It Works
+            </a>
+            <Link href="/blog" className="transition hover:text-white">
+              Blog
+            </Link>
+            <a href="#contact" className="transition hover:text-white">
+              Contact
+            </a>
+          </nav>
+
           <Link
             href="/assessment"
-            className="premium-glow rounded-2xl bg-orange-400 px-5 py-3 text-sm font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_24px_rgba(251,146,60,0.4)]"
+            className="premium-glow rounded-2xl bg-orange-400 px-5 py-3 text-sm font-semibold text-black shadow-[0_0_24px_rgba(251,146,60,0.4)] transition hover:bg-orange-300"
           >
             Get My Style Score
           </Link>
@@ -52,9 +68,9 @@ export default function HomePage() {
               </h1>
 
               <p className="mt-7 max-w-2xl text-lg leading-8 text-white/70">
-                A premium men’s fashion assessment that shows your style score,
-                your weakest areas, and exactly what to improve next — from fit
-                and grooming to shoes, wardrobe, and occasion styling.
+                A premium men&apos;s style assessment that shows your score, your
+                weakest areas, and exactly what to improve next - from fit and
+                grooming to shoes, wardrobe, and occasion styling.
               </p>
 
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
@@ -97,6 +113,50 @@ export default function HomePage() {
           </div>
         </section>
 
+        <section id="about" className="pb-14 pt-2">
+          <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/45">
+                About Us
+              </p>
+              <h2
+                className={`mt-4 text-3xl tracking-tight text-white sm:text-4xl ${displayFont.className}`}
+              >
+                We help men see what is working in their style and what is not.
+              </h2>
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-white/68">
+                StyleScore turns style advice into something you can actually use.
+                Instead of vague opinions, we score the parts that shape how you
+                look - fit, wardrobe basics, color coordination, shoes, grooming,
+                and how you dress for the moment.
+              </p>
+              <p className="mt-4 max-w-2xl leading-8 text-white/62">
+                The goal is simple: show you where your look is strong, show you
+                what is dragging it down, and make the next upgrade obvious.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <AboutCard
+                title="Clear diagnosis"
+                text="See which category is helping your look and which one is quietly costing you points."
+              />
+              <AboutCard
+                title="Practical next steps"
+                text="Get advice you can act on right away instead of broad fashion talk that goes nowhere."
+              />
+              <AboutCard
+                title="Built for real wardrobes"
+                text="The system is meant for everyday men who want to dress sharper without rebuilding everything at once."
+              />
+              <AboutCard
+                title="Fast enough to finish"
+                text="The assessment stays short, so you get useful insight quickly and keep moving."
+              />
+            </div>
+          </div>
+        </section>
+
         <section id="how-it-works" className="pb-14 pt-2">
           <div className="mb-8 text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/45">
@@ -118,7 +178,7 @@ export default function HomePage() {
             <StepCard
               number="02"
               title="See your style profile"
-              text="Get your overall score, category breakdown, radar profile, top focus areas, and confidence-based diagnosis."
+              text="Get your overall score, category breakdown, radar profile, top focus areas, and a direct diagnosis."
             />
             <StepCard
               number="03"
@@ -132,7 +192,7 @@ export default function HomePage() {
           <div className="mb-8 flex items-end justify-between gap-6">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/45">
-                From the blog
+                From the Blog
               </p>
               <h2
                 className={`mt-4 text-3xl tracking-tight text-white sm:text-4xl ${displayFont.className}`}
@@ -195,6 +255,28 @@ export default function HomePage() {
               View all articles
             </Link>
           </div>
+        </section>
+
+        <section id="contact" className="pb-20 pt-4">
+          <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/45">
+                Contact
+              </p>
+              <h2
+                className={`mt-4 text-3xl tracking-tight text-white sm:text-4xl ${displayFont.className}`}
+              >
+                Tell us what felt helpful, what felt broken, or what you want next.
+              </h2>
+            </div>
+
+            <p className="max-w-xl leading-7 text-white/62">
+              If a part of the quiz confused you, a result felt off, or you have
+              an idea that would make StyleScore stronger, send it here.
+            </p>
+          </div>
+
+          <ContactSection />
         </section>
       </div>
     </main>
@@ -262,7 +344,7 @@ function HeroVisual() {
               <ShoeIcon />
             </FashionCard>
 
-            <FashionCard title="Accessories" subtitle="Tie · watch · belt">
+            <FashionCard title="Accessories" subtitle="Tie - watch - belt">
               <TieIcon />
             </FashionCard>
 
@@ -284,6 +366,15 @@ function HeroVisual() {
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function AboutCard({ title, text }: { title: string; text: string }) {
+  return (
+    <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.22)]">
+      <h3 className="text-xl font-semibold text-white">{title}</h3>
+      <p className="mt-3 leading-7 text-white/68">{text}</p>
     </div>
   );
 }
