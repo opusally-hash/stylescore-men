@@ -1,39 +1,52 @@
-export default function sitemap() {
+import type { MetadataRoute } from "next";
+import { shortMenArticleSlugs } from "./blog/_lib/short-men-articles";
+
+const baseUrl = "https://stylescore.live";
+
+const existingBlogSlugs = [
+  "7-signs-dress-well",
+  "best-perfumes-for-men",
+  "best-white-sneakers-men",
+  "casual-outfits-men",
+  "Fashion-for-muscular-men",
+  "fashion-for-short-men",
+  "how-to-dress-better-men",
+  "how-to-improve-style",
+  "How-to-know-if-you-dress-well",
+  "Jon-Bernthal-Stylish",
+  "mens-grooming-basics",
+  "mens-style-test",
+  "mens-wardrobe-essentials",
+  "style-mistakes-men",
+  "why-men-look-bad-in-clothes",
+];
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date();
+  const blogSlugs = Array.from(
+    new Set([...existingBlogSlugs, ...shortMenArticleSlugs])
+  );
+
   return [
     {
-      url: "https://stylescore.live",
-      lastModified: new Date(),
+      url: baseUrl,
+      lastModified,
       priority: 1,
     },
     {
-      url: "https://stylescore.live/assessment",
-      lastModified: new Date(),
+      url: `${baseUrl}/assessment`,
+      lastModified,
       priority: 0.9,
     },
     {
-      url: "https://stylescore.live/assessment",
-      lastModified: new Date(),
-      priority: 0.9,
-    },
-    {
-      url: "https://stylescore.live/blog",
-      lastModified: new Date(),
+      url: `${baseUrl}/blog`,
+      lastModified,
       priority: 0.8,
     },
-    {
-      url: "https://stylescore.live/blog/mens-style-test",
-      lastModified: new Date(),
-      priority: 0.8,
-    },
-    {
-      url: "https://stylescore.live/blog/how-to-improve-style",
-      lastModified: new Date(),
-      priority: 0.8,
-    },
-    {
-      url: "https://stylescore.live/blog/style-mistakes-men",
-      lastModified: new Date(),
+    ...blogSlugs.map((slug) => ({
+      url: `${baseUrl}/blog/${slug}`,
+      lastModified,
       priority: 0.7,
-    },
+    })),
   ];
 }
