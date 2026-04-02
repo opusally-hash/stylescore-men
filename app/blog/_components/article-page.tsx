@@ -185,7 +185,7 @@ function AssessmentCtaCard({
         <h2 className="mt-3 text-2xl font-semibold text-white">{headline}</h2>
         <p className="mt-3 max-w-2xl leading-7 text-white/70">{body}</p>
         <a
-          href="/assessment"
+          href="/onboarding"
           className="mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300"
         >
           {buttonLabel}
@@ -204,7 +204,7 @@ function AssessmentCtaCard({
       <h2 className="mt-3 text-2xl font-semibold">{headline}</h2>
       <p className="mx-auto mt-3 max-w-2xl leading-7 text-black/80">{body}</p>
       <a
-        href="/assessment"
+        href="/onboarding"
         className="mt-5 inline-flex rounded-2xl bg-black px-6 py-3 font-semibold text-white transition hover:bg-black/90"
       >
         {buttonLabel}

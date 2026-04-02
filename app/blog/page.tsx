@@ -131,7 +131,7 @@ export default function BlogPage() {
 
           <div className="mt-10 flex flex-wrap gap-4">
             <a
-              href="/assessment"
+              href="/onboarding"
               className="inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300"
             >
               Get Your StyleScore
@@ -237,7 +237,7 @@ export default function BlogPage() {
               </p>
             </div>
             <a
-              href="/assessment"
+              href="/onboarding"
               className="inline-flex rounded-2xl bg-black px-6 py-3 font-semibold text-white transition hover:bg-black/90"
             >
               Take the 2-Minute Assessment

@@ -13,6 +13,7 @@ type PersonalizationFormProps = {
   title: string;
   description: string;
   submitLabel: string;
+  mode?: "premium" | "full";
   showSkip?: boolean;
   skipLabel?: string;
   onSaved?: (form: OnboardingForm) => void;
@@ -27,6 +28,7 @@ export function PersonalizationForm({
   title,
   description,
   submitLabel,
+  mode = "premium",
   showSkip = false,
   skipLabel = "Skip for now",
   onSaved,
@@ -76,6 +78,9 @@ export function PersonalizationForm({
     onSaved?.(form);
   };
 
+  const showAgeRange = mode === "full";
+  const showConstraints = mode === "full";
+
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className={glassCard("p-6")}>
@@ -88,12 +93,14 @@ export function PersonalizationForm({
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2">
-          <SelectField
-            label="Age range"
-            value={form.ageRange}
-            onChange={(value) => updateField("ageRange", value)}
-            options={[...selectFieldOptions.ageRange]}
-          />
+          {showAgeRange && (
+            <SelectField
+              label="Age range"
+              value={form.ageRange}
+              onChange={(value) => updateField("ageRange", value)}
+              options={[...selectFieldOptions.ageRange]}
+            />
+          )}
 
           <SelectField
             label="Climate"
@@ -136,23 +143,33 @@ export function PersonalizationForm({
         <div className="space-y-7">
           <CheckboxGroup
             label="Goals"
-            subtitle="Select all that apply."
+            subtitle={
+              mode === "premium"
+                ? "Choose what matters most right now."
+                : "Select all that apply."
+            }
             options={[...multiSelectFields.goals]}
             selected={form.goals}
             onToggle={(value) => toggleValue("goals", value)}
           />
 
-          <CheckboxGroup
-            label="Constraints"
-            subtitle="Select any constraints we should consider."
-            options={[...multiSelectFields.constraints]}
-            selected={form.constraints}
-            onToggle={(value) => toggleValue("constraints", value)}
-          />
+          {showConstraints && (
+            <CheckboxGroup
+              label="Constraints"
+              subtitle="Select any constraints we should consider."
+              options={[...multiSelectFields.constraints]}
+              selected={form.constraints}
+              onToggle={(value) => toggleValue("constraints", value)}
+            />
+          )}
 
           <CheckboxGroup
             label="Fit challenges"
-            subtitle="Select any fit issues you commonly face."
+            subtitle={
+              mode === "premium"
+                ? "Only select the ones that regularly make shopping or fit harder."
+                : "Select any fit issues you commonly face."
+            }
             options={[...multiSelectFields.fitChallenges]}
             selected={form.fitChallenges}
             onToggle={(value) => toggleValue("fitChallenges", value)}

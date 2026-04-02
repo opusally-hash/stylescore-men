@@ -9,7 +9,6 @@ import {
   type FreeAssessmentReport,
 } from "../lib/assessment-report";
 import {
-  hasCustomizedOnboardingData,
   mergeOnboardingData,
   type OnboardingForm,
 } from "../lib/onboarding";
@@ -84,7 +83,10 @@ const DIAGNOSIS_CACHE_KEY = "stylescore_diagnosis";
 const DIAGNOSIS_SIGNATURE_KEY = "stylescore_diagnosis_signature";
 const FREE_REPORT_CACHE_KEY = "stylescore_free_report";
 const FREE_REPORT_SIGNATURE_KEY = "stylescore_free_report_signature";
+const LEAD_SYNC_SIGNATURE_KEY = "stylescore_lead_sync_signature";
 const EMAIL_CONFIRMED_KEY = "stylescore_email_confirmed";
+const PREMIUM_UNLOCKED_KEY = "stylescore_premium_unlocked";
+const PREMIUM_PENDING_SESSION_KEY = "stylescore_pending_premium_session";
 
 function GeneratingOverlay({ message }: { message: string }) {
   return (
@@ -299,10 +301,6 @@ const questions: Question[] = [
   },
 ];
 
-function isValidEmail(email: string) {
-  return /\S+@\S+\.\S+/.test(email);
-}
-
 function glassCard(extra = "") {
   return `rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.35)] ${extra}`;
 }
@@ -315,6 +313,7 @@ export default function AssessmentPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string[]>>({});
   const [showResult, setShowResult] = useState(false);
+  const [assessmentAccessReady, setAssessmentAccessReady] = useState(false);
   const [quizPhase, setQuizPhase] = useState<
     "question" | "interstitial" | "calculating"
   >("question");
@@ -330,7 +329,6 @@ export default function AssessmentPage() {
   const [email, setEmail] = useState("");
   const [emailConfirmed, setEmailConfirmed] = useState(false);
   const [resultsUnlocked, setResultsUnlocked] = useState(false);
-  const [emailError, setEmailError] = useState("");
   const [diagnosis, setDiagnosis] = useState("");
   const [freeReport, setFreeReport] = useState<FreeAssessmentReport | null>(
     null
@@ -338,8 +336,8 @@ export default function AssessmentPage() {
   const [unlockingResults, setUnlockingResults] = useState(false);
   const [unlockedReportError, setUnlockedReportError] = useState("");
   const [shareMessage, setShareMessage] = useState("");
+  const [premiumUnlocked, setPremiumUnlocked] = useState(false);
   const [showPersonalizationForm, setShowPersonalizationForm] = useState(false);
-  const [personalizationMessage, setPersonalizationMessage] = useState("");
   const [aiReport, setAiReport] = useState<AIReport | null>(null);
   const [, setLoadingReport] = useState(false);
   const [loadingCheckout, setLoadingCheckout] = useState(false);
@@ -381,6 +379,11 @@ export default function AssessmentPage() {
     const savedEmail = localStorage.getItem("stylescore_email");
     const savedEmailConfirmed =
       localStorage.getItem(EMAIL_CONFIRMED_KEY) === "true";
+    const savedPremiumUnlocked =
+      sessionStorage.getItem(PREMIUM_UNLOCKED_KEY) === "true";
+    const pendingPremiumSessionId = sessionStorage.getItem(
+      PREMIUM_PENDING_SESSION_KEY
+    );
 
     if (savedEmail) {
       setEmail(savedEmail);
@@ -390,19 +393,40 @@ export default function AssessmentPage() {
       setEmailConfirmed(true);
     }
 
+    if (savedPremiumUnlocked) {
+      setPremiumUnlocked(true);
+      setShowPersonalizationForm(true);
+    }
+
     const params = new URLSearchParams(window.location.search);
     const stripeStatus = params.get("stripe_status");
     const sessionId = params.get("session_id");
 
     if (stripeStatus === "success" && sessionId) {
+      sessionStorage.setItem(PREMIUM_PENDING_SESSION_KEY, sessionId);
       setShowResult(true);
       setPaidSessionId(sessionId);
       setQuizPhase("question");
+    } else if (pendingPremiumSessionId) {
+      setShowResult(true);
+      setPaidSessionId(pendingPremiumSessionId);
+      setQuizPhase("question");
+    }
+
+    if (
+      !savedEmailConfirmed &&
+      stripeStatus !== "success" &&
+      !pendingPremiumSessionId
+    ) {
+      window.location.replace("/onboarding");
+      return;
     }
 
     if (stripeStatus || sessionId) {
       window.history.replaceState({}, "", window.location.pathname);
     }
+
+    setAssessmentAccessReady(true);
   }, []);
 
   const effectiveOnboardingData = useMemo(
@@ -437,6 +461,16 @@ export default function AssessmentPage() {
   const freeReportSignature = useMemo(
     () => JSON.stringify({ answers }),
     [answers]
+  );
+  const leadSyncSignature = useMemo(
+    () =>
+      JSON.stringify({
+        email,
+        overall: result.overall_score,
+        archetype: archetype.title,
+        focus: result.focus_top_3,
+      }),
+    [email, result, archetype.title]
   );
   const diagnosisFallback = useMemo(
     () =>
@@ -661,12 +695,59 @@ export default function AssessmentPage() {
   ]);
 
   useEffect(() => {
-    async function finalizePaidReport() {
+    if (!showResult || !emailConfirmed || !email) return;
+
+    const cachedLeadSignature = window.sessionStorage.getItem(
+      LEAD_SYNC_SIGNATURE_KEY
+    );
+
+    if (cachedLeadSignature === leadSyncSignature) {
+      return;
+    }
+
+    async function syncLeadData() {
+      try {
+        const response = await fetch("/api/leads", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            score: result.overall_score,
+            archetype: archetype.title,
+            focus_top_3: result.focus_top_3,
+          }),
+        });
+
+        if (response.ok) {
+          window.sessionStorage.setItem(
+            LEAD_SYNC_SIGNATURE_KEY,
+            leadSyncSignature
+          );
+        }
+      } catch {
+        // Ignore lead sync failures. The report experience should continue.
+      }
+    }
+
+    void syncLeadData();
+  }, [
+    showResult,
+    emailConfirmed,
+    email,
+    leadSyncSignature,
+    result,
+    archetype.title,
+  ]);
+
+  useEffect(() => {
+    async function verifyPremiumCheckout() {
       if (!paidSessionId || !showResult) return;
 
       try {
         setPostPaymentMessage(
-          "Payment successful. We’re building your 30-day style blueprint now."
+          "Payment confirmed. Unlocking your premium setup..."
         );
         setAiError("");
 
@@ -690,49 +771,22 @@ export default function AssessmentPage() {
           item_name: "StyleScore Premium AI Style Blueprint",
         });
 
-        setLoadingReport(true);
-
-        const response = await fetch("/api/style-report", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            score: result.overall_score,
-            archetype: archetype.title,
-            focusAreas: result.focus_top_3,
-            categoryScores: result.category_scores,
-            onboardingData: effectiveOnboardingData,
-            answers,
-          }),
-        });
-
-        const data = await response.json();
-
-        if (!response.ok) {
-          setAiError(data.error || "Failed to generate style report.");
-          setPostPaymentMessage("");
-          return;
-        }
-
-        setAiReport(data.report);
-
-        setTimeout(() => {
-          setShowAiModal(true);
-          setPostPaymentMessage("");
-        }, 1200);
-
+        sessionStorage.setItem(PREMIUM_UNLOCKED_KEY, "true");
+        sessionStorage.removeItem(PREMIUM_PENDING_SESSION_KEY);
+        setPremiumUnlocked(true);
+        setShowPersonalizationForm(true);
         setPaidSessionId(null);
+        setPostPaymentMessage("");
       } catch {
-        setAiError("Failed to verify payment or generate report.");
+        setAiError("Failed to verify payment.");
         setPostPaymentMessage("");
       } finally {
         setLoadingReport(false);
       }
     }
 
-    finalizePaidReport();
-  }, [paidSessionId, showResult, effectiveOnboardingData, answers, result, archetype]);
+    void verifyPremiumCheckout();
+  }, [paidSessionId, showResult]);
 
   const currentQuestion = questions[currentIndex];
   const selectedAnswer = getSelectedAnswer(answers, currentQuestion.id);
@@ -821,73 +875,66 @@ export default function AssessmentPage() {
     }
   }
 
-  function handlePersonalizationSave(form: OnboardingForm) {
-    setOnboardingData(form);
-    setShowPersonalizationForm(false);
-    setPersonalizationMessage(
-      "Personalization saved. Your premium report will now use those details."
-    );
-  }
-
-  function handlePersonalizationSkip() {
-    setShowPersonalizationForm(false);
-    setPersonalizationMessage(
-      hasCustomizedOnboardingData(onboardingData)
-        ? "Personalization unchanged."
-        : "Using sensible defaults for personalization. You can update this anytime before checkout."
-    );
-  }
-
-  async function unlockResults() {
-    if (!isValidEmail(email)) {
-      setEmailError("Please enter a valid email address.");
-      return;
-    }
-
+  async function generatePremiumReport(
+    personalizationData?: OnboardingForm | null
+  ) {
     try {
-      const response = await fetch("/api/leads", {
+      const reportOnboardingData = mergeOnboardingData(
+        personalizationData ?? onboardingData
+      );
+
+      setLoadingReport(true);
+      setAiError("");
+      setShowPersonalizationForm(false);
+      setPostPaymentMessage(
+        "Building your premium 30-day style blueprint..."
+      );
+
+      const response = await fetch("/api/style-report", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email,
           score: result.overall_score,
           archetype: archetype.title,
-          focus_top_3: result.focus_top_3,
+          focusAreas: result.focus_top_3,
+          categoryScores: result.category_scores,
+          onboardingData: reportOnboardingData,
+          answers,
         }),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
-        setEmailError(data.error || "Could not save your email. Please try again.");
+        setAiError(data.error || "Failed to generate style report.");
+        setShowPersonalizationForm(true);
+        setPostPaymentMessage("");
         return;
       }
 
-      localStorage.setItem("stylescore_email", email);
-      localStorage.setItem(EMAIL_CONFIRMED_KEY, "true");
-      setEmailError("");
-      setEmailConfirmed(true);
-
-      trackEvent("email_capture", {
-        method: "form",
-        score: result.overall_score,
-        archetype: archetype.title,
-      });
-
-      const unlocked = await fetchUnlockedReport(true);
-
-      if (!unlocked) {
-        setEmailError("Email saved, but we could not load your unlocked report.");
-        return;
-      }
-
-      setShowPersonalizationForm(!hasCustomizedOnboardingData(onboardingData));
-      setPersonalizationMessage("");
+      setAiReport(data.report);
+      setTimeout(() => {
+        setShowAiModal(true);
+        setPostPaymentMessage("");
+      }, 1200);
     } catch {
-      setEmailError("Could not save your email. Please try again.");
+      setAiError("Failed to generate style report.");
+      setShowPersonalizationForm(true);
+      setPostPaymentMessage("");
+    } finally {
+      setLoadingReport(false);
     }
+  }
+
+  function handlePersonalizationSave(form: OnboardingForm) {
+    setOnboardingData(form);
+    void generatePremiumReport(form);
+  }
+
+  function handlePersonalizationSkip() {
+    void generatePremiumReport(mergeOnboardingData(onboardingData));
   }
 
   async function startPremiumCheckout() {
@@ -950,9 +997,21 @@ export default function AssessmentPage() {
     }
   }
 
+  if (!assessmentAccessReady) {
+    return (
+      <main className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_#1f2937,_#0f172a_40%,_#020617_100%)] px-4 py-10 text-white">
+        <div className="relative mx-auto flex min-h-[70vh] max-w-3xl items-center justify-center">
+          <div className={glassCard("p-8 text-center")}>
+            <div className="mx-auto h-10 w-10 animate-spin rounded-full border-4 border-white/15 border-t-orange-400" />
+            <p className="mt-4 text-white/65">Loading your assessment...</p>
+          </div>
+        </div>
+      </main>
+    );
+  }
+
   if (showResult) {
-    const hasSavedPersonalization = hasCustomizedOnboardingData(onboardingData);
-    const teaserTarget = resultsUnlocked ? "#premium-plan" : "#email-gate";
+    const teaserTarget = "#premium-plan";
     const visibleDiagnosis = diagnosis || diagnosisFallback;
 
     return (
@@ -1013,90 +1072,39 @@ export default function AssessmentPage() {
           </div>
 
           {!resultsUnlocked && (
-            <div id="email-gate" className={glassCard("p-6")}>
+            <div className={glassCard("p-6")}>
               <div className="text-center">
                 <h3 className="text-3xl font-semibold text-white">
-                  🔒 Your Style Report Is Ready
+                  Preparing your full free report
                 </h3>
 
                 <p className="mt-3 text-white/70">
-                  Your answers are saved for this session. Unlock your complete
-                  style report before leaving this page.
+                  Your email is already saved, so we&apos;re unlocking the full
+                  report automatically.
                 </p>
               </div>
 
-              <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-5">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/45">
-                  Unlock to see
-                </p>
-
-                <ul className="mt-4 space-y-3 text-white/80">
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
-                    <span>Your full StyleScore category breakdown</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
-                    <span>Your personal style archetype</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
-                    <span>
-                      The top 3 upgrades that will improve your appearance
-                      fastest
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
-                    <span>
-                      Personalized recommendations and starter product searches
-                    </span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="mt-6 space-y-4">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-white outline-none placeholder:text-white/35 focus:border-orange-300"
-                />
-
-                {emailError && (
-                  <p className="text-sm text-red-300">{emailError}</p>
-                )}
-
-                <button
-                  type="button"
-                  onClick={unlockResults}
-                  disabled={unlockingResults}
-                  className="premium-glow w-full rounded-2xl bg-orange-400 px-6 py-4 text-base font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_30px_rgba(251,146,60,0.45)]"
-                >
-                  {unlockingResults
-                    ? "Unlocking your full report..."
-                    : "Unlock My Full Style Report"}
-                </button>
-
-                {unlockedReportError && (
-                  <p className="text-sm text-red-300">{unlockedReportError}</p>
-                )}
-
-                <p className="text-center text-sm text-white/45">
-                  Free report • No spam • Takes 2 seconds
-                </p>
-              </div>
-            </div>
-          )}
-
-          {!resultsUnlocked && (
-            <div className="py-2 text-center text-white/70">
-              🔒 Unlock your full Style Report to see:
-              <div className="mt-2 text-sm text-white/55">
-                • Category breakdown • Style archetype • Personalized
-                recommendations
-              </div>
+              {!unlockedReportError ? (
+                <div className="mt-6 flex flex-col items-center justify-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-8 text-white/75">
+                  <div className="h-10 w-10 animate-spin rounded-full border-4 border-white/15 border-t-orange-400" />
+                  <p>
+                    {unlockingResults
+                      ? "Loading your archetype, category breakdown, and recommendations..."
+                      : "Getting your report ready..."}
+                  </p>
+                </div>
+              ) : (
+                <div className="mt-6 rounded-2xl border border-red-300/20 bg-red-400/10 p-5">
+                  <p className="text-sm text-red-200">{unlockedReportError}</p>
+                  <button
+                    type="button"
+                    onClick={() => void fetchUnlockedReport(true)}
+                    className="mt-4 rounded-2xl bg-white px-5 py-3 font-medium text-black transition hover:bg-white/90"
+                  >
+                    Retry loading full report
+                  </button>
+                </div>
+              )}
             </div>
           )}
 
@@ -1273,82 +1281,41 @@ export default function AssessmentPage() {
             </div>
           )}
 
-          {resultsUnlocked && freeReport && (
+          {resultsUnlocked && freeReport && premiumUnlocked && showPersonalizationForm && (
             <div id="premium-plan" className={glassCard("p-6")}>
-              {!showPersonalizationForm ? (
-                <>
-                  <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                    <div>
-                      <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
-                        Optional Personalization
-                      </p>
-                      <h3 className="mt-3 text-3xl font-semibold text-white">
-                        Personalize your premium report
-                      </h3>
-                      <p className="mt-3 max-w-3xl leading-7 text-white/70">
-                        The score is already final. Add your age, climate, work
-                        style, budget, and fit context if you want the paid
-                        report to feel more tailored.
-                      </p>
-                    </div>
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
+                Premium Report Setup
+              </p>
+              <h3 className="mt-3 text-3xl font-semibold text-white">
+                One last step before we build your AI upgrade plan
+              </h3>
+              <p className="mt-3 max-w-3xl leading-7 text-white/70">
+                Add a little context so the paid report fits your budget, daily
+                environment, style direction, and fit issues instead of staying
+                generic.
+              </p>
 
-                    <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/75">
-                      {hasSavedPersonalization
-                        ? "Saved personalization"
-                        : "Using sensible defaults"}
-                    </div>
-                  </div>
-
-                  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setShowPersonalizationForm(true);
-                        setPersonalizationMessage("");
-                      }}
-                      className="rounded-2xl bg-white px-6 py-3 font-medium text-black transition hover:bg-white/90"
-                    >
-                      {hasSavedPersonalization
-                        ? "Edit Personalization"
-                        : "Personalize My Report"}
-                    </button>
-
-                    {!hasSavedPersonalization && (
-                      <button
-                        type="button"
-                        onClick={handlePersonalizationSkip}
-                        className="rounded-2xl border border-white/15 bg-white/5 px-6 py-3 font-medium text-white transition hover:bg-white/10"
-                      >
-                        Skip for now
-                      </button>
-                    )}
-                  </div>
-
-                  {personalizationMessage && (
-                    <p className="mt-4 text-sm text-white/60">
-                      {personalizationMessage}
-                    </p>
-                  )}
-                </>
-              ) : (
+              <div className="mt-6">
                 <PersonalizationForm
+                  mode="premium"
                   title="Personalize your premium report"
-                  description="Optional. These details do not change your score. They only make the premium report and shopping advice more tailored."
-                  submitLabel={
-                    hasSavedPersonalization
-                      ? "Update personalization"
-                      : "Save personalization"
-                  }
+                  description="These answers only shape the $1 AI plan. Your quiz score and free report stay the same."
+                  submitLabel="Generate my AI report"
                   showSkip
+                  skipLabel="Use defaults and generate"
                   onSaved={handlePersonalizationSave}
                   onSkip={handlePersonalizationSkip}
                 />
-              )}
+
+                {aiError && (
+                  <p className="mt-4 text-sm text-red-300">{aiError}</p>
+                )}
+              </div>
             </div>
           )}
 
-          {resultsUnlocked && (
-            <div className={glassCard("p-6")}>
+          {resultsUnlocked && !premiumUnlocked && (
+            <div id="premium-plan" className={glassCard("p-6")}>
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
                 AI Personal Stylist Report
               </p>
@@ -1402,6 +1369,39 @@ export default function AssessmentPage() {
                 {aiError && (
                   <p className="mt-3 text-sm text-red-300">{aiError}</p>
                 )}
+              </div>
+            </div>
+          )}
+
+          {resultsUnlocked && premiumUnlocked && aiReport && !showPersonalizationForm && (
+            <div id="premium-plan" className={glassCard("p-6")}>
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
+                Premium AI Report
+              </p>
+              <h3 className="mt-3 text-3xl font-semibold text-white">
+                Your 30-day upgrade plan is ready
+              </h3>
+              <p className="mt-3 max-w-3xl leading-7 text-white/70">
+                Open your premium report again anytime to review the roadmap,
+                strengths, blind spots, and shopping guidance.
+              </p>
+
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <button
+                  type="button"
+                  onClick={() => setShowAiModal(true)}
+                  className="rounded-2xl bg-white px-6 py-3 font-medium text-black transition hover:bg-white/90"
+                >
+                  Open My Premium Report
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setShowPersonalizationForm(true)}
+                  className="rounded-2xl border border-white/15 bg-white/5 px-6 py-3 font-medium text-white transition hover:bg-white/10"
+                >
+                  Edit Premium Personalization
+                </button>
               </div>
             </div>
           )}
@@ -1611,29 +1611,28 @@ export default function AssessmentPage() {
               setCurrentIndex(0);
               setAnswers({});
               setOnboardingData(null);
-              setEmail("");
-              setEmailConfirmed(false);
               setDiagnosis("");
               setFreeReport(null);
               setResultsUnlocked(false);
               setUnlockingResults(false);
               setUnlockedReportError("");
               setShareMessage("");
+              setPremiumUnlocked(false);
               setShowPersonalizationForm(false);
-              setPersonalizationMessage("");
               setAiReport(null);
               setAiError("");
               setShowAiModal(false);
               setPaidSessionId(null);
               setPostPaymentMessage("");
               localStorage.removeItem("stylescore_answers");
-              localStorage.removeItem("stylescore_email");
-              localStorage.removeItem(EMAIL_CONFIRMED_KEY);
               localStorage.removeItem("stylescore_onboarding");
               sessionStorage.removeItem(DIAGNOSIS_CACHE_KEY);
               sessionStorage.removeItem(DIAGNOSIS_SIGNATURE_KEY);
               sessionStorage.removeItem(FREE_REPORT_CACHE_KEY);
               sessionStorage.removeItem(FREE_REPORT_SIGNATURE_KEY);
+              sessionStorage.removeItem(LEAD_SYNC_SIGNATURE_KEY);
+              sessionStorage.removeItem(PREMIUM_UNLOCKED_KEY);
+              sessionStorage.removeItem(PREMIUM_PENDING_SESSION_KEY);
             }}
             className="rounded-2xl bg-white px-6 py-3 font-medium text-black transition hover:bg-white/90"
           >
