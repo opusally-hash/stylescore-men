@@ -1,4 +1,5 @@
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { BlogRelatedLinks } from "../_components/blog-related-links";
 import {
   buildLegacyBlogMetadata,
   LegacyBlogStructuredData,
@@ -213,6 +214,8 @@ export default function Page() {
             />
 
             <FaqSection />
+
+            <BlogRelatedLinks slug={seo.slug} />
 
             <div className="rounded-[1.75rem] border border-orange-400/20 bg-orange-400/10 p-6 text-center">
               <h2 className="text-2xl font-semibold text-white">

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { getPublishedGeneratedArticleSlugs } from "./blog/_lib/generated-articles";
 import { shortMenArticleSlugs } from "./blog/_lib/short-men-articles";
 
 const baseUrl = "https://stylescore.live";
@@ -23,8 +24,9 @@ const existingBlogSlugs = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
+  const generatedBlogSlugs = getPublishedGeneratedArticleSlugs();
   const blogSlugs = Array.from(
-    new Set([...existingBlogSlugs, ...shortMenArticleSlugs])
+    new Set([...existingBlogSlugs, ...shortMenArticleSlugs, ...generatedBlogSlugs])
   );
 
   return [

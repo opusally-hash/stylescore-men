@@ -6,7 +6,10 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seo:next-keyword": "node scripts/get-next-keyword.js",
+    "seo:generate-article": "node scripts/generate-article.js",
+    "seo:validate-fixture": "node scripts/generate-article.js --slug how-to-dress-better-men-30s --input scripts/fixtures/article-input.sample.json --dry-run --skip-indexing"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.99.0",

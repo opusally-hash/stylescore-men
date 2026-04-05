@@ -1,0 +1,49 @@
+name: Publish Daily SEO Articles
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+    - cron: "0 12 * * *"
+    - cron: "0 18 * * *"
+  workflow_dispatch:
+
+jobs:
+  publish-article:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Get next keyword from queue
+        id: keyword
+        run: |
+          echo "keyword=$(node scripts/get-next-keyword.js --field keyword)" >> $GITHUB_OUTPUT
+          echo "slug=$(node scripts/get-next-keyword.js --field slug)" >> $GITHUB_OUTPUT
+
+      - name: Generate and publish article
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GSC_SERVICE_ACCOUNT: ${{ secrets.GSC_SERVICE_ACCOUNT }}
+        run: |
+          node scripts/generate-article.js --keyword "${{ steps.keyword.outputs.keyword }}" --slug "${{ steps.keyword.outputs.slug }}"
+
+      - name: Commit and push new article
+        run: |
+          git config --global user.email "bot@stylescore.live"
+          git config --global user.name "StyleScore Bot"
+          git add .
+          git commit -m "feat: publish article for ${{ steps.keyword.outputs.keyword }}" || echo "Nothing to commit"
+          git push
+
+      - name: Trigger Vercel deployment
+        if: ${{ secrets.VERCEL_DEPLOY_HOOK != '' }}
+        run: curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"

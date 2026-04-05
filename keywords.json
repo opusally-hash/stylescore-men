@@ -1,0 +1,321 @@
+{
+  "queue": [
+    {
+      "keyword": "how to dress better men 30s",
+      "slug": "how-to-dress-better-men-30s",
+      "priority": 98,
+      "status": "draft",
+      "cluster": "age-specific",
+      "articleFormat": "how-to guide",
+      "secondaryKeywords": [
+        "mens style in your 30s",
+        "how men should dress at 30",
+        "how to look more put together in your 30s"
+      ],
+      "scheduledFor": "2026-04-05"
+    },
+    {
+      "keyword": "how to dress better men 40s",
+      "slug": "how-to-dress-better-men-40s",
+      "priority": 95,
+      "status": "draft",
+      "cluster": "age-specific",
+      "articleFormat": "how-to guide",
+      "secondaryKeywords": [
+        "mens style in your 40s",
+        "how to dress in your 40s male",
+        "style mistakes men make in their 40s"
+      ],
+      "scheduledFor": "2026-04-07"
+    },
+    {
+      "keyword": "why do my clothes look bad in photos men",
+      "slug": "why-clothes-look-bad-in-photos-men",
+      "priority": 94,
+      "status": "draft",
+      "cluster": "common-style-problems",
+      "articleFormat": "how-to guide",
+      "secondaryKeywords": [
+        "why do i look bad in pictures men",
+        "why clothes look different in photos",
+        "how to dress better for photos men"
+      ],
+      "scheduledFor": "2026-04-08"
+    },
+    {
+      "keyword": "business casual outfits men who hate dressing up",
+      "slug": "business-casual-outfits-men-who-hate-dressing-up",
+      "priority": 92,
+      "status": "draft",
+      "cluster": "occasion-dressing",
+      "articleFormat": "listicle",
+      "secondaryKeywords": [
+        "easy business casual outfits men",
+        "simple office outfits men",
+        "what to wear business casual men"
+      ],
+      "scheduledFor": "2026-04-09"
+    },
+    {
+      "keyword": "how to match colors men without thinking",
+      "slug": "how-to-match-colors-men-without-thinking",
+      "priority": 90,
+      "status": "draft",
+      "cluster": "color-coordination",
+      "articleFormat": "how-to guide",
+      "secondaryKeywords": [
+        "mens color matching guide",
+        "how to color coordinate outfits men",
+        "easy color combinations for men"
+      ],
+      "scheduledFor": "2026-04-10"
+    },
+    {
+      "keyword": "what shoes to wear with chinos men",
+      "slug": "what-shoes-to-wear-with-chinos-men",
+      "priority": 89,
+      "status": "draft",
+      "cluster": "footwear",
+      "articleFormat": "comparison",
+      "secondaryKeywords": [
+        "best shoes with chinos men",
+        "can you wear sneakers with chinos",
+        "mens chinos shoe guide"
+      ],
+      "scheduledFor": "2026-04-11"
+    },
+    {
+      "keyword": "mens grooming routine for beginners",
+      "slug": "mens-grooming-routine-beginners",
+      "priority": 88,
+      "status": "draft",
+      "cluster": "grooming",
+      "articleFormat": "how-to guide",
+      "secondaryKeywords": [
+        "simple grooming routine men",
+        "basic grooming checklist men",
+        "beginner skincare and grooming men"
+      ],
+      "scheduledFor": "2026-04-12"
+    },
+    {
+      "keyword": "smart casual date night outfits men",
+      "slug": "smart-casual-date-night-outfits-men",
+      "priority": 87,
+      "status": "draft",
+      "cluster": "occasion-dressing",
+      "articleFormat": "listicle",
+      "secondaryKeywords": [
+        "what to wear on a date men",
+        "smart casual outfits for date night",
+        "date night style men"
+      ],
+      "scheduledFor": "2026-04-13"
+    }
+  ],
+  "clusters": {
+    "style-self-assessment": [
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing.",
+        "role": "pillar",
+        "publishedAt": "2026-03-12"
+      },
+      {
+        "slug": "7-signs-dress-well",
+        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
+        "href": "/blog/7-signs-dress-well",
+        "description": "Practical signs that separate a sharp look from an average one.",
+        "role": "supporting",
+        "publishedAt": "2026-03-01"
+      }
+    ],
+    "fit-proportion": [
+      {
+        "slug": "how-clothes-should-fit-short-men",
+        "title": "How Clothes Should Actually Fit If You're 5'6\"",
+        "href": "/blog/how-clothes-should-fit-short-men",
+        "description": "Specific fit landmarks for shirts, trousers, and jackets.",
+        "role": "pillar",
+        "publishedAt": "2026-03-16"
+      },
+      {
+        "slug": "trouser-rise-pant-break-short-men",
+        "title": "Trouser Rise, Pant Break, and Inseam: The Short Man's Cheat Sheet",
+        "href": "/blog/trouser-rise-pant-break-short-men",
+        "description": "The trouser guide for shorter men who need the numbers, not guesses.",
+        "role": "supporting",
+        "publishedAt": "2026-03-21"
+      },
+      {
+        "slug": "style-mistakes-men",
+        "title": "10 Style Mistakes Most Men Make",
+        "href": "/blog/style-mistakes-men",
+        "description": "Common mistakes that ruin fit, shoes, grooming, and coordination.",
+        "role": "supporting",
+        "publishedAt": "2026-03-14"
+      }
+    ],
+    "footwear": [
+      {
+        "slug": "best-shoes-for-short-men",
+        "title": "The Short Man's Shoe Guide: 7 Styles That Extend Your Leg Line",
+        "href": "/blog/best-shoes-for-short-men",
+        "description": "The strongest footwear choices for shorter men.",
+        "role": "pillar",
+        "publishedAt": "2026-03-17"
+      },
+      {
+        "slug": "best-white-sneakers-men",
+        "title": "Best White Sneakers for Men (Style Upgrade Guide)",
+        "href": "/blog/best-white-sneakers-men",
+        "description": "One of the fastest shoe upgrades most men can make.",
+        "role": "supporting",
+        "publishedAt": "2026-03-03"
+      }
+    ],
+    "grooming": [
+      {
+        "slug": "grooming-multiplier-mens-style",
+        "title": "Grooming Is a Multiplier",
+        "href": "/blog/grooming-multiplier-mens-style",
+        "description": "How haircuts, facial hair, and skincare affect your style score.",
+        "role": "pillar",
+        "publishedAt": "2026-03-24"
+      },
+      {
+        "slug": "mens-grooming-basics",
+        "title": "Men's Grooming Basics (Most Ignored Style Upgrade)",
+        "href": "/blog/mens-grooming-basics",
+        "description": "The maintenance habits that make every outfit land better.",
+        "role": "supporting",
+        "publishedAt": "2026-03-11"
+      },
+      {
+        "slug": "best-perfumes-for-men",
+        "title": "Best Perfumes for Men (Smell Better Instantly)",
+        "href": "/blog/best-perfumes-for-men",
+        "description": "How to use fragrance as the finishing layer instead of a crutch.",
+        "role": "supporting",
+        "publishedAt": "2026-03-02"
+      }
+    ],
+    "wardrobe": [
+      {
+        "slug": "capsule-wardrobe-short-men",
+        "title": "The 5'7\" Capsule Wardrobe: 15 Pieces That Actually Work for Shorter Frames",
+        "href": "/blog/capsule-wardrobe-short-men",
+        "description": "A compact wardrobe built around stronger proportions.",
+        "role": "pillar",
+        "publishedAt": "2026-03-19"
+      },
+      {
+        "slug": "mens-wardrobe-essentials",
+        "title": "Essential Wardrobe Items Every Man Should Own",
+        "href": "/blog/mens-wardrobe-essentials",
+        "description": "The basics that make everyday outfits easier to build.",
+        "role": "supporting",
+        "publishedAt": "2026-03-13"
+      },
+      {
+        "slug": "casual-outfits-men",
+        "title": "Casual Outfits for Men That Look Effortless",
+        "href": "/blog/casual-outfits-men",
+        "description": "Easy formulas that still look intentional in real life.",
+        "role": "supporting",
+        "publishedAt": "2026-03-04"
+      }
+    ],
+    "color-coordination": [
+      {
+        "slug": "monochromatic-outfits-short-men",
+        "title": "Monochromatic Dressing for Short Men",
+        "href": "/blog/monochromatic-outfits-short-men",
+        "description": "A cleaner way to build depth without breaking the leg line.",
+        "role": "pillar",
+        "publishedAt": "2026-03-23"
+      },
+      {
+        "slug": "how-clothing-affects-first-impressions",
+        "title": "Why Well-Fitted Clothes Change How People See You",
+        "href": "/blog/how-clothing-affects-first-impressions",
+        "description": "The first-impression science behind cleaner presentation.",
+        "role": "supporting",
+        "publishedAt": "2026-03-20"
+      }
+    ],
+    "occasion-dressing": [
+      {
+        "slug": "wedding-outfit-short-men",
+        "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
+        "href": "/blog/wedding-outfit-short-men",
+        "description": "Wedding dressing rules for shorter men across formality levels.",
+        "role": "pillar",
+        "publishedAt": "2026-03-18"
+      },
+      {
+        "slug": "first-date-outfit-short-men",
+        "title": "First Date Outfits for Shorter Men",
+        "href": "/blog/first-date-outfit-short-men",
+        "description": "Real scenario outfits for dates that don't try too hard.",
+        "role": "supporting",
+        "publishedAt": "2026-03-22"
+      },
+      {
+        "slug": "summer-outfits-short-men",
+        "title": "Summer Style for Short Men",
+        "href": "/blog/summer-outfits-short-men",
+        "description": "Warm-weather outfit rules that keep proportions clean.",
+        "role": "supporting",
+        "publishedAt": "2026-03-25"
+      }
+    ],
+    "body-type": [
+      {
+        "slug": "fashion-for-short-men",
+        "title": "Fashion Tips for Short Men (Look Taller Instantly)",
+        "href": "/blog/fashion-for-short-men",
+        "description": "The body-type rules that make shorter frames look sharper.",
+        "role": "pillar",
+        "publishedAt": "2026-03-06"
+      },
+      {
+        "slug": "Fashion-for-muscular-men",
+        "title": "Best Clothes for Muscular Men",
+        "href": "/blog/Fashion-for-muscular-men",
+        "description": "How muscular builds can stop fighting their own proportions.",
+        "role": "supporting",
+        "publishedAt": "2026-03-05"
+      }
+    ],
+    "age-specific": [],
+    "common-style-problems": [
+      {
+        "slug": "why-men-look-bad-in-clothes",
+        "title": "Why Most Men Look Bad in Clothes (And How to Fix It)",
+        "href": "/blog/why-men-look-bad-in-clothes",
+        "description": "The real reasons outfits feel weak even when the pieces seem fine.",
+        "role": "pillar",
+        "publishedAt": "2026-03-15"
+      },
+      {
+        "slug": "how-to-dress-better-men",
+        "title": "How to Dress Better as a Man (Simple Rules That Work)",
+        "href": "/blog/how-to-dress-better-men",
+        "description": "The simplest upgrade path for men who want clearer rules.",
+        "role": "supporting",
+        "publishedAt": "2026-03-07"
+      },
+      {
+        "slug": "how-to-improve-style",
+        "title": "How to Improve Your Style in 30 Days",
+        "href": "/blog/how-to-improve-style",
+        "description": "A 30-day path for fixing the biggest style bottlenecks first.",
+        "role": "supporting",
+        "publishedAt": "2026-03-08"
+      }
+    ]
+  }
+}

@@ -1,4 +1,5 @@
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { getPublishedGeneratedArticleCards } from "./_lib/generated-articles";
 import { shortMenArticleCards } from "./_lib/short-men-articles";
 
 const displayFont = Cormorant_Garamond({
@@ -90,6 +91,8 @@ const existingArticles = [
 ];
 
 export default function BlogPage() {
+  const generatedArticleCards = getPublishedGeneratedArticleCards();
+
   return (
     <main
       className={`relative min-h-screen overflow-hidden bg-[#050816] text-white ${bodyFont.className}`}
@@ -189,6 +192,47 @@ export default function BlogPage() {
         </section>
 
         <section className="mt-16">
+          {generatedArticleCards.length > 0 ? (
+            <div className="mb-16">
+              <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.32em] text-white/45">
+                    Freshly Published
+                  </p>
+                  <h2
+                    className={`mt-3 text-3xl leading-tight text-white sm:text-4xl ${displayFont.className}`}
+                  >
+                    New articles released by the publishing queue.
+                  </h2>
+                </div>
+                <p className="max-w-xl text-white/60">
+                  These posts appear automatically once their scheduled publish date goes live in the new content pipeline.
+                </p>
+              </div>
+
+              <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+                {generatedArticleCards.map((article) => (
+                  <a
+                    key={article.slug}
+                    href={`/blog/${article.slug}`}
+                    className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5 transition hover:border-white/20 hover:bg-white/[0.06]"
+                  >
+                    <div className="flex items-center justify-between gap-3 text-xs font-semibold uppercase tracking-[0.24em] text-orange-200/80">
+                      <span>{article.publishedAt}</span>
+                      <span>{article.readingTime}</span>
+                    </div>
+                    <h3 className="mt-4 text-xl font-semibold leading-snug text-white">
+                      {article.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-7 text-white/60">
+                      {article.description}
+                    </p>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ) : null}
+
           <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.32em] text-white/45">

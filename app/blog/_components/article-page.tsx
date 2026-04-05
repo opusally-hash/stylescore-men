@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import type { ReactNode } from "react";
+import { BlogRelatedLinks } from "./blog-related-links";
 import type { BlogArticle } from "../_lib/short-men-articles";
 
 const displayFont = Cormorant_Garamond({
@@ -35,6 +36,10 @@ export function buildBlogMetadata(article: BlogArticle): Metadata {
       description: article.description,
       url,
       type: "article",
+      publishedTime: article.publishedAt,
+      modifiedTime: article.updatedAt ?? article.publishedAt,
+      authors: article.author ? [article.author] : undefined,
+      siteName: "StyleScore",
     },
     twitter: {
       card: "summary_large_image",
@@ -55,6 +60,13 @@ export function ArticlePage({ article }: { article: BlogArticle }) {
     headline: article.heading,
     description: article.description,
     url,
+    datePublished: article.publishedAt,
+    dateModified: article.updatedAt ?? article.publishedAt,
+    author: {
+      "@type": "Organization",
+      name: article.author ?? "StyleScore Editorial",
+      url: "https://stylescore.live",
+    },
     publisher: {
       "@type": "Organization",
       name: "StyleScore",
@@ -65,6 +77,21 @@ export function ArticlePage({ article }: { article: BlogArticle }) {
       "@id": url,
     },
   });
+  const faqJsonLd =
+    article.faq && article.faq.length > 0
+      ? JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: article.faq.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.answer,
+            },
+          })),
+        })
+      : null;
 
   return (
     <main
@@ -76,6 +103,12 @@ export function ArticlePage({ article }: { article: BlogArticle }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd }}
       />
+      {faqJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: faqJsonLd }}
+        />
+      ) : null}
 
       <div className="relative mx-auto max-w-4xl px-6 py-12 lg:px-10">
         <a
@@ -95,6 +128,14 @@ export function ArticlePage({ article }: { article: BlogArticle }) {
           >
             {article.heading}
           </h1>
+
+          {article.author || article.publishedAt ? (
+            <p className="mt-4 text-sm text-white/45">
+              {[article.author ?? "StyleScore Editorial", formatDate(article.publishedAt)]
+                .filter(Boolean)
+                .join(" • ")}
+            </p>
+          ) : null}
 
           <p className="mt-5 max-w-3xl text-lg leading-8 text-white/70">
             {article.description}
@@ -143,10 +184,30 @@ export function ArticlePage({ article }: { article: BlogArticle }) {
             tone="orange"
             className="mt-12"
           />
+
+          <div className="mt-10">
+            <BlogRelatedLinks slug={article.slug} />
+          </div>
         </article>
       </div>
     </main>
   );
+}
+
+function formatDate(date?: string) {
+  if (!date) {
+    return "";
+  }
+
+  try {
+    return new Intl.DateTimeFormat("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    }).format(new Date(date));
+  } catch {
+    return date;
+  }
 }
 
 function BackgroundGlow() {

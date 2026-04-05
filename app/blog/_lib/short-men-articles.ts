@@ -7,6 +7,20 @@ export type BlogArticle = {
   ctaHeadline: string;
   ctaBody: string;
   content: string;
+  author?: string;
+  category?: string;
+  publishedAt?: string;
+  updatedAt?: string;
+  readingTime?: string;
+  primaryKeyword?: string;
+  secondaryKeywords?: string[];
+  internalLinks?: string[];
+  externalLinks?: string[];
+  wordCount?: number;
+  faq?: Array<{
+    question: string;
+    answer: string;
+  }>;
 };
 
 export const shortMenArticles = {

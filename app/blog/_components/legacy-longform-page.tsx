@@ -1,5 +1,6 @@
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import type { ReactNode } from "react";
+import { BlogRelatedLinks } from "./blog-related-links";
 import { LegacyBlogFaq, LegacyBlogTopCta } from "./legacy-blog-extras";
 import {
   LegacyBlogStructuredData,
@@ -107,6 +108,8 @@ export function LegacyLongformPage({
               body={bottomCta.body}
               buttonLabel={bottomCta.buttonLabel ?? "Start the StyleScore assessment"}
             />
+
+            <BlogRelatedLinks slug={seo.slug} />
 
             {includeFaq ? <LegacyBlogFaq /> : null}
           </div>
