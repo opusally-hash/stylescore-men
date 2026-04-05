@@ -1,4 +1,9 @@
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import {
+  buildLegacyBlogMetadata,
+  LegacyBlogStructuredData,
+  legacyBlogSeo,
+} from "../_components/legacy-blog-seo";
 
 const displayFont = Cormorant_Garamond({
   subsets: ["latin"],
@@ -10,17 +15,16 @@ const bodyFont = Manrope({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-export const metadata = {
-  title: "7 Signs You Dress Well as a Man (And How to Improve Fast) | StyleScore",
-  description:
-    "Learn the clearest signs that show whether you actually dress well as a man, and how to improve your style fast.",
-};
+const seo = legacyBlogSeo["7-signs-dress-well"];
+
+export const metadata = buildLegacyBlogMetadata(seo);
 
 export default function Page() {
   return (
     <main
       className={`relative min-h-screen overflow-hidden bg-[#050816] text-white ${bodyFont.className}`}
     >
+      <LegacyBlogStructuredData entry={seo} />
       <BackgroundGlow />
 
       <div className="relative mx-auto max-w-4xl px-6 py-12 lg:px-10">
@@ -66,7 +70,7 @@ export default function Page() {
               wardrobe, shoes, grooming, and occasion styling.
             </p>
             <a
-              href="/assessment"
+  href="/onboarding"
               className="premium-glow mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_24px_rgba(251,146,60,0.4)]"
             >
               Check Your StyleScore →
@@ -97,7 +101,7 @@ export default function Page() {
                 Not sure if your shoes are helping or hurting your style?
               </p>
               <a
-                href="/assessment"
+  href="/onboarding"
                 className="mt-4 inline-flex rounded-2xl bg-orange-400 px-5 py-3 font-semibold text-black transition hover:bg-orange-300"
               >
                 Take the Free Style Test →
@@ -188,7 +192,7 @@ export default function Page() {
                 across the style fundamentals that matter most.
               </p>
               <a
-                href="/assessment"
+  href="/onboarding"
                 className="premium-glow mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_24px_rgba(251,146,60,0.4)]"
               >
                 Get Your StyleScore →

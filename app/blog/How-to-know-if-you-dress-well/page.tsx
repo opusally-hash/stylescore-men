@@ -1,182 +1,112 @@
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import {
+  LegacyLongformPage,
+  type LegacyLongformSection,
+} from "../_components/legacy-longform-page";
+import {
+  buildLegacyBlogMetadata,
+  legacyBlogSeo,
+} from "../_components/legacy-blog-seo";
 
-const displayFont = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-});
+const seo = legacyBlogSeo["How-to-know-if-you-dress-well"];
 
-const bodyFont = Manrope({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
+export const metadata = buildLegacyBlogMetadata(seo);
 
-export const metadata = {
-  title: "How to Know If You Dress Well (Without Asking Anyone) | StyleScore",
-  description:
-    "Wondering if you dress well? Learn 7 clear signs that instantly tell you if your style is working — no opinions needed.",
-};
+const sections: LegacyLongformSection[] = [
+  {
+    title: "Fit tells the truth before anything else does",
+    blocks: [
+      "The clearest sign that you dress well is that your clothes sit cleanly on your body. Shoulder seams land where they should. Sleeves end with intention instead of swallowing your hands. Pants break lightly instead of collapsing into stacks over your shoes.",
+      "A lot of men think style is mostly about taste, but fit is what strangers process first. Even simple clothes look sharp when the proportions are controlled. Expensive clothes still look forgettable when they are too long, too loose, or too crowded with extra fabric.",
+      <>
+        If you are never sure what clean proportions look like, start with{" "}
+        <a
+          href="/blog/how-to-dress-better-men"
+          className="underline text-orange-400 hover:text-orange-300"
+        >
+          How to Dress Better as a Man
+        </a>{" "}
+        and compare your daily outfits against those basics.
+      </>,
+    ],
+  },
+  {
+    title: "Your shoes and grooming stop subtracting points",
+    blocks: [
+      "Most men are not judged only by the shirt or jacket they chose. They are judged by whether the whole presentation feels finished. Shoes and grooming are where unfinished outfits usually get exposed.",
+      "When you dress well, your shoes do not feel random, beat-up, or too athletic for the outfit. Your grooming does not look like an afterthought either. Haircut timing, beard lines, skin, and overall upkeep support the clothes instead of contradicting them.",
+      "A useful test is this: if the outfit looks noticeably weaker the second you look down at the shoes or focus on the face, you are not as put together as you think.",
+    ],
+  },
+  {
+    title: "The outfit feels coherent instead of assembled",
+    blocks: [
+      "Men who dress well usually have a quiet consistency to their outfits. Colors work together. The dressiness level feels aligned. The top, pants, and shoes belong in the same conversation.",
+      "This is why a basic outfit can still look strong. White tee, dark trousers, clean sneakers, and a good overshirt can outperform a more expensive outfit that mixes too many ideas. Style is less about having interesting pieces and more about making the whole thing feel deliberate.",
+      "If you often like each individual item but dislike the outfit once it is on your body, the issue is usually coordination rather than lack of clothing.",
+    ],
+  },
+  {
+    title: "People react before they verbalize it",
+    blocks: [
+      "You do not need constant compliments to know your style is working. Most people react to clothes quietly. They look a second time. They give a little more eye contact. They assume a little more competence. The social shift is subtle, but it is real.",
+      <ul className="list-disc pl-6 space-y-2 leading-8" key="signals-list">
+        <li>People describe you as sharp, clean, or put together without prompting.</li>
+        <li>You rarely feel underdressed once you arrive somewhere that matters.</li>
+        <li>Your outfits photograph the way they looked in your head.</li>
+      </ul>,
+      "Those signals matter more than waiting for someone to tell you that you have good style. They show that your presentation is landing the way you intended.",
+    ],
+  },
+  {
+    title: "Confidence becomes quieter when the clothes are right",
+    blocks: [
+      "Good style does not feel like constant self-monitoring. You are not tugging at the hem, adjusting the collar, or wondering whether the shoes were a mistake. The outfit fades into the background and lets you show up more confidently.",
+      "That is one of the most overlooked signs of dressing well. When the clothes fit, coordinate, and suit the occasion, you stop thinking about them every few minutes. The confidence is not loud. It is the absence of friction.",
+      "If you feel relief the second you get home and change, something in the wardrobe is still fighting you.",
+    ],
+  },
+  {
+    title: "The best way to know for sure is to score it honestly",
+    blocks: [
+      "Mood is a terrible style metric. Some days you feel good in weak outfits because the day itself is going well. Other days you feel critical even when the clothes are fine. That is why honest diagnosis matters more than vague self-perception.",
+      <>
+        The fastest way to know whether you really dress well is to break the look
+        into categories like fit, shoes, grooming, wardrobe foundations, and
+        occasion styling. Once those scores are visible, improvement becomes much
+        more objective. That is also why pages like{" "}
+        <a
+          href="/blog/style-mistakes-men"
+          className="underline text-orange-400 hover:text-orange-300"
+        >
+          10 Style Mistakes Most Men Make
+        </a>{" "}
+        are useful only when they lead to an actual diagnosis of your own blind
+        spots.
+      </>,
+      "The men who improve fastest are usually not the most fashionable. They are the ones who stop guessing and start measuring.",
+    ],
+  },
+];
 
 export default function Page() {
   return (
-    <main className={`min-h-screen bg-[#050816] text-white px-6 py-12 ${bodyFont.className}`}>
-      <div className="max-w-3xl mx-auto">
-
-        <h1 className={`text-4xl mb-6 ${displayFont.className}`}>
-          How to Know If You Dress Well (Without Asking Anyone)
-        </h1>
-
-        <p className="text-white/70 mb-6">
-          Most men think they dress well.
-        </p>
-
-        <p className="text-white/70 mb-6">
-          But the truth is — most men don’t actually know.
-        </p>
-
-        <p className="text-white/70 mb-6">
-          Not because they lack effort. But because they lack clarity.
-        </p>
-
-        <p className="text-white/70 mb-10">
-          Style isn’t judged by opinions. It follows patterns. Once you understand those patterns,
-          you don’t need validation from anyone.
-        </p>
-
-        {/* SECTION 1 */}
-        <h2 className="text-2xl font-semibold mb-4">1. Your Clothes Fit Cleanly</h2>
-
-        <p className="text-white/70 mb-6">
-          This is the biggest indicator of good style.
-        </p>
-
-        <p className="text-white/70 mb-6">
-          Your t-shirt should sit clean on your shoulders. Your pants should not bunch at the ankles.
-          Your shirt sleeves should end right near your wrist.
-        </p>
-
-        <p className="text-white/70 mb-10">
-          If your clothes look like they were made for you — you’re already ahead of most men.
-        </p>
-
-        {/* SECTION 2 */}
-        <h2 className="text-2xl font-semibold mb-4">2. Your Shoes Don’t Break the Outfit</h2>
-
-        <p className="text-white/70 mb-6">
-          Most men ignore shoes. That’s where they lose.
-        </p>
-
-        <p className="text-white/70 mb-6">
-          Dirty sneakers, bulky running shoes, or worn-out footwear instantly downgrade your look —
-          even if everything else is good.
-        </p>
-
-        <p className="text-white/70 mb-10">
-          Clean white sneakers or simple leather shoes already fix 50% of style problems.
-        </p>
-
-        {/* SECTION 3 */}
-        <h2 className="text-2xl font-semibold mb-4">3. You Look Intentional</h2>
-
-        <p className="text-white/70 mb-6">
-          Good style looks effortless — but it’s never random.
-        </p>
-
-        <p className="text-white/70 mb-6">
-          If your outfit feels like you just “threw something on,” people can tell.
-        </p>
-
-        <p className="text-white/70 mb-10">
-          But if your colors match, your fit is consistent, and nothing feels out of place —
-          you look intentional.
-        </p>
-
-        {/* SECTION 4 */}
-        <h2 className="text-2xl font-semibold mb-4">4. People React Subtly</h2>
-
-        <p className="text-white/70 mb-6">
-          Most people won’t compliment you directly.
-        </p>
-
-        <p className="text-white/70 mb-6">
-          But they will:
-        </p>
-
-        <ul className="list-disc ml-6 text-white/70 mb-6">
-          <li>Look twice</li>
-          <li>Maintain eye contact</li>
-          <li>Treat you with slightly more respect</li>
-        </ul>
-
-        <p className="text-white/70 mb-10">
-          Style works quietly.
-        </p>
-
-        {/* SECTION 5 */}
-        <h2 className="text-2xl font-semibold mb-4">5. Your Grooming Matches Your Outfit</h2>
-
-        <p className="text-white/70 mb-6">
-          You can’t outdress poor grooming.
-        </p>
-
-        <p className="text-white/70 mb-6">
-          Hair, beard, skin — these matter more than clothes.
-        </p>
-
-        <p className="text-white/70 mb-10">
-          Even a simple outfit looks premium when grooming is sharp.
-        </p>
-
-        {/* SECTION 6 */}
-        <h2 className="text-2xl font-semibold mb-4">6. Nothing Feels “Off”</h2>
-
-        <p className="text-white/70 mb-6">
-          This is hard to explain — but easy to feel.
-        </p>
-
-        <p className="text-white/70 mb-6">
-          When your outfit works, nothing stands out negatively.
-        </p>
-
-        <p className="text-white/70 mb-10">
-          No weird colors. No awkward fits. No mismatched pieces.
-        </p>
-
-        {/* SECTION 7 */}
-        <h2 className="text-2xl font-semibold mb-4">7. You Feel Confident Without Thinking</h2>
-
-        <p className="text-white/70 mb-6">
-          The final test is internal.
-        </p>
-
-        <p className="text-white/70 mb-6">
-          If you’re constantly adjusting your clothes, second-guessing, or feeling uncomfortable —
-          something is off.
-        </p>
-
-        <p className="text-white/70 mb-10">
-          Good style removes friction. You just exist — confidently.
-        </p>
-
-        {/* CTA */}
-        <div className="mt-12 p-6 bg-white/5 rounded-2xl border border-white/10">
-          <h3 className="text-xl font-semibold mb-4">
-            Want a clear answer instead of guessing?
-          </h3>
-
-          <p className="text-white/70 mb-4">
-            Take the StyleScore quiz and see exactly where you stand across fit, shoes,
-            grooming, and overall style.
-          </p>
-
-          <a
-            href="/assessment"
-            className="inline-block bg-orange-400 text-black px-5 py-3 rounded-xl font-semibold"
-          >
-            Check Your StyleScore →
-          </a>
-        </div>
-
-      </div>
-    </main>
+    <LegacyLongformPage
+      seo={seo}
+      heading="How to Know If You Dress Well (Without Asking Anyone)"
+      intro={[
+        "Most men have no reliable way to judge their own style. They go by instinct, comfort, or whether no one said anything negative. That sounds reasonable until you realize average style survives quietly for years that way.",
+        "You do not need outside approval to tell whether your clothes are working. You need a few objective signals. Once you understand those signals, it becomes much easier to tell the difference between dressing acceptably and dressing well.",
+      ]}
+      sections={sections}
+      middleCta={{
+        insertAfterSection: 2,
+        title: "Want a direct answer instead of vague self-confidence?",
+        body: "Take the StyleScore assessment and see exactly how your fit, shoes, grooming, and coordination are performing right now.",
+      }}
+      bottomCta={{
+        title: "Style is easier once the feedback is objective",
+        body: "Get your StyleScore, see which category is already working for you, and find the weak area that is quietly dragging the whole look down.",
+      }}
+    />
   );
 }

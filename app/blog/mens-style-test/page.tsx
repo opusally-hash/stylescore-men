@@ -1,4 +1,9 @@
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import {
+  buildLegacyBlogMetadata,
+  LegacyBlogStructuredData,
+  legacyBlogSeo,
+} from "../_components/legacy-blog-seo";
 
 const displayFont = Cormorant_Garamond({
   subsets: ["latin"],
@@ -10,17 +15,16 @@ const bodyFont = Manrope({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-export const metadata = {
-  title: "Men's Style Quiz: Find Your Style Score Online | StyleScore",
-  description:
-    "Take a free men's style quiz and discover your style score across fit, wardrobe, shoes, grooming, and occasion dressing.",
-};
+const seo = legacyBlogSeo["mens-style-test"];
+
+export const metadata = buildLegacyBlogMetadata(seo);
 
 export default function Page() {
   return (
     <main
       className={`relative min-h-screen overflow-hidden bg-[#050816] text-white ${bodyFont.className}`}
     >
+      <LegacyBlogStructuredData entry={seo} />
       <BackgroundGlow />
 
       <div className="relative mx-auto max-w-4xl px-6 py-12 lg:px-10">
@@ -46,7 +50,7 @@ export default function Page() {
 </p>
 
 <a
-  href="/assessment"
+  href="/onboarding"
   className="inline-block mt-4 bg-orange-400 text-black px-5 py-3 rounded-xl font-semibold"
 >
   Take the Free StyleScore →
@@ -77,7 +81,7 @@ export default function Page() {
               coordination, and occasion styling in just a couple of minutes.
             </p>
             <a
-              href="/assessment"
+              href="/onboarding"
               className="premium-glow mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_24px_rgba(251,146,60,0.4)]"
             >
               Start the Style Quiz
@@ -219,7 +223,7 @@ export default function Page() {
                 and what is holding it back.
               </p>
               <a
-                href="/assessment"
+                href="/onboarding"
                 className="premium-glow mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_24px_rgba(251,146,60,0.4)]"
               >
                 Take the Quiz Now

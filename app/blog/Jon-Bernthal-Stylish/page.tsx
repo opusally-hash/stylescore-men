@@ -1,4 +1,10 @@
+import Image from "next/image";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import {
+  buildLegacyBlogMetadata,
+  LegacyBlogStructuredData,
+  legacyBlogSeo,
+} from "../_components/legacy-blog-seo";
 
 const displayFont = Cormorant_Garamond({
   subsets: ["latin"],
@@ -10,18 +16,16 @@ const bodyFont = Manrope({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-export const metadata = {
-  title:
-    "Why Jon Bernthal Always Looks Effortlessly Stylish (And What Men Can Learn) | StyleScore",
-  description:
-    "Discover why Jon Bernthal’s style works so well and how you can apply the same principles to instantly improve your own style.",
-};
+const seo = legacyBlogSeo["Jon-Bernthal-Stylish"];
+
+export const metadata = buildLegacyBlogMetadata(seo);
 
 export default function Page() {
   return (
     <main
       className={`relative min-h-screen overflow-hidden bg-[#050816] text-white ${bodyFont.className}`}
     >
+      <LegacyBlogStructuredData entry={seo} />
       <BackgroundGlow />
 
       <div className="relative mx-auto max-w-4xl px-6 py-12 lg:px-10">
@@ -29,7 +33,7 @@ export default function Page() {
           href="/blog"
           className="inline-flex rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/75 transition hover:bg-white/10"
         >
-          ← Back to Blog
+          Back to Blog
         </a>
 
         <article className="mt-10">
@@ -56,12 +60,15 @@ export default function Page() {
           </p>
 
           <div className="mt-10 overflow-hidden rounded-[1.75rem] border border-white/10">
-  <img
-    src="/amirr-zolfaghari-f_hXDi6xTvE-unsplash.jpg"
-    alt="rugged masculine style"
-    className="h-full w-full object-cover"
-  />
-</div>
+            <Image
+              src="/amirr-zolfaghari-f_hXDi6xTvE-unsplash.jpg"
+              alt="Rugged masculine style inspiration"
+              width={1600}
+              height={1000}
+              className="h-full w-full object-cover"
+              priority
+            />
+          </div>
 
           <div className="mt-10 rounded-[1.75rem] border border-orange-400/20 bg-orange-400/10 p-6 backdrop-blur-xl shadow-[0_20px_80px_rgba(0,0,0,0.25)]">
             <h2 className="text-2xl font-semibold text-white">
@@ -72,10 +79,10 @@ export default function Page() {
               Most men are losing points without realizing it.
             </p>
             <a
-              href="/assessment"
+              href="/onboarding"
               className="premium-glow mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_24px_rgba(251,146,60,0.4)]"
             >
-              Check Your StyleScore →
+              Check Your StyleScore -&gt;
             </a>
           </div>
 
@@ -92,7 +99,7 @@ export default function Page() {
             <Section
               title="2. He uses simple colors that always work"
               paragraphs={[
-                "You will rarely see Bernthal wearing complicated color combinations. His wardrobe leans heavily on black, white, grey, olive, and muted tones.",
+                "You will rarely see Bernthal wearing complicated color combinations. His wardrobe leans heavily on black, white, gray, olive, and muted tones.",
                 "These colors naturally work together, which removes the need for overthinking. His outfits feel cohesive because they are built on colors that are hard to mess up.",
                 "This is one of the easiest upgrades any man can make. Simpler colors create stronger outfits with less effort.",
               ]}
@@ -112,17 +119,17 @@ export default function Page() {
                 Not sure if your shoes are helping or hurting your style?
               </p>
               <a
-                href="/assessment"
+                href="/onboarding"
                 className="mt-4 inline-flex rounded-2xl bg-orange-400 px-5 py-3 font-semibold text-black transition hover:bg-orange-300"
               >
-                Take the Free Style Test →
+                Take the Free Style Test -&gt;
               </a>
             </div>
 
             <Section
               title="4. His grooming adds to the overall impact"
               paragraphs={[
-                "Bernthal’s grooming is a major part of his look. His hair is simple but maintained. His beard is rough but intentional.",
+                "Bernthal's grooming is a major part of his look. His hair is simple but maintained. His beard is rough but intentional.",
                 "This balance creates a rugged appearance without looking careless. It feels natural, but it is clearly controlled.",
                 "Most men underestimate grooming. But it often does more for your appearance than adding another piece of clothing.",
               ]}
@@ -160,7 +167,7 @@ export default function Page() {
             <Section
               title="Style is not guesswork"
               paragraphs={[
-                "What makes Jon Bernthal’s style powerful is not complexity. It is consistency. He follows a repeatable system.",
+                "What makes Jon Bernthal's style powerful is not complexity. It is consistency. He follows a repeatable system.",
                 "Once you understand that system, style becomes predictable. You stop guessing and start improving with intention.",
                 "And that is where most men finally see real progress.",
               ]}
@@ -185,10 +192,10 @@ export default function Page() {
                 across the fundamentals that matter most.
               </p>
               <a
-                href="/assessment"
+                href="/onboarding"
                 className="premium-glow mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_24px_rgba(251,146,60,0.4)]"
               >
-                Get Your StyleScore →
+                Get Your StyleScore -&gt;
               </a>
             </div>
           </section>
@@ -258,8 +265,25 @@ function FaqSection() {
     },
   ];
 
+  const jsonLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a,
+      },
+    })),
+  });
+
   return (
     <section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd }}
+      />
       <h2 className="text-2xl font-semibold text-white">
         Frequently Asked Questions
       </h2>

@@ -20,6 +20,28 @@ const faqItems = [
   },
 ];
 
+export function LegacyBlogFaqSchema() {
+  const jsonLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  });
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: jsonLd }}
+    />
+  );
+}
+
 export function LegacyBlogTopCta() {
   return (
     <div className="mb-8 rounded-2xl border border-orange-400/25 bg-white/5 p-5">
@@ -37,6 +59,7 @@ export function LegacyBlogTopCta() {
 export function LegacyBlogFaq() {
   return (
     <section className="mt-16">
+      <LegacyBlogFaqSchema />
       <h2 className="mb-6 text-2xl font-semibold">Frequently Asked Questions</h2>
 
       <div className="space-y-6 text-white/70">
