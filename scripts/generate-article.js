@@ -5,7 +5,8 @@ const OpenAIImport = require("openai");
 const {
   SYSTEM_PROMPT,
   buildArticlePrompt,
-  buildHumanizationPrompt
+  buildHumanizationPrompt,
+  buildRepairPrompt
 } = require("./lib/prompt-templates");
 const { requestIndexing } = require("./lib/google-indexing");
 const {
@@ -27,6 +28,99 @@ const {
 } = require("./lib/publishing-helpers");
 
 const OpenAIClient = OpenAIImport.default || OpenAIImport;
+
+const BANNED_WORD_REPLACEMENTS = {
+  crucial: "important",
+  paramount: "most important",
+  elevate: "improve",
+  curate: "build",
+  effortless: "easy",
+  timeless: "long-lasting",
+  versatile: "easy to wear"
+};
+
+function replaceBannedWords(text) {
+  let updated = text;
+
+  Object.entries(BANNED_WORD_REPLACEMENTS).forEach(([word, replacement]) => {
+    updated = updated.replace(new RegExp(`\\b${word}\\b`, "gi"), replacement);
+  });
+
+  updated = updated.replace(/\bIn conclusion\b/gi, "To wrap this up");
+  updated = updated.replace(/\bIn this article\b/gi, "Here");
+
+  return updated;
+}
+
+function titleCaseKeyword(keyword) {
+  return keyword
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((token) => {
+      if (/^\d/.test(token)) {
+        return token.toUpperCase();
+      }
+
+      return token.charAt(0).toUpperCase() + token.slice(1);
+    })
+    .join(" ");
+}
+
+function normalizeArticleDraft(articleJson, queueEntry) {
+  const normalized = {
+    ...articleJson,
+    title: replaceBannedWords(articleJson.title || ""),
+    meta_description: replaceBannedWords(articleJson.meta_description || ""),
+    h1: replaceBannedWords(articleJson.h1 || ""),
+    content_markdown: replaceBannedWords(articleJson.content_markdown || ""),
+    faq: Array.isArray(articleJson.faq)
+      ? articleJson.faq.map((item) => ({
+          question: replaceBannedWords(item.question || ""),
+          answer: replaceBannedWords(item.answer || "")
+        }))
+      : [],
+    internal_links: Array.isArray(articleJson.internal_links) ? articleJson.internal_links : [],
+    external_links: Array.isArray(articleJson.external_links) ? articleJson.external_links : [],
+    primary_keyword: articleJson.primary_keyword || queueEntry.keyword,
+    secondary_keywords: Array.isArray(articleJson.secondary_keywords)
+      ? articleJson.secondary_keywords
+      : queueEntry.secondaryKeywords
+  };
+
+  const keywordPhrase = queueEntry.keyword;
+
+  if (!normalized.h1.toLowerCase().includes(keywordPhrase.toLowerCase())) {
+    normalized.h1 = titleCaseKeyword(keywordPhrase);
+  }
+
+  const firstChunk = normalized.content_markdown.slice(0, 500).toLowerCase();
+
+  if (!firstChunk.includes(keywordPhrase.toLowerCase())) {
+    normalized.content_markdown = `${titleCaseKeyword(keywordPhrase)} matters more than most men realize.\n\n${normalized.content_markdown}`.trim();
+  }
+
+  return normalized;
+}
+
+async function repairArticleWithOpenAI(client, articleJson, queueEntry, validationErrors) {
+  const repairResponse = await client.chat.completions.create({
+    model: "gpt-4o",
+    temperature: 0.3,
+    response_format: { type: "json_object" },
+    messages: [
+      {
+        role: "user",
+        content: buildRepairPrompt({
+          articleJson,
+          queueEntry,
+          validationErrors
+        })
+      }
+    ]
+  });
+
+  return JSON.parse(repairResponse.choices[0].message.content);
+}
 
 async function generateArticleWithOpenAI(queueEntry) {
   if (!process.env.OPENAI_API_KEY) {
@@ -67,7 +161,28 @@ async function generateArticleWithOpenAI(queueEntry) {
     ]
   });
 
-  return JSON.parse(humanizedResponse.choices[0].message.content);
+  const humanizedArticle = JSON.parse(humanizedResponse.choices[0].message.content);
+  let normalizedArticle = normalizeArticleDraft(humanizedArticle, queueEntry);
+  let validationErrors = validateArticlePayload(normalizedArticle, queueEntry);
+
+  if (validationErrors.length === 0) {
+    return normalizedArticle;
+  }
+
+  const repairedArticle = await repairArticleWithOpenAI(
+    client,
+    normalizedArticle,
+    queueEntry,
+    validationErrors
+  );
+  normalizedArticle = normalizeArticleDraft(repairedArticle, queueEntry);
+  validationErrors = validateArticlePayload(normalizedArticle, queueEntry);
+
+  if (validationErrors.length > 0) {
+    throw new Error(`Validation failed after repair: ${validationErrors.join("; ")}`);
+  }
+
+  return normalizedArticle;
 }
 
 async function main() {
@@ -82,7 +197,7 @@ async function main() {
   }
 
   const articleJson = args.input
-    ? readJson(path.resolve(process.cwd(), args.input))
+    ? normalizeArticleDraft(readJson(path.resolve(process.cwd(), args.input)), queueEntry)
     : await generateArticleWithOpenAI(queueEntry);
 
   const validationErrors = validateArticlePayload(articleJson, queueEntry);

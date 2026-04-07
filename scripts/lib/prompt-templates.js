@@ -89,9 +89,30 @@ Article JSON:
 ${JSON.stringify(articleJson, null, 2)}`;
 }
 
+function buildRepairPrompt({ articleJson, queueEntry, validationErrors }) {
+  return `You are fixing a generated StyleScore article JSON that failed validation.
+
+Validation errors:
+- ${validationErrors.join("\n- ")}
+
+Requirements you must satisfy:
+- The H1 must clearly contain the primary keyword: ${queueEntry.keyword}
+- The first 100 words of content_markdown must include the primary keyword naturally
+- Remove every banned word: crucial, paramount, elevate, curate, effortless, timeless, versatile, "In conclusion", "In this article"
+- Keep the same JSON shape
+- Preserve the article's overall meaning and format
+- Keep FAQ, internal_links, and external_links intact unless you need a small correction to satisfy validation
+
+Return only valid JSON.
+
+Article JSON:
+${JSON.stringify(articleJson, null, 2)}`;
+}
+
 module.exports = {
   BANNED_WORDS,
   SYSTEM_PROMPT,
   buildArticlePrompt,
-  buildHumanizationPrompt
+  buildHumanizationPrompt,
+  buildRepairPrompt
 };
