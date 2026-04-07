@@ -10,6 +10,14 @@ const BANNED_WORDS = [
   "in this article"
 ];
 
+const AI_TELL_PHRASES = [
+  "when it comes to",
+  "it's important to",
+  "for example, you might",
+  "in today's world",
+  "one of the key"
+];
+
 const SYSTEM_PROMPT = `You are the editorial voice of StyleScore, a men's style platform with a direct, practical, no-bullshit tone.
 
 Voice rules:
@@ -31,7 +39,13 @@ Structure:
 2. Explain why it matters
 3. Build H2 sections that each make one clear point
 4. Include one natural internal CTA to the StyleScore funnel
-5. End with a 4-6 question FAQ optimized for featured snippets`;
+5. End with a 4-6 question FAQ optimized for featured snippets
+
+Humanity requirements:
+- Include one line that disagrees with generic style advice
+- Include one self-aware line that acknowledges most men do not want to obsess over clothes
+- Include at least one concrete detail such as a measurement, price, study result, brand, or scenario
+- Vary sentence rhythm with short punchy lines and longer explanatory sentences`;
 
 function buildArticlePrompt({
   keyword,
@@ -55,6 +69,10 @@ SEO requirements:
 - Include 2-3 external links to real authoritative sources
 - End with a 4-6 question FAQ section with 40-60 word answers
 - Do not include a section called conclusion
+- Avoid AI phrases such as "When it comes to" and "It's important to"
+- Add one sentence that pushes back on bad conventional style advice
+- Add one self-aware sentence acknowledging most men do not want to spend all day thinking about clothes
+- Include at least one concrete detail such as a price, measurement, study result, or named brand
 
 Return only valid JSON with this shape:
 {
@@ -83,6 +101,7 @@ Tasks:
 - Add one moment that pushes back on generic style advice
 - Add one moment that acknowledges most men do not want to spend all weekend thinking about clothes
 - Vary sentence rhythm with a few short punchy lines and a few longer explanatory ones
+- Make sure the article includes at least one concrete detail such as a measurement, price, brand, or study result
 - Keep the same JSON structure
 
 Article JSON:
@@ -99,6 +118,10 @@ Requirements you must satisfy:
 - The H1 must clearly contain the primary keyword: ${queueEntry.keyword}
 - The first 100 words of content_markdown must include the primary keyword naturally
 - Remove every banned word: crucial, paramount, elevate, curate, effortless, timeless, versatile, "In conclusion", "In this article"
+- Remove AI tell phrases such as: ${AI_TELL_PHRASES.join(", ")}
+- Preserve or add at least one disagreement with generic style advice
+- Preserve or add at least one self-aware line that sounds like a real person talking
+- Preserve or add at least one concrete detail such as a number, brand, price, or study result
 - Keep the same JSON shape
 - Preserve the article's overall meaning and format
 - Keep FAQ, internal_links, and external_links intact unless you need a small correction to satisfy validation
@@ -110,6 +133,7 @@ ${JSON.stringify(articleJson, null, 2)}`;
 }
 
 module.exports = {
+  AI_TELL_PHRASES,
   BANNED_WORDS,
   SYSTEM_PROMPT,
   buildArticlePrompt,

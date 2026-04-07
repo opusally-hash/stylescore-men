@@ -1,6 +1,6 @@
 const fs = require("node:fs");
 const path = require("node:path");
-const { BANNED_WORDS } = require("./prompt-templates");
+const { AI_TELL_PHRASES, BANNED_WORDS } = require("./prompt-templates");
 
 const rootDir = path.resolve(__dirname, "..", "..");
 const keywordsPath = path.join(rootDir, "keywords.json");
@@ -68,6 +68,11 @@ function getQueueEntry(config, { keyword, slug }) {
 
 function selectNextQueueEntry(config) {
   const today = new Date().toISOString().slice(0, 10);
+  const publishedTodayCount = countPublishedArticlesForDate(today);
+
+  if (publishedTodayCount >= 2) {
+    return undefined;
+  }
 
   return [...config.queue]
     .filter((entry) => entry.status !== "published" && entry.scheduledFor <= today)
@@ -78,6 +83,25 @@ function selectNextQueueEntry(config) {
 
       return left.scheduledFor.localeCompare(right.scheduledFor);
     })[0];
+}
+
+function countPublishedArticlesForDate(date) {
+  if (!fs.existsSync(generatedArticlesDir)) {
+    return 0;
+  }
+
+  return fs
+    .readdirSync(generatedArticlesDir, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && entry.name.endsWith(".json"))
+    .map((entry) => {
+      try {
+        return readJson(path.join(generatedArticlesDir, entry.name));
+      } catch {
+        return null;
+      }
+    })
+    .filter((article) => article && article.status === "published" && article.publishedAt === date)
+    .length;
 }
 
 function stripMarkdown(markdown) {
@@ -146,6 +170,30 @@ function findBannedWords(text) {
 
     return new RegExp(`\\b${word}\\b`, "i").test(lowerText);
   });
+}
+
+function findAiTellPhrases(text) {
+  const lowerText = stripMarkdown(text).toLowerCase();
+  return AI_TELL_PHRASES.filter((phrase) => lowerText.includes(phrase));
+}
+
+function splitSentences(text) {
+  return stripMarkdown(text)
+    .split(/(?<=[.!?])\s+/)
+    .map((sentence) => sentence.trim())
+    .filter(Boolean);
+}
+
+function hasShortSentence(text) {
+  return splitSentences(text).some((sentence) => tokenize(sentence).length > 0 && tokenize(sentence).length <= 7);
+}
+
+function hasLongSentence(text) {
+  return splitSentences(text).some((sentence) => tokenize(sentence).length >= 25);
+}
+
+function hasConcreteDetail(text) {
+  return /\b\d+\b/.test(text) || /\b(GQ|Reddit|Nike|Levi's|Uniqlo|Zara|J\.Crew|Princeton|Hertfordshire)\b/i.test(text);
 }
 
 function countWords(markdown) {
@@ -225,6 +273,7 @@ function validateArticlePayload(article, queueEntry) {
   const externalLinks = Array.isArray(article.external_links) ? article.external_links : [];
   const faq = Array.isArray(article.faq) ? article.faq : [];
   const bannedInContent = findBannedWords(contentMarkdown);
+  const aiTells = findAiTellPhrases(contentMarkdown);
 
   if (wordCount < 800) {
     errors.push(`Word count too low: ${wordCount}`);
@@ -252,6 +301,22 @@ function validateArticlePayload(article, queueEntry) {
 
   if (bannedInContent.length > 0) {
     errors.push(`Banned words present: ${bannedInContent.join(", ")}`);
+  }
+
+  if (aiTells.length > 0) {
+    errors.push(`AI tell phrases present: ${aiTells.join(", ")}`);
+  }
+
+  if (!hasShortSentence(contentMarkdown)) {
+    errors.push("Need at least one short punchy sentence");
+  }
+
+  if (!hasLongSentence(contentMarkdown)) {
+    errors.push("Need at least one longer explanatory sentence");
+  }
+
+  if (!hasConcreteDetail(contentMarkdown)) {
+    errors.push("Need at least one concrete detail such as a number, brand, or study");
   }
 
   return errors;
