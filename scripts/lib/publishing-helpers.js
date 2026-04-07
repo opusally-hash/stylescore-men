@@ -119,7 +119,7 @@ function stripMarkdown(markdown) {
 function tokenize(text) {
   return stripMarkdown(text)
     .toLowerCase()
-    .match(/[a-z0-9']+/g) || [];
+    .match(/[a-z0-9']+/g)?.map((token) => token.replace(/'/g, "")) || [];
 }
 
 function hasKeywordCoverage(text, keyword) {
@@ -127,15 +127,24 @@ function hasKeywordCoverage(text, keyword) {
     "a",
     "an",
     "and",
+    "are",
     "as",
     "at",
+    "can",
+    "do",
     "for",
     "how",
     "in",
+    "is",
+    "my",
     "of",
+    "should",
     "the",
     "to",
+    "what",
     "with",
+    "why",
+    "you",
     "your"
   ]);
   const keywordTokens = tokenize(keyword).filter((token) => !stopWords.has(token));

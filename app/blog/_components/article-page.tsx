@@ -381,6 +381,11 @@ function parseMarkdown(markdown: string): MarkdownBlock[] {
       continue;
     }
 
+    if (line.startsWith("# ")) {
+      index += 1;
+      continue;
+    }
+
     if (line.startsWith("## ")) {
       blocks.push({ type: "h2", text: line.slice(3).trim() });
       index += 1;

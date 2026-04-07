@@ -202,11 +202,11 @@ export default function BlogPage() {
                   <h2
                     className={`mt-3 text-3xl leading-tight text-white sm:text-4xl ${displayFont.className}`}
                   >
-                    New articles released by the publishing queue.
+                    Recent additions to the StyleScore journal.
                   </h2>
                 </div>
                 <p className="max-w-xl text-white/60">
-                  These posts appear automatically once their scheduled publish date goes live in the new content pipeline.
+                  New guides on fit, wardrobe upgrades, and everyday dressing land here first.
                 </p>
               </div>
 

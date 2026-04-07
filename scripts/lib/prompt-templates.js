@@ -65,6 +65,7 @@ Article brief:
 
 SEO requirements:
 - Primary keyword must appear in the H1, first 100 words, and at least 2 H2s
+- The title and H1 should read like a natural editorial headline, not a raw keyword string
 - Include at least one natural internal link to /onboarding or /blog/mens-style-test
 - Include 2-3 external links to real authoritative sources
 - End with a 4-6 question FAQ section with 40-60 word answers
@@ -116,6 +117,7 @@ Validation errors:
 
 Requirements you must satisfy:
 - The H1 must clearly contain the primary keyword: ${queueEntry.keyword}
+- If the raw keyword sounds awkward, rewrite it into a clean editorial H1 while still covering the main terms naturally
 - The first 100 words of content_markdown must include the primary keyword naturally
 - Remove every banned word: crucial, paramount, elevate, curate, effortless, timeless, versatile, "In conclusion", "In this article"
 - Remove AI tell phrases such as: ${AI_TELL_PHRASES.join(", ")}

@@ -66,6 +66,68 @@ function titleCaseKeyword(keyword) {
     .join(" ");
 }
 
+function buildFallbackHeading(keyword) {
+  const normalizedKeyword = keyword.toLowerCase().trim();
+  const ageSpecificMatch = normalizedKeyword.match(/^how to dress better men (\d{2}s)$/);
+
+  if (ageSpecificMatch) {
+    return `How Men in Their ${ageSpecificMatch[1]} Can Dress Better`;
+  }
+
+  const directMatches = {
+    "business casual outfits men who hate dressing up":
+      "Business Casual Outfits for Men Who Hate Dressing Up",
+    "how to match colors men without thinking":
+      "How Men Can Match Colors Without Thinking Too Hard",
+    "what shoes to wear with chinos men":
+      "What Shoes to Wear With Chinos for Men",
+    "mens grooming routine for beginners":
+      "Men's Grooming Routine for Beginners",
+    "smart casual date night outfits men":
+      "Smart Casual Date Night Outfits for Men",
+    "why do my clothes look bad in photos men":
+      "Why Do My Clothes Look Bad in Photos as a Man?"
+  };
+
+  if (directMatches[normalizedKeyword]) {
+    return directMatches[normalizedKeyword];
+  }
+
+  return titleCaseKeyword(keyword)
+    .replace(/\bMens\b/g, "Men's")
+    .replace(/\bMen\b$/, "for Men");
+}
+
+function buildFallbackLead(keyword) {
+  const normalizedKeyword = keyword.toLowerCase().trim();
+  const ageSpecificMatch = normalizedKeyword.match(/^how to dress better men (\d{2}s)$/);
+
+  if (ageSpecificMatch) {
+    return `How men in their ${ageSpecificMatch[1]} can dress better usually comes down to cleaner fit, better restraint, and clothes that actually work in real life.`;
+  }
+
+  const directMatches = {
+    "business casual outfits men who hate dressing up":
+      "Business casual outfits for men who hate dressing up should feel sharp without feeling stiff.",
+    "how to match colors men without thinking":
+      "How men can match colors without thinking too hard starts with fewer variables and better defaults.",
+    "what shoes to wear with chinos men":
+      "What shoes to wear with chinos for men depends on the cut of the pants and where you are actually going.",
+    "mens grooming routine for beginners":
+      "A mens grooming routine for beginners does not need ten products to make a visible difference.",
+    "smart casual date night outfits men":
+      "Smart casual date night outfits for men work best when the clothes look intentional but not rehearsed.",
+    "why do my clothes look bad in photos men":
+      "Why do my clothes look bad in photos as a man is usually the wrong question, because the real issue is often contrast, fit, and posture."
+  };
+
+  if (directMatches[normalizedKeyword]) {
+    return directMatches[normalizedKeyword];
+  }
+
+  return `${buildFallbackHeading(keyword)} matters more than most men realize.`;
+}
+
 function normalizeArticleDraft(articleJson, queueEntry) {
   const normalized = {
     ...articleJson,
@@ -90,13 +152,13 @@ function normalizeArticleDraft(articleJson, queueEntry) {
   const keywordPhrase = queueEntry.keyword;
 
   if (!normalized.h1.toLowerCase().includes(keywordPhrase.toLowerCase())) {
-    normalized.h1 = titleCaseKeyword(keywordPhrase);
+    normalized.h1 = buildFallbackHeading(keywordPhrase);
   }
 
   const firstChunk = normalized.content_markdown.slice(0, 500).toLowerCase();
 
   if (!firstChunk.includes(keywordPhrase.toLowerCase())) {
-    normalized.content_markdown = `${titleCaseKeyword(keywordPhrase)} matters more than most men realize.\n\n${normalized.content_markdown}`.trim();
+    normalized.content_markdown = `${buildFallbackLead(keywordPhrase)}\n\n${normalized.content_markdown}`.trim();
   }
 
   return normalized;
