@@ -21,7 +21,7 @@
       "keyword": "how to dress better men 40s",
       "slug": "how-to-dress-better-men-40s",
       "priority": 95,
-      "status": "draft",
+      "status": "published",
       "cluster": "age-specific",
       "articleFormat": "how-to guide",
       "secondaryKeywords": [
@@ -29,7 +29,10 @@
         "how to dress in your 40s male",
         "style mistakes men make in their 40s"
       ],
-      "scheduledFor": "2026-04-07"
+      "scheduledFor": "2026-04-07",
+      "publishedAt": "2026-04-07",
+      "updatedAt": "2026-04-07",
+      "title": "How to Dress Better in Your 40s: A No-Nonsense Guide | StyleScore"
     },
     {
       "keyword": "why do my clothes look bad in photos men",
@@ -294,6 +297,14 @@
       }
     ],
     "age-specific": [
+      {
+        "slug": "how-to-dress-better-men-40s",
+        "title": "How To Dress Better Men 40S",
+        "href": "/blog/how-to-dress-better-men-40s",
+        "description": "Discover practical tips on how to dress better in your 40s.",
+        "role": "supporting",
+        "publishedAt": "2026-04-07"
+      },
       {
         "slug": "how-to-dress-better-men-30s",
         "title": "How to Dress Better Men 30s",
