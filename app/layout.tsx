@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://stylescore.live",
   },
+  other: {
+    "google-adsense-account": "ca-pub-7678308131103396",
+  },
   verification: {
     google: "H0SH3hnxkTAqXoR5__j3y9Rc4xpRsFgZzuADypzwHuw",
     other: {
