@@ -4,7 +4,7 @@
       "keyword": "how to dress better men 30s",
       "slug": "how-to-dress-better-men-30s",
       "priority": 98,
-      "status": "draft",
+      "status": "published",
       "cluster": "age-specific",
       "articleFormat": "how-to guide",
       "secondaryKeywords": [
@@ -12,7 +12,10 @@
         "how men should dress at 30",
         "how to look more put together in your 30s"
       ],
-      "scheduledFor": "2026-04-05"
+      "scheduledFor": "2026-04-05",
+      "publishedAt": "2026-04-07",
+      "updatedAt": "2026-04-07",
+      "title": "How to Dress Better in Your 30s: A No-Nonsense Guide | StyleScore"
     },
     {
       "keyword": "how to dress better men 40s",
@@ -290,7 +293,16 @@
         "publishedAt": "2026-03-05"
       }
     ],
-    "age-specific": [],
+    "age-specific": [
+      {
+        "slug": "how-to-dress-better-men-30s",
+        "title": "How to Dress Better Men 30s",
+        "href": "/blog/how-to-dress-better-men-30s",
+        "description": "Upgrade your style in your 30s with practical tips that deliver real-world results.",
+        "role": "supporting",
+        "publishedAt": "2026-04-07"
+      }
+    ],
     "common-style-problems": [
       {
         "slug": "why-men-look-bad-in-clothes",

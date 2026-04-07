@@ -1,3 +1,34 @@
 {
-  "links": {}
+  "links": {
+    "how-to-dress-better-men-30s": [
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
+      },
+      {
+        "slug": "7-signs-dress-well",
+        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
+        "href": "/blog/7-signs-dress-well",
+        "description": "Practical signs that separate a sharp look from an average one."
+      }
+    ],
+    "mens-style-test": [
+      {
+        "slug": "how-to-dress-better-men-30s",
+        "title": "How to Dress Better Men 30s",
+        "href": "/blog/how-to-dress-better-men-30s",
+        "description": "Upgrade your style in your 30s with practical tips that deliver real-world results."
+      }
+    ],
+    "7-signs-dress-well": [
+      {
+        "slug": "how-to-dress-better-men-30s",
+        "title": "How to Dress Better Men 30s",
+        "href": "/blog/how-to-dress-better-men-30s",
+        "description": "Upgrade your style in your 30s with practical tips that deliver real-world results."
+      }
+    ]
+  }
 }
