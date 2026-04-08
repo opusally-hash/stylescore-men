@@ -38,7 +38,7 @@
       "keyword": "why do my clothes look bad in photos men",
       "slug": "why-clothes-look-bad-in-photos-men",
       "priority": 94,
-      "status": "draft",
+      "status": "published",
       "cluster": "common-style-problems",
       "articleFormat": "how-to guide",
       "secondaryKeywords": [
@@ -46,7 +46,10 @@
         "why clothes look different in photos",
         "how to dress better for photos men"
       ],
-      "scheduledFor": "2026-04-08"
+      "scheduledFor": "2026-04-08",
+      "publishedAt": "2026-04-08",
+      "updatedAt": "2026-04-08",
+      "title": "Why Your Clothes Look Bad in Photos and How to Fix It | StyleScore"
     },
     {
       "keyword": "business casual outfits men who hate dressing up",
@@ -315,6 +318,14 @@
       }
     ],
     "common-style-problems": [
+      {
+        "slug": "why-clothes-look-bad-in-photos-men",
+        "title": "Why Do My Clothes Look Bad in Photos as a Man?",
+        "href": "/blog/why-clothes-look-bad-in-photos-men",
+        "description": "Discover why your outfits don't look as good in photos and learn practical tips to dress better for the camera.",
+        "role": "supporting",
+        "publishedAt": "2026-04-08"
+      },
       {
         "slug": "why-men-look-bad-in-clothes",
         "title": "Why Most Men Look Bad in Clothes (And How to Fix It)",
