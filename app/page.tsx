@@ -76,7 +76,7 @@ export default function HomePage() {
           </nav>
 
           <Link
-            href="/onboarding"
+            href="/assessment"
             className="premium-glow rounded-2xl bg-orange-400 px-5 py-3 text-sm font-semibold text-black shadow-[0_0_24px_rgba(251,146,60,0.4)] transition hover:bg-orange-300"
           >
             Get My Style Score
@@ -107,7 +107,7 @@ export default function HomePage() {
 
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
                 <Link
-                  href="/onboarding"
+                  href="/assessment"
                   className="inline-flex items-center justify-center rounded-2xl bg-white px-7 py-4 text-base font-semibold text-black transition hover:bg-white/90"
                 >
                   Get My Style Score

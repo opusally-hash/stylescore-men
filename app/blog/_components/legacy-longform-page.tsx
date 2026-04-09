@@ -180,7 +180,7 @@ function CtaCard({
       <h2 className="text-2xl font-semibold text-white">{title}</h2>
       <p className="mt-4 leading-8 text-white/72">{body}</p>
       <a
-        href="/onboarding"
+        href="/assessment"
         className="mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300"
       >
         {buttonLabel}

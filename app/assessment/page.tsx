@@ -178,6 +178,124 @@ function ScoreCalculationScreen({
   );
 }
 
+function ResultsEmailGate({
+  email,
+  error,
+  isSubmitting,
+  onEmailChange,
+  onSubmit,
+}: {
+  email: string;
+  error: string;
+  isSubmitting: boolean;
+  onEmailChange: (value: string) => void;
+  onSubmit: (event: React.FormEvent<HTMLFormElement>) => Promise<void>;
+}) {
+  return (
+    <div className="results-fade-in space-y-6">
+      <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 text-center text-white backdrop-blur-2xl shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
+        <p className="text-sm font-semibold uppercase tracking-[0.28em] text-white/45">
+          Quiz Complete
+        </p>
+        <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+          Your score and full report are ready.
+        </h2>
+        <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-white/70">
+          Enter your email to reveal everything at once: your score, diagnosis,
+          category breakdown, radar chart, and upgrade priorities.
+        </p>
+      </div>
+
+      <div className={glassCard("p-6 sm:p-8")}>
+        <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-300/85">
+              Reveal Results
+            </p>
+            <h3 className="mt-3 text-3xl font-semibold text-white">
+              One quick step before we show your full StyleScore.
+            </h3>
+            <p className="mt-3 max-w-2xl leading-7 text-white/68">
+              We use your email to save your result and send your report so you
+              can come back to it later. We will not spam you.
+            </p>
+
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p className="text-sm font-medium text-white/85">
+                  Overall score
+                </p>
+                <p className="mt-2 text-sm text-white/55">
+                  Hidden until email unlock
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p className="text-sm font-medium text-white/85">
+                  Style diagnosis
+                </p>
+                <p className="mt-2 text-sm text-white/55">
+                  Ready to reveal instantly
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p className="text-sm font-medium text-white/85">
+                  Category breakdown
+                </p>
+                <p className="mt-2 text-sm text-white/55">
+                  6 scored style categories
+                </p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p className="text-sm font-medium text-white/85">
+                  Upgrade path
+                </p>
+                <p className="mt-2 text-sm text-white/55">
+                  Priorities, recommendations, and next buys
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <form
+            onSubmit={onSubmit}
+            className="rounded-3xl border border-white/10 bg-black/20 p-5 shadow-[0_18px_60px_rgba(0,0,0,0.32)]"
+          >
+            <label
+              htmlFor="results-email"
+              className="text-sm font-semibold uppercase tracking-[0.22em] text-white/45"
+            >
+              Email Address
+            </label>
+            <input
+              id="results-email"
+              type="email"
+              value={email}
+              onChange={(event) => onEmailChange(event.target.value)}
+              placeholder="Enter your email"
+              autoComplete="email"
+              className="mt-3 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-white/30 focus:border-orange-300/50 focus:bg-white/10"
+            />
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="premium-glow mt-4 w-full rounded-2xl bg-orange-400 px-5 py-3 font-semibold text-black shadow-[0_0_30px_rgba(251,146,60,0.45)] transition hover:bg-orange-300 disabled:cursor-not-allowed disabled:opacity-75"
+            >
+              {isSubmitting ? "Unlocking your results..." : "Show my full results"}
+            </button>
+
+            <p className="mt-3 text-sm leading-6 text-white/50">
+              No spam. Just your result and follow-up style guidance.
+            </p>
+
+            {error && <p className="mt-3 text-sm text-red-300">{error}</p>}
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const questions: Question[] = [
   {
     id: "q1",
@@ -328,6 +446,8 @@ export default function AssessmentPage() {
   );
   const [email, setEmail] = useState("");
   const [emailConfirmed, setEmailConfirmed] = useState(false);
+  const [emailError, setEmailError] = useState("");
+  const [submittingEmail, setSubmittingEmail] = useState(false);
   const [resultsUnlocked, setResultsUnlocked] = useState(false);
   const [diagnosis, setDiagnosis] = useState("");
   const [freeReport, setFreeReport] = useState<FreeAssessmentReport | null>(
@@ -411,15 +531,6 @@ export default function AssessmentPage() {
       setShowResult(true);
       setPaidSessionId(pendingPremiumSessionId);
       setQuizPhase("question");
-    }
-
-    if (
-      !savedEmailConfirmed &&
-      stripeStatus !== "success" &&
-      !pendingPremiumSessionId
-    ) {
-      window.location.replace("/onboarding");
-      return;
     }
 
     if (stripeStatus || sessionId) {
@@ -875,6 +986,42 @@ export default function AssessmentPage() {
     }
   }
 
+  async function handleResultsEmailSubmit(
+    event: React.FormEvent<HTMLFormElement>
+  ) {
+    event.preventDefault();
+
+    const normalizedEmail = email.trim().toLowerCase();
+
+    if (!/\S+@\S+\.\S+/.test(normalizedEmail)) {
+      setEmailError("Please enter a valid email.");
+      return;
+    }
+
+    setSubmittingEmail(true);
+    setEmailError("");
+    setEmail(normalizedEmail);
+    localStorage.setItem("stylescore_email", normalizedEmail);
+    localStorage.setItem(EMAIL_CONFIRMED_KEY, "true");
+    setEmailConfirmed(true);
+
+    try {
+      await fetch("/api/leads", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: normalizedEmail,
+        }),
+      });
+    } catch {
+      // If lead capture fails, keep the quiz flow moving.
+    } finally {
+      setSubmittingEmail(false);
+    }
+  }
+
   async function generatePremiumReport(
     personalizationData?: OnboardingForm | null
   ) {
@@ -1011,6 +1158,33 @@ export default function AssessmentPage() {
   }
 
   if (showResult) {
+    if (!emailConfirmed) {
+      return (
+        <main className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_#1f2937,_#0f172a_40%,_#020617_100%)] px-4 py-10 text-white">
+          <div className="pointer-events-none absolute inset-0 overflow-hidden">
+            <div className="absolute -top-24 left-[-80px] h-72 w-72 rounded-full bg-white/10 blur-3xl" />
+            <div className="absolute top-1/3 right-[-100px] h-80 w-80 rounded-full bg-slate-300/10 blur-3xl" />
+            <div className="absolute bottom-[-100px] left-1/3 h-72 w-72 rounded-full bg-blue-400/10 blur-3xl" />
+          </div>
+
+          <div className="relative mx-auto max-w-4xl">
+            <ResultsEmailGate
+              email={email}
+              error={emailError}
+              isSubmitting={submittingEmail}
+              onEmailChange={(value) => {
+                setEmail(value);
+                if (emailError) {
+                  setEmailError("");
+                }
+              }}
+              onSubmit={handleResultsEmailSubmit}
+            />
+          </div>
+        </main>
+      );
+    }
+
     const teaserTarget = "#premium-plan";
     const visibleDiagnosis = diagnosis || diagnosisFallback;
 
