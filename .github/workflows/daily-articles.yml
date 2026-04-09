@@ -28,10 +28,24 @@ jobs:
       - name: Get next keyword from queue
         id: keyword
         run: |
-          echo "keyword=$(node scripts/get-next-keyword.js --field keyword)" >> $GITHUB_OUTPUT
-          echo "slug=$(node scripts/get-next-keyword.js --field slug)" >> $GITHUB_OUTPUT
+          keyword="$(node scripts/get-next-keyword.js --field keyword --allow-empty)"
+          slug="$(node scripts/get-next-keyword.js --field slug --allow-empty)"
+
+          if [ -z "$keyword" ] || [ -z "$slug" ]; then
+            echo "has_entry=false" >> "$GITHUB_OUTPUT"
+            echo "No eligible keyword scheduled for publishing right now."
+          else
+            echo "has_entry=true" >> "$GITHUB_OUTPUT"
+            echo "keyword=$keyword" >> "$GITHUB_OUTPUT"
+            echo "slug=$slug" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Nothing to publish
+        if: steps.keyword.outputs.has_entry != 'true'
+        run: echo "Skipping publish run because there is no eligible queued article."
 
       - name: Generate and publish article
+        if: steps.keyword.outputs.has_entry == 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GSC_SERVICE_ACCOUNT: ${{ secrets.GSC_SERVICE_ACCOUNT }}
@@ -39,6 +53,7 @@ jobs:
           node scripts/generate-article.js --keyword "${{ steps.keyword.outputs.keyword }}" --slug "${{ steps.keyword.outputs.slug }}"
 
       - name: Commit and push new article
+        if: steps.keyword.outputs.has_entry == 'true'
         run: |
           git config --global user.email "bot@stylescore.live"
           git config --global user.name "StyleScore Bot"
@@ -47,6 +62,7 @@ jobs:
           git push
 
       - name: Trigger Vercel deployment
+        if: steps.keyword.outputs.has_entry == 'true'
         env:
           VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
         run: |

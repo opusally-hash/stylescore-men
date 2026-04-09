@@ -12,6 +12,14 @@ function main() {
   const nextEntry = selectNextQueueEntry(config);
 
   if (!nextEntry) {
+    if (args["allow-empty"]) {
+      if (!args.field) {
+        console.log("{}");
+      }
+
+      return;
+    }
+
     console.error("No eligible keyword is scheduled for publishing.");
     process.exit(1);
   }
