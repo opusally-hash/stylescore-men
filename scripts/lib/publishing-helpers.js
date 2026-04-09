@@ -6,7 +6,7 @@ const rootDir = path.resolve(__dirname, "..", "..");
 const keywordsPath = path.join(rootDir, "keywords.json");
 const relatedArticlesPath = path.join(rootDir, "content", "related-articles.json");
 const generatedArticlesDir = path.join(rootDir, "content", "generated-articles");
-const MIN_WORD_COUNT = 1000;
+const MIN_WORD_COUNT = 1100;
 const MAX_WORD_COUNT = 1500;
 
 function parseArgs(argv) {
@@ -252,9 +252,27 @@ function countInlineExternalLinks(contentMarkdown) {
   return matches ? matches.length : 0;
 }
 
+function countInlineInternalLinks(contentMarkdown) {
+  const matches = contentMarkdown.match(/\[[^\]]+\]\((\/[^)]+)\)/g);
+  return matches ? matches.length : 0;
+}
+
+function countH2Sections(contentMarkdown) {
+  const matches = contentMarkdown.match(/^##\s+/gm);
+  return matches ? matches.length : 0;
+}
+
+function countBoldQuestionLines(contentMarkdown) {
+  const matches = contentMarkdown.match(/^\*\*[^*\n]+\?\*\*/gm);
+  return matches ? matches.length : 0;
+}
+
 function stripGeneratedSupportSections(contentMarkdown) {
   return contentMarkdown
-    .replace(/\n##\s*(Related Articles|Sources|Frequently Asked Questions|FAQs?)\b[\s\S]*$/i, "")
+    .replace(
+      /\n(?:---\s*\n)?#{2,6}\s*(Related Articles|Sources|Frequently Asked Questions|FAQs?|Common Questions)\b[\s\S]*$/i,
+      ""
+    )
     .trim();
 }
 
@@ -267,15 +285,19 @@ function canonicalUrl(slug) {
   return `https://stylescore.live/blog/${slug}`;
 }
 
-function ensureOnboardingLink(contentMarkdown) {
+function ensureAssessmentLink(contentMarkdown) {
+  const normalizedContent = contentMarkdown
+    .replace(/https:\/\/stylescore\.live\/onboarding\b/g, "https://stylescore.live/assessment")
+    .replace(/\/onboarding\b/g, "/assessment");
+
   if (
-    contentMarkdown.includes("](/onboarding)") ||
-    contentMarkdown.includes("](/blog/mens-style-test)")
+    normalizedContent.includes("](/assessment)") ||
+    normalizedContent.includes("](/blog/mens-style-test)")
   ) {
-    return contentMarkdown.trim();
+    return normalizedContent.trim();
   }
 
-  return `${contentMarkdown.trim()}\n\nIf you want the personal version of this instead of the generic advice, take the [StyleScore assessment](/onboarding) and see which category is actually holding your look back.`;
+  return `${normalizedContent.trim()}\n\nIf you want the personal version of this instead of the generic advice, take the [StyleScore assessment](/assessment) and see which category is actually holding your look back.`;
 }
 
 function validateArticlePayload(article, queueEntry) {
@@ -283,7 +305,11 @@ function validateArticlePayload(article, queueEntry) {
   const primaryKeyword = (article.primary_keyword || queueEntry.keyword || "").toLowerCase();
   const contentMarkdown = article.content_markdown || "";
   const wordCount = article.word_count || countWords(contentMarkdown);
-  const firstChunk = stripMarkdown(contentMarkdown).slice(0, 600).toLowerCase();
+  const firstChunk = stripMarkdown(contentMarkdown)
+    .split(/\s+/)
+    .slice(0, 120)
+    .join(" ")
+    .toLowerCase();
   const h1 = article.h1 || "";
   const internalLinks = Array.isArray(article.internal_links) ? article.internal_links : [];
   const externalLinks = Array.isArray(article.external_links) ? article.external_links : [];
@@ -316,6 +342,10 @@ function validateArticlePayload(article, queueEntry) {
     errors.push("Missing required internal link");
   }
 
+  if (countInlineInternalLinks(contentMarkdown) < 1) {
+    errors.push("Need at least 1 inline internal link in the article body");
+  }
+
   if (externalLinks.length < 3) {
     errors.push("Need at least 3 external links");
   }
@@ -344,12 +374,24 @@ function validateArticlePayload(article, queueEntry) {
     errors.push("Need at least one concrete detail such as a number, brand, or study");
   }
 
-  if (countInlineExternalLinks(contentMarkdown) < 2) {
-    errors.push("Need at least 2 inline source links in the article body");
+  if (countInlineExternalLinks(contentMarkdown) < 3) {
+    errors.push("Need at least 3 inline source links in the article body");
+  }
+
+  if (countH2Sections(contentMarkdown) < 5) {
+    errors.push(`Need at least 5 H2 sections: ${countH2Sections(contentMarkdown)}`);
   }
 
   if (/\n##\s*(Related Articles|Sources|Frequently Asked Questions|FAQs?)\b/i.test(contentMarkdown)) {
     errors.push("content_markdown should not include FAQ, sources, or related article sections");
+  }
+
+  if (/\n#{2,6}\s*(Related Articles|Sources|Frequently Asked Questions|FAQs?|Common Questions)\b/i.test(contentMarkdown)) {
+    errors.push("content_markdown contains embedded support sections");
+  }
+
+  if (countBoldQuestionLines(contentMarkdown) >= 2) {
+    errors.push("content_markdown appears to contain an embedded FAQ block");
   }
 
   return errors;
@@ -420,14 +462,14 @@ function chooseRelatedArticles(config, cluster, currentSlug, limit = 3) {
 }
 
 function buildGeneratedArticleRecord(article, queueEntry, relatedArticles, publicationDate) {
-  const contentBody = ensureOnboardingLink(stripGeneratedSupportSections(article.content_markdown));
+  const contentBody = ensureAssessmentLink(stripGeneratedSupportSections(article.content_markdown));
   const normalizedTitle = ensureStyleScoreSuffix(article.title);
   const description = article.meta_description.trim();
   const internalLinks = new Set(article.internal_links || []);
   const externalLinks = new Set(article.external_links || []);
   const sources = getNormalizedSources(article);
 
-  internalLinks.add("/onboarding");
+  internalLinks.add("/assessment");
   relatedArticles.forEach((relatedArticle) => internalLinks.add(relatedArticle.href));
 
   return {
@@ -530,5 +572,6 @@ module.exports = {
   updateQueueEntryAfterPublish,
   updateRelatedArticlesManifest,
   validateArticlePayload,
+  stripGeneratedSupportSections,
   writeJson
 };

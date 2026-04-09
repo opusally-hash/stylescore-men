@@ -21,6 +21,7 @@ const {
   readJson,
   saveKeywordsConfig,
   selectNextQueueEntry,
+  stripGeneratedSupportSections,
   updateQueueEntryAfterPublish,
   updateRelatedArticlesManifest,
   validateArticlePayload,
@@ -197,13 +198,33 @@ function buildEditorialPlan(queueEntry) {
   };
 }
 
+function getSiblingArticleContext(queueEntry) {
+  const config = loadKeywordsConfig();
+  const siblings = config.queue
+    .filter(
+      (entry) =>
+        entry.cluster === queueEntry.cluster &&
+        entry.slug !== queueEntry.slug &&
+        (entry.status === "published" || entry.title)
+    )
+    .map((entry) => entry.title || entry.slug);
+
+  return siblings.slice(0, 4);
+}
+
 function normalizeArticleDraft(articleJson, queueEntry) {
+  const normalizedContent = stripGeneratedSupportSections(
+    replaceBannedWords(articleJson.content_markdown || "")
+      .replace(/https:\/\/stylescore\.live\/onboarding\b/g, "https://stylescore.live/assessment")
+      .replace(/\/onboarding\b/g, "/assessment")
+  );
+
   const normalized = {
     ...articleJson,
     title: replaceBannedWords(articleJson.title || ""),
     meta_description: replaceBannedWords(articleJson.meta_description || ""),
     h1: replaceBannedWords(articleJson.h1 || ""),
-    content_markdown: replaceBannedWords(articleJson.content_markdown || ""),
+    content_markdown: normalizedContent,
     faq: Array.isArray(articleJson.faq)
       ? articleJson.faq.map((item) => ({
           question: replaceBannedWords(item.question || ""),
@@ -219,7 +240,15 @@ function normalizeArticleDraft(articleJson, queueEntry) {
           }))
           .filter((source) => source.url)
       : [],
-    internal_links: Array.isArray(articleJson.internal_links) ? articleJson.internal_links : [],
+    internal_links: Array.isArray(articleJson.internal_links)
+      ? articleJson.internal_links.map((url) =>
+          typeof url === "string"
+            ? url
+                .replace(/https:\/\/stylescore\.live\/onboarding\b/g, "https://stylescore.live/assessment")
+                .replace(/\/onboarding\b/g, "/assessment")
+            : url
+        )
+      : [],
     external_links: Array.isArray(articleJson.external_links)
       ? articleJson.external_links
       : [],
@@ -257,6 +286,7 @@ function normalizeArticleDraft(articleJson, queueEntry) {
 }
 
 async function repairArticleWithOpenAI(client, articleJson, queueEntry, validationErrors) {
+  const siblingArticles = getSiblingArticleContext(queueEntry);
   const repairResponse = await client.chat.completions.create({
     model: "gpt-4o",
     temperature: 0.3,
@@ -267,7 +297,8 @@ async function repairArticleWithOpenAI(client, articleJson, queueEntry, validati
         content: buildRepairPrompt({
           articleJson,
           queueEntry,
-          validationErrors
+          validationErrors,
+          siblingArticles
         })
       }
     ]
@@ -284,6 +315,7 @@ async function generateArticleWithOpenAI(queueEntry) {
   const client = new OpenAIClient({ apiKey: process.env.OPENAI_API_KEY });
 
   const editorialPlan = buildEditorialPlan(queueEntry);
+  const siblingArticles = getSiblingArticleContext(queueEntry);
 
   const articleResponse = await client.chat.completions.create({
     model: "gpt-4o",
@@ -299,6 +331,7 @@ async function generateArticleWithOpenAI(queueEntry) {
           articleFormat: queueEntry.articleFormat,
           secondaryKeywords: queueEntry.secondaryKeywords,
           editorialAngle: editorialPlan.editorialAngle,
+          siblingArticles,
           mustCover: editorialPlan.mustCover,
           mustAvoid: editorialPlan.mustAvoid
         })
@@ -315,7 +348,7 @@ async function generateArticleWithOpenAI(queueEntry) {
     messages: [
       {
         role: "user",
-        content: buildHumanizationPrompt(article)
+        content: buildHumanizationPrompt(article, siblingArticles)
       }
     ]
   });
