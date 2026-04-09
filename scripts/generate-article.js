@@ -128,6 +128,75 @@ function buildFallbackLead(keyword) {
   return `${buildFallbackHeading(keyword)} matters more than most men realize.`;
 }
 
+function buildEditorialPlan(queueEntry) {
+  const keyword = queueEntry.keyword.toLowerCase();
+
+  if (keyword.includes("30s")) {
+    return {
+      editorialAngle:
+        "Focus on men in their 30s moving from leftover 20s habits into a reliable grown-up uniform. Emphasize consistency, mixed work-social calendars, and removing post-college weak spots.",
+      mustCover: [
+        "what stops working from a man's 20s wardrobe",
+        "2-3 repeatable outfit formulas for work, dates, and weekends",
+        "why shoes, grooming, and fit beat buying more random tops"
+      ],
+      mustAvoid: [
+        "sounding like the 40s article",
+        "framing the goal as looking older or more formal just for the sake of it"
+      ]
+    };
+  }
+
+  if (keyword.includes("40s")) {
+    return {
+      editorialAngle:
+        "Focus on authority, restraint, quality, and maintenance. Explain how men in their 40s should look more dialed-in, not younger, and why fewer better pieces matter more now.",
+      mustCover: [
+        "what starts aging a wardrobe in a man's 40s",
+        "the difference between authority and trend-chasing",
+        "how tailoring, grooming, and fabric quality change the read"
+      ],
+      mustAvoid: [
+        "repeating the 30s article about post-college leftovers",
+        "defaulting to generic basics without explaining why they work at this life stage"
+      ]
+    };
+  }
+
+  if (keyword.includes("photos")) {
+    return {
+      editorialAngle:
+        "Treat the article as a diagnosis of why outfits fall apart on camera: contrast, fit, posture, shirt length, shoe bulk, and grooming.",
+      mustCover: [
+        "why clothes that feel fine in person can look weak in photos",
+        "specific fixes for shirt length, trouser hem, and posture",
+        "how camera contrast punishes bad fit"
+      ],
+      mustAvoid: ["generic wardrobe basics advice that ignores the camera angle"]
+    };
+  }
+
+  if (keyword.includes("business casual")) {
+    return {
+      editorialAngle:
+        "Make it low-effort and anti-corporate-costume. Give simple formulas for men who want business casual to feel easy, not dressed up.",
+      mustCover: [
+        "3-5 low-friction outfit formulas",
+        "what to wear instead of the usual quarter-zip uniform",
+        "how shoes change the tone fast"
+      ],
+      mustAvoid: ["sounding like a generic office dress code memo"]
+    };
+  }
+
+  return {
+    editorialAngle:
+      "Make the advice specific, practical, and clearly different from the existing StyleScore posts in adjacent topics.",
+    mustCover: [],
+    mustAvoid: []
+  };
+}
+
 function normalizeArticleDraft(articleJson, queueEntry) {
   const normalized = {
     ...articleJson,
@@ -141,13 +210,36 @@ function normalizeArticleDraft(articleJson, queueEntry) {
           answer: replaceBannedWords(item.answer || "")
         }))
       : [],
+    sources: Array.isArray(articleJson.sources)
+      ? articleJson.sources
+          .map((source) => ({
+            title: replaceBannedWords(source.title || ""),
+            url: source.url || "",
+            publisher: replaceBannedWords(source.publisher || "")
+          }))
+          .filter((source) => source.url)
+      : [],
     internal_links: Array.isArray(articleJson.internal_links) ? articleJson.internal_links : [],
-    external_links: Array.isArray(articleJson.external_links) ? articleJson.external_links : [],
+    external_links: Array.isArray(articleJson.external_links)
+      ? articleJson.external_links
+      : [],
     primary_keyword: articleJson.primary_keyword || queueEntry.keyword,
     secondary_keywords: Array.isArray(articleJson.secondary_keywords)
       ? articleJson.secondary_keywords
       : queueEntry.secondaryKeywords
   };
+
+  if (normalized.sources.length > 0 && normalized.external_links.length === 0) {
+    normalized.external_links = normalized.sources.map((source) => source.url);
+  }
+
+  if (normalized.sources.length === 0 && normalized.external_links.length > 0) {
+    normalized.sources = normalized.external_links.map((url) => ({
+      title: url,
+      url,
+      publisher: ""
+    }));
+  }
 
   const keywordPhrase = queueEntry.keyword;
 
@@ -191,6 +283,8 @@ async function generateArticleWithOpenAI(queueEntry) {
 
   const client = new OpenAIClient({ apiKey: process.env.OPENAI_API_KEY });
 
+  const editorialPlan = buildEditorialPlan(queueEntry);
+
   const articleResponse = await client.chat.completions.create({
     model: "gpt-4o",
     temperature: 0.7,
@@ -203,7 +297,10 @@ async function generateArticleWithOpenAI(queueEntry) {
           keyword: queueEntry.keyword,
           slug: queueEntry.slug,
           articleFormat: queueEntry.articleFormat,
-          secondaryKeywords: queueEntry.secondaryKeywords
+          secondaryKeywords: queueEntry.secondaryKeywords,
+          editorialAngle: editorialPlan.editorialAngle,
+          mustCover: editorialPlan.mustCover,
+          mustAvoid: editorialPlan.mustAvoid
         })
       }
     ]

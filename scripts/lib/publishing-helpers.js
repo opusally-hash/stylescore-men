@@ -6,6 +6,8 @@ const rootDir = path.resolve(__dirname, "..", "..");
 const keywordsPath = path.join(rootDir, "keywords.json");
 const relatedArticlesPath = path.join(rootDir, "content", "related-articles.json");
 const generatedArticlesDir = path.join(rootDir, "content", "generated-articles");
+const MIN_WORD_COUNT = 1000;
+const MAX_WORD_COUNT = 1500;
 
 function parseArgs(argv) {
   const args = {};
@@ -215,6 +217,47 @@ function countWords(markdown) {
   return plainText.split(/\s+/).filter(Boolean).length;
 }
 
+function buildFallbackSources(externalLinks) {
+  return (externalLinks || []).map((url) => ({
+    title: formatSourceTitle(url),
+    url
+  }));
+}
+
+function getNormalizedSources(article) {
+  if (Array.isArray(article.sources) && article.sources.length > 0) {
+    return article.sources
+      .map((source) => ({
+        title: source.title || formatSourceTitle(source.url || ""),
+        url: source.url || "",
+        publisher: source.publisher || undefined
+      }))
+      .filter((source) => source.url);
+  }
+
+  return buildFallbackSources(article.external_links || []);
+}
+
+function formatSourceTitle(url) {
+  try {
+    const parsed = new URL(url);
+    return parsed.hostname.replace(/^www\./, "");
+  } catch {
+    return url;
+  }
+}
+
+function countInlineExternalLinks(contentMarkdown) {
+  const matches = contentMarkdown.match(/\[[^\]]+\]\((https?:\/\/[^)]+)\)/g);
+  return matches ? matches.length : 0;
+}
+
+function stripGeneratedSupportSections(contentMarkdown) {
+  return contentMarkdown
+    .replace(/\n##\s*(Related Articles|Sources|Frequently Asked Questions|FAQs?)\b[\s\S]*$/i, "")
+    .trim();
+}
+
 function firstSentence(text) {
   const match = text.match(/(.+?[.!?])(\s|$)/);
   return match ? match[1].trim() : text.trim();
@@ -222,24 +265,6 @@ function firstSentence(text) {
 
 function canonicalUrl(slug) {
   return `https://stylescore.live/blog/${slug}`;
-}
-
-function ensureFaqSection(contentMarkdown, faq) {
-  if (!faq || faq.length === 0) {
-    return contentMarkdown.trim();
-  }
-
-  if (contentMarkdown.includes("## Frequently Asked Questions")) {
-    return contentMarkdown.trim();
-  }
-
-  const faqMarkdown = [
-    "## Frequently Asked Questions",
-    "",
-    ...faq.flatMap((item) => [`### ${item.question}`, "", item.answer, ""])
-  ].join("\n");
-
-  return `${contentMarkdown.trim()}\n\n---\n\n${faqMarkdown.trim()}`;
 }
 
 function ensureOnboardingLink(contentMarkdown) {
@@ -253,24 +278,6 @@ function ensureOnboardingLink(contentMarkdown) {
   return `${contentMarkdown.trim()}\n\nIf you want the personal version of this instead of the generic advice, take the [StyleScore assessment](/onboarding) and see which category is actually holding your look back.`;
 }
 
-function ensureRelatedLinksSection(contentMarkdown, relatedArticles) {
-  if (!relatedArticles || relatedArticles.length === 0) {
-    return contentMarkdown.trim();
-  }
-
-  if (contentMarkdown.includes("## Related Articles")) {
-    return contentMarkdown.trim();
-  }
-
-  const lines = [
-    "## Related Articles",
-    "",
-    ...relatedArticles.map((article) => `- [${article.title}](${article.href})`)
-  ];
-
-  return `${contentMarkdown.trim()}\n\n${lines.join("\n")}`;
-}
-
 function validateArticlePayload(article, queueEntry) {
   const errors = [];
   const primaryKeyword = (article.primary_keyword || queueEntry.keyword || "").toLowerCase();
@@ -281,11 +288,16 @@ function validateArticlePayload(article, queueEntry) {
   const internalLinks = Array.isArray(article.internal_links) ? article.internal_links : [];
   const externalLinks = Array.isArray(article.external_links) ? article.external_links : [];
   const faq = Array.isArray(article.faq) ? article.faq : [];
+  const sources = getNormalizedSources(article);
   const bannedInContent = findBannedWords(contentMarkdown);
   const aiTells = findAiTellPhrases(contentMarkdown);
 
-  if (wordCount < 800) {
+  if (wordCount < MIN_WORD_COUNT) {
     errors.push(`Word count too low: ${wordCount}`);
+  }
+
+  if (wordCount > MAX_WORD_COUNT) {
+    errors.push(`Word count too high: ${wordCount}`);
   }
 
   if (!hasKeywordCoverage(h1, primaryKeyword)) {
@@ -304,8 +316,12 @@ function validateArticlePayload(article, queueEntry) {
     errors.push("Missing required internal link");
   }
 
-  if (externalLinks.length < 2) {
-    errors.push("Need at least 2 external links");
+  if (externalLinks.length < 3) {
+    errors.push("Need at least 3 external links");
+  }
+
+  if (sources.length < 3) {
+    errors.push(`Need at least 3 source references: ${sources.length}`);
   }
 
   if (bannedInContent.length > 0) {
@@ -326,6 +342,14 @@ function validateArticlePayload(article, queueEntry) {
 
   if (!hasConcreteDetail(contentMarkdown)) {
     errors.push("Need at least one concrete detail such as a number, brand, or study");
+  }
+
+  if (countInlineExternalLinks(contentMarkdown) < 2) {
+    errors.push("Need at least 2 inline source links in the article body");
+  }
+
+  if (/\n##\s*(Related Articles|Sources|Frequently Asked Questions|FAQs?)\b/i.test(contentMarkdown)) {
+    errors.push("content_markdown should not include FAQ, sources, or related article sections");
   }
 
   return errors;
@@ -356,6 +380,10 @@ function buildCtaHeadline(cluster) {
 }
 
 function buildCtaBody(cluster) {
+  if (cluster === "age-specific") {
+    return "Take the free StyleScore assessment and see how your fit, shoes, grooming, wardrobe, color coordination, and occasion dressing are holding up right now.";
+  }
+
   const category = deriveCategory(cluster).toLowerCase();
   return `Take the free StyleScore assessment and see how your ${category} choices stack up across fit, shoes, grooming, wardrobe, color coordination, and occasion dressing.`;
 }
@@ -392,14 +420,12 @@ function chooseRelatedArticles(config, cluster, currentSlug, limit = 3) {
 }
 
 function buildGeneratedArticleRecord(article, queueEntry, relatedArticles, publicationDate) {
-  const contentWithSupportSections = ensureRelatedLinksSection(
-    ensureFaqSection(ensureOnboardingLink(article.content_markdown), article.faq),
-    relatedArticles
-  );
+  const contentBody = ensureOnboardingLink(stripGeneratedSupportSections(article.content_markdown));
   const normalizedTitle = ensureStyleScoreSuffix(article.title);
   const description = article.meta_description.trim();
   const internalLinks = new Set(article.internal_links || []);
   const externalLinks = new Set(article.external_links || []);
+  const sources = getNormalizedSources(article);
 
   internalLinks.add("/onboarding");
   relatedArticles.forEach((relatedArticle) => internalLinks.add(relatedArticle.href));
@@ -412,17 +438,18 @@ function buildGeneratedArticleRecord(article, queueEntry, relatedArticles, publi
     cardDescription: firstSentence(description),
     ctaHeadline: buildCtaHeadline(queueEntry.cluster),
     ctaBody: buildCtaBody(queueEntry.cluster),
-    content: contentWithSupportSections,
+    content: contentBody,
     author: "StyleScore Editorial",
     category: deriveCategory(queueEntry.cluster),
     publishedAt: publicationDate,
     updatedAt: publicationDate,
-    readingTime: `${Math.max(4, Math.round((article.word_count || countWords(contentWithSupportSections)) / 200))} min read`,
+    readingTime: `${Math.max(5, Math.round((article.word_count || countWords(contentBody)) / 200))} min read`,
     primaryKeyword: article.primary_keyword || queueEntry.keyword,
     secondaryKeywords: article.secondary_keywords || queueEntry.secondaryKeywords || [],
     internalLinks: [...internalLinks],
     externalLinks: [...externalLinks],
-    wordCount: countWords(contentWithSupportSections),
+    sources,
+    wordCount: countWords(contentBody),
     faq: article.faq,
     status: "published"
   };

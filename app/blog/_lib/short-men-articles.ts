@@ -16,6 +16,11 @@ export type BlogArticle = {
   secondaryKeywords?: string[];
   internalLinks?: string[];
   externalLinks?: string[];
+  sources?: Array<{
+    title: string;
+    url: string;
+    publisher?: string;
+  }>;
   wordCount?: number;
   faq?: Array<{
     question: string;

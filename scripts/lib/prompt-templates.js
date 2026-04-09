@@ -51,7 +51,10 @@ function buildArticlePrompt({
   keyword,
   slug,
   articleFormat,
-  secondaryKeywords
+  secondaryKeywords,
+  editorialAngle,
+  mustCover = [],
+  mustAvoid = []
 }) {
   return `Write a complete SEO-optimized blog article for stylescore.live.
 
@@ -59,21 +62,25 @@ Article brief:
 - Primary keyword: ${keyword}
 - Secondary keywords: ${secondaryKeywords.join(", ")}
 - Article format: ${articleFormat}
-- Target word count: 1,500-2,000 words
+- Target word count: 1,100-1,400 words
 - Target URL: https://stylescore.live/blog/${slug}
 - Audience: men aged 25-45 who want practical style improvement
+- Editorial angle: ${editorialAngle || "Make the advice concrete, specific, and clearly different from generic menswear roundup content."}
+- Must cover: ${mustCover.length > 0 ? mustCover.join("; ") : "specific outfit formulas, fit calls, and examples that make the advice feel grounded"}
+- Must avoid: ${mustAvoid.length > 0 ? mustAvoid.join("; ") : "generic filler, repeated headings, and advice that could fit any article on menswear"}
 
 SEO requirements:
 - Primary keyword must appear in the H1, first 100 words, and at least 2 H2s
 - The title and H1 should read like a natural editorial headline, not a raw keyword string
 - Include at least one natural internal link to /onboarding or /blog/mens-style-test
-- Include 2-3 external links to real authoritative sources
-- End with a 4-6 question FAQ section with 40-60 word answers
+- Include at least 3 inline external links to real authoritative sources inside the article body
+- Do not include a FAQ section, Sources section, or Related Articles section inside content_markdown
 - Do not include a section called conclusion
 - Avoid AI phrases such as "When it comes to" and "It's important to"
 - Add one sentence that pushes back on bad conventional style advice
 - Add one self-aware sentence acknowledging most men do not want to spend all day thinking about clothes
 - Include at least one concrete detail such as a price, measurement, study result, or named brand
+- Make the body materially different from other StyleScore posts on adjacent topics. Do not recycle the same section order, hook, or advice phrasing.
 
 Return only valid JSON with this shape:
 {
@@ -85,9 +92,12 @@ Return only valid JSON with this shape:
   "faq": [
     { "question": "Question", "answer": "Answer" }
   ],
+  "sources": [
+    { "title": "Source title", "url": "https://example.com", "publisher": "Publisher name" }
+  ],
   "internal_links": ["list of internal URLs used"],
   "external_links": ["list of external URLs used"],
-  "word_count": 1650,
+  "word_count": 1250,
   "primary_keyword": "${keyword}",
   "secondary_keywords": ["${secondaryKeywords.join('", "')}"]
 }`;
@@ -103,6 +113,7 @@ Tasks:
 - Add one moment that acknowledges most men do not want to spend all weekend thinking about clothes
 - Vary sentence rhythm with a few short punchy lines and a few longer explanatory ones
 - Make sure the article includes at least one concrete detail such as a measurement, price, brand, or study result
+- Make sure the body stays within roughly 1,100-1,400 words and does not contain FAQ, Sources, or Related Articles sections
 - Keep the same JSON structure
 
 Article JSON:
@@ -119,14 +130,17 @@ Requirements you must satisfy:
 - The H1 must clearly contain the primary keyword: ${queueEntry.keyword}
 - If the raw keyword sounds awkward, rewrite it into a clean editorial H1 while still covering the main terms naturally
 - The first 100 words of content_markdown must include the primary keyword naturally
+- Keep content_markdown between 1,000 and 1,500 words
+- content_markdown must not contain FAQ, Sources, or Related Articles headings
 - Remove every banned word: crucial, paramount, elevate, curate, effortless, timeless, versatile, "In conclusion", "In this article"
 - Remove AI tell phrases such as: ${AI_TELL_PHRASES.join(", ")}
 - Preserve or add at least one disagreement with generic style advice
 - Preserve or add at least one self-aware line that sounds like a real person talking
 - Preserve or add at least one concrete detail such as a number, brand, price, or study result
+- Preserve or add at least 3 strong source references in the sources array and keep their URLs in external_links
 - Keep the same JSON shape
 - Preserve the article's overall meaning and format
-- Keep FAQ, internal_links, and external_links intact unless you need a small correction to satisfy validation
+- Keep FAQ, sources, internal_links, and external_links intact unless you need a small correction to satisfy validation
 
 Return only valid JSON.
 

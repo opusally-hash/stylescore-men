@@ -22,6 +22,12 @@ type MarkdownBlock =
   | { type: "ordered-list"; items: string[] }
   | { type: "table"; headers: string[]; rows: string[][] };
 
+type ArticleSource = {
+  title: string;
+  url: string;
+  publisher?: string;
+};
+
 export function buildBlogMetadata(article: BlogArticle): Metadata {
   const url = `https://stylescore.live/blog/${article.slug}`;
 
@@ -53,6 +59,7 @@ export function ArticlePage({ article }: { article: BlogArticle }) {
   const blocks = parseMarkdown(article.content);
   const topCtaIndex = getTopCtaIndex(blocks);
   const middleCtaIndex = getMiddleCtaIndex(blocks, topCtaIndex);
+  const sources = getArticleSources(article);
   const url = `https://stylescore.live/blog/${article.slug}`;
   const jsonLd = JSON.stringify({
     "@context": "https://schema.org",
@@ -133,7 +140,7 @@ export function ArticlePage({ article }: { article: BlogArticle }) {
             <p className="mt-4 text-sm text-white/45">
               {[article.author ?? "StyleScore Editorial", formatDate(article.publishedAt)]
                 .filter(Boolean)
-                .join(" • ")}
+                .join(" | ")}
             </p>
           ) : null}
 
@@ -176,6 +183,45 @@ export function ArticlePage({ article }: { article: BlogArticle }) {
             })}
           </div>
 
+          {sources.length > 0 ? (
+            <section className="mt-12 rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-6">
+              <h2 className="text-2xl font-semibold text-white">Sources</h2>
+              <ul className="mt-4 space-y-3 text-white/72">
+                {sources.map((source) => (
+                  <li key={source.url}>
+                    <a
+                      href={source.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-orange-300 underline decoration-orange-300 underline-offset-4 transition hover:text-orange-200"
+                    >
+                      {source.title}
+                    </a>
+                    {source.publisher ? (
+                      <span className="text-white/45">{" "}({source.publisher})</span>
+                    ) : null}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
+
+          {article.faq && article.faq.length > 0 ? (
+            <section className="mt-12 rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-6">
+              <h2 className="text-2xl font-semibold text-white">
+                Frequently Asked Questions
+              </h2>
+              <div className="mt-4 space-y-5">
+                {article.faq.map((item) => (
+                  <div key={item.question}>
+                    <h3 className="text-lg font-semibold text-white">{item.question}</h3>
+                    <p className="mt-2 leading-8 text-white/72">{item.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          ) : null}
+
           <AssessmentCtaCard
             eyebrow="Ready For The Personal Version?"
             headline={article.ctaHeadline}
@@ -207,6 +253,26 @@ function formatDate(date?: string) {
     }).format(new Date(date));
   } catch {
     return date;
+  }
+}
+
+function getArticleSources(article: BlogArticle): ArticleSource[] {
+  if (article.sources && article.sources.length > 0) {
+    return article.sources;
+  }
+
+  return (article.externalLinks ?? []).map((url) => ({
+    url,
+    title: formatSourceTitle(url),
+  }));
+}
+
+function formatSourceTitle(url: string) {
+  try {
+    const parsed = new URL(url);
+    return parsed.hostname.replace(/^www\./, "");
+  } catch {
+    return url;
   }
 }
 
