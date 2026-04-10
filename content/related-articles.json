@@ -22,6 +22,12 @@
     ],
     "mens-style-test": [
       {
+        "slug": "how-to-match-colors-men-without-thinking",
+        "title": "How Men Can Match Colors Without Thinking Too Hard",
+        "href": "/blog/how-to-match-colors-men-without-thinking",
+        "description": "Stop stressing over color coordination."
+      },
+      {
         "slug": "how-to-dress-better-men-40s",
         "title": "How Men in Their 40s Can Dress Better",
         "href": "/blog/how-to-dress-better-men-40s",
@@ -154,6 +160,42 @@
         "title": "Business Casual Outfits for Men Who Hate Dressing Up",
         "href": "/blog/business-casual-outfits-men-who-hate-dressing-up",
         "description": "Say goodbye to corporate costumes with these easy business casual outfit formulas for men who hate dressing up."
+      }
+    ],
+    "how-to-match-colors-men-without-thinking": [
+      {
+        "slug": "monochromatic-outfits-short-men",
+        "title": "Monochromatic Dressing for Short Men",
+        "href": "/blog/monochromatic-outfits-short-men",
+        "description": "A cleaner way to build depth without breaking the leg line."
+      },
+      {
+        "slug": "how-clothing-affects-first-impressions",
+        "title": "Why Well-Fitted Clothes Change How People See You",
+        "href": "/blog/how-clothing-affects-first-impressions",
+        "description": "The first-impression science behind cleaner presentation."
+      },
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
+      }
+    ],
+    "monochromatic-outfits-short-men": [
+      {
+        "slug": "how-to-match-colors-men-without-thinking",
+        "title": "How Men Can Match Colors Without Thinking Too Hard",
+        "href": "/blog/how-to-match-colors-men-without-thinking",
+        "description": "Stop stressing over color coordination."
+      }
+    ],
+    "how-clothing-affects-first-impressions": [
+      {
+        "slug": "how-to-match-colors-men-without-thinking",
+        "title": "How Men Can Match Colors Without Thinking Too Hard",
+        "href": "/blog/how-to-match-colors-men-without-thinking",
+        "description": "Stop stressing over color coordination."
       }
     ]
   }

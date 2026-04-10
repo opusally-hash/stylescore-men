@@ -72,7 +72,7 @@
       "keyword": "how to match colors men without thinking",
       "slug": "how-to-match-colors-men-without-thinking",
       "priority": 90,
-      "status": "draft",
+      "status": "published",
       "cluster": "color-coordination",
       "articleFormat": "how-to guide",
       "secondaryKeywords": [
@@ -80,7 +80,10 @@
         "how to color coordinate outfits men",
         "easy color combinations for men"
       ],
-      "scheduledFor": "2026-04-10"
+      "scheduledFor": "2026-04-10",
+      "publishedAt": "2026-04-10",
+      "updatedAt": "2026-04-10",
+      "title": "Mastering Men's Color Matching Without Overthinking | StyleScore"
     },
     {
       "keyword": "what shoes to wear with chinos men",
@@ -241,6 +244,14 @@
       }
     ],
     "color-coordination": [
+      {
+        "slug": "how-to-match-colors-men-without-thinking",
+        "title": "How Men Can Match Colors Without Thinking Too Hard",
+        "href": "/blog/how-to-match-colors-men-without-thinking",
+        "description": "Stop stressing over color coordination.",
+        "role": "supporting",
+        "publishedAt": "2026-04-10"
+      },
       {
         "slug": "monochromatic-outfits-short-men",
         "title": "Monochromatic Dressing for Short Men",
