@@ -62,6 +62,7 @@ function buildArticlePrompt({
   articleFormat,
   secondaryKeywords,
   editorialAngle,
+  editorialBlueprint = [],
   siblingArticles = [],
   mustCover = [],
   mustAvoid = []
@@ -76,6 +77,7 @@ Article brief:
 - Target URL: https://stylescore.live/blog/${slug}
 - Audience: men aged 25-45 who want practical style improvement
 - Editorial angle: ${editorialAngle || "Make the advice concrete, specific, and clearly different from generic menswear roundup content."}
+- Editorial blueprint: ${editorialBlueprint.length > 0 ? editorialBlueprint.join("; ") : "none"}
 - Existing related posts in this cluster you must not echo: ${siblingArticles.length > 0 ? siblingArticles.join("; ") : "none yet"}
 - Must cover: ${mustCover.length > 0 ? mustCover.join("; ") : "specific outfit formulas, fit calls, and examples that make the advice feel grounded"}
 - Must avoid: ${mustAvoid.length > 0 ? mustAvoid.join("; ") : "generic filler, repeated headings, and advice that could fit any article on menswear"}
@@ -118,7 +120,7 @@ Return only valid JSON with this shape:
 }`;
 }
 
-function buildHumanizationPrompt(articleJson, siblingArticles = []) {
+function buildHumanizationPrompt(articleJson, siblingArticles = [], editorialBlueprint = []) {
   return `You are editing an AI-written StyleScore article so it sounds genuinely human.
 
 Tasks:
@@ -130,6 +132,7 @@ Tasks:
 - Make sure the article includes at least one concrete detail such as a measurement, price, brand, or study result
 - Make sure the body stays within roughly 1,200-1,450 words and does not contain FAQ, Sources, or Related Articles sections
 - Make the article feel distinct from these sibling posts: ${siblingArticles.length > 0 ? siblingArticles.join("; ") : "none yet"}
+- Keep these editorial priorities visible: ${editorialBlueprint.length > 0 ? editorialBlueprint.join("; ") : "none"}
 - Rewrite any paragraph that sounds like generic menswear filler or could be pasted into another age/style article unchanged
 - Make sure FAQ answers are concise and not copies of body paragraphs
 - Keep the same JSON structure
@@ -138,7 +141,13 @@ Article JSON:
 ${JSON.stringify(articleJson, null, 2)}`;
 }
 
-function buildRepairPrompt({ articleJson, queueEntry, validationErrors, siblingArticles = [] }) {
+function buildRepairPrompt({
+  articleJson,
+  queueEntry,
+  validationErrors,
+  siblingArticles = [],
+  editorialBlueprint = []
+}) {
   return `You are fixing a generated StyleScore article JSON that failed validation.
 
 Validation errors:
@@ -157,6 +166,7 @@ Requirements you must satisfy:
 - Preserve or add at least one concrete detail such as a number, brand, price, or study result
 - Preserve or add at least 3 strong source references in the sources array and keep their URLs in external_links
 - Make the article clearly different from these sibling posts: ${siblingArticles.length > 0 ? siblingArticles.join("; ") : "none yet"}
+- Keep these editorial priorities visible: ${editorialBlueprint.length > 0 ? editorialBlueprint.join("; ") : "none"}
 - Preserve or add at least 5 real H2 sections in the article body
 - FAQ answers must stay concise and should not copy the wording of body paragraphs
 - Keep the same JSON shape
@@ -169,7 +179,13 @@ Article JSON:
 ${JSON.stringify(articleJson, null, 2)}`;
 }
 
-function buildExpansionPrompt({ articleJson, queueEntry, validationErrors, siblingArticles = [] }) {
+function buildExpansionPrompt({
+  articleJson,
+  queueEntry,
+  validationErrors,
+  siblingArticles = [],
+  editorialBlueprint = []
+}) {
   return `You are doing a final rescue pass on a StyleScore article JSON that is still too weak to publish.
 
 Current failures:
@@ -185,6 +201,7 @@ Your job:
 - Add or preserve 3-5 real source references and make sure at least 3 of them appear as inline links in the body
 - Remove any embedded FAQ/source/related-articles sections from content_markdown
 - Make the article clearly different from these sibling posts: ${siblingArticles.length > 0 ? siblingArticles.join("; ") : "none yet"}
+- Keep these editorial priorities visible: ${editorialBlueprint.length > 0 ? editorialBlueprint.join("; ") : "none"}
 - Keep the tone direct, specific, and human
 - Do not summarize. Fully rewrite weak sections if needed.
 

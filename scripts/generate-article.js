@@ -60,6 +60,12 @@ const DETERMINISTIC_RESCUE_LIBRARY = {
     metaDescription:
       "A practical business casual guide for men who want office outfits that look sharp without feeling stiff. Easy formulas, better shoes, and common mistakes to avoid.",
     h1: "Business Casual Outfits for Men Who Hate Dressing Up",
+    editorialBlueprint: [
+      "Open by explaining that men usually hate fake office cosplay, not clothes themselves.",
+      "Build around 3 low-friction business-casual uniforms that can repeat through the week.",
+      "Call out quarter-zips, shiny dress shoes, and bad sneaker choices as the main offenders.",
+      "Make the tone anti-corporate-costume and practical rather than formal."
+    ],
     internalLinks: [
       "/assessment",
       "/blog/casual-outfits-men",
@@ -127,12 +133,36 @@ There are a few predictable misses. Stretch chinos that cling in the thigh and c
 ## Make the system easier than your old lazy default
 
 If you really hate dressing up, build a system that beats your lazy default on speed. Pick three shirts, three trousers, and three shoe options that all work together. Keep colors in the navy, grey, olive, stone, and brown range. Use [StyleScore](/assessment) if you want to know whether fit, shoes, or grooming is the category quietly ruining the whole office look. The right business-casual wardrobe should not feel like more effort. It should feel like less second-guessing.`
+    ,
+    extension: `## Three business-casual outfits that never feel like overkill
+
+If you want something you can wear next week without staring at the closet, start here.
+
+**Formula one: knit polo, tapered chinos, suede loafers.** This is the easiest office-smart uniform for men who hate layers. Navy or charcoal knit polo, olive or stone chinos, brown suede loafers. No tie. No blazer. No drama.
+
+**Formula two: OCBD, dark trousers, derbies.** White or light blue oxford cloth shirt, charcoal or navy trousers, dark derbies. This is the one to use for client meetings, nicer offices, or days when you need a little more structure without looking stiff.
+
+**Formula three: overshirt, tee, clean chinos, leather sneakers.** This only works in more relaxed offices, but it works well there. Keep the overshirt textured, the tee clean, and the sneaker low-profile. The second the sneaker looks athletic, the outfit stops reading business casual.
+
+## What to stop buying if business casual keeps disappointing you
+
+Stop buying clothes that only sound right on paper. Tiny checked office shirts. Shiny cheap dress shoes. Flimsy stretch chinos that collapse at the knee. The classic quarter-zip over a button-down if you do not actually like the way it looks on you. Most business-casual wardrobes feel bad because they were built from office category labels instead of real outfits.
+
+## The easiest way to know whether your office outfits are actually working
+
+Look at the whole silhouette, not each item in isolation. Does the shirt sit cleanly? Do the trousers break properly? Do the shoes support the tone of the outfit instead of pulling it casual or overly formal? If you want the fast outside read, that is where [StyleScore](/assessment) helps. It tells you whether the weak link is fit, footwear, grooming, or occasion dressing, so you do not keep blaming the wrong category.`
   },
   "how-to-match-colors-men-without-thinking": {
     title: "How to Match Colors as a Man Without Thinking Too Hard | StyleScore",
     metaDescription:
       "A simple color-matching system for men who want better outfits without memorizing a color wheel. Easy combinations, common mistakes, and a low-effort daily approach.",
     h1: "How to Match Colors as a Man Without Thinking Too Hard",
+    editorialBlueprint: [
+      "Make the article anti-color-wheel and anti-overcomplication.",
+      "Teach a daily system: one dark anchor, one light support, one neutral finisher.",
+      "Include concrete color formulas men can copy immediately.",
+      "Explain why contrast mistakes, not color itself, are what usually ruin outfits."
+    ],
     internalLinks: [
       "/assessment",
       "/blog/monochromatic-outfits-short-men",
@@ -200,12 +230,38 @@ An outfit can use decent colors and still look wrong because the contrast is doi
 ## Build a small system you can repeat
 
 You do not need a bigger personality in your wardrobe. You need a system that survives busy mornings. Keep your base colors tight, repeat the combinations that already work, and use [StyleScore](/assessment) if you want an outside read on whether color coordination is actually the weak link or whether fit and footwear are doing more damage. Color matching gets easier once you stop treating every outfit like a new experiment.`
+    ,
+    extension: `## Five color combinations men can use without thinking
+
+If you want color to feel automatic, use combinations that already do the work for you.
+
+- Navy + white + brown
+- Olive + cream + white
+- Charcoal + pale blue + dark brown
+- Dark denim + grey + off-white
+- Stone + black + white when the fit is sharp enough to handle the contrast
+
+These work because they are stable, not because they are exciting. Exciting is overrated at 8 a.m. on a workday.
+
+## Why too much contrast makes men think they are bad at color
+
+Most men say they cannot match colors when the real issue is they are using too much jump between pieces. Black shoes with light khaki pants. Bright top with bright overshirt. Light jeans with a shirt that is louder than the rest of the outfit combined. The second the eye starts stopping at every boundary, the outfit feels clumsy.
+
+## Use color to simplify the outfit, not rescue it
+
+Bad advice says color should make the outfit more interesting. Better advice says color should make the outfit easier to read. If the fit is weak, the shoes are bulky, or the layering is off, strong color usually highlights the problem. That is why [StyleScore](/assessment) is useful here too. Men often blame color when the outfit is actually being ruined by fit or footwear.`
   },
   "what-shoes-to-wear-with-chinos-men": {
     title: "What Shoes to Wear With Chinos for Men | StyleScore",
     metaDescription:
       "A simple guide to the best shoes to wear with chinos for men. See when to choose loafers, derbies, sneakers, or boots, and which combinations make chinos look sharper.",
     h1: "What Shoes to Wear With Chinos for Men",
+    editorialBlueprint: [
+      "Frame chinos as the bridge between jeans and dress trousers, so the shoes set the tone.",
+      "Compare loafers, derbies, clean sneakers, and boots by setting rather than trend.",
+      "Explain that hem length and shoe profile matter as much as the shoe type.",
+      "Call out bulky runners and glossy formal shoes as the common misses."
+    ],
     internalLinks: [
       "/assessment",
       "/blog/best-shoes-for-short-men",
@@ -273,12 +329,38 @@ The biggest miss is mixing chinos with shoes that belong to a different category
 ## Keep the lower half doing one job
 
 If you want chinos to look stronger, make the lower half say one thing. Smart-casual. Relaxed but intentional. Clean enough for work, easy enough for weekends. Pick the shoes that support that message, and use [StyleScore](/assessment) if you want an outside read on whether your footwear is carrying its share or quietly flattening every outfit you build around chinos.`
+    ,
+    extension: `## The easiest chinos-and-shoes combinations by setting
+
+For the office: navy or grey chinos with loafers or derbies. That is the cleanest lane.
+
+For weekends: stone or olive chinos with white leather sneakers or tan suede loafers.
+
+For date night: dark chinos with slim boots or dark loafers.
+
+For travel or mixed-use days: darker chinos with a clean low-profile sneaker that does not look like running gear.
+
+Once you sort by setting, the whole category gets easier fast.
+
+## The two details that matter more than men think
+
+First: trouser break. If chinos are stacking, even the right shoe starts looking wrong. Second: shoe profile. The lower and cleaner the shoe, the easier chinos look. A bulky shoe makes chinos feel heavier and less intentional.
+
+## Stop asking for the one perfect shoe
+
+There is no single perfect shoe for chinos because chinos are not a single mood. That is why men keep getting confused. Use [StyleScore](/assessment) if you want to know whether the real problem is the shoe choice itself or the way the rest of the outfit is framing it. Usually the best answer is not more options. It is cleaner categories and a sharper hem.`
   },
   "mens-grooming-routine-beginners": {
     title: "Men's Grooming Routine for Beginners | StyleScore",
     metaDescription:
       "A simple men's grooming routine for beginners that covers skin, hair, shaving, and basic maintenance without turning self-care into a second job.",
     h1: "Men's Grooming Routine for Beginners",
+    editorialBlueprint: [
+      "Make the article low-friction and anti-12-step-routine.",
+      "Focus on the visible beginner wins: skin, haircut cadence, beard or shaving lines, and basic maintenance.",
+      "Include a simple morning routine, night routine, and weekly checklist.",
+      "Make it clear that consistency beats buying more products."
+    ],
     internalLinks: [
       "/assessment",
       "/blog/grooming-multiplier-mens-style",
@@ -346,12 +428,46 @@ Nails, nose hair, ear hair, lip condition, and clean teeth are not glamorous top
 ## Build a routine you will actually keep
 
 The whole point of beginner grooming is not to become obsessive. It is to stop looking like maintenance only happens by accident. Build a simple system, keep it, and use [StyleScore](/assessment) if you want to know whether grooming is one of the categories dragging down your overall presentation. Once the routine is easy to keep, the rest of your clothes start landing better too.`
+    ,
+    extension: `## A beginner grooming routine that takes under ten minutes
+
+Morning:
+- cleanse
+- moisturizer with SPF
+- hair into shape
+- beard or shave cleanup if needed
+
+Night:
+- cleanse again
+- plain moisturizer
+
+Weekly:
+- trim nails
+- check nose and ear hair
+- tidy beard edges or neckline
+- reset haircut appointment if you are close to drift
+
+That is enough for most men to stop looking ignored.
+
+## Products matter less than cadence
+
+Men love to ask which product to buy first. The better question is which habit you will actually keep. An average cleanser used every day beats an excellent cleanser used four times before it disappears under the sink. Same with trimmers, moisturizers, and hair products.
+
+## If you want one outside read, start with grooming and fit together
+
+Grooming does not exist by itself. It changes the way every outfit lands. That is why [StyleScore](/assessment) is useful when you are new to this. A lot of men assume they need more clothes when the bigger lift would come from better cadence in hair, skin, and facial hair maintenance.`
   },
   "smart-casual-date-night-outfits-men": {
     title: "Smart Casual Date Night Outfits for Men | StyleScore",
     metaDescription:
       "A practical guide to smart casual date night outfits for men. Easy outfit formulas, shoes that work, and the mistakes that make a date-night look feel forced.",
     h1: "Smart Casual Date Night Outfits for Men",
+    editorialBlueprint: [
+      "Anchor the article in venue-specific smart casual, not generic menswear advice.",
+      "Give 3-4 real outfit formulas for drinks, dinner, coffee, or a gallery-type date.",
+      "Explain that men usually fail by dressing either too stiff or too lazy.",
+      "Keep the tone practical, slightly blunt, and anti-costume."
+    ],
     internalLinks: [
       "/assessment",
       "/blog/first-date-outfit-short-men",
@@ -419,6 +535,24 @@ Men often assume smart casual means layering harder. That is not the answer if t
 ## Smart casual should lower stress, not raise it
 
 The whole point of smart casual is flexibility. You can walk into a decent restaurant, drinks spot, or gallery date without looking either underdressed or like you turned the night into a performance. If you want the personal version of that instead of generic advice, use [StyleScore](/assessment) and see whether fit, shoes, grooming, or occasion dressing is the category actually costing you points right now.`
+    ,
+    extension: `## Three date-night formulas that work in real life
+
+**Drinks date:** dark jeans, knit polo, loafers, textured overshirt.
+
+**Dinner date:** dark trousers, open-collar shirt, slim boots or loafers, one structured layer if the room is nicer.
+
+**Coffee or casual walk date:** clean tee, overshirt, straight denim or chinos, low-profile sneakers.
+
+These work because they match the venue without feeling like a strategy document.
+
+## The mistakes that make smart casual look try-hard
+
+Too many layers. Shoes that are dressier than the venue. Loud fragrance on top of an already overbuilt outfit. Clothes that only work if you stand perfectly still. Men usually go wrong when they try to prove something with the outfit instead of just looking sorted.
+
+## Date-night smart casual should make you calmer, not more self-conscious
+
+If the outfit makes you constantly adjust the jacket, wonder about the shirt length, or second-guess the shoe choice, it is the wrong outfit. The right one disappears once it is on. That is part of the point. And if you want to know whether the weak link is fit, shoes, or occasion dressing itself, [StyleScore](/assessment) gives you the faster answer than guessing from scratch every time.`
   }
 };
 
@@ -590,6 +724,10 @@ function buildEditorialPlan(queueEntry) {
   };
 }
 
+function getEditorialBlueprint(queueEntry) {
+  return DETERMINISTIC_RESCUE_LIBRARY[queueEntry.slug]?.editorialBlueprint || [];
+}
+
 function getSiblingArticleContext(queueEntry) {
   const config = loadKeywordsConfig();
   const siblings = config.queue
@@ -684,13 +822,14 @@ function buildDeterministicRescueArticle(articleJson, queueEntry) {
     return articleJson;
   }
 
-  const articleContent = (articleJson.content_markdown || "").trim();
-  const needsFullReplacement =
-    articleContent.split(/\s+/).filter(Boolean).length < 850;
-
-  const rescueContent = needsFullReplacement
-    ? `${buildFallbackLead(queueEntry.keyword)}\n\n${spec.supplement}`.trim()
-    : `${articleContent}\n\n${spec.supplement}`.trim();
+  const rescueContent = [
+    buildFallbackLead(queueEntry.keyword),
+    spec.supplement,
+    spec.extension
+  ]
+    .filter(Boolean)
+    .join("\n\n")
+    .trim();
 
   const mergedInternalLinks = Array.from(
     new Set([...(articleJson.internal_links || []), ...spec.internalLinks])
@@ -702,18 +841,12 @@ function buildDeterministicRescueArticle(articleJson, queueEntry) {
 
   return {
     ...articleJson,
-    title: articleJson.title || spec.title,
-    meta_description: articleJson.meta_description || spec.metaDescription,
-    h1: articleJson.h1 || spec.h1,
+    title: spec.title,
+    meta_description: spec.metaDescription,
+    h1: spec.h1,
     content_markdown: rescueContent,
-    faq:
-      Array.isArray(articleJson.faq) && articleJson.faq.length >= 4
-        ? articleJson.faq
-        : spec.faq,
-    sources:
-      Array.isArray(articleJson.sources) && articleJson.sources.length >= 3
-        ? articleJson.sources
-        : mergedSources,
+    faq: spec.faq,
+    sources: mergedSources,
     internal_links: mergedInternalLinks,
     external_links: mergedExternalLinks
   };
@@ -721,6 +854,7 @@ function buildDeterministicRescueArticle(articleJson, queueEntry) {
 
 async function repairArticleWithOpenAI(client, articleJson, queueEntry, validationErrors) {
   const siblingArticles = getSiblingArticleContext(queueEntry);
+  const editorialBlueprint = getEditorialBlueprint(queueEntry);
   const repairResponse = await client.chat.completions.create({
     model: "gpt-4o",
     temperature: 0.3,
@@ -732,7 +866,8 @@ async function repairArticleWithOpenAI(client, articleJson, queueEntry, validati
           articleJson,
           queueEntry,
           validationErrors,
-          siblingArticles
+          siblingArticles,
+          editorialBlueprint
         })
       }
     ]
@@ -743,6 +878,7 @@ async function repairArticleWithOpenAI(client, articleJson, queueEntry, validati
 
 async function expandArticleWithOpenAI(client, articleJson, queueEntry, validationErrors) {
   const siblingArticles = getSiblingArticleContext(queueEntry);
+  const editorialBlueprint = getEditorialBlueprint(queueEntry);
   const expansionResponse = await client.chat.completions.create({
     model: "gpt-4o",
     temperature: 0.5,
@@ -754,7 +890,8 @@ async function expandArticleWithOpenAI(client, articleJson, queueEntry, validati
           articleJson,
           queueEntry,
           validationErrors,
-          siblingArticles
+          siblingArticles,
+          editorialBlueprint
         })
       }
     ]
@@ -772,6 +909,7 @@ async function generateArticleWithOpenAI(queueEntry) {
 
   const editorialPlan = buildEditorialPlan(queueEntry);
   const siblingArticles = getSiblingArticleContext(queueEntry);
+  const editorialBlueprint = getEditorialBlueprint(queueEntry);
 
   const articleResponse = await client.chat.completions.create({
     model: "gpt-4o",
@@ -787,6 +925,7 @@ async function generateArticleWithOpenAI(queueEntry) {
           articleFormat: queueEntry.articleFormat,
           secondaryKeywords: queueEntry.secondaryKeywords,
           editorialAngle: editorialPlan.editorialAngle,
+          editorialBlueprint,
           siblingArticles,
           mustCover: editorialPlan.mustCover,
           mustAvoid: editorialPlan.mustAvoid
@@ -804,7 +943,7 @@ async function generateArticleWithOpenAI(queueEntry) {
     messages: [
       {
         role: "user",
-        content: buildHumanizationPrompt(article, siblingArticles)
+        content: buildHumanizationPrompt(article, siblingArticles, editorialBlueprint)
       }
     ]
   });
