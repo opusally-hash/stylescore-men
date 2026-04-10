@@ -41,6 +41,387 @@ const BANNED_WORD_REPLACEMENTS = {
   versatile: "easy to wear"
 };
 
+const AI_TELL_REPLACEMENTS = {
+  "when it comes to": "for",
+  "it's important to": "you need to",
+  "for example, you might": "for example,",
+  "in today's world": "today",
+  "one of the key": "one major",
+  "you're not alone": "this is common",
+  "let's dig into": "here is the breakdown",
+  "the point is not": "the goal is not",
+  "the goal is not": "the goal is not",
+  "the real shift": "the real change"
+};
+
+const DETERMINISTIC_RESCUE_LIBRARY = {
+  "business-casual-outfits-men-who-hate-dressing-up": {
+    title: "Business Casual Outfits for Men Who Hate Dressing Up | StyleScore",
+    metaDescription:
+      "A practical business casual guide for men who want office outfits that look sharp without feeling stiff. Easy formulas, better shoes, and common mistakes to avoid.",
+    h1: "Business Casual Outfits for Men Who Hate Dressing Up",
+    internalLinks: [
+      "/assessment",
+      "/blog/casual-outfits-men",
+      "/blog/how-to-dress-better-men"
+    ],
+    sources: [
+      {
+        title: "What to Wear for Business Casual: Tips and Custom Options",
+        url: "https://propercloth.com/reference/what-to-wear-for-business-casual-tips-and-custom-options/",
+        publisher: "Proper Cloth"
+      },
+      {
+        title: "Business Casual Attire, Explained",
+        url: "https://www.gq.com/story/business-casual-attire-for-men-explained",
+        publisher: "GQ"
+      },
+      {
+        title: "5 Spring Business Casual Outfits to Make Your Office Less Miserable",
+        url: "https://www.gq.com/story/business-casual-men-outfits-spring",
+        publisher: "GQ"
+      }
+    ],
+    faq: [
+      {
+        question: "What is the easiest business casual outfit for men?",
+        answer:
+          "Start with a collared shirt or knit polo, clean chinos or trousers, and simple loafers or minimal leather sneakers if your office allows them. That formula looks intentional without feeling dressed up."
+      },
+      {
+        question: "Can men wear sneakers for business casual?",
+        answer:
+          "Yes, but only if they are clean, low-profile, and obviously chosen on purpose. Running shoes and bulky casual sneakers usually ruin the business-casual read."
+      },
+      {
+        question: "What do men who hate dressing up usually get wrong at the office?",
+        answer:
+          "They rely on one lazy fallback outfit: untucked shirt, tired chinos, and gym-adjacent shoes. The clothes are not offensive, but the full look reads checked out."
+      },
+      {
+        question: "How can I make business casual easier every morning?",
+        answer:
+          "Build three repeatable formulas, keep the colors quiet, and stop buying orphan pieces that only work with one exact outfit. Less choice usually means better consistency."
+      }
+    ],
+    supplement: `## Stop treating business casual like a costume
+
+Most men who hate dressing up do not actually hate clothes. They hate feeling fake. That is why business casual goes wrong so often. The internet tells men to buy a blazer, a random blue shirt, and some stiff loafers, then act surprised when the outfit feels like borrowed office theater. [Proper Cloth's business-casual guide](https://propercloth.com/reference/what-to-wear-for-business-casual-tips-and-custom-options/) is useful because it keeps the target simple: collared tops, clean trousers, and shoes that read professional without becoming formal. That is a much better starting point than trying to dress like HR wrote your personality.
+
+## Build around one low-friction work uniform
+
+If you want business casual to feel easy, stop trying to invent a new outfit every morning. The easiest office uniform is a knit polo or oxford, straight or tapered chinos, and a shoe that looks intentional. Dark olive chinos with a navy knit polo and brown loafers works. Grey trousers with an off-white OCBD and dark derbies works. Navy chinos with a textured overshirt and clean leather sneakers can work too if your office is relaxed enough. The point is repeatability. [GQ's business-casual explainer](https://www.gq.com/story/business-casual-attire-for-men-explained) keeps coming back to the same idea: the best version of business casual is calm, not complicated.
+
+## Shoes decide whether the outfit looks office-ready or half-finished
+
+Most men who say they hate dressing up are really reacting to bad shoes. Cheap shiny dress shoes look forced. Running shoes look like you gave up. The middle ground is where business casual lives: loafers, derbies, simple boots, and low-profile leather sneakers where the dress code allows them. That is also why the trouser hem matters so much. If the pants stack over the shoe, the lower half looks sloppy no matter how good the shirt is. A clean break and a sharper shoe fix more than another new top ever will.
+
+## Use texture and tone instead of loud style moves
+
+The safest way to make office outfits feel less boring is not brighter color or trendier pieces. It is texture. A merino knit polo feels better than a stiff poplin shirt. A soft overshirt feels better than a blazer if your workplace runs casual. Suede loafers feel easier than glossy leather lace-ups. [GQ's spring business-casual outfit guide](https://www.gq.com/story/business-casual-men-outfits-spring) does this well: the strongest outfits are still simple, but they mix texture and shape so the look has personality without shouting for attention.
+
+## The mistakes that make business casual feel miserable
+
+There are a few predictable misses. Stretch chinos that cling in the thigh and collapse at the ankle. Tiny check shirts that only exist because someone said they were office appropriate. Quarter-zips over everything. Bulky sneakers under otherwise clean outfits. All of it adds up to a wardrobe that feels more like compliance than style. Bad advice says business casual should be bland so nobody notices it. That is backwards. Business casual should be quiet enough for work and sharp enough that you do not look like the least switched-on man in the room.
+
+## Make the system easier than your old lazy default
+
+If you really hate dressing up, build a system that beats your lazy default on speed. Pick three shirts, three trousers, and three shoe options that all work together. Keep colors in the navy, grey, olive, stone, and brown range. Use [StyleScore](/assessment) if you want to know whether fit, shoes, or grooming is the category quietly ruining the whole office look. The right business-casual wardrobe should not feel like more effort. It should feel like less second-guessing.`
+  },
+  "how-to-match-colors-men-without-thinking": {
+    title: "How to Match Colors as a Man Without Thinking Too Hard | StyleScore",
+    metaDescription:
+      "A simple color-matching system for men who want better outfits without memorizing a color wheel. Easy combinations, common mistakes, and a low-effort daily approach.",
+    h1: "How to Match Colors as a Man Without Thinking Too Hard",
+    internalLinks: [
+      "/assessment",
+      "/blog/monochromatic-outfits-short-men",
+      "/blog/how-to-dress-better-men"
+    ],
+    sources: [
+      {
+        title: "How to Know What Colors You Should Be Wearing",
+        url: "https://www.gq.com/story/how-to-know-what-colors-you-should-be-wearing",
+        publisher: "GQ"
+      },
+      {
+        title: "How to Wear Color, According to the World's Best Celebrity Stylists",
+        url: "https://www.gq.com/story/how-to-wear-color-from-best-celebrity-stylists",
+        publisher: "GQ"
+      },
+      {
+        title: "Colour Combinations, From Casual to Formal",
+        url: "https://www.permanentstyle.com/2016/05/colour-combinations-from-casual-to-formal.html",
+        publisher: "Permanent Style"
+      }
+    ],
+    faq: [
+      {
+        question: "What is the easiest way for men to match colors?",
+        answer:
+          "Start with one dark base, one lighter support color, and one neutral shoe. That keeps most outfits controlled without needing a complicated system."
+      },
+      {
+        question: "Which colors are hardest to mess up in menswear?",
+        answer:
+          "Navy, charcoal, olive, white, cream, stone, and brown are the safest starting point. They combine easily and do not force the whole outfit into high contrast."
+      },
+      {
+        question: "Do men need bold colors to look stylish?",
+        answer:
+          "No. Most men look better when the shape, texture, and proportions are strong first. Color should support the outfit, not try to rescue it."
+      },
+      {
+        question: "Why do some color combinations still look wrong even if the colors are good?",
+        answer:
+          "Because contrast, fabric, and fit still matter. Good colors cannot save clumsy proportions or bulky shoes."
+      }
+    ],
+    supplement: `## Start with a quiet base, not a clever outfit
+
+Men who struggle with color usually make the same mistake: they start with the accent instead of the base. If you begin with burgundy, bright green, or some seasonal trend shade, the outfit becomes a puzzle immediately. Start with navy, charcoal, olive, stone, cream, or dark denim and most of the work is already done. [GQ's guide to figuring out which colors you should wear](https://www.gq.com/story/how-to-know-what-colors-you-should-be-wearing) is useful because it treats color as communication, not decoration. That is exactly the right way to think about it.
+
+## Use one dark, one light, and one neutral anchor
+
+The easiest daily formula is one darker anchor, one lighter support, and one neutral finisher. Navy trousers, white tee, brown suede loafers. Olive chinos, off-white oxford, white sneakers. Charcoal trousers, pale blue shirt, dark brown derbies. You do not need to memorize a wheel. You need a few combinations that keep the outfit from splitting into random blocks. If you already have the dark base, the rest gets easier fast.
+
+## Texture makes simple colors look better
+
+A lot of men think they need more colors when what they really need is more texture. Navy cotton, navy wool, navy suede, and navy denim do not read like the same thing in an outfit. That is why monochrome or near-monochrome dressing looks richer when the fabrics change. [Permanent Style's piece on colour combinations](https://www.permanentstyle.com/2016/05/colour-combinations-from-casual-to-formal.html) gets this right: the best combinations often work because texture and formality are doing as much as the hue itself.
+
+## Keep the accent small if you are still learning
+
+Generic advice tells men to be bold with color to avoid looking boring. That is not the first move. The smarter move is one accent, not three. A muted green overshirt over a white tee and dark trousers. A burgundy knit with charcoal pants. A teal beanie or sock against a neutral outfit. [GQ's color-stylist piece](https://www.gq.com/story/how-to-wear-color-from-best-celebrity-stylists) makes the same point in a cleaner way: one strong color usually lands better than an outfit full of competing ones.
+
+## Most color mistakes are really contrast mistakes
+
+An outfit can use decent colors and still look wrong because the contrast is doing too much. Black shoes under light stone trousers create a hard stop at the ankle. A bright shirt under a bright jacket turns the top half into a fight. Loud color on top of bad fit only makes the problem easier to see. If you want color to feel automatic, lower the contrast before you add complexity.
+
+## Build a small system you can repeat
+
+You do not need a bigger personality in your wardrobe. You need a system that survives busy mornings. Keep your base colors tight, repeat the combinations that already work, and use [StyleScore](/assessment) if you want an outside read on whether color coordination is actually the weak link or whether fit and footwear are doing more damage. Color matching gets easier once you stop treating every outfit like a new experiment.`
+  },
+  "what-shoes-to-wear-with-chinos-men": {
+    title: "What Shoes to Wear With Chinos for Men | StyleScore",
+    metaDescription:
+      "A simple guide to the best shoes to wear with chinos for men. See when to choose loafers, derbies, sneakers, or boots, and which combinations make chinos look sharper.",
+    h1: "What Shoes to Wear With Chinos for Men",
+    internalLinks: [
+      "/assessment",
+      "/blog/best-shoes-for-short-men",
+      "/blog/best-white-sneakers-men"
+    ],
+    sources: [
+      {
+        title: "The Best Chinos for Men Can Do Everything Jeans Can't",
+        url: "https://www.gq.com/story/the-best-chinos-for-men",
+        publisher: "GQ"
+      },
+      {
+        title: "The Best Loafers for Men",
+        url: "https://www.gq.com/story/the-best-loafers-for-men/",
+        publisher: "GQ"
+      },
+      {
+        title: "What to Wear for Business Casual: Tips and Custom Options",
+        url: "https://propercloth.com/reference/what-to-wear-for-business-casual-tips-and-custom-options/",
+        publisher: "Proper Cloth"
+      }
+    ],
+    faq: [
+      {
+        question: "What shoes look best with chinos for men?",
+        answer:
+          "Loafers, derbies, clean leather sneakers, and simple boots are the safest answers. The best choice depends on how dressy the chinos and the setting are."
+      },
+      {
+        question: "Can men wear sneakers with chinos?",
+        answer:
+          "Yes, but keep them clean and low-profile. Performance runners and bulky soles usually fight the cleaner shape that chinos are supposed to give you."
+      },
+      {
+        question: "Should chinos touch the shoe?",
+        answer:
+          "They should break lightly or not at all. Heavy stacking makes chinos look sloppier and pulls attention away from the shoe choice."
+      },
+      {
+        question: "Are loafers or derbies better with chinos?",
+        answer:
+          "Loafers feel easier and a little more relaxed. Derbies feel slightly more structured. Both work well if the trousers are hemmed cleanly and the rest of the outfit matches the tone."
+      }
+    ],
+    supplement: `## Chinos are only as good as the shoe underneath them
+
+Chinos are the bridge between jeans and dress trousers, which is why the shoe choice matters so much. The same pair of chinos can look sharp with loafers and weird with bulky sneakers. [GQ's chinos guide](https://www.gq.com/story/the-best-chinos-for-men) is useful because it treats chinos as a flexible category, not a single office uniform. That flexibility is the whole point, but it also means the shoes have to set the tone clearly.
+
+## Loafers and derbies are the easiest smart options
+
+If the outfit needs to feel office-ready or dinner-ready, start with loafers or derbies. Brown suede loafers with navy or olive chinos feels easy. Dark derbies with grey or stone chinos feels cleaner and more structured. These shoes work because they sit low, keep the lower half tidy, and do not drag the outfit into either gym territory or formal-suit territory. [GQ's loafer guide](https://www.gq.com/story/the-best-loafers-for-men/) makes the case well: loafers solve more wardrobe problems than men think.
+
+## Minimal sneakers work when the rest of the outfit is controlled
+
+Clean leather sneakers can work with chinos, but only if the rest of the outfit is tight. That means hemmed trousers, no giant logo, and no chunky athletic sole. White or off-white sneakers with olive, navy, or stone chinos is a safe move. Running shoes are not the same thing. Men keep making that substitution and then wondering why chinos suddenly look half-dressed.
+
+## Boots work best when the chinos have a sharper line
+
+Boots are usually strongest with darker chinos and cooler weather layers. Slim Chelsea boots, simple chukkas, and dressier lace-up boots work. Heavy work boots usually do not unless the whole outfit leans rugged on purpose. The cleaner the chinos, the cleaner the boot should be. If the trouser hem is already stacking, adding a bulky boot just makes the lower half heavier.
+
+## The mistakes that ruin chinos fast
+
+The biggest miss is mixing chinos with shoes that belong to a different category of outfit entirely. Bright gym shoes, collapsing skate shoes, or hyper-formal glossy oxfords all make chinos feel confused. [Proper Cloth's business-casual guidance](https://propercloth.com/reference/what-to-wear-for-business-casual-tips-and-custom-options/) keeps landing on the same categories for a reason: loafers, derbies, and cleaner sneakers are usually enough. Men overcomplicate this because they want a perfect answer for every color. Usually the answer is just cleaner shape and better tone control.
+
+## Keep the lower half doing one job
+
+If you want chinos to look stronger, make the lower half say one thing. Smart-casual. Relaxed but intentional. Clean enough for work, easy enough for weekends. Pick the shoes that support that message, and use [StyleScore](/assessment) if you want an outside read on whether your footwear is carrying its share or quietly flattening every outfit you build around chinos.`
+  },
+  "mens-grooming-routine-beginners": {
+    title: "Men's Grooming Routine for Beginners | StyleScore",
+    metaDescription:
+      "A simple men's grooming routine for beginners that covers skin, hair, shaving, and basic maintenance without turning self-care into a second job.",
+    h1: "Men's Grooming Routine for Beginners",
+    internalLinks: [
+      "/assessment",
+      "/blog/grooming-multiplier-mens-style",
+      "/blog/mens-grooming-basics"
+    ],
+    sources: [
+      {
+        title: "The Best Simple Skin Care Routine for Men",
+        url: "https://www.gq.com/story/simple-skin-care-for-men",
+        publisher: "GQ"
+      },
+      {
+        title: "The Most Common Men's Grooming Mistakes to Avoid",
+        url: "https://www.gq.com/story/most-common-mens-grooming-mistakes-to-avoid",
+        publisher: "GQ"
+      },
+      {
+        title: "Habits of Well-Groomed Men",
+        url: "https://www.gq.com/story/habits-of-well-groomed-men",
+        publisher: "GQ"
+      }
+    ],
+    faq: [
+      {
+        question: "What is the most basic grooming routine for men?",
+        answer:
+          "Cleanse your face, use moisturizer with SPF in the morning, keep haircuts on schedule, and make sure shaving or beard lines look intentional. That covers most of the visible difference."
+      },
+      {
+        question: "Do men need a lot of products to look well groomed?",
+        answer:
+          "No. Most beginners do fine with a cleanser, moisturizer, SPF, a trimmer or razor setup, and decent hair product if they use it."
+      },
+      {
+        question: "How often should men get a haircut?",
+        answer:
+          "Usually every 2 to 4 weeks depending on the cut. The sharper the haircut, the more obvious the drift once it grows out."
+      },
+      {
+        question: "What grooming mistake makes men look sloppy fastest?",
+        answer:
+          "Letting multiple small things drift at the same time: haircut, beard edges, dry skin, and tired nails. No single issue is huge, but together they flatten the whole impression."
+      }
+    ],
+    supplement: `## Start with the habits people actually notice
+
+Most beginner grooming advice is bloated. Ten products. Complicated shaving gear. A routine that sounds like a second job. That is why most men bounce off it. The better way is to start with the habits people actually see first: skin, haircut timing, shaving or beard maintenance, and general cleanliness. [GQ's simple skin-care guide](https://www.gq.com/story/simple-skin-care-for-men) is helpful because it strips the routine down to the essentials instead of pretending every man wants to become a product guy.
+
+## Morning routine: cleanse, hydrate, protect
+
+If you do nothing else, wash your face, moisturize, and use SPF. That alone handles the most visible beginner problem, which is skin that looks ignored. Dryness, oiliness, and uneven texture all make the rest of the face read more tired. A basic cleanser and a moisturizer with SPF cover more ground than most beginners expect. You do not need a shelf full of serums to stop looking rough around the edges.
+
+## Haircuts and facial hair do more than extra products
+
+Men often chase products before they fix cadence. That is backwards. A haircut pushed two weeks too long, a beard neckline that disappeared, or stubble growing in unevenly will undo a lot of other effort. [GQ's grooming-mistakes roundup](https://www.gq.com/story/most-common-mens-grooming-mistakes-to-avoid) keeps landing on the same theme: neglect hurts more than complexity helps. If you wear facial hair, keep the lines clean. If you shave, keep the neck and sideburn area under control.
+
+## Night routine should be even simpler than you think
+
+At night, cleanse again and moisturize. That is enough for most beginners. If you are acne-prone or trying to improve texture, you can add one treatment later, but the beginner move is consistency, not complexity. Men love to buy five products and use them for six days. That is not a routine. A basic habit done for three months beats a more ambitious one done twice.
+
+## Small maintenance habits separate sharp from sloppy
+
+Nails, nose hair, ear hair, lip condition, and clean teeth are not glamorous topics, but they matter. [GQ's habits-of-well-groomed-men piece](https://www.gq.com/story/habits-of-well-groomed-men) gets this right: polish is usually the result of maintenance, not spectacle. Nobody notices a trimmed nail as a style flex. They notice neglected hands immediately. Same with overgrown facial hair on the neck or a haircut that clearly lost its shape.
+
+## Build a routine you will actually keep
+
+The whole point of beginner grooming is not to become obsessive. It is to stop looking like maintenance only happens by accident. Build a simple system, keep it, and use [StyleScore](/assessment) if you want to know whether grooming is one of the categories dragging down your overall presentation. Once the routine is easy to keep, the rest of your clothes start landing better too.`
+  },
+  "smart-casual-date-night-outfits-men": {
+    title: "Smart Casual Date Night Outfits for Men | StyleScore",
+    metaDescription:
+      "A practical guide to smart casual date night outfits for men. Easy outfit formulas, shoes that work, and the mistakes that make a date-night look feel forced.",
+    h1: "Smart Casual Date Night Outfits for Men",
+    internalLinks: [
+      "/assessment",
+      "/blog/first-date-outfit-short-men",
+      "/blog/how-to-dress-better-men"
+    ],
+    sources: [
+      {
+        title: "5 Date Night Outfits Guaranteed to Land You Another",
+        url: "https://www.gq.com/story/date-night-outfits-for-every-occasion",
+        publisher: "GQ"
+      },
+      {
+        title: "5 Date Night Outfits Guaranteed to Impress in 2026",
+        url: "https://www.gq.com/story/best-date-night-outfits-2026",
+        publisher: "GQ"
+      },
+      {
+        title: "Menswear's Golden Ratio, Explained by the Experts",
+        url: "https://www.gq.com/story/menswear-golden-ratio-explained",
+        publisher: "GQ"
+      }
+    ],
+    faq: [
+      {
+        question: "What is a smart casual date night outfit for men?",
+        answer:
+          "Usually a clean shirt or knit, darker trousers or denim, better shoes, and one layer that gives the look some structure. It should feel intentional without looking rehearsed."
+      },
+      {
+        question: "Can men wear sneakers on a date night?",
+        answer:
+          "Yes, but they need to be clean and purposeful. Minimal leather sneakers can work. Beat-up trainers or giant athletic soles usually cannot."
+      },
+      {
+        question: "What should men avoid wearing on a date?",
+        answer:
+          "Anything that feels like you are trying too hard or not trying at all. Loud logos, sloppy jeans, gym shoes, and clothes that only work if the room is very forgiving are the usual misses."
+      },
+      {
+        question: "How dressed up should a man be for date night?",
+        answer:
+          "Match the venue, then sharpen it one level. Smart casual works because it looks considered without turning dinner or drinks into a costume change."
+      }
+    ],
+    supplement: `## Dress for the venue, not for an imaginary fashion panel
+
+The best smart casual date night outfits for men do one thing well: they match the setting while making you look like you had the situation under control. That means coffee, drinks, dinner, and a casual bar all call for slightly different versions of the same idea. [GQ's date-night outfit guide](https://www.gq.com/story/date-night-outfits-for-every-occasion) gets this right: you want to look put together, but still like yourself. If the outfit looks borrowed from a menswear mood board, you already overshot it.
+
+## Start with one dependable smart-casual formula
+
+For most men, the easiest date-night formula is dark trousers or dark jeans, a knit polo or open-collar shirt, and a clean shoe. Add an overshirt, lightweight jacket, or textured blazer if the venue needs a little more structure. That gives you enough polish without making the whole thing stiff. The clothes should read intentional before they read expensive.
+
+## Shoes change the tone faster than anything else
+
+Shoes are usually the fastest way to either save or sink date-night smart casual. Loafers, cleaner boots, and minimal leather sneakers all work depending on the venue. Big running shoes usually do not. The same jeans that feel acceptable in the mirror can look lazy the second the wrong sneaker sits under them. The cleaner the lower half, the more adult the whole outfit feels.
+
+## Fit matters more than adding extra pieces
+
+Men often assume smart casual means layering harder. That is not the answer if the core fit is still wrong. A shirt that hangs too long, trousers stacking over the shoe, or a jacket that swallows the seat will make the look feel off no matter how many \"smart\" pieces are layered on top. [GQ's golden-ratio explainer](https://www.gq.com/story/menswear-golden-ratio-explained) is useful here because it pushes the right priority: cleaner proportions, then better styling.
+
+## The details that make the outfit feel easy instead of forced
+
+[GQ's newer date-night piece](https://www.gq.com/story/best-date-night-outfits-2026) keeps coming back to the same lesson: a strong date-night outfit should not look overworked. That usually means quieter colors, better grooming, and fewer novelty moves. A textured knit is enough. A good boot is enough. A cleaner haircut is enough. Most men do not need a bolder outfit. They need fewer obvious mistakes.
+
+## Smart casual should lower stress, not raise it
+
+The whole point of smart casual is flexibility. You can walk into a decent restaurant, drinks spot, or gallery date without looking either underdressed or like you turned the night into a performance. If you want the personal version of that instead of generic advice, use [StyleScore](/assessment) and see whether fit, shoes, grooming, or occasion dressing is the category actually costing you points right now.`
+  }
+};
+
 function replaceBannedWords(text) {
   let updated = text;
 
@@ -52,6 +433,16 @@ function replaceBannedWords(text) {
   updated = updated.replace(/\bIn this article\b/gi, "Here");
 
   return updated;
+}
+
+function replaceAiTellPhrases(text) {
+  let updated = text;
+
+  Object.entries(AI_TELL_REPLACEMENTS).forEach(([phrase, replacement]) => {
+    updated = updated.replace(new RegExp(phrase, "gi"), replacement);
+  });
+
+  return updated.replace(/[ \t]{2,}/g, " ").trim();
 }
 
 function titleCaseKeyword(keyword) {
@@ -215,29 +606,29 @@ function getSiblingArticleContext(queueEntry) {
 
 function normalizeArticleDraft(articleJson, queueEntry) {
   const normalizedContent = stripGeneratedSupportSections(
-    replaceBannedWords(articleJson.content_markdown || "")
+    replaceAiTellPhrases(replaceBannedWords(articleJson.content_markdown || ""))
       .replace(/https:\/\/stylescore\.live\/onboarding\b/g, "https://stylescore.live/assessment")
       .replace(/\/onboarding\b/g, "/assessment")
   );
 
   const normalized = {
     ...articleJson,
-    title: replaceBannedWords(articleJson.title || ""),
-    meta_description: replaceBannedWords(articleJson.meta_description || ""),
-    h1: replaceBannedWords(articleJson.h1 || ""),
+    title: replaceAiTellPhrases(replaceBannedWords(articleJson.title || "")),
+    meta_description: replaceAiTellPhrases(replaceBannedWords(articleJson.meta_description || "")),
+    h1: replaceAiTellPhrases(replaceBannedWords(articleJson.h1 || "")),
     content_markdown: normalizedContent,
     faq: Array.isArray(articleJson.faq)
       ? articleJson.faq.map((item) => ({
-          question: replaceBannedWords(item.question || ""),
-          answer: replaceBannedWords(item.answer || "")
+          question: replaceAiTellPhrases(replaceBannedWords(item.question || "")),
+          answer: replaceAiTellPhrases(replaceBannedWords(item.answer || ""))
         }))
       : [],
     sources: Array.isArray(articleJson.sources)
       ? articleJson.sources
           .map((source) => ({
-            title: replaceBannedWords(source.title || ""),
+            title: replaceAiTellPhrases(replaceBannedWords(source.title || "")),
             url: source.url || "",
-            publisher: replaceBannedWords(source.publisher || "")
+            publisher: replaceAiTellPhrases(replaceBannedWords(source.publisher || ""))
           }))
           .filter((source) => source.url)
       : [],
@@ -284,6 +675,48 @@ function normalizeArticleDraft(articleJson, queueEntry) {
   }
 
   return normalized;
+}
+
+function buildDeterministicRescueArticle(articleJson, queueEntry) {
+  const spec = DETERMINISTIC_RESCUE_LIBRARY[queueEntry.slug];
+
+  if (!spec) {
+    return articleJson;
+  }
+
+  const articleContent = (articleJson.content_markdown || "").trim();
+  const needsFullReplacement =
+    articleContent.split(/\s+/).filter(Boolean).length < 850;
+
+  const rescueContent = needsFullReplacement
+    ? `${buildFallbackLead(queueEntry.keyword)}\n\n${spec.supplement}`.trim()
+    : `${articleContent}\n\n${spec.supplement}`.trim();
+
+  const mergedInternalLinks = Array.from(
+    new Set([...(articleJson.internal_links || []), ...spec.internalLinks])
+  );
+  const mergedSources = spec.sources;
+  const mergedExternalLinks = Array.from(
+    new Set([...(articleJson.external_links || []), ...spec.sources.map((source) => source.url)])
+  );
+
+  return {
+    ...articleJson,
+    title: articleJson.title || spec.title,
+    meta_description: articleJson.meta_description || spec.metaDescription,
+    h1: articleJson.h1 || spec.h1,
+    content_markdown: rescueContent,
+    faq:
+      Array.isArray(articleJson.faq) && articleJson.faq.length >= 4
+        ? articleJson.faq
+        : spec.faq,
+    sources:
+      Array.isArray(articleJson.sources) && articleJson.sources.length >= 3
+        ? articleJson.sources
+        : mergedSources,
+    internal_links: mergedInternalLinks,
+    external_links: mergedExternalLinks
+  };
 }
 
 async function repairArticleWithOpenAI(client, articleJson, queueEntry, validationErrors) {
@@ -406,8 +839,21 @@ async function generateArticleWithOpenAI(queueEntry) {
   normalizedArticle = normalizeArticleDraft(expandedArticle, queueEntry);
   validationErrors = validateArticlePayload(normalizedArticle, queueEntry);
 
+  if (validationErrors.length === 0) {
+    return normalizedArticle;
+  }
+
+  const deterministicRescueArticle = buildDeterministicRescueArticle(
+    normalizedArticle,
+    queueEntry
+  );
+  normalizedArticle = normalizeArticleDraft(deterministicRescueArticle, queueEntry);
+  validationErrors = validateArticlePayload(normalizedArticle, queueEntry);
+
   if (validationErrors.length > 0) {
-    throw new Error(`Validation failed after rescue pass: ${validationErrors.join("; ")}`);
+    throw new Error(
+      `Validation failed after deterministic rescue: ${validationErrors.join("; ")}`
+    );
   }
 
   return normalizedArticle;
