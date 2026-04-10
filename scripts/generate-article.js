@@ -6,7 +6,8 @@ const {
   SYSTEM_PROMPT,
   buildArticlePrompt,
   buildHumanizationPrompt,
-  buildRepairPrompt
+  buildRepairPrompt,
+  buildExpansionPrompt
 } = require("./lib/prompt-templates");
 const { requestIndexing } = require("./lib/google-indexing");
 const {
@@ -307,6 +308,28 @@ async function repairArticleWithOpenAI(client, articleJson, queueEntry, validati
   return JSON.parse(repairResponse.choices[0].message.content);
 }
 
+async function expandArticleWithOpenAI(client, articleJson, queueEntry, validationErrors) {
+  const siblingArticles = getSiblingArticleContext(queueEntry);
+  const expansionResponse = await client.chat.completions.create({
+    model: "gpt-4o",
+    temperature: 0.5,
+    response_format: { type: "json_object" },
+    messages: [
+      {
+        role: "user",
+        content: buildExpansionPrompt({
+          articleJson,
+          queueEntry,
+          validationErrors,
+          siblingArticles
+        })
+      }
+    ]
+  });
+
+  return JSON.parse(expansionResponse.choices[0].message.content);
+}
+
 async function generateArticleWithOpenAI(queueEntry) {
   if (!process.env.OPENAI_API_KEY) {
     throw new Error("OPENAI_API_KEY is required for article generation.");
@@ -370,8 +393,21 @@ async function generateArticleWithOpenAI(queueEntry) {
   normalizedArticle = normalizeArticleDraft(repairedArticle, queueEntry);
   validationErrors = validateArticlePayload(normalizedArticle, queueEntry);
 
+  if (validationErrors.length === 0) {
+    return normalizedArticle;
+  }
+
+  const expandedArticle = await expandArticleWithOpenAI(
+    client,
+    normalizedArticle,
+    queueEntry,
+    validationErrors
+  );
+  normalizedArticle = normalizeArticleDraft(expandedArticle, queueEntry);
+  validationErrors = validateArticlePayload(normalizedArticle, queueEntry);
+
   if (validationErrors.length > 0) {
-    throw new Error(`Validation failed after repair: ${validationErrors.join("; ")}`);
+    throw new Error(`Validation failed after rescue pass: ${validationErrors.join("; ")}`);
   }
 
   return normalizedArticle;

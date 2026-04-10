@@ -169,11 +169,37 @@ Article JSON:
 ${JSON.stringify(articleJson, null, 2)}`;
 }
 
+function buildExpansionPrompt({ articleJson, queueEntry, validationErrors, siblingArticles = [] }) {
+  return `You are doing a final rescue pass on a StyleScore article JSON that is still too weak to publish.
+
+Current failures:
+- ${validationErrors.join("\n- ")}
+
+Your job:
+- Expand the article into a complete publishable draft, not a light revision
+- Keep the same topic and keyword: ${queueEntry.keyword}
+- Make sure content_markdown ends between 1,150 and 1,450 words
+- Add enough real H2 sections so the article has at least 5
+- Add at least one natural inline internal link to /assessment or a strongly relevant /blog page
+- Add 4-6 FAQ items if the article currently has too few
+- Add or preserve 3-5 real source references and make sure at least 3 of them appear as inline links in the body
+- Remove any embedded FAQ/source/related-articles sections from content_markdown
+- Make the article clearly different from these sibling posts: ${siblingArticles.length > 0 ? siblingArticles.join("; ") : "none yet"}
+- Keep the tone direct, specific, and human
+- Do not summarize. Fully rewrite weak sections if needed.
+
+Return only valid JSON in the same shape.
+
+Article JSON:
+${JSON.stringify(articleJson, null, 2)}`;
+}
+
 module.exports = {
   AI_TELL_PHRASES,
   BANNED_WORDS,
   SYSTEM_PROMPT,
   buildArticlePrompt,
   buildHumanizationPrompt,
-  buildRepairPrompt
+  buildRepairPrompt,
+  buildExpansionPrompt
 };

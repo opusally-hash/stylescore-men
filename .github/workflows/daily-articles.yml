@@ -61,13 +61,6 @@ jobs:
           git commit -m "feat: publish article for ${{ steps.keyword.outputs.keyword }}" || echo "Nothing to commit"
           git push
 
-      - name: Trigger Vercel deployment
+      - name: Deployment note
         if: steps.keyword.outputs.has_entry == 'true'
-        env:
-          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
-        run: |
-          if [ -n "$VERCEL_DEPLOY_HOOK" ]; then
-            curl -X POST "$VERCEL_DEPLOY_HOOK"
-          else
-            echo "No Vercel deploy hook configured. Skipping deploy trigger."
-          fi
+        run: echo "Article committed to main. Vercel will deploy from the Git push."
