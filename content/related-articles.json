@@ -111,6 +111,50 @@
         "href": "/blog/why-clothes-look-bad-in-photos-men",
         "description": "Discover why your outfits don't look as good in photos and learn practical tips to dress better for the camera."
       }
+    ],
+    "business-casual-outfits-men-who-hate-dressing-up": [
+      {
+        "slug": "wedding-outfit-short-men",
+        "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
+        "href": "/blog/wedding-outfit-short-men",
+        "description": "Wedding dressing rules for shorter men across formality levels."
+      },
+      {
+        "slug": "summer-outfits-short-men",
+        "title": "Summer Style for Short Men",
+        "href": "/blog/summer-outfits-short-men",
+        "description": "Warm-weather outfit rules that keep proportions clean."
+      },
+      {
+        "slug": "first-date-outfit-short-men",
+        "title": "First Date Outfits for Shorter Men",
+        "href": "/blog/first-date-outfit-short-men",
+        "description": "Real scenario outfits for dates that don't try too hard."
+      }
+    ],
+    "wedding-outfit-short-men": [
+      {
+        "slug": "business-casual-outfits-men-who-hate-dressing-up",
+        "title": "Business Casual Outfits for Men Who Hate Dressing Up",
+        "href": "/blog/business-casual-outfits-men-who-hate-dressing-up",
+        "description": "Say goodbye to corporate costumes with these easy business casual outfit formulas for men who hate dressing up."
+      }
+    ],
+    "summer-outfits-short-men": [
+      {
+        "slug": "business-casual-outfits-men-who-hate-dressing-up",
+        "title": "Business Casual Outfits for Men Who Hate Dressing Up",
+        "href": "/blog/business-casual-outfits-men-who-hate-dressing-up",
+        "description": "Say goodbye to corporate costumes with these easy business casual outfit formulas for men who hate dressing up."
+      }
+    ],
+    "first-date-outfit-short-men": [
+      {
+        "slug": "business-casual-outfits-men-who-hate-dressing-up",
+        "title": "Business Casual Outfits for Men Who Hate Dressing Up",
+        "href": "/blog/business-casual-outfits-men-who-hate-dressing-up",
+        "description": "Say goodbye to corporate costumes with these easy business casual outfit formulas for men who hate dressing up."
+      }
     ]
   }
 }

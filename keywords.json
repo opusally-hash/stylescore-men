@@ -55,7 +55,7 @@
       "keyword": "business casual outfits men who hate dressing up",
       "slug": "business-casual-outfits-men-who-hate-dressing-up",
       "priority": 92,
-      "status": "draft",
+      "status": "published",
       "cluster": "occasion-dressing",
       "articleFormat": "listicle",
       "secondaryKeywords": [
@@ -63,7 +63,10 @@
         "simple office outfits men",
         "what to wear business casual men"
       ],
-      "scheduledFor": "2026-04-09"
+      "scheduledFor": "2026-04-09",
+      "publishedAt": "2026-04-10",
+      "updatedAt": "2026-04-10",
+      "title": "Easy Business Casual Outfits for Men Who Hate Dressing Up | StyleScore"
     },
     {
       "keyword": "how to match colors men without thinking",
@@ -256,6 +259,14 @@
       }
     ],
     "occasion-dressing": [
+      {
+        "slug": "business-casual-outfits-men-who-hate-dressing-up",
+        "title": "Business Casual Outfits for Men Who Hate Dressing Up",
+        "href": "/blog/business-casual-outfits-men-who-hate-dressing-up",
+        "description": "Say goodbye to corporate costumes with these easy business casual outfit formulas for men who hate dressing up.",
+        "role": "supporting",
+        "publishedAt": "2026-04-10"
+      },
       {
         "slug": "wedding-outfit-short-men",
         "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
