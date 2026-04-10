@@ -17,6 +17,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Show workflow commit
+        run: |
+          echo "Running workflow for commit: $GITHUB_SHA"
+          git log --oneline -n 1
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
