@@ -22,6 +22,12 @@
     ],
     "mens-style-test": [
       {
+        "slug": "what-shoes-to-wear-with-chinos-men",
+        "title": "What Shoes to Wear With Chinos for Men",
+        "href": "/blog/what-shoes-to-wear-with-chinos-men",
+        "description": "Discover the best shoes to wear with chinos for men, whether you're dressing for work or the weekend."
+      },
+      {
         "slug": "how-to-match-colors-men-without-thinking",
         "title": "How Men Can Match Colors Without Thinking Too Hard",
         "href": "/blog/how-to-match-colors-men-without-thinking",
@@ -32,12 +38,6 @@
         "title": "How Men in Their 40s Can Dress Better",
         "href": "/blog/how-to-dress-better-men-40s",
         "description": "How to dress better in your 40s without chasing trends or looking stiff."
-      },
-      {
-        "slug": "how-to-dress-better-men-30s",
-        "title": "How Men in Their 30s Can Dress Better",
-        "href": "/blog/how-to-dress-better-men-30s",
-        "description": "How to sharpen your style in your 30s without overthinking every outfit."
       }
     ],
     "7-signs-dress-well": [
@@ -196,6 +196,42 @@
         "title": "How Men Can Match Colors Without Thinking Too Hard",
         "href": "/blog/how-to-match-colors-men-without-thinking",
         "description": "Stop stressing over color coordination."
+      }
+    ],
+    "what-shoes-to-wear-with-chinos-men": [
+      {
+        "slug": "best-shoes-for-short-men",
+        "title": "The Short Man's Shoe Guide: 7 Styles That Extend Your Leg Line",
+        "href": "/blog/best-shoes-for-short-men",
+        "description": "The strongest footwear choices for shorter men."
+      },
+      {
+        "slug": "best-white-sneakers-men",
+        "title": "Best White Sneakers for Men (Style Upgrade Guide)",
+        "href": "/blog/best-white-sneakers-men",
+        "description": "One of the fastest shoe upgrades most men can make."
+      },
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
+      }
+    ],
+    "best-shoes-for-short-men": [
+      {
+        "slug": "what-shoes-to-wear-with-chinos-men",
+        "title": "What Shoes to Wear With Chinos for Men",
+        "href": "/blog/what-shoes-to-wear-with-chinos-men",
+        "description": "Discover the best shoes to wear with chinos for men, whether you're dressing for work or the weekend."
+      }
+    ],
+    "best-white-sneakers-men": [
+      {
+        "slug": "what-shoes-to-wear-with-chinos-men",
+        "title": "What Shoes to Wear With Chinos for Men",
+        "href": "/blog/what-shoes-to-wear-with-chinos-men",
+        "description": "Discover the best shoes to wear with chinos for men, whether you're dressing for work or the weekend."
       }
     ]
   }

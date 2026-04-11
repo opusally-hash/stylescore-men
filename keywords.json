@@ -89,7 +89,7 @@
       "keyword": "what shoes to wear with chinos men",
       "slug": "what-shoes-to-wear-with-chinos-men",
       "priority": 89,
-      "status": "draft",
+      "status": "published",
       "cluster": "footwear",
       "articleFormat": "comparison",
       "secondaryKeywords": [
@@ -97,7 +97,10 @@
         "can you wear sneakers with chinos",
         "mens chinos shoe guide"
       ],
-      "scheduledFor": "2026-04-11"
+      "scheduledFor": "2026-04-11",
+      "publishedAt": "2026-04-11",
+      "updatedAt": "2026-04-11",
+      "title": "Mastering Chinos: What Shoes to Wear for Every Occasion | StyleScore"
     },
     {
       "keyword": "mens grooming routine for beginners",
@@ -174,6 +177,14 @@
       }
     ],
     "footwear": [
+      {
+        "slug": "what-shoes-to-wear-with-chinos-men",
+        "title": "What Shoes to Wear With Chinos for Men",
+        "href": "/blog/what-shoes-to-wear-with-chinos-men",
+        "description": "Discover the best shoes to wear with chinos for men, whether you're dressing for work or the weekend.",
+        "role": "supporting",
+        "publishedAt": "2026-04-11"
+      },
       {
         "slug": "best-shoes-for-short-men",
         "title": "The Short Man's Shoe Guide: 7 Styles That Extend Your Leg Line",
