@@ -106,7 +106,7 @@
       "keyword": "mens grooming routine for beginners",
       "slug": "mens-grooming-routine-beginners",
       "priority": 88,
-      "status": "draft",
+      "status": "published",
       "cluster": "grooming",
       "articleFormat": "how-to guide",
       "secondaryKeywords": [
@@ -114,7 +114,10 @@
         "basic grooming checklist men",
         "beginner skincare and grooming men"
       ],
-      "scheduledFor": "2026-04-12"
+      "scheduledFor": "2026-04-12",
+      "publishedAt": "2026-04-12",
+      "updatedAt": "2026-04-12",
+      "title": "The No-Nonsense Men's Grooming Routine for Beginners | StyleScore"
     },
     {
       "keyword": "smart casual date night outfits men",
@@ -203,6 +206,14 @@
       }
     ],
     "grooming": [
+      {
+        "slug": "mens-grooming-routine-beginners",
+        "title": "Men's Grooming Routine for Beginners",
+        "href": "/blog/mens-grooming-routine-beginners",
+        "description": "Kickstart your grooming game with this straightforward routine designed for men who want results without the fuss.",
+        "role": "supporting",
+        "publishedAt": "2026-04-12"
+      },
       {
         "slug": "grooming-multiplier-mens-style",
         "title": "Grooming Is a Multiplier",

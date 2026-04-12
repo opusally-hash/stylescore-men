@@ -233,6 +233,50 @@
         "href": "/blog/what-shoes-to-wear-with-chinos-men",
         "description": "Discover the best shoes to wear with chinos for men, whether you're dressing for work or the weekend."
       }
+    ],
+    "mens-grooming-routine-beginners": [
+      {
+        "slug": "grooming-multiplier-mens-style",
+        "title": "Grooming Is a Multiplier",
+        "href": "/blog/grooming-multiplier-mens-style",
+        "description": "How haircuts, facial hair, and skincare affect your style score."
+      },
+      {
+        "slug": "mens-grooming-basics",
+        "title": "Men's Grooming Basics (Most Ignored Style Upgrade)",
+        "href": "/blog/mens-grooming-basics",
+        "description": "The maintenance habits that make every outfit land better."
+      },
+      {
+        "slug": "best-perfumes-for-men",
+        "title": "Best Perfumes for Men (Smell Better Instantly)",
+        "href": "/blog/best-perfumes-for-men",
+        "description": "How to use fragrance as the finishing layer instead of a crutch."
+      }
+    ],
+    "grooming-multiplier-mens-style": [
+      {
+        "slug": "mens-grooming-routine-beginners",
+        "title": "Men's Grooming Routine for Beginners",
+        "href": "/blog/mens-grooming-routine-beginners",
+        "description": "Kickstart your grooming game with this straightforward routine designed for men who want results without the fuss."
+      }
+    ],
+    "mens-grooming-basics": [
+      {
+        "slug": "mens-grooming-routine-beginners",
+        "title": "Men's Grooming Routine for Beginners",
+        "href": "/blog/mens-grooming-routine-beginners",
+        "description": "Kickstart your grooming game with this straightforward routine designed for men who want results without the fuss."
+      }
+    ],
+    "best-perfumes-for-men": [
+      {
+        "slug": "mens-grooming-routine-beginners",
+        "title": "Men's Grooming Routine for Beginners",
+        "href": "/blog/mens-grooming-routine-beginners",
+        "description": "Kickstart your grooming game with this straightforward routine designed for men who want results without the fuss."
+      }
     ]
   }
 }
