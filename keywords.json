@@ -123,7 +123,7 @@
       "keyword": "smart casual date night outfits men",
       "slug": "smart-casual-date-night-outfits-men",
       "priority": 87,
-      "status": "draft",
+      "status": "published",
       "cluster": "occasion-dressing",
       "articleFormat": "listicle",
       "secondaryKeywords": [
@@ -131,7 +131,10 @@
         "smart casual outfits for date night",
         "date night style men"
       ],
-      "scheduledFor": "2026-04-13"
+      "scheduledFor": "2026-04-13",
+      "publishedAt": "2026-04-13",
+      "updatedAt": "2026-04-13",
+      "title": "The No-Bull Guide to Smart Casual Date Night Outfits for Men | StyleScore"
     }
   ],
   "clusters": {
@@ -292,6 +295,14 @@
       }
     ],
     "occasion-dressing": [
+      {
+        "slug": "smart-casual-date-night-outfits-men",
+        "title": "Smart Casual Date Night Outfits for Men",
+        "href": "/blog/smart-casual-date-night-outfits-men",
+        "description": "Nail your next date night with these practical smart casual outfit ideas.",
+        "role": "supporting",
+        "publishedAt": "2026-04-13"
+      },
       {
         "slug": "business-casual-outfits-men-who-hate-dressing-up",
         "title": "Business Casual Outfits for Men Who Hate Dressing Up",

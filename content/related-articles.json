@@ -120,6 +120,12 @@
     ],
     "business-casual-outfits-men-who-hate-dressing-up": [
       {
+        "slug": "smart-casual-date-night-outfits-men",
+        "title": "Smart Casual Date Night Outfits for Men",
+        "href": "/blog/smart-casual-date-night-outfits-men",
+        "description": "Nail your next date night with these practical smart casual outfit ideas."
+      },
+      {
         "slug": "wedding-outfit-short-men",
         "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
         "href": "/blog/wedding-outfit-short-men",
@@ -130,15 +136,15 @@
         "title": "Summer Style for Short Men",
         "href": "/blog/summer-outfits-short-men",
         "description": "Warm-weather outfit rules that keep proportions clean."
-      },
-      {
-        "slug": "first-date-outfit-short-men",
-        "title": "First Date Outfits for Shorter Men",
-        "href": "/blog/first-date-outfit-short-men",
-        "description": "Real scenario outfits for dates that don't try too hard."
       }
     ],
     "wedding-outfit-short-men": [
+      {
+        "slug": "smart-casual-date-night-outfits-men",
+        "title": "Smart Casual Date Night Outfits for Men",
+        "href": "/blog/smart-casual-date-night-outfits-men",
+        "description": "Nail your next date night with these practical smart casual outfit ideas."
+      },
       {
         "slug": "business-casual-outfits-men-who-hate-dressing-up",
         "title": "Business Casual Outfits for Men Who Hate Dressing Up",
@@ -147,6 +153,12 @@
       }
     ],
     "summer-outfits-short-men": [
+      {
+        "slug": "smart-casual-date-night-outfits-men",
+        "title": "Smart Casual Date Night Outfits for Men",
+        "href": "/blog/smart-casual-date-night-outfits-men",
+        "description": "Nail your next date night with these practical smart casual outfit ideas."
+      },
       {
         "slug": "business-casual-outfits-men-who-hate-dressing-up",
         "title": "Business Casual Outfits for Men Who Hate Dressing Up",
@@ -276,6 +288,26 @@
         "title": "Men's Grooming Routine for Beginners",
         "href": "/blog/mens-grooming-routine-beginners",
         "description": "Kickstart your grooming game with this straightforward routine designed for men who want results without the fuss."
+      }
+    ],
+    "smart-casual-date-night-outfits-men": [
+      {
+        "slug": "wedding-outfit-short-men",
+        "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
+        "href": "/blog/wedding-outfit-short-men",
+        "description": "Wedding dressing rules for shorter men across formality levels."
+      },
+      {
+        "slug": "business-casual-outfits-men-who-hate-dressing-up",
+        "title": "Business Casual Outfits for Men Who Hate Dressing Up",
+        "href": "/blog/business-casual-outfits-men-who-hate-dressing-up",
+        "description": "Say goodbye to corporate costumes with these easy business casual outfit formulas for men who hate dressing up."
+      },
+      {
+        "slug": "summer-outfits-short-men",
+        "title": "Summer Style for Short Men",
+        "href": "/blog/summer-outfits-short-men",
+        "description": "Warm-weather outfit rules that keep proportions clean."
       }
     ]
   }
