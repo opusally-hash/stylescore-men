@@ -13,7 +13,9 @@ export async function POST(req: Request) {
 
     const stripe = new Stripe(stripeKey);
     const { email } = await req.json();
-    const premiumPriceId = process.env.STRIPE_PREMIUM_PRICE_ID;
+    const premiumPriceId =
+      process.env.STRIPE_STYLE_BLUEPRINT_PRICE_ID ||
+      process.env.STRIPE_PREMIUM_PRICE_ID_9;
 
     const origin =
       process.env.NEXT_PUBLIC_APP_URL || new URL(req.url).origin;
@@ -32,7 +34,7 @@ export async function POST(req: Request) {
                     name: "StyleScore Personalized Style Blueprint",
                     description: "Your personalized 30-day style upgrade plan.",
                   },
-                  unit_amount: 1900,
+                  unit_amount: 900,
                 },
               }),
           quantity: 1,

@@ -83,7 +83,7 @@ export function trackUpgradeCtaClicked() {
   fire("upgrade_cta_clicked");
 }
 
-export function trackUpgradePurchaseStarted(value = 19) {
+export function trackUpgradePurchaseStarted(value = 9) {
   fire("upgrade_purchase_started", {
     currency: "USD",
     value,
@@ -91,7 +91,7 @@ export function trackUpgradePurchaseStarted(value = 19) {
   });
 }
 
-export function trackPurchase(transactionId: string, value = 19) {
+export function trackPurchase(transactionId: string, value = 9) {
   fire("purchase", {
     transaction_id: transactionId,
     value,

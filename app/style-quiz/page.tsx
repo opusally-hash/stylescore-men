@@ -26,7 +26,7 @@ const faqs = [
   {
     question: "Is the men's style quiz free?",
     answer:
-      "Yes. The quiz and your score are free. An optional $19 upgrade includes a personalized 30-day plan.",
+      "Yes. The quiz and your score are free. An optional $9 upgrade includes a personalized 30-day plan.",
   },
   {
     question: "What does the quiz score?",

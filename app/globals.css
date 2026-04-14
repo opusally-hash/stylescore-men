@@ -40,6 +40,21 @@ body {
   animation: premiumGlow 1.8s ease-in-out infinite;
 }
 
+@keyframes premiumDrawerEnter {
+  from {
+    opacity: 0;
+    transform: translateX(42px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.premium-drawer-enter {
+  animation: premiumDrawerEnter 0.28s ease-out;
+}
+
 @keyframes quizCardEnter {
   from {
     opacity: 0;

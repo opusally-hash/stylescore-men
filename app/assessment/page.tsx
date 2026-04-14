@@ -90,6 +90,7 @@ const FIRST_NAME_KEY = "stylescore_first_name";
 const SCORE_REVEALED_SIGNATURE_KEY = "stylescore_score_revealed_signature";
 const PREMIUM_UNLOCKED_KEY = "stylescore_premium_unlocked";
 const PREMIUM_PENDING_SESSION_KEY = "stylescore_pending_premium_session";
+const PREMIUM_SESSION_KEY = "stylescore_premium_session";
 
 function GeneratingOverlay({ message }: { message: string }) {
   return (
@@ -280,6 +281,80 @@ function ResultsEmailGate({
   );
 }
 
+function PremiumPersonalizationDrawer({
+  error,
+  canRequestRefund,
+  isRequestingRefund,
+  refundMessage,
+  onSaved,
+  onSkip,
+  onRequestRefund,
+}: {
+  error: string;
+  canRequestRefund: boolean;
+  isRequestingRefund: boolean;
+  refundMessage: string;
+  onSaved: (form: OnboardingForm) => void;
+  onSkip: () => void;
+  onRequestRefund: () => Promise<void>;
+}) {
+  return (
+    <div className="fixed inset-0 z-50 flex justify-end bg-black/70 backdrop-blur-sm">
+      <div className="premium-drawer-enter h-full w-full max-w-2xl overflow-y-auto border-l border-white/10 bg-slate-950 px-5 py-6 shadow-[0_30px_120px_rgba(0,0,0,0.65)] sm:px-8">
+        <div className="mb-6 rounded-3xl border border-orange-300/20 bg-orange-400/10 p-5">
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-200/80">
+            Step 1 of 2
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold text-white">
+            Personalize your style blueprint
+          </h2>
+          <p className="mt-3 leading-7 text-white/68">
+            Answer these quick context questions after payment so the report can
+            adapt to your budget, daily environment, body type, goals, and fit
+            issues. Then we will generate the full 30-day plan.
+          </p>
+        </div>
+
+        <PersonalizationForm
+          mode="premium"
+          title="Quick personalization"
+          description="Keep this short. These answers only shape the paid style blueprint; your score stays the same."
+          submitLabel="Generate my style blueprint"
+          showSkip
+          skipLabel="Use defaults and generate"
+          onSaved={onSaved}
+          onSkip={onSkip}
+        />
+
+        {error && (
+          <div className="mt-4 rounded-2xl border border-red-300/20 bg-red-400/10 p-4">
+            <p className="text-sm leading-6 text-red-200">{error}</p>
+
+            {canRequestRefund && (
+              <button
+                type="button"
+                onClick={() => void onRequestRefund()}
+                disabled={isRequestingRefund}
+                className="mt-4 rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-black transition hover:bg-white/90 disabled:cursor-not-allowed disabled:opacity-70"
+              >
+                {isRequestingRefund
+                  ? "Requesting refund..."
+                  : "Request refund"}
+              </button>
+            )}
+
+            {refundMessage && (
+              <p className="mt-3 text-sm leading-6 text-white/65">
+                {refundMessage}
+              </p>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 const questions: Question[] = [
   {
     id: "q1",
@@ -459,7 +534,10 @@ export default function AssessmentPage() {
   const [aiError, setAiError] = useState("");
   const [showAiModal, setShowAiModal] = useState(false);
   const [paidSessionId, setPaidSessionId] = useState<string | null>(null);
+  const [premiumSessionId, setPremiumSessionId] = useState<string | null>(null);
   const [postPaymentMessage, setPostPaymentMessage] = useState("");
+  const [isRequestingRefund, setIsRequestingRefund] = useState(false);
+  const [refundMessage, setRefundMessage] = useState("");
   const advanceTimerRef = useRef<number | null>(null);
   const calculationTimerRefs = useRef<number[]>([]);
   const interstitialTimerRef = useRef<number | null>(null);
@@ -503,6 +581,7 @@ export default function AssessmentPage() {
     const pendingPremiumSessionId = sessionStorage.getItem(
       PREMIUM_PENDING_SESSION_KEY
     );
+    const savedPremiumSessionId = sessionStorage.getItem(PREMIUM_SESSION_KEY);
 
     if (savedFirstName) {
       setFirstName(savedFirstName);
@@ -519,6 +598,10 @@ export default function AssessmentPage() {
     if (savedPremiumUnlocked) {
       setPremiumUnlocked(true);
       setShowPersonalizationForm(true);
+    }
+
+    if (savedPremiumSessionId) {
+      setPremiumSessionId(savedPremiumSessionId);
     }
 
     const params = new URLSearchParams(window.location.search);
@@ -909,10 +992,12 @@ export default function AssessmentPage() {
           return;
         }
 
-        trackPurchase(paidSessionId, 19);
+        trackPurchase(paidSessionId, 9);
 
         sessionStorage.setItem(PREMIUM_UNLOCKED_KEY, "true");
+        sessionStorage.setItem(PREMIUM_SESSION_KEY, paidSessionId);
         sessionStorage.removeItem(PREMIUM_PENDING_SESSION_KEY);
+        setPremiumSessionId(paidSessionId);
         setPremiumUnlocked(true);
         setShowPersonalizationForm(true);
         setPaidSessionId(null);
@@ -1100,6 +1185,7 @@ export default function AssessmentPage() {
 
       setLoadingReport(true);
       setAiError("");
+      setRefundMessage("");
       setShowPersonalizationForm(false);
       setPostPaymentMessage(
         "Building your premium 30-day style blueprint..."
@@ -1134,6 +1220,7 @@ export default function AssessmentPage() {
       }
 
       setAiReport(data.report);
+      setRefundMessage("");
       trackReportGenerationCompleted(
         Math.max(1, Math.round((Date.now() - startedAt) / 1000))
       );
@@ -1160,6 +1247,49 @@ export default function AssessmentPage() {
     void generatePremiumReport(mergeOnboardingData(onboardingData));
   }
 
+  async function requestRefund() {
+    if (!premiumSessionId) {
+      setRefundMessage(
+        "We could not find the payment session on this browser. Refresh after checkout or contact support from the homepage."
+      );
+      return;
+    }
+
+    try {
+      setIsRequestingRefund(true);
+      setRefundMessage("");
+
+      const response = await fetch("/api/request-refund", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          sessionId: premiumSessionId,
+          email,
+          reason: "report_generation_failed",
+        }),
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Refund request failed.");
+      }
+
+      setRefundMessage(
+        "Refund requested successfully. Stripe usually posts it back to the original payment method in 5-10 business days."
+      );
+    } catch (error) {
+      setRefundMessage(
+        error instanceof Error
+          ? error.message
+          : "Could not request the refund right now."
+      );
+    } finally {
+      setIsRequestingRefund(false);
+    }
+  }
+
   async function startPremiumCheckout() {
     try {
       trackUpgradeCtaClicked();
@@ -1171,7 +1301,7 @@ export default function AssessmentPage() {
 
       setLoadingCheckout(true);
       setAiError("");
-      trackUpgradePurchaseStarted(19);
+      trackUpgradePurchaseStarted(9);
 
       const response = await fetch("/api/create-checkout-session", {
         method: "POST",
@@ -1247,6 +1377,17 @@ export default function AssessmentPage() {
         </div>
 
         {postPaymentMessage && <GeneratingOverlay message={postPaymentMessage} />}
+        {premiumUnlocked && showPersonalizationForm && (
+          <PremiumPersonalizationDrawer
+            error={aiError}
+            canRequestRefund={Boolean(aiError && premiumSessionId)}
+            isRequestingRefund={isRequestingRefund}
+            refundMessage={refundMessage}
+            onSaved={handlePersonalizationSave}
+            onSkip={handlePersonalizationSkip}
+            onRequestRefund={requestRefund}
+          />
+        )}
 
         <div className="relative mx-auto max-w-4xl space-y-6 results-fade-in">
           <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 text-white backdrop-blur-2xl shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
@@ -1534,39 +1675,6 @@ export default function AssessmentPage() {
             </div>
           )}
 
-          {resultsUnlocked && freeReport && premiumUnlocked && showPersonalizationForm && (
-            <div id="premium-plan" className={glassCard("p-6")}>
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
-                Premium Report Setup
-              </p>
-              <h3 className="mt-3 text-3xl font-semibold text-white">
-                One last step before we build your upgrade plan
-              </h3>
-              <p className="mt-3 max-w-3xl leading-7 text-white/70">
-                Add a little context so the paid report fits your budget, daily
-                environment, style direction, and fit issues instead of staying
-                generic.
-              </p>
-
-              <div className="mt-6">
-                <PersonalizationForm
-                  mode="premium"
-                  title="Personalize your premium report"
-                  description="These answers only shape the $19 style blueprint. Your quiz score and free report stay the same."
-                  submitLabel="Generate my style blueprint"
-                  showSkip
-                  skipLabel="Use defaults and generate"
-                  onSaved={handlePersonalizationSave}
-                  onSkip={handlePersonalizationSkip}
-                />
-
-                {aiError && (
-                  <p className="mt-4 text-sm text-red-300">{aiError}</p>
-                )}
-              </div>
-            </div>
-          )}
-
           {resultsUnlocked && !premiumUnlocked && (
             <div id="premium-plan" className={glassCard("p-6")}>
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
@@ -1615,7 +1723,7 @@ export default function AssessmentPage() {
                 >
                   {loadingCheckout
                     ? "Redirecting to secure checkout..."
-                    : "Get My 30-Day Style Upgrade Plan - $19"}
+                    : "Get My 30-Day Style Upgrade Plan - $9"}
                 </button>
 
                 <p className="mt-3 text-center text-sm text-white/45">
@@ -1896,7 +2004,10 @@ export default function AssessmentPage() {
               setAiError("");
               setShowAiModal(false);
               setPaidSessionId(null);
+              setPremiumSessionId(null);
               setPostPaymentMessage("");
+              setIsRequestingRefund(false);
+              setRefundMessage("");
               localStorage.removeItem("stylescore_answers");
               localStorage.removeItem("stylescore_onboarding");
               localStorage.removeItem("stylescore_email");
@@ -1910,6 +2021,7 @@ export default function AssessmentPage() {
               sessionStorage.removeItem(LEAD_SYNC_SIGNATURE_KEY);
               sessionStorage.removeItem(PREMIUM_UNLOCKED_KEY);
               sessionStorage.removeItem(PREMIUM_PENDING_SESSION_KEY);
+              sessionStorage.removeItem(PREMIUM_SESSION_KEY);
             }}
             className="rounded-2xl bg-white px-6 py-3 font-medium text-black transition hover:bg-white/90"
           >
