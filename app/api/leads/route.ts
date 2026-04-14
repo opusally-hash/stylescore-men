@@ -4,9 +4,11 @@ import { supabase } from "@/lib/supabase";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { email, score, archetype, focus_top_3 } = body;
+    const { email, firstName, score, archetype, focus_top_3 } = body;
     const trimmedEmail =
       typeof email === "string" ? email.trim().toLowerCase() : "";
+    const trimmedFirstName =
+      typeof firstName === "string" ? firstName.trim().slice(0, 50) : "";
 
     if (!trimmedEmail) {
       return NextResponse.json(
@@ -15,10 +17,11 @@ export async function POST(req: Request) {
       );
     }
 
-    const hasQuizData =
+    const hasLeadData =
       typeof score === "number" ||
       typeof archetype === "string" ||
-      Array.isArray(focus_top_3);
+      Array.isArray(focus_top_3) ||
+      Boolean(trimmedFirstName);
 
     const { data: existingLead, error: lookupError } = await supabase
       .from("style_leads")
@@ -35,19 +38,37 @@ export async function POST(req: Request) {
     }
 
     if (existingLead && existingLead.length > 0) {
-      if (!hasQuizData) {
+      if (!hasLeadData) {
         return NextResponse.json({ success: true, data: existingLead });
       }
 
-      const { data, error } = await supabase
+      const updatePayload = {
+        overall_score: score ?? null,
+        archetype: archetype ?? null,
+        focus_top_3: focus_top_3 ?? null,
+        ...(trimmedFirstName ? { first_name: trimmedFirstName } : {}),
+      };
+
+      let { data, error } = await supabase
         .from("style_leads")
-        .update({
-          overall_score: score ?? null,
-          archetype: archetype ?? null,
-          focus_top_3: focus_top_3 ?? null,
-        })
+        .update(updatePayload)
         .eq("email", trimmedEmail)
         .select();
+
+      if (error && trimmedFirstName && isMissingFirstNameColumn(error)) {
+        const retry = await supabase
+          .from("style_leads")
+          .update({
+            overall_score: score ?? null,
+            archetype: archetype ?? null,
+            focus_top_3: focus_top_3 ?? null,
+          })
+          .eq("email", trimmedEmail)
+          .select();
+
+        data = retry.data;
+        error = retry.error;
+      }
 
       if (error) {
         console.error("Supabase update error:", error);
@@ -60,17 +81,35 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: true, data });
     }
 
-    const { data, error } = await supabase
+    const insertPayload = {
+      email: trimmedEmail,
+      overall_score: score ?? null,
+      archetype: archetype ?? null,
+      focus_top_3: focus_top_3 ?? null,
+      ...(trimmedFirstName ? { first_name: trimmedFirstName } : {}),
+    };
+
+    let { data, error } = await supabase
       .from("style_leads")
-      .insert([
-        {
-          email: trimmedEmail,
-          overall_score: score ?? null,
-          archetype: archetype ?? null,
-          focus_top_3: focus_top_3 ?? null,
-        },
-      ])
+      .insert([insertPayload])
       .select();
+
+    if (error && trimmedFirstName && isMissingFirstNameColumn(error)) {
+      const retry = await supabase
+        .from("style_leads")
+        .insert([
+          {
+            email: trimmedEmail,
+            overall_score: score ?? null,
+            archetype: archetype ?? null,
+            focus_top_3: focus_top_3 ?? null,
+          },
+        ])
+        .select();
+
+      data = retry.data;
+      error = retry.error;
+    }
 
     if (error) {
       console.error("Supabase insert error:", error);
@@ -88,4 +127,9 @@ export async function POST(req: Request) {
       { status: 500 }
     );
   }
+}
+
+function isMissingFirstNameColumn(error: { message?: string; details?: string }) {
+  const text = `${error.message || ""} ${error.details || ""}`.toLowerCase();
+  return text.includes("first_name") && text.includes("column");
 }

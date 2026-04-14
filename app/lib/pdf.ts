@@ -20,6 +20,7 @@ type AIReport = {
     actions: string[];
   }[];
   confidenceAdvice: string;
+  markdown?: string;
 };
 
 type PDFInput = {
@@ -111,18 +112,6 @@ export function downloadAIReportPDF({
       doc.rect(0, 0, pageWidth, pageHeight, "F");
       y = 48;
     }
-  }
-
-  function addTopLabel(text: string, white = false) {
-    const labelColor: [number, number, number] = white
-      ? [255, 255, 255]
-      : colors.muted;
-
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(10);
-    doc.setTextColor(...labelColor);
-    doc.text(text.toUpperCase(), marginX, y);
-    y += 18;
   }
 
   function addBigTitle(
@@ -366,6 +355,56 @@ export function downloadAIReportPDF({
     });
   }
 
+  function addMarkdownReport(markdown: string) {
+    addSectionHeader("Complete Style Blueprint", colors.orange);
+
+    markdown.split("\n").forEach((rawLine) => {
+      const line = rawLine.trim();
+      if (!line) {
+        y += 6;
+        return;
+      }
+
+      if (/^#{1,3}\s+/.test(line)) {
+        addSectionHeader(line.replace(/^#{1,3}\s+/, ""), colors.blue);
+        return;
+      }
+
+      if (/^[-*]\s+/.test(line)) {
+        addParagraph(`- ${line.replace(/^[-*]\s+/, "")}`);
+        return;
+      }
+
+      addParagraph(line);
+    });
+  }
+
+  function addQuickReferencePage() {
+    addFooter();
+    doc.addPage();
+    doc.setFillColor(...colors.bg);
+    doc.rect(0, 0, pageWidth, pageHeight, "F");
+    y = 48;
+
+    addBigTitle("Your 30-Day Quick Reference");
+    addSubtitle("Use this page as a printable checklist for the next month.");
+    addDivider();
+
+    addSectionHeader("Daily Actions", colors.orange);
+    (aiReport.plan30Days || []).slice(0, 30).forEach((block) => {
+      const action = block.actions?.[0] || block.focus;
+      addParagraph(`[ ] ${block.days}: ${action}`, 10, false, 15);
+    });
+
+    addSectionHeader("Notes", colors.blue);
+    Array.from({ length: 8 }).forEach(() => {
+      ensureSpace(24);
+      doc.setDrawColor(...colors.line);
+      doc.line(marginX, y, pageWidth - marginX, y);
+      y += 24;
+    });
+  }
+
   function addCoverPage() {
     doc.setFillColor(...colors.darkCover);
     doc.rect(0, 0, pageWidth, pageHeight, "F");
@@ -441,6 +480,20 @@ export function downloadAIReportPDF({
   doc.rect(0, 0, pageWidth, pageHeight, "F");
 
   addCoverPage();
+
+  if (aiReport.markdown) {
+    addBigTitle(aiReport.title || "Your Personal Style Upgrade Report");
+    addSubtitle(
+      aiReport.subtitle ||
+        "A personalized 30-day blueprint built from your quiz answers and upgrade priorities."
+    );
+    addDivider();
+    addMarkdownReport(aiReport.markdown);
+    addQuickReferencePage();
+    addFooter();
+    doc.save("stylescore-premium-style-blueprint.pdf");
+    return;
+  }
 
 
   addBigTitle(aiReport.title || "Your Personal Style Upgrade Report");

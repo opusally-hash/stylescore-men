@@ -13,6 +13,7 @@ export async function POST(req: Request) {
 
     const stripe = new Stripe(stripeKey);
     const { email } = await req.json();
+    const premiumPriceId = process.env.STRIPE_PREMIUM_PRICE_ID;
 
     const origin =
       process.env.NEXT_PUBLIC_APP_URL || new URL(req.url).origin;
@@ -22,14 +23,18 @@ export async function POST(req: Request) {
       customer_email: email || undefined,
       line_items: [
         {
-          price_data: {
-            currency: "usd",
-            product_data: {
-              name: "StyleScore Premium AI Style Blueprint",
-              description: "Your personalized 30-day style upgrade plan.",
-            },
-            unit_amount: 100,
-          },
+          ...(premiumPriceId
+            ? { price: premiumPriceId }
+            : {
+                price_data: {
+                  currency: "usd",
+                  product_data: {
+                    name: "StyleScore Personalized Style Blueprint",
+                    description: "Your personalized 30-day style upgrade plan.",
+                  },
+                  unit_amount: 1900,
+                },
+              }),
           quantity: 1,
         },
       ],

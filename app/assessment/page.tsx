@@ -4,6 +4,7 @@ import { PersonalizationForm } from "../components/personalization-form";
 import {
   buildFallbackDiagnosis,
   categoryLabels,
+  getScoreExtremes,
   getSelectedAnswer,
   getStyleArchetype,
   type FreeAssessmentReport,
@@ -22,25 +23,24 @@ import {
   Radar as RechartsRadar,
 } from "recharts";
 import { calculateScore } from "../lib/scoring";
-
-declare global {
-  interface Window {
-    gtag?: (
-      command: "event",
-      eventName: string,
-      params?: Record<string, string | number | boolean | string[]>
-    ) => void;
-  }
-}
-
-function trackEvent(
-  eventName: string,
-  params?: Record<string, string | number | boolean | string[]>
-) {
-  if (typeof window !== "undefined" && window.gtag) {
-    window.gtag("event", eventName, params);
-  }
-}
+import {
+  trackAffiliateLinkClicked,
+  trackDetailedReportViewed,
+  trackEmailCaptured,
+  trackEmailSubmissionFailed,
+  trackEmailSubmitted,
+  trackPurchase,
+  trackQuizCompleted,
+  trackQuizQuestionAnswered,
+  trackQuizStarted,
+  trackReportDownloaded,
+  trackReportGenerationCompleted,
+  trackReportGenerationFailed,
+  trackReportGenerationStarted,
+  trackScoreRevealed,
+  trackUpgradeCtaClicked,
+  trackUpgradePurchaseStarted,
+} from "@/lib/analytics";
 
 type Question = {
   id: string;
@@ -69,6 +69,7 @@ type AIReport = {
     actions: string[];
   }[];
   confidenceAdvice: string;
+  markdown?: string;
 };
 
 const AUTO_ADVANCE_DELAY_MS = 300;
@@ -85,6 +86,8 @@ const FREE_REPORT_CACHE_KEY = "stylescore_free_report";
 const FREE_REPORT_SIGNATURE_KEY = "stylescore_free_report_signature";
 const LEAD_SYNC_SIGNATURE_KEY = "stylescore_lead_sync_signature";
 const EMAIL_CONFIRMED_KEY = "stylescore_email_confirmed";
+const FIRST_NAME_KEY = "stylescore_first_name";
+const SCORE_REVEALED_SIGNATURE_KEY = "stylescore_score_revealed_signature";
 const PREMIUM_UNLOCKED_KEY = "stylescore_premium_unlocked";
 const PREMIUM_PENDING_SESSION_KEY = "stylescore_pending_premium_session";
 
@@ -97,7 +100,7 @@ function GeneratingOverlay({ message }: { message: string }) {
         </div>
 
         <p className="mt-5 text-sm font-semibold uppercase tracking-[0.25em] text-white/40">
-          AI stylist at work
+          Stylist blueprint
         </p>
 
         <h3 className="mt-3 text-2xl font-semibold text-white">
@@ -179,118 +182,99 @@ function ScoreCalculationScreen({
 }
 
 function ResultsEmailGate({
+  firstName,
   email,
   error,
   isSubmitting,
+  onFirstNameChange,
   onEmailChange,
   onSubmit,
 }: {
+  firstName: string;
   email: string;
   error: string;
   isSubmitting: boolean;
+  onFirstNameChange: (value: string) => void;
   onEmailChange: (value: string) => void;
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => Promise<void>;
 }) {
   return (
-    <div className="results-fade-in space-y-6">
-      <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 text-center text-white backdrop-blur-2xl shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
-        <p className="text-sm font-semibold uppercase tracking-[0.28em] text-white/45">
-          Quiz Complete
-        </p>
-        <h2 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-          Your score and full report are ready.
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-white/70">
-          Enter your email to reveal everything at once: your score, diagnosis,
-          category breakdown, radar chart, and upgrade priorities.
-        </p>
-      </div>
-
-      <div className={glassCard("p-6 sm:p-8")}>
-        <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-300/85">
-              Reveal Results
-            </p>
-            <h3 className="mt-3 text-3xl font-semibold text-white">
-              One quick step before we show your full StyleScore.
-            </h3>
-            <p className="mt-3 max-w-2xl leading-7 text-white/68">
-              We use your email to save your result and send your report so you
-              can come back to it later. We will not spam you.
-            </p>
-
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p className="text-sm font-medium text-white/85">
-                  Overall score
-                </p>
-                <p className="mt-2 text-sm text-white/55">
-                  Hidden until email unlock
-                </p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p className="text-sm font-medium text-white/85">
-                  Style diagnosis
-                </p>
-                <p className="mt-2 text-sm text-white/55">
-                  Ready to reveal instantly
-                </p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p className="text-sm font-medium text-white/85">
-                  Category breakdown
-                </p>
-                <p className="mt-2 text-sm text-white/55">
-                  6 scored style categories
-                </p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p className="text-sm font-medium text-white/85">
-                  Upgrade path
-                </p>
-                <p className="mt-2 text-sm text-white/55">
-                  Priorities, recommendations, and next buys
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <form
-            onSubmit={onSubmit}
-            className="rounded-3xl border border-white/10 bg-black/20 p-5 shadow-[0_18px_60px_rgba(0,0,0,0.32)]"
-          >
-            <label
-              htmlFor="results-email"
-              className="text-sm font-semibold uppercase tracking-[0.22em] text-white/45"
-            >
-              Email Address
-            </label>
-            <input
-              id="results-email"
-              type="email"
-              value={email}
-              onChange={(event) => onEmailChange(event.target.value)}
-              placeholder="Enter your email"
-              autoComplete="email"
-              className="mt-3 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-white/30 focus:border-orange-300/50 focus:bg-white/10"
-            />
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="premium-glow mt-4 w-full rounded-2xl bg-orange-400 px-5 py-3 font-semibold text-black shadow-[0_0_30px_rgba(251,146,60,0.45)] transition hover:bg-orange-300 disabled:cursor-not-allowed disabled:opacity-75"
-            >
-              {isSubmitting ? "Unlocking your results..." : "Show my full results"}
-            </button>
-
-            <p className="mt-3 text-sm leading-6 text-white/50">
-              No spam. Just your result and follow-up style guidance.
-            </p>
-
-            {error && <p className="mt-3 text-sm text-red-300">{error}</p>}
-          </form>
+    <div className="results-fade-in rounded-3xl border border-orange-300/20 bg-gradient-to-br from-orange-400/10 to-white/5 p-6 text-white backdrop-blur-2xl shadow-[0_20px_80px_rgba(0,0,0,0.45)] sm:p-8">
+      <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+        <div>
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-orange-300/85">
+            Unlock Full Breakdown
+          </p>
+          <h3 className="mt-3 text-3xl font-semibold text-white">
+            See exactly what to fix - and the order to fix it in.
+          </h3>
+          <ul className="mt-5 space-y-3 text-white/75">
+            {[
+              "Full category breakdown across 6 style areas",
+              "Your radar chart vs average men",
+              "Top 3 upgrade priorities ranked by impact",
+              "Specific product recommendations with links",
+              "Option to unlock your personalized 30-day upgrade plan",
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-3">
+                <span className="mt-2 h-2 w-2 rounded-full bg-orange-300" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
+
+        <form
+          onSubmit={onSubmit}
+          className="rounded-3xl border border-white/10 bg-black/25 p-5 shadow-[0_18px_60px_rgba(0,0,0,0.32)]"
+        >
+          <label
+            htmlFor="results-first-name"
+            className="text-sm font-semibold uppercase tracking-[0.22em] text-white/45"
+          >
+            First Name
+          </label>
+          <input
+            id="results-first-name"
+            type="text"
+            value={firstName}
+            onChange={(event) => onFirstNameChange(event.target.value)}
+            placeholder="First name (optional)"
+            maxLength={50}
+            autoComplete="given-name"
+            className="mt-3 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-white/30 focus:border-orange-300/50 focus:bg-white/10"
+          />
+
+          <label
+            htmlFor="results-email"
+            className="mt-4 block text-sm font-semibold uppercase tracking-[0.22em] text-white/45"
+          >
+            Email Address
+          </label>
+          <input
+            id="results-email"
+            type="email"
+            value={email}
+            onChange={(event) => onEmailChange(event.target.value)}
+            placeholder="Enter your email"
+            autoComplete="email"
+            className="mt-3 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition placeholder:text-white/30 focus:border-orange-300/50 focus:bg-white/10"
+          />
+
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="premium-glow mt-4 min-h-12 w-full rounded-2xl bg-orange-400 px-5 py-3 font-semibold text-black shadow-[0_0_30px_rgba(251,146,60,0.45)] transition hover:bg-orange-300 disabled:cursor-not-allowed disabled:opacity-75"
+          >
+            {isSubmitting ? "Unlocking your report..." : "Unlock My Full Report"}
+          </button>
+
+          <p className="mt-3 text-sm leading-6 text-white/50">
+            Unsubscribe anytime.
+          </p>
+
+          {error && <p className="mt-3 text-sm text-red-300">{error}</p>}
+        </form>
       </div>
     </div>
   );
@@ -427,6 +411,16 @@ function getCategoryLabel(key: string) {
   return categoryLabels[key as keyof typeof categoryLabels] || key;
 }
 
+function getVerdict(score: number) {
+  if (score >= 85) return "Elite - you dress with intention.";
+  if (score >= 70) return "Sharp - small upgrades will push you to elite.";
+  if (score >= 55) {
+    return "Solid foundation - 3 weak spots are holding you back.";
+  }
+  if (score >= 40) return "Inconsistent - clear weaknesses to fix.";
+  return "Major upgrade opportunity.";
+}
+
 export default function AssessmentPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string[]>>({});
@@ -444,6 +438,7 @@ export default function AssessmentPage() {
   const [onboardingData, setOnboardingData] = useState<OnboardingForm | null>(
     null
   );
+  const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [emailConfirmed, setEmailConfirmed] = useState(false);
   const [emailError, setEmailError] = useState("");
@@ -468,6 +463,9 @@ export default function AssessmentPage() {
   const advanceTimerRef = useRef<number | null>(null);
   const calculationTimerRefs = useRef<number[]>([]);
   const interstitialTimerRef = useRef<number | null>(null);
+  const quizStartedTrackedRef = useRef(false);
+  const quizStartedAtRef = useRef<number | null>(null);
+  const detailedReportViewedRef = useRef(false);
 
   useEffect(() => {
     const saved = localStorage.getItem("stylescore_onboarding");
@@ -497,6 +495,7 @@ export default function AssessmentPage() {
     }
 
     const savedEmail = localStorage.getItem("stylescore_email");
+    const savedFirstName = localStorage.getItem(FIRST_NAME_KEY);
     const savedEmailConfirmed =
       localStorage.getItem(EMAIL_CONFIRMED_KEY) === "true";
     const savedPremiumUnlocked =
@@ -504,6 +503,10 @@ export default function AssessmentPage() {
     const pendingPremiumSessionId = sessionStorage.getItem(
       PREMIUM_PENDING_SESSION_KEY
     );
+
+    if (savedFirstName) {
+      setFirstName(savedFirstName);
+    }
 
     if (savedEmail) {
       setEmail(savedEmail);
@@ -577,11 +580,12 @@ export default function AssessmentPage() {
     () =>
       JSON.stringify({
         email,
+        firstName,
         overall: result.overall_score,
         archetype: archetype.title,
         focus: result.focus_top_3,
       }),
-    [email, result, archetype.title]
+    [email, firstName, result, archetype.title]
   );
   const diagnosisFallback = useMemo(
     () =>
@@ -743,6 +747,34 @@ export default function AssessmentPage() {
   ]);
 
   useEffect(() => {
+    if (!showResult || typeof window === "undefined") return;
+
+    const scoreSignature = JSON.stringify({
+      overall: result.overall_score,
+      categories: result.category_scores,
+    });
+
+    if (
+      window.sessionStorage.getItem(SCORE_REVEALED_SIGNATURE_KEY) ===
+      scoreSignature
+    ) {
+      return;
+    }
+
+    trackScoreRevealed(result.overall_score);
+    window.sessionStorage.setItem(SCORE_REVEALED_SIGNATURE_KEY, scoreSignature);
+  }, [showResult, result.overall_score, result.category_scores]);
+
+  useEffect(() => {
+    if (!resultsUnlocked || !freeReport || detailedReportViewedRef.current) {
+      return;
+    }
+
+    detailedReportViewedRef.current = true;
+    trackDetailedReportViewed();
+  }, [resultsUnlocked, freeReport]);
+
+  useEffect(() => {
     if (quizPhase !== "calculating" || showResult) return;
 
     setCalculationStepIndex(0);
@@ -825,6 +857,7 @@ export default function AssessmentPage() {
           },
           body: JSON.stringify({
             email,
+            firstName,
             score: result.overall_score,
             archetype: archetype.title,
             focus_top_3: result.focus_top_3,
@@ -847,6 +880,7 @@ export default function AssessmentPage() {
     showResult,
     emailConfirmed,
     email,
+    firstName,
     leadSyncSignature,
     result,
     archetype.title,
@@ -875,12 +909,7 @@ export default function AssessmentPage() {
           return;
         }
 
-        trackEvent("purchase", {
-          transaction_id: paidSessionId,
-          value: 1,
-          currency: "USD",
-          item_name: "StyleScore Premium AI Style Blueprint",
-        });
+        trackPurchase(paidSessionId, 19);
 
         sessionStorage.setItem(PREMIUM_UNLOCKED_KEY, "true");
         sessionStorage.removeItem(PREMIUM_PENDING_SESSION_KEY);
@@ -958,16 +987,30 @@ export default function AssessmentPage() {
 
     const questionId = currentQuestion.id;
     const questionIndex = currentIndex;
+    const updatedAnswers = {
+      ...answers,
+      [questionId]: [option],
+    };
 
-    setAnswers((prev) => {
-      const updated = {
-        ...prev,
-        [questionId]: [option],
-      };
+    if (questionIndex === 0 && !quizStartedTrackedRef.current) {
+      quizStartedTrackedRef.current = true;
+      quizStartedAtRef.current = Date.now();
+      trackQuizStarted();
+    }
 
-      localStorage.setItem("stylescore_answers", JSON.stringify(updated));
-      return updated;
-    });
+    trackQuizQuestionAnswered(questionIndex + 1, questionId, option);
+
+    if (questionIndex >= questions.length - 1) {
+      const finalResult = calculateScore(effectiveOnboardingData, updatedAnswers);
+      const durationSeconds = quizStartedAtRef.current
+        ? Math.max(1, Math.round((Date.now() - quizStartedAtRef.current) / 1000))
+        : 0;
+
+      trackQuizCompleted(finalResult.overall_score, durationSeconds);
+    }
+
+    setAnswers(updatedAnswers);
+    localStorage.setItem("stylescore_answers", JSON.stringify(updatedAnswers));
 
     clearScheduledTransitions();
     advanceTimerRef.current = window.setTimeout(() => {
@@ -994,29 +1037,52 @@ export default function AssessmentPage() {
     const normalizedEmail = email.trim().toLowerCase();
 
     if (!/\S+@\S+\.\S+/.test(normalizedEmail)) {
+      trackEmailSubmissionFailed("invalid_email");
       setEmailError("Please enter a valid email.");
       return;
     }
 
+    const normalizedFirstName = firstName.trim().slice(0, 50);
+
     setSubmittingEmail(true);
     setEmailError("");
-    setEmail(normalizedEmail);
-    localStorage.setItem("stylescore_email", normalizedEmail);
-    localStorage.setItem(EMAIL_CONFIRMED_KEY, "true");
-    setEmailConfirmed(true);
 
     try {
-      await fetch("/api/leads", {
+      const response = await fetch("/api/leads", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email: normalizedEmail,
+          firstName: normalizedFirstName,
+          score: result.overall_score,
+          archetype: archetype.title,
+          focus_top_3: result.focus_top_3,
         }),
       });
-    } catch {
-      // If lead capture fails, keep the quiz flow moving.
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "lead_capture_failed");
+      }
+
+      setEmail(normalizedEmail);
+      setFirstName(normalizedFirstName);
+      localStorage.setItem("stylescore_email", normalizedEmail);
+      localStorage.setItem(FIRST_NAME_KEY, normalizedFirstName);
+      localStorage.setItem(EMAIL_CONFIRMED_KEY, "true");
+      setEmailConfirmed(true);
+      trackEmailSubmitted();
+      trackEmailCaptured();
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : "lead_capture_failed";
+      trackEmailSubmissionFailed(message);
+      setEmailError(
+        "We could not save that email yet. Please try again in a moment."
+      );
     } finally {
       setSubmittingEmail(false);
     }
@@ -1025,6 +1091,8 @@ export default function AssessmentPage() {
   async function generatePremiumReport(
     personalizationData?: OnboardingForm | null
   ) {
+    const startedAt = Date.now();
+
     try {
       const reportOnboardingData = mergeOnboardingData(
         personalizationData ?? onboardingData
@@ -1036,6 +1104,7 @@ export default function AssessmentPage() {
       setPostPaymentMessage(
         "Building your premium 30-day style blueprint..."
       );
+      trackReportGenerationStarted();
 
       const response = await fetch("/api/style-report", {
         method: "POST",
@@ -1043,8 +1112,10 @@ export default function AssessmentPage() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          firstName,
           score: result.overall_score,
           archetype: archetype.title,
+          confidence: result.confidence_level,
           focusAreas: result.focus_top_3,
           categoryScores: result.category_scores,
           onboardingData: reportOnboardingData,
@@ -1058,10 +1129,14 @@ export default function AssessmentPage() {
         setAiError(data.error || "Failed to generate style report.");
         setShowPersonalizationForm(true);
         setPostPaymentMessage("");
+        trackReportGenerationFailed(data.error || "api_error");
         return;
       }
 
       setAiReport(data.report);
+      trackReportGenerationCompleted(
+        Math.max(1, Math.round((Date.now() - startedAt) / 1000))
+      );
       setTimeout(() => {
         setShowAiModal(true);
         setPostPaymentMessage("");
@@ -1070,6 +1145,7 @@ export default function AssessmentPage() {
       setAiError("Failed to generate style report.");
       setShowPersonalizationForm(true);
       setPostPaymentMessage("");
+      trackReportGenerationFailed("network_error");
     } finally {
       setLoadingReport(false);
     }
@@ -1086,6 +1162,8 @@ export default function AssessmentPage() {
 
   async function startPremiumCheckout() {
     try {
+      trackUpgradeCtaClicked();
+
       if (!resultsUnlocked) {
         setAiError("Unlock your full report first.");
         return;
@@ -1093,19 +1171,14 @@ export default function AssessmentPage() {
 
       setLoadingCheckout(true);
       setAiError("");
-
-      trackEvent("begin_checkout", {
-        currency: "USD",
-        value: 1,
-        item_name: "StyleScore Premium AI Style Blueprint",
-      });
+      trackUpgradePurchaseStarted(19);
 
       const response = await fetch("/api/create-checkout-session", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, firstName }),
       });
 
       const data = await response.json();
@@ -1158,35 +1231,12 @@ export default function AssessmentPage() {
   }
 
   if (showResult) {
-    if (!emailConfirmed) {
-      return (
-        <main className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_#1f2937,_#0f172a_40%,_#020617_100%)] px-4 py-10 text-white">
-          <div className="pointer-events-none absolute inset-0 overflow-hidden">
-            <div className="absolute -top-24 left-[-80px] h-72 w-72 rounded-full bg-white/10 blur-3xl" />
-            <div className="absolute top-1/3 right-[-100px] h-80 w-80 rounded-full bg-slate-300/10 blur-3xl" />
-            <div className="absolute bottom-[-100px] left-1/3 h-72 w-72 rounded-full bg-blue-400/10 blur-3xl" />
-          </div>
-
-          <div className="relative mx-auto max-w-4xl">
-            <ResultsEmailGate
-              email={email}
-              error={emailError}
-              isSubmitting={submittingEmail}
-              onEmailChange={(value) => {
-                setEmail(value);
-                if (emailError) {
-                  setEmailError("");
-                }
-              }}
-              onSubmit={handleResultsEmailSubmit}
-            />
-          </div>
-        </main>
-      );
-    }
-
     const teaserTarget = "#premium-plan";
     const visibleDiagnosis = diagnosis || diagnosisFallback;
+    const { weakest } = getScoreExtremes(result.category_scores);
+    const weakestLabel = getCategoryLabel(weakest);
+    const weakestScore =
+      result.category_scores[weakest as keyof typeof result.category_scores];
 
     return (
       <main className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_#1f2937,_#0f172a_40%,_#020617_100%)] px-4 py-10 text-white">
@@ -1201,25 +1251,25 @@ export default function AssessmentPage() {
         <div className="relative mx-auto max-w-4xl space-y-6 results-fade-in">
           <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 text-white backdrop-blur-2xl shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/50">
-              Overall Fashion Score
+              Your Style Score
             </p>
 
             <div className="mt-5 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <h2 className="text-6xl font-bold tracking-tight sm:text-7xl">
+                <h2 className="text-[72px] font-bold leading-none tracking-tight sm:text-[88px]">
                   {result.overall_score}
                   <span className="ml-1 text-2xl font-medium text-white/45 sm:text-3xl">
                     /100
                   </span>
                 </h2>
                 <p className="mt-3 max-w-xl text-lg text-white/70">
-                  {result.overall_score >= 80
-                    ? "Strong style foundation"
-                    : result.overall_score >= 65
-                    ? "Good base, clear upgrade path"
-                    : result.overall_score >= 50
-                    ? "Average right now, with big improvement potential"
-                    : "Early stage style foundation"}
+                  {getVerdict(result.overall_score)}
+                </p>
+                <p className="mt-4 text-xl font-semibold text-white">
+                  Archetype: {archetype.title}
+                </p>
+                <p className="mt-2 text-base text-orange-200/85">
+                  Your biggest weak spot: {weakestLabel} ({weakestScore}/100)
                 </p>
               </div>
 
@@ -1245,7 +1295,24 @@ export default function AssessmentPage() {
             </a>
           </div>
 
-          {!resultsUnlocked && (
+          {!emailConfirmed && (
+            <ResultsEmailGate
+              firstName={firstName}
+              email={email}
+              error={emailError}
+              isSubmitting={submittingEmail}
+              onFirstNameChange={(value) => setFirstName(value)}
+              onEmailChange={(value) => {
+                setEmail(value);
+                if (emailError) {
+                  setEmailError("");
+                }
+              }}
+              onSubmit={handleResultsEmailSubmit}
+            />
+          )}
+
+          {emailConfirmed && !resultsUnlocked && (
             <div className={glassCard("p-6")}>
               <div className="text-center">
                 <h3 className="text-3xl font-semibold text-white">
@@ -1282,7 +1349,7 @@ export default function AssessmentPage() {
             </div>
           )}
 
-          {resultsUnlocked && freeReport && (
+          {emailConfirmed && resultsUnlocked && freeReport && (
             <div className="space-y-6">
             <div className={glassCard("p-6")}>
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
@@ -1427,6 +1494,12 @@ export default function AssessmentPage() {
                               href={`https://www.amazon.com/s?k=${encodeURIComponent(
                                 item + " men"
                               )}`}
+                              onClick={() =>
+                                trackAffiliateLinkClicked(
+                                  getCategoryLabel(area),
+                                  item
+                                )
+                              }
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 text-sm font-medium text-black transition hover:bg-white/90"
@@ -1438,6 +1511,12 @@ export default function AssessmentPage() {
                               href={`https://www.google.com/search?tbm=shop&q=${encodeURIComponent(
                                 item + " men"
                               )}`}
+                              onClick={() =>
+                                trackAffiliateLinkClicked(
+                                  getCategoryLabel(area),
+                                  item
+                                )
+                              }
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/10"
@@ -1461,7 +1540,7 @@ export default function AssessmentPage() {
                 Premium Report Setup
               </p>
               <h3 className="mt-3 text-3xl font-semibold text-white">
-                One last step before we build your AI upgrade plan
+                One last step before we build your upgrade plan
               </h3>
               <p className="mt-3 max-w-3xl leading-7 text-white/70">
                 Add a little context so the paid report fits your budget, daily
@@ -1473,8 +1552,8 @@ export default function AssessmentPage() {
                 <PersonalizationForm
                   mode="premium"
                   title="Personalize your premium report"
-                  description="These answers only shape the $1 AI plan. Your quiz score and free report stay the same."
-                  submitLabel="Generate my AI report"
+                  description="These answers only shape the $19 style blueprint. Your quiz score and free report stay the same."
+                  submitLabel="Generate my style blueprint"
                   showSkip
                   skipLabel="Use defaults and generate"
                   onSaved={handlePersonalizationSave}
@@ -1491,36 +1570,40 @@ export default function AssessmentPage() {
           {resultsUnlocked && !premiumUnlocked && (
             <div id="premium-plan" className={glassCard("p-6")}>
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
-                AI Personal Stylist Report
+                Personalized Style Blueprint
               </p>
               <h3 className="mt-3 text-3xl font-semibold text-white">
                 Upgrade Your Style in 30 Days
               </h3>
               <p className="mt-3 max-w-3xl leading-7 text-white/70">
-                Get a detailed AI-powered style blueprint built from your quiz
+                Get a detailed personalized style blueprint built from your quiz
                 answers, body type, work environment, budget, and lifestyle.
               </p>
 
               <ul className="mt-5 space-y-3 text-white/80">
                 <li className="flex items-start gap-3">
                   <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
-                  <span>Your style strengths and blind spots</span>
+                  <span>Your complete style strengths and blind spots</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
-                  <span>The 3 fastest upgrades for your appearance</span>
+                  <span>10 specific outfits built for your archetype and body type</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
-                  <span>Exactly what clothes you should buy next</span>
+                  <span>Day-by-day 30-day transformation roadmap</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
-                  <span>Best places to shop for your budget</span>
+                  <span>Detailed shopping list with retailer recommendations for your budget</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
-                  <span>A practical 30-day style upgrade roadmap</span>
+                  <span>Complete grooming routine tailored to your lifestyle</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-orange-400" />
+                  <span>Outfit formulas for your specific goal</span>
                 </li>
               </ul>
 
@@ -1532,12 +1615,12 @@ export default function AssessmentPage() {
                 >
                   {loadingCheckout
                     ? "Redirecting to secure checkout..."
-                    : "Get My 30-Day Style Upgrade Plan — $1"}
+                    : "Get My 30-Day Style Upgrade Plan - $19"}
                 </button>
 
                 <p className="mt-3 text-center text-sm text-white/45">
-                  Normally $9.49 • Instant report • One-time payment • No
-                  subscription
+                  Instant report delivered after checkout - one-time payment,
+                  no subscription
                 </p>
 
                 {aiError && (
@@ -1550,7 +1633,7 @@ export default function AssessmentPage() {
           {resultsUnlocked && premiumUnlocked && aiReport && !showPersonalizationForm && (
             <div id="premium-plan" className={glassCard("p-6")}>
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/45">
-                Premium AI Report
+                Premium Report
               </p>
               <h3 className="mt-3 text-3xl font-semibold text-white">
                 Your 30-day upgrade plan is ready
@@ -1586,7 +1669,7 @@ export default function AssessmentPage() {
                 <div className="flex flex-col gap-4 border-b border-white/10 pb-5 sm:flex-row sm:items-start sm:justify-between">
                   <div>
                     <p className="text-sm font-semibold uppercase tracking-[0.25em] text-white/40">
-                      Premium AI Report
+                      Premium Report
                     </p>
                     <h2 className="mt-2 text-3xl font-semibold text-white">
                       {aiReport.title || "Your 30-Day Style Upgrade Plan"}
@@ -1598,8 +1681,10 @@ export default function AssessmentPage() {
 
                   <div className="flex gap-3">
                     <button
-                      onClick={() =>
-                        aiReport &&
+                      onClick={() => {
+                        if (!aiReport) return;
+
+                        trackReportDownloaded();
                         downloadAIReportPDF({
                           aiReport,
                           result,
@@ -1610,8 +1695,8 @@ export default function AssessmentPage() {
                               categoryScores,
                               selfViewAnswer
                             ),
-                        })
-                      }
+                        });
+                      }}
                       className="rounded-2xl bg-white px-4 py-2 text-sm font-medium text-black transition hover:bg-white/90"
                     >
                       Download PDF
@@ -1626,6 +1711,14 @@ export default function AssessmentPage() {
                 </div>
 
                 <div className="mt-6 grid gap-4">
+                  {aiReport.markdown ? (
+                    <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-5">
+                      <pre className="whitespace-pre-wrap font-sans text-sm leading-7 text-white/78">
+                        {aiReport.markdown}
+                      </pre>
+                    </div>
+                  ) : (
+                    <>
                   <div className="rounded-3xl border border-blue-400/30 bg-blue-400/10 p-5">
                     <h3 className="text-xl font-semibold text-white">
                       🧭 Style Snapshot
@@ -1754,6 +1847,8 @@ export default function AssessmentPage() {
                       {aiReport.confidenceAdvice}
                     </p>
                   </div>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
@@ -1785,6 +1880,10 @@ export default function AssessmentPage() {
               setCurrentIndex(0);
               setAnswers({});
               setOnboardingData(null);
+              setFirstName("");
+              setEmail("");
+              setEmailConfirmed(false);
+              setEmailError("");
               setDiagnosis("");
               setFreeReport(null);
               setResultsUnlocked(false);
@@ -1800,8 +1899,12 @@ export default function AssessmentPage() {
               setPostPaymentMessage("");
               localStorage.removeItem("stylescore_answers");
               localStorage.removeItem("stylescore_onboarding");
+              localStorage.removeItem("stylescore_email");
+              localStorage.removeItem(FIRST_NAME_KEY);
+              localStorage.removeItem(EMAIL_CONFIRMED_KEY);
               sessionStorage.removeItem(DIAGNOSIS_CACHE_KEY);
               sessionStorage.removeItem(DIAGNOSIS_SIGNATURE_KEY);
+              sessionStorage.removeItem(SCORE_REVEALED_SIGNATURE_KEY);
               sessionStorage.removeItem(FREE_REPORT_CACHE_KEY);
               sessionStorage.removeItem(FREE_REPORT_SIGNATURE_KEY);
               sessionStorage.removeItem(LEAD_SYNC_SIGNATURE_KEY);

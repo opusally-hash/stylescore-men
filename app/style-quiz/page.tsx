@@ -26,7 +26,7 @@ const faqs = [
   {
     question: "Is the men's style quiz free?",
     answer:
-      "Yes. You can take the quiz for free and get your StyleScore, category breakdown, and style diagnosis.",
+      "Yes. The quiz and your score are free. An optional $19 upgrade includes a personalized 30-day plan.",
   },
   {
     question: "What does the quiz score?",
@@ -188,25 +188,34 @@ export default function StyleQuizPage() {
 
           <div className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-6 shadow-[0_30px_120px_rgba(0,0,0,0.35)]">
             <p className="text-xs font-semibold uppercase tracking-[0.32em] text-white/40">
-              Your report shows
+              Question 1 of 10
             </p>
-            <div className="mt-6 space-y-4">
+            <h2 className="mt-4 text-3xl font-semibold text-white">
+              I usually buy tops that...
+            </h2>
+            <div className="mt-6 space-y-3">
               {[
-                "Overall StyleScore out of 100",
-                "Fit, wardrobe, color, shoes, grooming, and occasion scores",
-                "Your strongest and weakest category",
-                "A direct AI style diagnosis",
-                "The next upgrade that should move your look fastest",
+                "fit me well in the shoulders and chest",
+                "fit okay but are a little loose",
+                "often feel tight in one area",
+                "are mostly chosen for comfort, not fit",
               ].map((item) => (
-                <div
+                <Link
                   key={item}
+                  href="/assessment"
                   className="rounded-2xl border border-white/10 bg-black/20 p-4 text-white/75"
                 >
                   <span className="mr-3 text-orange-300">+</span>
                   {item}
-                </div>
+                </Link>
               ))}
             </div>
+            <Link
+              href="/assessment"
+              className="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-orange-400 px-6 py-4 font-semibold text-black transition hover:bg-orange-300"
+            >
+              Start the quiz
+            </Link>
           </div>
         </section>
 
