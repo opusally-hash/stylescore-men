@@ -135,9 +135,215 @@
       "publishedAt": "2026-04-13",
       "updatedAt": "2026-04-13",
       "title": "The No-Bull Guide to Smart Casual Date Night Outfits for Men | StyleScore"
+    },
+    {
+      "keyword": "shoes for short men",
+      "slug": "shoes-for-short-men",
+      "priority": 110,
+      "status": "draft",
+      "cluster": "short-men-style",
+      "articleFormat": "buying guide",
+      "secondaryKeywords": [
+        "best shoes for short men",
+        "shoes that make short men look taller",
+        "short men shoe guide"
+      ],
+      "scheduledFor": "2026-04-13"
+    },
+    {
+      "keyword": "dress shoes for short men",
+      "slug": "dress-shoes-for-short-men",
+      "priority": 109,
+      "status": "draft",
+      "cluster": "short-men-style",
+      "articleFormat": "buying guide",
+      "secondaryKeywords": [
+        "best dress shoes for short men",
+        "formal shoes for short men",
+        "dress shoes that add height"
+      ],
+      "scheduledFor": "2026-04-15"
+    },
+    {
+      "keyword": "tuxedo for short men",
+      "slug": "tuxedo-for-short-men",
+      "priority": 108,
+      "status": "draft",
+      "cluster": "short-men-style",
+      "articleFormat": "occasion guide",
+      "secondaryKeywords": [
+        "black tie for short men",
+        "short men tuxedo fit",
+        "wedding tuxedo short men"
+      ],
+      "scheduledFor": "2026-04-17"
+    },
+    {
+      "keyword": "jeans for short men",
+      "slug": "jeans-for-short-men",
+      "priority": 107,
+      "status": "draft",
+      "cluster": "short-men-style",
+      "articleFormat": "fit guide",
+      "secondaryKeywords": [
+        "best jeans for short men",
+        "jeans inseam for short men",
+        "short men denim fit"
+      ],
+      "scheduledFor": "2026-04-20"
+    },
+    {
+      "keyword": "suits for short men",
+      "slug": "suits-for-short-men",
+      "priority": 106,
+      "status": "draft",
+      "cluster": "short-men-style",
+      "articleFormat": "fit guide",
+      "secondaryKeywords": [
+        "best suits for short men",
+        "short men suit fit",
+        "suit proportions for short men"
+      ],
+      "scheduledFor": "2026-04-22"
+    },
+    {
+      "keyword": "inseam guide short men",
+      "slug": "inseam-guide-short-men",
+      "priority": 105,
+      "status": "draft",
+      "cluster": "short-men-style",
+      "articleFormat": "measurement guide",
+      "secondaryKeywords": [
+        "inseam for 5'6 man",
+        "short men inseam chart",
+        "pants length for short men"
+      ],
+      "scheduledFor": "2026-04-24"
+    },
+    {
+      "keyword": "5'7 outfits men",
+      "slug": "5-7-outfits-men",
+      "priority": 104,
+      "status": "draft",
+      "cluster": "short-men-style",
+      "articleFormat": "outfit guide",
+      "secondaryKeywords": [
+        "5'7 outfit for men",
+        "outfits for 5'7 men",
+        "style for 5'7 men"
+      ],
+      "scheduledFor": "2026-04-27"
+    },
+    {
+      "keyword": "5'6 style guide men",
+      "slug": "5-6-style-guide-men",
+      "priority": 103,
+      "status": "draft",
+      "cluster": "short-men-style",
+      "articleFormat": "style guide",
+      "secondaryKeywords": [
+        "fashion for 5 6 men",
+        "style tips for 5'6 men",
+        "how to dress at 5'6 male"
+      ],
+      "scheduledFor": "2026-04-29"
+    },
+    {
+      "keyword": "short men business casual",
+      "slug": "short-men-business-casual",
+      "priority": 102,
+      "status": "draft",
+      "cluster": "short-men-style",
+      "articleFormat": "office outfit guide",
+      "secondaryKeywords": [
+        "business casual for short men",
+        "office outfits for short men",
+        "short men work outfits"
+      ],
+      "scheduledFor": "2026-05-01"
+    },
+    {
+      "keyword": "short men gym physique style",
+      "slug": "short-men-gym-physique-style",
+      "priority": 101,
+      "status": "draft",
+      "cluster": "short-men-style",
+      "articleFormat": "body-type guide",
+      "secondaryKeywords": [
+        "style for short muscular men",
+        "short men athletic build style",
+        "how short gym guys should dress"
+      ],
+      "scheduledFor": "2026-05-04"
     }
   ],
   "clusters": {
+    "short-men-style": [
+      {
+        "slug": "how-clothes-should-fit-short-men",
+        "title": "How Clothes Should Fit If You're 5'6\"",
+        "href": "/blog/how-clothes-should-fit-short-men",
+        "description": "Specific fit landmarks for shirts, trousers, and jackets.",
+        "role": "pillar",
+        "publishedAt": "2026-03-16"
+      },
+      {
+        "slug": "best-shoes-for-short-men",
+        "title": "7 Best Shoes for Short Men That Actually Add Height",
+        "href": "/blog/best-shoes-for-short-men",
+        "description": "The strongest footwear choices for shorter men.",
+        "role": "pillar",
+        "publishedAt": "2026-03-17"
+      },
+      {
+        "slug": "trouser-rise-pant-break-short-men",
+        "title": "Trouser Rise & Pant Break for Short Men",
+        "href": "/blog/trouser-rise-pant-break-short-men",
+        "description": "The trouser guide for shorter men who need the numbers, not guesses.",
+        "role": "supporting",
+        "publishedAt": "2026-03-21"
+      },
+      {
+        "slug": "wedding-outfit-short-men",
+        "title": "Wedding Outfits for Short Men",
+        "href": "/blog/wedding-outfit-short-men",
+        "description": "Wedding dressing rules for shorter men across formality levels.",
+        "role": "supporting",
+        "publishedAt": "2026-03-18"
+      },
+      {
+        "slug": "capsule-wardrobe-short-men",
+        "title": "The 5'7\" Capsule Wardrobe",
+        "href": "/blog/capsule-wardrobe-short-men",
+        "description": "A compact wardrobe built around stronger proportions.",
+        "role": "supporting",
+        "publishedAt": "2026-03-19"
+      },
+      {
+        "slug": "first-date-outfit-short-men",
+        "title": "First Date Outfits for Short Men",
+        "href": "/blog/first-date-outfit-short-men",
+        "description": "Real scenario outfits for dates that don't try too hard.",
+        "role": "supporting",
+        "publishedAt": "2026-03-22"
+      },
+      {
+        "slug": "monochromatic-outfits-short-men",
+        "title": "Monochromatic Dressing for Short Men",
+        "href": "/blog/monochromatic-outfits-short-men",
+        "description": "A cleaner way to build depth without breaking the leg line.",
+        "role": "supporting",
+        "publishedAt": "2026-03-23"
+      },
+      {
+        "slug": "summer-outfits-short-men",
+        "title": "Summer Style for Short Men",
+        "href": "/blog/summer-outfits-short-men",
+        "description": "Warm-weather outfit rules that keep proportions clean.",
+        "role": "supporting",
+        "publishedAt": "2026-03-25"
+      }
+    ],
     "style-self-assessment": [
       {
         "slug": "mens-style-test",

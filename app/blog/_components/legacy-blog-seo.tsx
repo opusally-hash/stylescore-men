@@ -60,9 +60,9 @@ export const legacyBlogSeo = {
   },
   "how-to-improve-style": {
     slug: "how-to-improve-style",
-    title: "How to Improve Your Style in 30 Days | StyleScore",
+    title: "How to Improve Your Style in 30 Days: A Practical Roadmap | StyleScore",
     description:
-      "Learn how to improve your style in 30 days with practical upgrades in fit, shoes, grooming, and wardrobe basics.",
+      "A 30-day men's style roadmap that shows what to fix first so your next upgrade actually changes how you look.",
     publishedTime: "2026-03-08T09:00:00.000Z",
   },
   "How-to-know-if-you-dress-well": {
@@ -89,9 +89,9 @@ export const legacyBlogSeo = {
   },
   "mens-style-test": {
     slug: "mens-style-test",
-    title: "Men's Style Quiz: Find Your Style Score Online | StyleScore",
+    title: "Men's Style Test: Score Your Look in 10 Questions (2026) | StyleScore",
     description:
-      "Take a free men's style quiz and discover your score across fit, wardrobe, shoes, grooming, and occasion dressing.",
+      "Take a 10-question men's style test and see whether fit, shoes, grooming, wardrobe, or color is hurting your look.",
     publishedTime: "2026-03-12T09:00:00.000Z",
   },
   "mens-wardrobe-essentials": {
@@ -103,9 +103,9 @@ export const legacyBlogSeo = {
   },
   "style-mistakes-men": {
     slug: "style-mistakes-men",
-    title: "10 Style Mistakes Most Men Make | StyleScore",
+    title: "10 Style Mistakes Most Men Make (And How to Fix Each One) | StyleScore",
     description:
-      "The most common style mistakes men make, why they weaken your appearance, and how to fix them quickly.",
+      "Fix the 10 style mistakes that make most men look sloppy, from bad fit and tired shoes to weak grooming.",
     publishedTime: "2026-03-14T09:00:00.000Z",
   },
   "why-men-look-bad-in-clothes": {
@@ -134,11 +134,20 @@ export function buildLegacyBlogMetadata(entry: LegacyBlogSeoEntry): Metadata {
       publishedTime: entry.publishedTime,
       modifiedTime: entry.modifiedTime || entry.publishedTime,
       siteName: "StyleScore",
+      images: [
+        {
+          url: "/og-image-share.png",
+          width: 1368,
+          height: 768,
+          alt: `${entry.title.replace(" | StyleScore", "")} preview`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: entry.title,
       description: entry.description,
+      images: ["/og-image-share.png"],
     },
   };
 }
@@ -172,11 +181,41 @@ export function LegacyBlogStructuredData({
       "@id": url,
     },
   });
+  const breadcrumbJsonLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://stylescore.live",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: "https://stylescore.live/blog",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: entry.title.replace(" | StyleScore", ""),
+        item: url,
+      },
+    ],
+  });
 
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: jsonLd }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLd }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: breadcrumbJsonLd }}
+      />
+    </>
   );
 }

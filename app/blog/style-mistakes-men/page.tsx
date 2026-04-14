@@ -181,7 +181,7 @@ export default function Page() {
                 way than by trying to upgrade everything at once.
               </p>
               <a
-                href="/onboarding"
+                href="/style-quiz"
                 className="mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300"
               >
                 Start the StyleScore assessment
@@ -233,7 +233,7 @@ function InlineCta({ title, body }: { title: string; body: string }) {
       <h2 className="text-2xl font-semibold text-white">{title}</h2>
       <p className="mt-3 leading-7 text-white/75">{body}</p>
       <a
-        href="/onboarding"
+        href="/style-quiz"
         className="mt-4 inline-flex rounded-2xl bg-orange-400 px-5 py-3 font-semibold text-black transition hover:bg-orange-300"
       >
         Get your StyleScore

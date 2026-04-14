@@ -51,7 +51,7 @@ export default function Page() {
 </p>
 
 <a
-  href="/onboarding"
+  href="/style-quiz"
   className="inline-block mt-4 bg-orange-400 text-black px-5 py-3 rounded-xl font-semibold"
 >
   Take the Free StyleScore →
@@ -84,7 +84,7 @@ export default function Page() {
             across fit, wardrobe, shoes, grooming, and occasion dressing.
           </p>
           <a
-            href="/onboarding"
+            href="/style-quiz"
             className="premium-glow mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_24px_rgba(251,146,60,0.4)]"
           >
             Get My Style Score
@@ -321,7 +321,7 @@ export default function Page() {
             guessing your way through style.
           </p>
           <a
-            href="/onboarding"
+            href="/style-quiz"
             className="premium-glow mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_24px_rgba(251,146,60,0.4)]"
           >
             Start Free Test →

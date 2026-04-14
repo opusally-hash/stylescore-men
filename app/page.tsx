@@ -76,7 +76,7 @@ export default function HomePage() {
           </nav>
 
           <Link
-            href="/assessment"
+            href="/style-quiz"
             className="premium-glow rounded-2xl bg-orange-400 px-5 py-3 text-sm font-semibold text-black shadow-[0_0_24px_rgba(251,146,60,0.4)] transition hover:bg-orange-300"
           >
             Get My Style Score
@@ -107,7 +107,7 @@ export default function HomePage() {
 
               <div className="mt-9 flex flex-col gap-4 sm:flex-row">
                 <Link
-                  href="/assessment"
+                  href="/style-quiz"
                   className="inline-flex items-center justify-center rounded-2xl bg-white px-7 py-4 text-base font-semibold text-black transition hover:bg-white/90"
                 >
                   Get My Style Score
@@ -247,7 +247,7 @@ export default function HomePage() {
               className="rounded-[1.6rem] border border-white/10 bg-white/5 p-5 backdrop-blur-xl transition hover:bg-white/10"
             >
               <h3 className="text-lg font-semibold text-white">
-                Take the Ultimate Men&apos;s Style Test
+                Men&apos;s Style Test: Score Your Look in 10 Questions
               </h3>
               <p className="mt-2 text-sm leading-6 text-white/60">
                 Discover your score and what to improve first.

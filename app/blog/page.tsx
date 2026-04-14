@@ -14,8 +14,8 @@ const bodyFont = Manrope({
 
 const existingArticles = [
   {
-    title: "Take the Ultimate Men's Style Test",
-    description: "Discover your style score and how to improve it.",
+    title: "Men's Style Test: Score Your Look in 10 Questions",
+    description: "Find your baseline across fit, shoes, grooming, wardrobe, and color.",
     href: "/blog/mens-style-test",
   },
   {
@@ -25,7 +25,7 @@ const existingArticles = [
   },
   {
     title: "How to Improve Your Style in 30 Days",
-    description: "A practical guide to upgrading your appearance.",
+    description: "A practical roadmap for fixing the right style problem first.",
     href: "/blog/how-to-improve-style",
   },
   {
@@ -40,7 +40,7 @@ const existingArticles = [
   },
   {
     title: "10 Style Mistakes Most Men Make",
-    description: "Avoid these common fashion mistakes instantly.",
+    description: "Fix the habits that make men look sloppy even in decent clothes.",
     href: "/blog/style-mistakes-men",
   },
   {
@@ -134,7 +134,7 @@ export default function BlogPage() {
 
           <div className="mt-10 flex flex-wrap gap-4">
             <a
-              href="/assessment"
+              href="/style-quiz"
               className="inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300"
             >
               Get Your StyleScore
@@ -144,6 +144,31 @@ export default function BlogPage() {
               className="inline-flex rounded-2xl border border-white/10 bg-white/5 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
             >
               Explore Featured Guides
+            </a>
+          </div>
+        </section>
+
+        <section className="mt-10 rounded-[2rem] border border-orange-300/20 bg-orange-300/10 p-6 shadow-[0_24px_100px_rgba(15,23,42,0.35)] lg:p-8">
+          <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.32em] text-orange-200/80">
+                Start Here
+              </p>
+              <h2
+                className={`mt-3 text-3xl leading-tight text-white sm:text-4xl ${displayFont.className}`}
+              >
+                Men&apos;s Style Test: score your look before you change anything.
+              </h2>
+              <p className="mt-3 max-w-2xl leading-8 text-white/70">
+                This is the highest-leverage guide if you want a baseline first:
+                10 questions, six style categories, and a clear next upgrade.
+              </p>
+            </div>
+            <a
+              href="/blog/mens-style-test"
+              className="inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300"
+            >
+              Read the Style Test Guide
             </a>
           </div>
         </section>
@@ -281,7 +306,7 @@ export default function BlogPage() {
               </p>
             </div>
             <a
-              href="/assessment"
+              href="/style-quiz"
               className="inline-flex rounded-2xl bg-black px-6 py-3 font-semibold text-white transition hover:bg-black/90"
             >
               Take the 2-Minute Assessment

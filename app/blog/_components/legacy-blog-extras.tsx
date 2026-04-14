@@ -47,7 +47,7 @@ export function LegacyBlogTopCta() {
     <div className="mb-8 rounded-2xl border border-orange-400/25 bg-white/5 p-5">
       <p className="text-white/70">Want to know how you actually score in style?</p>
       <a
-        href="/assessment"
+        href="/style-quiz"
         className="mt-4 inline-block rounded-xl bg-orange-400 px-5 py-3 font-semibold text-black transition hover:bg-orange-300"
       >
         Take the Free StyleScore -&gt;

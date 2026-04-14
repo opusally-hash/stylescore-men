@@ -67,7 +67,7 @@ const DETERMINISTIC_RESCUE_LIBRARY = {
       "Make the tone anti-corporate-costume and practical rather than formal."
     ],
     internalLinks: [
-      "/assessment",
+      "/style-quiz",
       "/blog/casual-outfits-men",
       "/blog/how-to-dress-better-men"
     ],
@@ -132,7 +132,7 @@ There are a few predictable misses. Stretch chinos that cling in the thigh and c
 
 ## Make the system easier than your old lazy default
 
-If you really hate dressing up, build a system that beats your lazy default on speed. Pick three shirts, three trousers, and three shoe options that all work together. Keep colors in the navy, grey, olive, stone, and brown range. Use [StyleScore](/assessment) if you want to know whether fit, shoes, or grooming is the category quietly ruining the whole office look. The right business-casual wardrobe should not feel like more effort. It should feel like less second-guessing.`
+If you really hate dressing up, build a system that beats your lazy default on speed. Pick three shirts, three trousers, and three shoe options that all work together. Keep colors in the navy, grey, olive, stone, and brown range. Use the [StyleScore style quiz](/style-quiz) if you want to know whether fit, shoes, or grooming is the category quietly ruining the whole office look. The right business-casual wardrobe should not feel like more effort. It should feel like less second-guessing.`
     ,
     extension: `## Three business-casual outfits that never feel like overkill
 
@@ -150,7 +150,7 @@ Stop buying clothes that only sound right on paper. Tiny checked office shirts. 
 
 ## The easiest way to know whether your office outfits are actually working
 
-Look at the whole silhouette, not each item in isolation. Does the shirt sit cleanly? Do the trousers break properly? Do the shoes support the tone of the outfit instead of pulling it casual or overly formal? If you want the fast outside read, that is where [StyleScore](/assessment) helps. It tells you whether the weak link is fit, footwear, grooming, or occasion dressing, so you do not keep blaming the wrong category.`
+Look at the whole silhouette, not each item in isolation. Does the shirt sit cleanly? Do the trousers break properly? Do the shoes support the tone of the outfit instead of pulling it casual or overly formal? If you want the fast outside read, that is where the [StyleScore style quiz](/style-quiz) helps. It tells you whether the weak link is fit, footwear, grooming, or occasion dressing, so you do not keep blaming the wrong category.`
   },
   "how-to-match-colors-men-without-thinking": {
     title: "How to Match Colors as a Man Without Thinking Too Hard | StyleScore",
@@ -164,7 +164,7 @@ Look at the whole silhouette, not each item in isolation. Does the shirt sit cle
       "Explain why contrast mistakes, not color itself, are what usually ruin outfits."
     ],
     internalLinks: [
-      "/assessment",
+      "/style-quiz",
       "/blog/monochromatic-outfits-short-men",
       "/blog/how-to-dress-better-men"
     ],
@@ -229,7 +229,7 @@ An outfit can use decent colors and still look wrong because the contrast is doi
 
 ## Build a small system you can repeat
 
-You do not need a bigger personality in your wardrobe. You need a system that survives busy mornings. Keep your base colors tight, repeat the combinations that already work, and use [StyleScore](/assessment) if you want an outside read on whether color coordination is actually the weak link or whether fit and footwear are doing more damage. Color matching gets easier once you stop treating every outfit like a new experiment.`
+You do not need a bigger personality in your wardrobe. You need a system that survives busy mornings. Keep your base colors tight, repeat the combinations that already work, and use the [StyleScore style quiz](/style-quiz) if you want an outside read on whether color coordination is actually the weak link or whether fit and footwear are doing more damage. Color matching gets easier once you stop treating every outfit like a new experiment.`
     ,
     extension: `## Five color combinations men can use without thinking
 
@@ -249,7 +249,7 @@ Most men say they cannot match colors when the real issue is they are using too 
 
 ## Use color to simplify the outfit, not rescue it
 
-Bad advice says color should make the outfit more interesting. Better advice says color should make the outfit easier to read. If the fit is weak, the shoes are bulky, or the layering is off, strong color usually highlights the problem. That is why [StyleScore](/assessment) is useful here too. Men often blame color when the outfit is actually being ruined by fit or footwear.`
+Bad advice says color should make the outfit more interesting. Better advice says color should make the outfit easier to read. If the fit is weak, the shoes are bulky, or the layering is off, strong color usually highlights the problem. That is why the [StyleScore style quiz](/style-quiz) is useful here too. Men often blame color when the outfit is actually being ruined by fit or footwear.`
   },
   "what-shoes-to-wear-with-chinos-men": {
     title: "What Shoes to Wear With Chinos for Men | StyleScore",
@@ -263,7 +263,7 @@ Bad advice says color should make the outfit more interesting. Better advice say
       "Call out bulky runners and glossy formal shoes as the common misses."
     ],
     internalLinks: [
-      "/assessment",
+      "/style-quiz",
       "/blog/best-shoes-for-short-men",
       "/blog/best-white-sneakers-men"
     ],
@@ -328,7 +328,7 @@ The biggest miss is mixing chinos with shoes that belong to a different category
 
 ## Keep the lower half doing one job
 
-If you want chinos to look stronger, make the lower half say one thing. Smart-casual. Relaxed but intentional. Clean enough for work, easy enough for weekends. Pick the shoes that support that message, and use [StyleScore](/assessment) if you want an outside read on whether your footwear is carrying its share or quietly flattening every outfit you build around chinos.`
+If you want chinos to look stronger, make the lower half say one thing. Smart-casual. Relaxed but intentional. Clean enough for work, easy enough for weekends. Pick the shoes that support that message, and use the [StyleScore style quiz](/style-quiz) if you want an outside read on whether your footwear is carrying its share or quietly flattening every outfit you build around chinos.`
     ,
     extension: `## The easiest chinos-and-shoes combinations by setting
 
@@ -348,7 +348,7 @@ First: trouser break. If chinos are stacking, even the right shoe starts looking
 
 ## Stop asking for the one perfect shoe
 
-There is no single perfect shoe for chinos because chinos are not a single mood. That is why men keep getting confused. Use [StyleScore](/assessment) if you want to know whether the real problem is the shoe choice itself or the way the rest of the outfit is framing it. Usually the best answer is not more options. It is cleaner categories and a sharper hem.`
+There is no single perfect shoe for chinos because chinos are not a single mood. That is why men keep getting confused. Use the [StyleScore style quiz](/style-quiz) if you want to know whether the real problem is the shoe choice itself or the way the rest of the outfit is framing it. Usually the best answer is not more options. It is cleaner categories and a sharper hem.`
   },
   "mens-grooming-routine-beginners": {
     title: "Men's Grooming Routine for Beginners | StyleScore",
@@ -362,7 +362,7 @@ There is no single perfect shoe for chinos because chinos are not a single mood.
       "Make it clear that consistency beats buying more products."
     ],
     internalLinks: [
-      "/assessment",
+      "/style-quiz",
       "/blog/grooming-multiplier-mens-style",
       "/blog/mens-grooming-basics"
     ],
@@ -427,7 +427,7 @@ Nails, nose hair, ear hair, lip condition, and clean teeth are not glamorous top
 
 ## Build a routine you will actually keep
 
-The whole point of beginner grooming is not to become obsessive. It is to stop looking like maintenance only happens by accident. Build a simple system, keep it, and use [StyleScore](/assessment) if you want to know whether grooming is one of the categories dragging down your overall presentation. Once the routine is easy to keep, the rest of your clothes start landing better too.`
+The whole point of beginner grooming is not to become obsessive. It is to stop looking like maintenance only happens by accident. Build a simple system, keep it, and use the [StyleScore style quiz](/style-quiz) if you want to know whether grooming is one of the categories dragging down your overall presentation. Once the routine is easy to keep, the rest of your clothes start landing better too.`
     ,
     extension: `## A beginner grooming routine that takes under ten minutes
 
@@ -455,7 +455,7 @@ Men love to ask which product to buy first. The better question is which habit y
 
 ## If you want one outside read, start with grooming and fit together
 
-Grooming does not exist by itself. It changes the way every outfit lands. That is why [StyleScore](/assessment) is useful when you are new to this. A lot of men assume they need more clothes when the bigger lift would come from better cadence in hair, skin, and facial hair maintenance.`
+Grooming does not exist by itself. It changes the way every outfit lands. That is why the [StyleScore style quiz](/style-quiz) is useful when you are new to this. A lot of men assume they need more clothes when the bigger lift would come from better cadence in hair, skin, and facial hair maintenance.`
   },
   "smart-casual-date-night-outfits-men": {
     title: "Smart Casual Date Night Outfits for Men | StyleScore",
@@ -469,7 +469,7 @@ Grooming does not exist by itself. It changes the way every outfit lands. That i
       "Keep the tone practical, slightly blunt, and anti-costume."
     ],
     internalLinks: [
-      "/assessment",
+      "/style-quiz",
       "/blog/first-date-outfit-short-men",
       "/blog/how-to-dress-better-men"
     ],
@@ -534,7 +534,7 @@ Men often assume smart casual means layering harder. That is not the answer if t
 
 ## Smart casual should lower stress, not raise it
 
-The whole point of smart casual is flexibility. You can walk into a decent restaurant, drinks spot, or gallery date without looking either underdressed or like you turned the night into a performance. If you want the personal version of that instead of generic advice, use [StyleScore](/assessment) and see whether fit, shoes, grooming, or occasion dressing is the category actually costing you points right now.`
+The whole point of smart casual is flexibility. You can walk into a decent restaurant, drinks spot, or gallery date without looking either underdressed or like you turned the night into a performance. If you want the personal version of that instead of generic advice, use the [StyleScore style quiz](/style-quiz) and see whether fit, shoes, grooming, or occasion dressing is the category actually costing you points right now.`
     ,
     extension: `## Three date-night formulas that work in real life
 
@@ -552,7 +552,7 @@ Too many layers. Shoes that are dressier than the venue. Loud fragrance on top o
 
 ## Date-night smart casual should make you calmer, not more self-conscious
 
-If the outfit makes you constantly adjust the jacket, wonder about the shirt length, or second-guess the shoe choice, it is the wrong outfit. The right one disappears once it is on. That is part of the point. And if you want to know whether the weak link is fit, shoes, or occasion dressing itself, [StyleScore](/assessment) gives you the faster answer than guessing from scratch every time.`
+If the outfit makes you constantly adjust the jacket, wonder about the shirt length, or second-guess the shoe choice, it is the wrong outfit. The right one disappears once it is on. That is part of the point. And if you want to know whether the weak link is fit, shoes, or occasion dressing itself, the [StyleScore style quiz](/style-quiz) gives you the faster answer than guessing from scratch every time.`
   }
 };
 
@@ -745,8 +745,10 @@ function getSiblingArticleContext(queueEntry) {
 function normalizeArticleDraft(articleJson, queueEntry) {
   const normalizedContent = stripGeneratedSupportSections(
     replaceAiTellPhrases(replaceBannedWords(articleJson.content_markdown || ""))
-      .replace(/https:\/\/stylescore\.live\/onboarding\b/g, "https://stylescore.live/assessment")
-      .replace(/\/onboarding\b/g, "/assessment")
+      .replace(/https:\/\/stylescore\.live\/onboarding\b/g, "https://stylescore.live/style-quiz")
+      .replace(/https:\/\/stylescore\.live\/assessment\b/g, "https://stylescore.live/style-quiz")
+      .replace(/\/onboarding\b/g, "/style-quiz")
+      .replace(/\/assessment\b/g, "/style-quiz")
   );
 
   const normalized = {
@@ -774,8 +776,10 @@ function normalizeArticleDraft(articleJson, queueEntry) {
       ? articleJson.internal_links.map((url) =>
           typeof url === "string"
             ? url
-                .replace(/https:\/\/stylescore\.live\/onboarding\b/g, "https://stylescore.live/assessment")
-                .replace(/\/onboarding\b/g, "/assessment")
+                .replace(/https:\/\/stylescore\.live\/onboarding\b/g, "https://stylescore.live/style-quiz")
+                .replace(/https:\/\/stylescore\.live\/assessment\b/g, "https://stylescore.live/style-quiz")
+                .replace(/\/onboarding\b/g, "/style-quiz")
+                .replace(/\/assessment\b/g, "/style-quiz")
             : url
         )
       : [],

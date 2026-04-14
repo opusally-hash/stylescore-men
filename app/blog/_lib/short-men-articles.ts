@@ -31,9 +31,9 @@ export type BlogArticle = {
 export const shortMenArticles = {
   "how-clothes-should-fit-short-men": {
     slug: "how-clothes-should-fit-short-men",
-    title: "How Clothes Should Actually Fit If You're 5'6\" | StyleScore",
+    title: "How Clothes Should Fit If You're 5'6\" - Exact Measurements | StyleScore",
     heading: "How Clothes Should Actually Fit If You're 5'6\"",
-    description: "A proportion guide for men 5'4\"-5'8\" with specific measurements for shirts, trousers, and jackets. Learn the 33/66 rule, trouser rise, and a tailoring priority list.",
+    description: "Exact shirt, trouser, and jacket fit rules for men around 5'6\", including rise, break, sleeve, and hem targets.",
     cardDescription: "A proportion guide with specific measurements for shorter men.",
     ctaHeadline: "Find Out Whether Fit Is Costing You Points",
     ctaBody: "Knowing the rules is one thing. Knowing which rules are most broken in your current wardrobe is another. Not sure where your fit is actually holding you back? Take the free StyleScore test - it scores your proportions across six categories and tells you exactly what to fix first. Take the assessment ->",
@@ -41,9 +41,9 @@ export const shortMenArticles = {
   },
   "best-shoes-for-short-men": {
     slug: "best-shoes-for-short-men",
-    title: "The Short Man's Shoe Guide: 7 Styles That Extend Your Leg Line | StyleScore",
+    title: "7 Best Shoes for Short Men That Actually Add Height (2026) | StyleScore",
     heading: "The Short Man's Shoe Guide: 7 Styles That Extend Your Leg Line",
-    description: "7 shoe styles that extend the leg line for shorter men and 3 that kill it. Chelsea boots, derbies, loafers, and more with color-matching tips.",
+    description: "See 7 shoe styles that help shorter men look taller, plus the bulky pairs that cut your leg line fast.",
     cardDescription: "7 shoe styles that work and 3 that kill your silhouette.",
     ctaHeadline: "See If Your Shoes Are Helping Or Hurting",
     ctaBody: "Shoes are one of the six pillars StyleScore measures - and it's the one most men score lowest on. If you're unsure where your footwear stands against the full picture of your style, take the free StyleScore assessment to find out exactly what's working and what's costing you.",
@@ -51,9 +51,9 @@ export const shortMenArticles = {
   },
   "wedding-outfit-short-men": {
     slug: "wedding-outfit-short-men",
-    title: "What to Wear to a Wedding When You're the Shortest Guy in the Room | StyleScore",
+    title: "Wedding Outfits for Short Men: What to Wear to Every Dress Code | StyleScore",
     heading: "What to Wear to a Wedding When You're the Shortest Guy in the Room",
-    description: "Wedding outfit guide for shorter men covering black tie, semi-formal, and casual dress codes with specific fit rules for men 5'4\"-5'8\".",
+    description: "See what shorter men should wear to black tie, semi-formal, and casual weddings without killing their proportions.",
     cardDescription: "Wedding outfits for shorter men across every dress code.",
     ctaHeadline: "Check Your Occasion-Dressing Score",
     ctaBody: "Occasion dressing is one of the six pillars StyleScore measures. See how you'd score before the next RSVP - take the free test.",
@@ -61,9 +61,9 @@ export const shortMenArticles = {
   },
   "capsule-wardrobe-short-men": {
     slug: "capsule-wardrobe-short-men",
-    title: "The 5'7\" Capsule Wardrobe: 15 Pieces That Actually Work for Shorter Frames | StyleScore",
+    title: "The 5'7\" Capsule Wardrobe: 15 Pieces, 30+ Outfits | StyleScore",
     heading: "The 5'7\" Capsule Wardrobe: 15 Pieces That Actually Work for Shorter Frames",
-    description: "A 15-piece capsule wardrobe built for men under 5'8\" with specific inseam, rise, and fit notes for every piece. 30+ outfit combinations included.",
+    description: "A 15-piece capsule wardrobe for 5'7\" men that creates 30+ outfits while keeping proportions clean.",
     cardDescription: "15 proportion-correct pieces that create 30+ outfits.",
     ctaHeadline: "See Whether Your Wardrobe Is Built Right",
     ctaBody: "Your wardrobe foundations are one of the six things StyleScore measures. Take the free assessment and see if your closet is working for you - or quietly dragging your score down.",
@@ -81,9 +81,9 @@ export const shortMenArticles = {
   },
   "trouser-rise-pant-break-short-men": {
     slug: "trouser-rise-pant-break-short-men",
-    title: "Trouser Rise, Pant Break, and Inseam: The Short Man's Cheat Sheet | StyleScore",
+    title: "Trouser Rise & Pant Break for Short Men: Complete Cheat Sheet | StyleScore",
     heading: "Trouser Rise, Pant Break, and Inseam: The Short Man's Cheat Sheet",
-    description: "A complete reference for trouser fit on shorter men. Rise, break, and inseam explained with a height-based measurement chart for men 5'4\"-5'8\".",
+    description: "A rise, break, and inseam cheat sheet for shorter men, with fit rules that stop trousers from shrinking your legs.",
     cardDescription: "The complete reference for trouser fit on shorter men.",
     ctaHeadline: "Check Whether Your Trousers Are Dragging You Down",
     ctaBody: "Fit and proportion is the highest-weighted pillar in the StyleScore assessment - and trousers are half the battle. Rise too low. Inseam too long. Full break dragging at the ankle. These aren't minor details; they're the primary reason most men under 5'8\" look less sharp than they should in an otherwise acceptable outfit.\n\nTake the free assessment and find out if your pants are dragging your score down: StyleScore assessment.",
@@ -91,9 +91,9 @@ export const shortMenArticles = {
   },
   "first-date-outfit-short-men": {
     slug: "first-date-outfit-short-men",
-    title: "First Date Outfits for Shorter Men: 5 Real-Scenario Looks | StyleScore",
+    title: "First Date Outfits for Short Men: 5 Looks That Work (2026) | StyleScore",
     heading: "First Date Outfits for Shorter Men: 5 Real-Scenario Looks",
-    description: "5 first date outfit ideas for men 5'4\"-5'8\" built around real scenarios - coffee, dinner, drinks, outdoor, and smart casual. Proportion rules included.",
+    description: "Five first-date outfit formulas for shorter men, with fit and shoe rules that keep the look sharp without trying too hard.",
     cardDescription: "5 real-scenario date looks that don't try too hard.",
     ctaHeadline: "See Whether Your Date-Night Style Actually Works",
     ctaBody: "StyleScore measures both your everyday fit and your occasion dressing - including whether your date-night outfits are actually proportioned correctly for your frame. Take the free assessment to see exactly where your current style is working and where it's leaving points on the table.",
@@ -106,14 +106,14 @@ export const shortMenArticles = {
     description: "Go beyond \"wear one color.\" Three techniques for monochromatic depth - shade variation, texture contrast, and finish mixing - with 5 complete outfit formulas.",
     cardDescription: "How to build depth in one-color outfits without looking flat.",
     ctaHeadline: "Check If Your Color Coordination Is Working",
-    ctaBody: "Color coordination is one of the six pillars StyleScore measures. A tonal outfit built on the right shade progression and texture contrast can undo months of bad color choices - but only if the construction is right. Take the free StyleScore assessment and see whether your color game is helping or hurting your overall score: /assessment.",
+    ctaBody: "Color coordination is one of the six pillars StyleScore measures. A tonal outfit built on the right shade progression and texture contrast can undo months of bad color choices - but only if the construction is right. Take the free StyleScore quiz and see whether your color game is helping or hurting your overall score.",
     content: "Every style guide for shorter men says the same thing: go monochromatic. [Art of Manliness](https://www.artofmanliness.com), [Peter Manning NYC](https://www.petermanning.com), [Gentleman's Gazette](https://www.gentlemansgazette.com) - all of them recommend it. And they're right. A single unbroken color line from collar to shoe creates a longer visual line than any other dressing strategy available. It's not a trend. It's geometry.\n\nThe problem is that \"wear one color\" is not a complete instruction. Most men hear it, buy all-navy, and end up looking like they grabbed clothes in the dark. Flat. Monotonous. Like a uniform rather than an outfit. The strategy is correct. The execution is where it falls apart.\n\nThis article fixes that. You'll get the mechanics of why monochromatic works, the three ways to build depth within a single color, five ready-to-wear formulas, and when to push past strict monochrome into analogous color territory.\n\n---\n\n## Why Every Short-Man Style Guide Says \"Go Monochromatic\" (and Why That Advice Alone Isn't Enough)\n\nThe visual logic is simple. High contrast - white shirt, dark trousers - draws the eye to the break point. For a man at 5'6\", that break point sits at a level that cuts the body roughly in half. The eye sees two short segments instead of one continuous line.\n\nLow contrast - navy top, navy trousers - removes that break point. The eye reads the body as a single vertical shape. The result isn't that you look taller. The result is that you look proportioned, because nothing is interrupting the visual flow from shoulder to shoe.\n\nThat's the principle. But \"wear all navy\" leaves out everything that determines whether the outfit looks intentional or accidental. Shade. Texture. Finish. Fit. Two men can both wear all black - one looks like a model backstage at a fashion show, the other looks like he's working valet parking. The color isn't the variable. The construction of the outfit within that color is.\n\nMost guides tell you to use monochromatic dressing. None of them explain how to make it look like you did it on purpose.\n\n---\n\n## The Three Types of Monochromatic Depth\n\nThis is the part that matters. A monochromatic outfit without depth is just matching. The goal is to build visual interest within a single color family so the outfit reads as deliberate and layered rather than flat and uniform.\n\nThere are three tools for doing this.\n\n### 1. Shade Variation\n\nDifferent lightness and darkness within the same hue. This is the most accessible version and the easiest to get wrong by not going far enough.\n\nNavy blazer + medium blue Oxford + dark navy chinos = three distinct shades of blue. The eye picks up the variation without encountering high contrast. You've built a gradient from the top down or bottom up. Charcoal sweater + light grey tee + dark grey trousers does the same thing in grey. The shades work because they're clearly related - same color family - but clearly different, so the outfit reads as constructed rather than matchy.\n\nThe mistake most men make: they choose three pieces that are all nearly the same shade. That reads as a failed attempt to match. The shades need to be clearly distinguishable. If you have to squint to see a difference, the difference isn't doing any work.\n\n### 2. Texture Contrast\n\nSame color, different fabrics. This is where most of the visual interest in monochromatic dressing actually lives.\n\nA wool sweater, cotton chinos, and leather boots - all in brown and tan - give you three surfaces that catch light differently. The wool has a soft, diffuse texture. The cotton has a flat, matte surface. The leather reflects. Even if the colors were identical (they won't be exactly, which helps), the fabrics create three visually distinct elements. Knit polo + denim jacket + suede chukkas in the blue family does the same thing. Denim has a structured weave. Knit has elasticity and depth. Suede absorbs light rather than reflecting it.\n\nTexture contrast is what separates a monochromatic outfit that photographs well from one that looks like it came off one rack.\n\n### 3. Finish Mixing\n\nThe most advanced version, and the closest to how fashion-forward dressing actually works. Combine matte, sheen, and knit within the same color family.\n\nMatte cotton tee under a slight-sheen leather jacket with knit wool trousers - all in black. The tee absorbs light. The leather reflects it. The knit sits somewhere in between with a soft texture gradient. The colors are all black, but the finishes create three completely different surfaces. This is how the all-black outfit that looks effortless is built. Not by wearing three black pieces and hoping they work together. By deliberately selecting pieces with contrasting light behavior.\n\nThese three tools - shade variation, texture contrast, finish mixing - can be used independently or combined. The more you layer them, the more depth the outfit has.\n\n---\n\n## 5 Monochromatic Outfit Formulas for Shorter Men\n\nThese are complete outfits, not suggestions. Each one applies at least two of the three depth tools above.\n\n### 1. All-Navy Business Casual\n\n**Navy wool blazer + light blue cotton Oxford + dark navy cotton twill chinos + dark brown Derby shoes**\n\nThree shades of blue - light blue at the chest fading into dark navy at the leg - keeps the vertical line intact while providing clear shade variation. The wool, cotton, and leather provide texture contrast. The dark brown Derby rather than black keeps the shoe in the warm-neutral family without introducing a stark color break at the hem. Wear this to a client lunch, a smart-casual office Friday, or anywhere you need to read as polished without a suit.\n\nFit notes: The blazer hem should sit at the bottom of the hip, not below the seat. The chino break should be minimal - barely grazing the top of the shoe.\n\n### 2. All-Black Evening\n\n**Black merino crewneck sweater + black slim-fit denim + black leather Chelsea boots**\n\nThree finishes in one outfit: matte knit, matte-but-structured denim, polished leather. No shade variation needed because the finish contrast does all the work. This reads as deliberate because the fabrics are clearly different, not because you've tried to mix shades. Chelsea boots are the right call here - the clean silhouette at the ankle maintains the leg line that a boot with a visible shaft would interrupt.\n\nThis works for dinner, gallery openings, casual but upscale bars. The risk: if any piece fits wrong, the whole outfit reads as a mistake because there's no pattern or color to distract from the silhouette. Fit is non-negotiable.\n\n### 3. Earth Tones Weekend\n\n**Tan suede jacket + cream cotton tee + khaki cotton chinos + sand suede desert boots**\n\nA warm gradient: dark tan at the top, cream in the middle, khaki at the bottom, sand at the foot. The values are light-to-medium across the whole outfit, which is intentional - this is a daytime, outdoor casual combination. Suede on the jacket and boots ties the outfit together by repeating a finish that absorbs light rather than reflecting it. Desert boots with a crepe sole keep the proportions right for shorter men by avoiding a heavy, chunky platform.\n\nWear this on weekends, casual travel days, or anywhere you want the outfit to register as intentional without appearing dressed up.\n\n### 4. Grey Gradient Smart Casual\n\n**Charcoal blazer + heather grey crewneck + light grey trousers + charcoal suede loafers**\n\nThis is the grey equivalent of the all-navy formula. Shade variation: charcoal at top and bottom, medium and light grey in between. The heather texture of the crewneck breaks up what would otherwise be a flat grey block at the torso. Suede loafers rather than leather keep the finish cohesion - bringing in a high-shine leather at the bottom would introduce a finish contrast that competes rather than complements. This combination is clean enough for business casual environments and relaxed enough for smart-casual dinners.\n\n### 5. Olive/Forest Outdoor Casual\n\n**Olive bomber jacket + forest green cotton tee + olive chinos + dark brown leather boots**\n\nTwo shades of green (olive and forest) plus a dark brown anchor at the foot. The brown boots are analogous to the olive family - warm, earthy, low-contrast against the chinos - without being a third shade of green. The bomber's ribbed hem and cuffs add texture contrast against the flat cotton of the tee and the twill of the chinos. This reads as intentional without looking like you tried too hard.\n\nWorks for weekend casual, outdoor markets, travel.\n\n---\n\n## Analogous Colors - The Next Step After Monochrome\n\nOnce you've built the monochromatic instinct, analogous color combinations extend the same principle with more range.\n\nAnalogous colors are neighbors on the color wheel: blue and green, green and tan, navy and olive. Because they share underlying hues, they maintain low contrast. The eye reads the combination as cohesive rather than clashing. You keep the elongating effect of low contrast while adding more visual variety than strict monochrome allows.\n\nPeter Manning NYC builds many of their most effective combinations around this principle: blue + green + grey, navy + olive + charcoal. The combinations work because the colors are related, not because they match exactly.\n\nThe practical test: if you can point to a single hue that lives somewhere between the two colors you're combining, they're probably analogous enough to work. Navy and olive both contain significant blue-green. Blue and grey both share a cool, desaturated quality. Brown and olive share warm, earthy undertones.\n\nThis is the progression for men who've dialed in monochromatic dressing and want to extend their range without abandoning the visual logic that makes it effective in the first place.\n\n---\n\n## When to Break the Rules\n\nHigh contrast is not automatically wrong. The rules around placement and proportion determine whether it works.\n\n**Keep the break point high.** A tucked shirt with high-rise trousers means the color transition - if there is one - happens at the waist rather than the hip. That higher break point is less visually disruptive because it's closer to the natural waist and reads as a deliberate waistline rather than an accidental midpoint. Trousers with a rise under 10 inches (as [Gentleman's Gazette recommends for men under 5'8\"](https://www.gentlemansgazette.com)) help accomplish this.\n\n**Close the bottom line with a dark shoe.** If you're wearing light trousers with a contrasting top, a dark shoe \"closes\" the bottom of the visual line rather than leaving it open. The eye reaches the shoe and stops rather than drifting. This is why a white shirt + khaki chino combination works with a dark brown or tan shoe better than a white sneaker.\n\nIf you want a dedicated breakdown of which silhouettes keep the lower half clean, read [The Short Man's Shoe Guide](/blog/best-shoes-for-short-men).\n\n**Contrast in accessories, cohesion in garments.** One accent piece - a watch with a visible face, a pocket square in a complementary color, patterned socks visible only when seated - adds personality without breaking the silhouette. The garments (jacket, shirt, trousers) handle cohesion. The accessories handle character. Keep the roles separated and neither one undermines the other.\n\nWhat doesn't work: a high-contrast belt across the midsection. A bright-white shirt tucked into dark jeans with no jacket. Chunky white sneakers under a tonal outfit. Each of these introduces a visual interrupt at exactly the wrong place - the hip, the waist, the hem - and cuts the elongating line you built with the rest of the outfit.",
   },
   "grooming-multiplier-mens-style": {
     slug: "grooming-multiplier-mens-style",
-    title: "Grooming Is a Multiplier: How Haircuts, Facial Hair, and Skincare Affect Your Style Score | StyleScore",
+    title: "Grooming for Men: The Style Multiplier Most Guys Ignore | StyleScore",
     heading: "Grooming Is a Multiplier: How Haircuts, Facial Hair, and Skincare Affect Your Style Score",
-    description: "Grooming amplifies or degrades every clothing choice. Haircut strategies, facial hair proportion rules, and a minimal skincare routine for men.",
+    description: "See why grooming changes every outfit, plus the hair, beard, skin, and maintenance habits most men ignore.",
     cardDescription: "How haircuts, facial hair, and skincare affect your style.",
     ctaHeadline: "Find Out If Grooming Is Pulling Down Your Score",
     ctaBody: "Grooming is one of the six pillars StyleScore measures - and it's where many men lose the most points without realizing it. You might be getting fit, color, and footwear right, and still have your overall score pulled down by grooming gaps that take 10 minutes a week to close.\n\nTake the free assessment to see your grooming score.",
@@ -134,7 +134,10 @@ export const shortMenArticles = {
 export type ShortMenArticleSlug = keyof typeof shortMenArticles;
 
 export function getShortMenArticle(slug: ShortMenArticleSlug) {
-  return shortMenArticles[slug];
+  return {
+    ...shortMenArticles[slug],
+    category: "short-men-style",
+  };
 }
 
 export const shortMenArticleCards = [
@@ -144,17 +147,17 @@ export const shortMenArticleCards = [
     description: "A proportion guide with specific measurements for shorter men.",
   },
   {
-    title: "The Short Man's Shoe Guide: 7 Styles That Extend Your Leg Line",
+    title: "7 Best Shoes for Short Men That Actually Add Height",
     slug: "best-shoes-for-short-men",
     description: "7 shoe styles that work and 3 that kill your silhouette.",
   },
   {
-    title: "What to Wear to a Wedding When You're the Shortest Guy in the Room",
+    title: "Wedding Outfits for Short Men: What to Wear to Every Dress Code",
     slug: "wedding-outfit-short-men",
     description: "Wedding outfits for shorter men across every dress code.",
   },
   {
-    title: "The 5'7\" Capsule Wardrobe: 15 Pieces That Actually Work for Shorter Frames",
+    title: "The 5'7\" Capsule Wardrobe: 15 Pieces, 30+ Outfits",
     slug: "capsule-wardrobe-short-men",
     description: "15 proportion-correct pieces that create 30+ outfits.",
   },
@@ -169,7 +172,7 @@ export const shortMenArticleCards = [
     description: "The complete reference for trouser fit on shorter men.",
   },
   {
-    title: "First Date Outfits for Shorter Men: 5 Real-Scenario Looks",
+    title: "First Date Outfits for Short Men: 5 Looks That Work",
     slug: "first-date-outfit-short-men",
     description: "5 real-scenario date looks that don't try too hard.",
   },
@@ -179,7 +182,7 @@ export const shortMenArticleCards = [
     description: "How to build depth in one-color outfits without looking flat.",
   },
   {
-    title: "Grooming Is a Multiplier: How Haircuts, Facial Hair, and Skincare Affect Your Style Score",
+    title: "Grooming for Men: The Style Multiplier Most Guys Ignore",
     slug: "grooming-multiplier-mens-style",
     description: "How haircuts, facial hair, and skincare affect your style.",
   },

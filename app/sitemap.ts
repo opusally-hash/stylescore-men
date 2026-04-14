@@ -41,6 +41,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/style-quiz`,
+      lastModified,
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/short-men-style`,
+      lastModified,
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}/blog`,
       lastModified,
       priority: 0.8,

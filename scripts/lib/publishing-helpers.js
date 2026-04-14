@@ -6,8 +6,8 @@ const rootDir = path.resolve(__dirname, "..", "..");
 const keywordsPath = path.join(rootDir, "keywords.json");
 const relatedArticlesPath = path.join(rootDir, "content", "related-articles.json");
 const generatedArticlesDir = path.join(rootDir, "content", "generated-articles");
-const MIN_WORD_COUNT = 1100;
-const MAX_WORD_COUNT = 1500;
+const MIN_WORD_COUNT = 1250;
+const MAX_WORD_COUNT = 2000;
 
 function parseArgs(argv) {
   const args = {};
@@ -72,7 +72,7 @@ function selectNextQueueEntry(config) {
   const today = new Date().toISOString().slice(0, 10);
   const publishedTodayCount = countPublishedArticlesForDate(today);
 
-  if (publishedTodayCount >= 2) {
+  if (publishedTodayCount >= 1) {
     return undefined;
   }
 
@@ -287,17 +287,19 @@ function canonicalUrl(slug) {
 
 function ensureAssessmentLink(contentMarkdown) {
   const normalizedContent = contentMarkdown
-    .replace(/https:\/\/stylescore\.live\/onboarding\b/g, "https://stylescore.live/assessment")
-    .replace(/\/onboarding\b/g, "/assessment");
+    .replace(/https:\/\/stylescore\.live\/onboarding\b/g, "https://stylescore.live/style-quiz")
+    .replace(/https:\/\/stylescore\.live\/assessment\b/g, "https://stylescore.live/style-quiz")
+    .replace(/\/onboarding\b/g, "/style-quiz")
+    .replace(/\/assessment\b/g, "/style-quiz");
 
   if (
-    normalizedContent.includes("](/assessment)") ||
+    normalizedContent.includes("](/style-quiz)") ||
     normalizedContent.includes("](/blog/mens-style-test)")
   ) {
     return normalizedContent.trim();
   }
 
-  return `${normalizedContent.trim()}\n\nIf you want the personal version of this instead of the generic advice, take the [StyleScore assessment](/assessment) and see which category is actually holding your look back.`;
+  return `${normalizedContent.trim()}\n\nIf you want the personal version of this instead of the generic advice, take the [StyleScore style quiz](/style-quiz) and see which category is actually holding your look back.`;
 }
 
 function validateArticlePayload(article, queueEntry) {
@@ -415,7 +417,8 @@ function buildCtaHeadline(cluster) {
     "body-type": "Find out whether your build is being styled well or wasted.",
     "style-self-assessment": "Get the objective version of your style, not the guess.",
     "common-style-problems": "Find the one category dragging your whole look down.",
-    "age-specific": "See which style category matters most for your current stage."
+    "age-specific": "See which style category matters most for your current stage.",
+    "short-men-style": "See which proportion issue is making you look shorter than you are."
   };
 
   return headlineMap[cluster] || "Get the personal version of this advice.";
@@ -423,11 +426,11 @@ function buildCtaHeadline(cluster) {
 
 function buildCtaBody(cluster) {
   if (cluster === "age-specific") {
-    return "Take the free StyleScore assessment and see how your fit, shoes, grooming, wardrobe, color coordination, and occasion dressing are holding up right now.";
+    return "Take the free StyleScore style quiz and see how your fit, shoes, grooming, wardrobe, color coordination, and occasion dressing are holding up right now.";
   }
 
   const category = deriveCategory(cluster).toLowerCase();
-  return `Take the free StyleScore assessment and see how your ${category} choices stack up across fit, shoes, grooming, wardrobe, color coordination, and occasion dressing.`;
+  return `Take the free StyleScore style quiz and see how your ${category} choices stack up across fit, shoes, grooming, wardrobe, color coordination, and occasion dressing.`;
 }
 
 function ensureStyleScoreSuffix(title) {
@@ -469,7 +472,7 @@ function buildGeneratedArticleRecord(article, queueEntry, relatedArticles, publi
   const externalLinks = new Set(article.external_links || []);
   const sources = getNormalizedSources(article);
 
-  internalLinks.add("/assessment");
+  internalLinks.add("/style-quiz");
   relatedArticles.forEach((relatedArticle) => internalLinks.add(relatedArticle.href));
 
   return {

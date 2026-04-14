@@ -80,7 +80,7 @@ export default function Page() {
               Most men are losing points without realizing it.
             </p>
             <a
-              href="/onboarding"
+              href="/style-quiz"
               className="premium-glow mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_24px_rgba(251,146,60,0.4)]"
             >
               Check Your StyleScore -&gt;
@@ -120,7 +120,7 @@ export default function Page() {
                 Not sure if your shoes are helping or hurting your style?
               </p>
               <a
-                href="/onboarding"
+                href="/style-quiz"
                 className="mt-4 inline-flex rounded-2xl bg-orange-400 px-5 py-3 font-semibold text-black transition hover:bg-orange-300"
               >
                 Take the Free Style Test -&gt;
@@ -195,7 +195,7 @@ export default function Page() {
                 across the fundamentals that matter most.
               </p>
               <a
-                href="/onboarding"
+                href="/style-quiz"
                 className="premium-glow mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300 shadow-[0_0_24px_rgba(251,146,60,0.4)]"
               >
                 Get Your StyleScore -&gt;

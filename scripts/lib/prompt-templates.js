@@ -44,7 +44,7 @@ Never do these things:
 Structure:
 1. Hook with a real situation
 2. Explain why it matters
-3. Build 5-7 H2 sections that each make one clear point
+3. Build 6-8 H2 sections that each make one clear point
 4. Back specific claims with named sources, measurements, or concrete examples
 5. Include one natural internal CTA to the StyleScore funnel
 6. End with a 4-6 question FAQ optimized for featured snippets
@@ -73,7 +73,7 @@ Article brief:
 - Primary keyword: ${keyword}
 - Secondary keywords: ${secondaryKeywords.join(", ")}
 - Article format: ${articleFormat}
-- Target word count: 1,200-1,450 words
+- Target word count: 1,500-1,900 words
 - Target URL: https://stylescore.live/blog/${slug}
 - Audience: men aged 25-45 who want practical style improvement
 - Editorial angle: ${editorialAngle || "Make the advice concrete, specific, and clearly different from generic menswear roundup content."}
@@ -85,7 +85,7 @@ Article brief:
 SEO requirements:
 - Primary keyword must appear in the H1, first 100 words, and at least 2 H2s
 - The title and H1 should read like a natural editorial headline, not a raw keyword string
-- Include at least one natural internal link to /assessment or a relevant /blog article
+- Include at least one natural internal link to /style-quiz or a relevant /blog article
 - Include at least 3 inline external links to real authoritative sources inside the article body
 - Include 3-5 source references in the sources array and make sure they match the links actually used in the body
 - Do not include a FAQ section, Sources section, or Related Articles section inside content_markdown
@@ -130,7 +130,7 @@ Tasks:
 - Add one moment that acknowledges most men do not want to spend all weekend thinking about clothes
 - Vary sentence rhythm with a few short punchy lines and a few longer explanatory ones
 - Make sure the article includes at least one concrete detail such as a measurement, price, brand, or study result
-- Make sure the body stays within roughly 1,200-1,450 words and does not contain FAQ, Sources, or Related Articles sections
+- Make sure the body stays within roughly 1,500-1,900 words and does not contain FAQ, Sources, or Related Articles sections
 - Make the article feel distinct from these sibling posts: ${siblingArticles.length > 0 ? siblingArticles.join("; ") : "none yet"}
 - Keep these editorial priorities visible: ${editorialBlueprint.length > 0 ? editorialBlueprint.join("; ") : "none"}
 - Rewrite any paragraph that sounds like generic menswear filler or could be pasted into another age/style article unchanged
@@ -157,7 +157,7 @@ Requirements you must satisfy:
 - The H1 must clearly contain the primary keyword: ${queueEntry.keyword}
 - If the raw keyword sounds awkward, rewrite it into a clean editorial H1 while still covering the main terms naturally
 - The first 100 words of content_markdown must include the primary keyword naturally
-- Keep content_markdown between 1,100 and 1,500 words
+- Keep content_markdown between 1,500 and 1,900 words
 - content_markdown must not contain FAQ, Sources, or Related Articles headings or embedded Q&A blocks
 - Remove every banned word: crucial, paramount, elevate, curate, effortless, timeless, versatile, "In conclusion", "In this article"
 - Remove AI tell phrases such as: ${AI_TELL_PHRASES.join(", ")}
@@ -194,9 +194,9 @@ Current failures:
 Your job:
 - Expand the article into a complete publishable draft, not a light revision
 - Keep the same topic and keyword: ${queueEntry.keyword}
-- Make sure content_markdown ends between 1,150 and 1,450 words
+- Make sure content_markdown ends between 1,500 and 1,900 words
 - Add enough real H2 sections so the article has at least 5
-- Add at least one natural inline internal link to /assessment or a strongly relevant /blog page
+- Add at least one natural inline internal link to /style-quiz or a strongly relevant /blog page
 - Add 4-6 FAQ items if the article currently has too few
 - Add or preserve 3-5 real source references and make sure at least 3 of them appear as inline links in the body
 - Remove any embedded FAQ/source/related-articles sections from content_markdown

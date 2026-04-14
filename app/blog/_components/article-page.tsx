@@ -46,11 +46,20 @@ export function buildBlogMetadata(article: BlogArticle): Metadata {
       modifiedTime: article.updatedAt ?? article.publishedAt,
       authors: article.author ? [article.author] : undefined,
       siteName: "StyleScore",
+      images: [
+        {
+          url: "/og-image-share.png",
+          width: 1368,
+          height: 768,
+          alt: `${article.heading} preview`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: article.title,
       description: article.description,
+      images: ["/og-image-share.png"],
     },
   };
 }
@@ -84,6 +93,30 @@ export function ArticlePage({ article }: { article: BlogArticle }) {
       "@id": url,
     },
   });
+  const breadcrumbJsonLd = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://stylescore.live",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: "https://stylescore.live/blog",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: article.heading,
+        item: url,
+      },
+    ],
+  });
   const faqJsonLd =
     article.faq && article.faq.length > 0
       ? JSON.stringify({
@@ -109,6 +142,10 @@ export function ArticlePage({ article }: { article: BlogArticle }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: breadcrumbJsonLd }}
       />
       {faqJsonLd ? (
         <script
@@ -204,6 +241,10 @@ export function ArticlePage({ article }: { article: BlogArticle }) {
                 ))}
               </ul>
             </section>
+          ) : null}
+
+          {article.category === "short-men-style" ? (
+            <ShortMenHubCard />
           ) : null}
 
           {article.faq && article.faq.length > 0 ? (
@@ -312,7 +353,7 @@ function AssessmentCtaCard({
         <h2 className="mt-3 text-2xl font-semibold text-white">{headline}</h2>
         <p className="mt-3 max-w-2xl leading-7 text-white/70">{body}</p>
         <a
-          href="/assessment"
+          href="/style-quiz"
           className="mt-5 inline-flex rounded-2xl bg-orange-400 px-6 py-3 font-semibold text-black transition hover:bg-orange-300"
         >
           {buttonLabel}
@@ -331,12 +372,43 @@ function AssessmentCtaCard({
       <h2 className="mt-3 text-2xl font-semibold">{headline}</h2>
       <p className="mx-auto mt-3 max-w-2xl leading-7 text-black/80">{body}</p>
       <a
-        href="/assessment"
+        href="/style-quiz"
         className="mt-5 inline-flex rounded-2xl bg-black px-6 py-3 font-semibold text-white transition hover:bg-black/90"
       >
         {buttonLabel}
       </a>
     </div>
+  );
+}
+
+function ShortMenHubCard() {
+  return (
+    <section className="mt-12 rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6">
+      <p className="text-xs font-semibold uppercase tracking-[0.32em] text-orange-300/80">
+        Short Men Style Hub
+      </p>
+      <h2 className="mt-3 text-2xl font-semibold text-white">
+        Keep the short-men style cluster tight.
+      </h2>
+      <p className="mt-3 leading-8 text-white/70">
+        Want the full proportion path? The short-men style hub links every guide
+        on fit, shoes, trousers, dates, weddings, grooming, and summer dressing
+        in one place. If you want the diagnostic version first, start with the
+        <a
+          href="/blog/mens-style-test"
+          className="mx-1 text-orange-300 underline decoration-orange-300 underline-offset-4 transition hover:text-orange-200"
+        >
+          men&apos;s style test
+        </a>
+        before changing what you buy.
+      </p>
+      <a
+        href="/short-men-style"
+        className="mt-5 inline-flex rounded-2xl border border-white/10 bg-white/5 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
+      >
+        Explore the Short Men Style Hub
+      </a>
+    </section>
   );
 }
 
