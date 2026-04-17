@@ -51,7 +51,7 @@ jobs:
       - name: Generate and publish article
         if: steps.keyword.outputs.has_entry == 'true'
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY || secrets.OPEN_AI || secrets.OPENAI_API_KEY_PROD }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY || secrets.OPEN_AI || secrets.OPENAI_API_KEY_PROD || secrets.open_ai || secrets.openai_api_key }}
           GSC_SERVICE_ACCOUNT: ${{ secrets.GSC_SERVICE_ACCOUNT }}
         run: |
           node scripts/generate-article.js --keyword "${{ steps.keyword.outputs.keyword }}" --slug "${{ steps.keyword.outputs.slug }}"
