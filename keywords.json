@@ -157,7 +157,7 @@
       "keyword": "dress shoes for short men",
       "slug": "dress-shoes-for-short-men",
       "priority": 109,
-      "status": "draft",
+      "status": "published",
       "cluster": "short-men-style",
       "articleFormat": "buying guide",
       "secondaryKeywords": [
@@ -165,7 +165,10 @@
         "formal shoes for short men",
         "dress shoes that add height"
       ],
-      "scheduledFor": "2026-04-15"
+      "scheduledFor": "2026-04-15",
+      "publishedAt": "2026-04-17",
+      "updatedAt": "2026-04-17",
+      "title": "Dress Shoes for Short Men: Formal Shoes That Do Not Cut Your Height | StyleScore"
     },
     {
       "keyword": "tuxedo for short men",
@@ -282,6 +285,14 @@
   ],
   "clusters": {
     "short-men-style": [
+      {
+        "slug": "dress-shoes-for-short-men",
+        "title": "Dress Shoes for Short Men: The Clean Formal Guide",
+        "href": "/blog/dress-shoes-for-short-men",
+        "description": "How short men should choose dress shoes, from toe shape and sole thickness to color matching, trouser break, and formal outfit pairings.",
+        "role": "supporting",
+        "publishedAt": "2026-04-17"
+      },
       {
         "slug": "shoes-for-short-men",
         "title": "Shoes for Short Men: What Actually Works",
