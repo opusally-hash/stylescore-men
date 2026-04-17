@@ -2,7 +2,7 @@ name: Publish SEO Articles
 
 on:
   schedule:
-    - cron: "0 15 * * 1,3,5"
+    - cron: "0 15,21 * * *"
   workflow_dispatch:
 
 permissions:
@@ -51,7 +51,7 @@ jobs:
       - name: Generate and publish article
         if: steps.keyword.outputs.has_entry == 'true'
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY || secrets.OPEN_AI || secrets.OPENAI_API_KEY_PROD }}
           GSC_SERVICE_ACCOUNT: ${{ secrets.GSC_SERVICE_ACCOUNT }}
         run: |
           node scripts/generate-article.js --keyword "${{ steps.keyword.outputs.keyword }}" --slug "${{ steps.keyword.outputs.slug }}"

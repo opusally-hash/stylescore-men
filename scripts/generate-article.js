@@ -556,6 +556,339 @@ If the outfit makes you constantly adjust the jacket, wonder about the shirt len
   }
 };
 
+const SHORT_MEN_RESCUE_SPECS = {
+  "shoes-for-short-men": {
+    title: "Shoes for Short Men: The Pairs That Keep Your Leg Line Clean | StyleScore",
+    metaDescription:
+      "A practical shoe guide for short men covering low-profile sneakers, loafers, boots, color matching, and the footwear mistakes that cut height.",
+    h1: "Shoes for Short Men: What Actually Works",
+    focus: "shoes",
+    usefulMove: "low-profile shoes with a clean toe, a controlled sole, and color that does not chop the ankle line",
+    avoidMove: "bulky runners, loud contrast soles, and shoes that make the foot look wider than the trouser leg",
+    measurement: "Keep most casual soles around 1 inch unless the shoe is clearly built as a boot.",
+    formulas: [
+      "dark straight jeans, dark suede Chelsea boots, and a textured overshirt",
+      "stone chinos, brown loafers, and an off-white oxford",
+      "navy trousers, low-profile white leather sneakers, and a tucked knit polo"
+    ],
+    internalLinks: ["/style-quiz", "/blog/best-shoes-for-short-men", "/blog/monochromatic-outfits-short-men"],
+    sources: [
+      {
+        title: "The Best Loafers for Men",
+        url: "https://www.gq.com/story/the-best-loafers-for-men/",
+        publisher: "GQ"
+      },
+      {
+        title: "The Best Chelsea Boots for Men",
+        url: "https://www.gq.com/story/best-chelsea-boots-for-men",
+        publisher: "GQ"
+      },
+      {
+        title: "Menswear Golden Ratio Explained",
+        url: "https://www.gq.com/story/menswear-golden-ratio-explained",
+        publisher: "GQ"
+      }
+    ]
+  },
+  "dress-shoes-for-short-men": {
+    title: "Dress Shoes for Short Men: Formal Shoes That Do Not Cut Your Height | StyleScore",
+    metaDescription:
+      "How short men should choose dress shoes, from toe shape and sole thickness to color matching, trouser break, and formal outfit pairings.",
+    h1: "Dress Shoes for Short Men: The Clean Formal Guide",
+    focus: "dress shoes",
+    usefulMove: "sleek derbies, loafers, or oxfords with a soft almond toe and a sole that looks grounded without becoming chunky",
+    avoidMove: "square toes, shiny corrected leather, and trouser hems that puddle on top of the shoe",
+    measurement: "A slight or no-break trouser hem usually gives dress shoes the cleanest line on a shorter frame.",
+    formulas: [
+      "charcoal trousers, black derbies, and a navy jacket",
+      "mid-grey suit trousers, dark brown oxfords, and a pale blue shirt",
+      "black trousers, black loafers, and a crisp white shirt for relaxed formal settings"
+    ],
+    internalLinks: ["/style-quiz", "/blog/best-shoes-for-short-men", "/blog/trouser-rise-pant-break-short-men"],
+    sources: [
+      {
+        title: "How to Buy Dress Shoes",
+        url: "https://www.gq.com/story/how-to-buy-dress-shoes",
+        publisher: "GQ"
+      },
+      {
+        title: "What to Wear for Business Casual",
+        url: "https://propercloth.com/reference/what-to-wear-for-business-casual-tips-and-custom-options/",
+        publisher: "Proper Cloth"
+      },
+      {
+        title: "Menswear Golden Ratio Explained",
+        url: "https://www.gq.com/story/menswear-golden-ratio-explained",
+        publisher: "GQ"
+      }
+    ]
+  },
+  "tuxedo-for-short-men": {
+    title: "Tuxedo for Short Men: Black Tie Rules That Protect Your Proportions | StyleScore",
+    metaDescription:
+      "A tuxedo fit guide for short men covering jacket length, lapels, trouser break, shirt details, shoes, and black tie mistakes.",
+    h1: "Tuxedo for Short Men: Black Tie Without Bad Proportions",
+    focus: "black tie",
+    usefulMove: "a clean jacket length, higher trouser rise, simple shirt front, and black formal shoes that keep the outfit uninterrupted",
+    avoidMove: "long jackets, low-rise trousers, huge bow ties, and patent shoes under messy hems",
+    measurement: "For many men under 5'8, a jacket that covers the seat without drifting lower is the safer target.",
+    formulas: [
+      "black peak-lapel tuxedo, higher-rise trousers, black bow tie, and black formal shoes",
+      "midnight navy dinner jacket, black tuxedo trousers, and a clean white shirt",
+      "black shawl-collar tuxedo, no-break trousers, and minimal studs"
+    ],
+    internalLinks: ["/style-quiz", "/blog/wedding-outfit-short-men", "/blog/dress-shoes-for-short-men"],
+    sources: [
+      {
+        title: "Tuxedo vs Suit",
+        url: "https://www.theknot.com/content/tuxedo-vs-suit",
+        publisher: "The Knot"
+      },
+      {
+        title: "Black Tie Dress Code for Men",
+        url: "https://www.gq.com/story/black-tie-guide",
+        publisher: "GQ"
+      },
+      {
+        title: "Menswear Golden Ratio Explained",
+        url: "https://www.gq.com/story/menswear-golden-ratio-explained",
+        publisher: "GQ"
+      }
+    ]
+  },
+  "jeans-for-short-men": {
+    title: "Jeans for Short Men: Fit Rules That Stop Denim From Shrinking You | StyleScore",
+    metaDescription:
+      "A denim fit guide for short men covering rise, inseam, taper, wash, break, and the jeans mistakes that make legs look shorter.",
+    h1: "Jeans for Short Men: The Fit Guide That Actually Helps",
+    focus: "jeans",
+    usefulMove: "a mid or slightly higher rise, a straight-tapered leg, and a hem that does not stack heavily over the shoe",
+    avoidMove: "low-rise skinny denim, huge cuffs, heavy stacking, and pale washes that break the leg line",
+    measurement: "Most shorter men should start testing inseams around 26 to 29 inches before assuming standard lengths can be fixed with cuffs.",
+    formulas: [
+      "dark straight jeans, black boots, and a charcoal overshirt",
+      "mid-blue tapered jeans, brown loafers, and a navy knit polo",
+      "black jeans, black leather sneakers, and a washed cotton jacket"
+    ],
+    internalLinks: ["/style-quiz", "/blog/inseam-guide-short-men", "/blog/how-clothes-should-fit-short-men"],
+    sources: [
+      {
+        title: "Men's Jeans Fit Guide",
+        url: "https://www.levi.com/US/en_US/blog/article/men-jeans-fit-guide",
+        publisher: "Levi's"
+      },
+      {
+        title: "Menswear Golden Ratio Explained",
+        url: "https://www.gq.com/story/menswear-golden-ratio-explained",
+        publisher: "GQ"
+      },
+      {
+        title: "How Pants Should Fit",
+        url: "https://propercloth.com/reference/how-dress-pants-should-fit/",
+        publisher: "Proper Cloth"
+      }
+    ]
+  },
+  "suits-for-short-men": {
+    title: "Suits for Short Men: The Fit Details That Matter Most | StyleScore",
+    metaDescription:
+      "A suit guide for short men covering jacket length, button stance, trouser rise, lapels, tailoring priorities, and common proportion mistakes.",
+    h1: "Suits for Short Men: Fit Details That Matter Most",
+    focus: "suits",
+    usefulMove: "a clean shoulder, controlled jacket length, slightly higher trouser rise, and minimal break at the shoe",
+    avoidMove: "long jackets, low button stances, oversized lapels, and trousers that pool around formal shoes",
+    measurement: "A tailor can usually fix trouser length quickly, but jacket length and shoulder width need to be right before purchase.",
+    formulas: [
+      "navy suit, pale blue shirt, dark brown derbies, and a narrow belt",
+      "charcoal suit, white shirt, black oxfords, and a quiet tie",
+      "mid-grey suit, knit polo, loafers, and no belt if the trousers sit cleanly"
+    ],
+    internalLinks: ["/style-quiz", "/blog/how-clothes-should-fit-short-men", "/blog/trouser-rise-pant-break-short-men"],
+    sources: [
+      {
+        title: "How to Buy a Suit",
+        url: "https://www.gq.com/story/how-to-buy-a-suit",
+        publisher: "GQ"
+      },
+      {
+        title: "How a Suit Should Fit",
+        url: "https://propercloth.com/reference/how-a-suit-should-fit/",
+        publisher: "Proper Cloth"
+      },
+      {
+        title: "Menswear Golden Ratio Explained",
+        url: "https://www.gq.com/story/menswear-golden-ratio-explained",
+        publisher: "GQ"
+      }
+    ]
+  },
+  "inseam-guide-short-men": {
+    title: "Inseam Guide for Short Men: Pants Length Without Guessing | StyleScore",
+    metaDescription:
+      "A short men's inseam guide with practical starting points, rise notes, pant break rules, and tailoring advice for cleaner proportions.",
+    h1: "Inseam Guide for Short Men: Pants Length Without Guessing",
+    focus: "inseam",
+    usefulMove: "measure the actual pants that fit best, then adjust by shoe type instead of trusting height charts alone",
+    avoidMove: "buying standard 30 or 32 inch inseams and solving the extra fabric with big cuffs",
+    measurement: "A 5'6 man often ends up near a 27 to 29 inch inseam, but rise, shoe height, and preferred break can move that number.",
+    formulas: [
+      "no-break wool trousers with loafers",
+      "slight-break chinos with derbies",
+      "cropped straight jeans with low-profile sneakers"
+    ],
+    internalLinks: ["/style-quiz", "/blog/trouser-rise-pant-break-short-men", "/blog/how-clothes-should-fit-short-men"],
+    sources: [
+      {
+        title: "How Dress Pants Should Fit",
+        url: "https://propercloth.com/reference/how-dress-pants-should-fit/",
+        publisher: "Proper Cloth"
+      },
+      {
+        title: "Men's Jeans Fit Guide",
+        url: "https://www.levi.com/US/en_US/blog/article/men-jeans-fit-guide",
+        publisher: "Levi's"
+      },
+      {
+        title: "Menswear Golden Ratio Explained",
+        url: "https://www.gq.com/story/menswear-golden-ratio-explained",
+        publisher: "GQ"
+      }
+    ]
+  },
+  "5-7-outfits-men": {
+    title: "5'7 Outfits for Men: Real Looks That Fix Proportion Fast | StyleScore",
+    metaDescription:
+      "Outfit ideas for 5'7 men covering casual, office, date, wedding, and warm-weather looks with proportion rules that work in real life.",
+    h1: "5'7 Outfits for Men: Real Looks That Fix Proportion Fast",
+    focus: "outfits",
+    usefulMove: "build outfits around a cleaner vertical line, not around louder pieces that fight for attention",
+    avoidMove: "long untucked shirts, heavy shoe contrast, and jackets that stop too low on the body",
+    measurement: "At 5'7, half an inch of extra shirt length or trouser stacking is easier to notice than most men expect.",
+    formulas: [
+      "navy knit polo, olive tapered chinos, and brown loafers",
+      "dark jeans, black Chelsea boots, and a charcoal trucker jacket",
+      "stone trousers, off-white shirt, and dark brown derbies"
+    ],
+    internalLinks: ["/style-quiz", "/blog/how-clothes-should-fit-short-men", "/blog/best-shoes-for-short-men"],
+    sources: [
+      {
+        title: "Menswear Golden Ratio Explained",
+        url: "https://www.gq.com/story/menswear-golden-ratio-explained",
+        publisher: "GQ"
+      },
+      {
+        title: "How Dress Pants Should Fit",
+        url: "https://propercloth.com/reference/how-dress-pants-should-fit/",
+        publisher: "Proper Cloth"
+      },
+      {
+        title: "The Best Loafers for Men",
+        url: "https://www.gq.com/story/the-best-loafers-for-men/",
+        publisher: "GQ"
+      }
+    ]
+  },
+  "5-6-style-guide-men": {
+    title: "5'6 Style Guide for Men: How to Dress Without Looking Boxed In | StyleScore",
+    metaDescription:
+      "A practical 5'6 style guide for men covering fit, shoes, trousers, jackets, color, and outfit formulas that protect proportion.",
+    h1: "5'6 Style Guide for Men: How to Dress Without Looking Boxed In",
+    focus: "5'6 style",
+    usefulMove: "control shirt length, trouser break, shoe contrast, and jacket length before chasing any trend",
+    avoidMove: "oversized layers, long tees, low-rise pants, and loud horizontal breaks through the outfit",
+    measurement: "For many men at 5'6, a shirt ending around mid-fly looks cleaner than one hanging near the bottom of the zipper.",
+    formulas: [
+      "black jeans, black boots, and a cropped overshirt",
+      "navy trousers, blue oxford, and brown loafers",
+      "olive chinos, cream tee, and low-profile sneakers"
+    ],
+    internalLinks: ["/style-quiz", "/blog/how-clothes-should-fit-short-men", "/blog/inseam-guide-short-men"],
+    sources: [
+      {
+        title: "Menswear Golden Ratio Explained",
+        url: "https://www.gq.com/story/menswear-golden-ratio-explained",
+        publisher: "GQ"
+      },
+      {
+        title: "How a Dress Shirt Should Fit",
+        url: "https://propercloth.com/reference/how-dress-shirt-should-fit/",
+        publisher: "Proper Cloth"
+      },
+      {
+        title: "How Dress Pants Should Fit",
+        url: "https://propercloth.com/reference/how-dress-pants-should-fit/",
+        publisher: "Proper Cloth"
+      }
+    ]
+  },
+  "short-men-business-casual": {
+    title: "Short Men Business Casual: Office Outfits That Keep a Clean Line | StyleScore",
+    metaDescription:
+      "Business casual for short men, with office outfit formulas, shoe choices, trouser fit rules, and mistakes that make workwear look sloppy.",
+    h1: "Short Men Business Casual: Office Outfits That Keep a Clean Line",
+    focus: "business casual",
+    usefulMove: "repeat a few compact office uniforms built around cleaner trousers, lower-profile shoes, and shirts that do not hang too long",
+    avoidMove: "baggy chinos, bulky sneakers, quarter-zips over messy shirts, and jackets that make the torso look blocky",
+    measurement: "A slight trouser break usually looks sharper at the office than stacked fabric sitting on top of loafers or derbies.",
+    formulas: [
+      "knit polo, tapered chinos, and suede loafers",
+      "oxford shirt, charcoal trousers, and dark derbies",
+      "textured overshirt, clean tee, navy chinos, and leather sneakers"
+    ],
+    internalLinks: ["/style-quiz", "/blog/business-casual-outfits-men-who-hate-dressing-up", "/blog/best-shoes-for-short-men"],
+    sources: [
+      {
+        title: "What to Wear for Business Casual",
+        url: "https://propercloth.com/reference/what-to-wear-for-business-casual-tips-and-custom-options/",
+        publisher: "Proper Cloth"
+      },
+      {
+        title: "Business Casual Attire Explained",
+        url: "https://www.gq.com/story/business-casual-attire-for-men-explained",
+        publisher: "GQ"
+      },
+      {
+        title: "How Dress Pants Should Fit",
+        url: "https://propercloth.com/reference/how-dress-pants-should-fit/",
+        publisher: "Proper Cloth"
+      }
+    ]
+  },
+  "short-men-gym-physique-style": {
+    title: "Short Men Gym Physique Style: Dress Athletic Without Looking Stuffed | StyleScore",
+    metaDescription:
+      "Style advice for short muscular men covering T-shirt fit, trouser taper, jackets, stretch fabric, grooming, and proportion mistakes.",
+    h1: "Short Men Gym Physique Style: Dress Athletic Without Looking Stuffed",
+    focus: "athletic build",
+    usefulMove: "show shape through clean fit instead of squeezing into clothes that advertise every seam",
+    avoidMove: "spray-on tees, over-tapered jeans, tiny jackets, and stretch fabric that clings instead of draping",
+    measurement: "If the sleeve is pulling across the bicep while the body is loose, the shirt is cut wrong for you.",
+    formulas: [
+      "heavyweight tee, straight jeans, and clean leather sneakers",
+      "knit polo, higher-rise trousers, and loafers",
+      "cropped jacket, plain tee, relaxed-taper chinos, and simple boots"
+    ],
+    internalLinks: ["/style-quiz", "/blog/Fashion-for-muscular-men", "/blog/how-clothes-should-fit-short-men"],
+    sources: [
+      {
+        title: "How a Dress Shirt Should Fit",
+        url: "https://propercloth.com/reference/how-dress-shirt-should-fit/",
+        publisher: "Proper Cloth"
+      },
+      {
+        title: "Men's Jeans Fit Guide",
+        url: "https://www.levi.com/US/en_US/blog/article/men-jeans-fit-guide",
+        publisher: "Levi's"
+      },
+      {
+        title: "Menswear Golden Ratio Explained",
+        url: "https://www.gq.com/story/menswear-golden-ratio-explained",
+        publisher: "GQ"
+      }
+    ]
+  }
+};
+
 function replaceBannedWords(text) {
   let updated = text;
 
@@ -655,8 +988,121 @@ function buildFallbackLead(keyword) {
   return `${buildFallbackHeading(keyword)} matters more than most men realize.`;
 }
 
+function buildShortMenRescueArticle(queueEntry) {
+  const spec = SHORT_MEN_RESCUE_SPECS[queueEntry.slug];
+
+  if (!spec || queueEntry.cluster !== "short-men-style") {
+    return null;
+  }
+
+  const [primarySource, secondarySource, tertiarySource] = spec.sources;
+  const formulas = spec.formulas
+    .map((formula) => `- ${formula}`)
+    .join("\n");
+  const relatedFitLink = spec.internalLinks.find((link) => link !== "/style-quiz") || "/blog/how-clothes-should-fit-short-men";
+  const content = [
+    `${queueEntry.keyword} should be judged by one question first: does the outfit keep your body looking clean from shoulder to shoe, or does it chop you into short blocks? The answer usually has less to do with buying louder clothes and more to do with controlling length, contrast, and bulk. ${spec.measurement}`,
+    `Shorter frames are less forgiving because every break is easier to see. A shirt that hangs a little too long, a shoe that looks a little too chunky, or a trouser hem with extra fabric can change the whole read. Most men do not want to spend all day thinking about clothes. Fair. The fix is to build a few rules that remove the worst mistakes before you leave the house.`,
+    `## Start with the vertical line`,
+    `The useful move for ${queueEntry.keyword} is ${spec.usefulMove}. That sounds simple, but it changes how the eye travels through the outfit. [${primarySource.title}](${primarySource.url}) is useful here because the strongest outfits usually make the body feel organized before anyone notices individual pieces.`,
+    `This is where generic advice gets lazy. It tells shorter men to "dress taller" as if the answer is hidden height. The better answer is cleaner interruption control. If the top half is too long, the shoes are too loud, and the pants break heavily, the outfit creates three separate stops. Remove two of those stops and the same body looks sharper.`,
+    `## Keep the lower half quiet`,
+    `The lower half carries more visual weight than men expect. ${spec.avoidMove} are the fastest way to make a shorter frame look boxed in. [${secondarySource.title}](${secondarySource.url}) is useful because it treats small details as part of the whole outfit, not isolated shopping trivia.`,
+    `A clean lower half does not mean boring. It means the shoe, sock, and trouser are not fighting. Dark denim with dark boots works because the line continues. Stone trousers with brown loafers work because the contrast is soft. Black shoes with pale pants can work too, but only when the rest of the outfit is sharp enough to support that hard stop.`,
+    `## Fit beats the style label`,
+    `Short men lose more from bad fit than from missing a trend. A trendy jacket that hangs too low still shortens the leg. A popular sneaker that widens the foot still makes the lower half heavier. A nice shirt that floats away from the body still reads sloppy. The label on the piece matters less than where it starts, stops, and breaks.`,
+    `Use the mirror test from the side, not just straight on. Check whether fabric is stacking behind the ankle, whether the shirt covers too much of the zipper, and whether the jacket cuts the body in half. If you want the wider proportion system, the [short men's fit guide](${relatedFitLink}) gives the full picture before you spend more money.`,
+    `## Use repeatable outfit formulas`,
+    `You do not need a giant wardrobe to make ${queueEntry.keyword} work. You need a few combinations that protect your proportions without making the outfit look like a trick. Start with these and adjust color for your closet:`,
+    formulas,
+    `Those formulas work because they keep the top, trouser, and shoe in the same conversation. No single piece is trying to rescue the outfit. The fit does the work. The colors support it. The shoe finishes it instead of dragging the eye downward.`,
+    `## Shop by shape before brand`,
+    `Brand lists can help, but shape comes first. Look for pieces that create a clean column, sit close without clinging, and stop at the right point on your body. If a pair looks strong on a six-foot model but creates stacking, pulling, or width on you, it is not your pair. That is not a style failure. It is a cut mismatch.`,
+    `The best shopping habit is to compare two sizes and one alternate cut before deciding. Try the regular size, the size down if the fabric allows, and a different rise or width if the first shape fights you. [${tertiarySource.title}](${tertiarySource.url}) is a good reminder that fit names are starting points, not promises. Straight, slim, athletic, and tapered can mean different things across brands.`,
+    `## Avoid the shortcuts that backfire`,
+    `The worst shortcut is chasing height by adding obvious bulk. Thick soles, tall collars, oversized jackets, and stacked hems can all make the outfit feel heavier. They might add a little physical height, but they often subtract visual height because the proportions get clumsy. A cleaner one-inch sole usually beats a clunky two-inch platform for daily wear.`,
+    `Another bad shortcut is wearing everything tight. Tight clothes can show body shape, but they also highlight every pull, wrinkle, and proportion issue. Shorter men usually look better with close, clean fit rather than shrink-wrapped fit. The fabric should follow the body without looking like it is under stress.`,
+    `## Let color reduce the breaks`,
+    `Color is not decoration here. It is a way to control where the eye stops. If the trouser and shoe are close in tone, the lower half reads longer. If the shirt and jacket sit in the same family, the torso reads cleaner. You can still wear contrast, but it needs to look chosen instead of accidental.`,
+    `The simplest color system is dark base, softer support, quiet shoe. Navy with brown, charcoal with black, olive with cream, denim with suede. That kind of palette gives you room to repeat outfits without looking like you copied the same look every day. It also keeps attention on fit, which is where shorter frames win or lose fastest.`,
+    `## Do not ignore grooming`,
+    `Grooming changes the frame around the clothes. A sharp haircut, clean neckline, trimmed facial hair, and skin that does not look ignored make simple outfits read more intentional. This matters even more when the clothing strategy is quiet. If the outfit is clean but the grooming is drifting, the whole look still feels unfinished.`,
+    `This is the part many style guides skip because it is less fun than shopping. It is also one of the highest-return fixes. A $30 haircut cadence can make a basic tee and good trousers look sharper than another random jacket added on top of weak maintenance.`,
+    `## Tailoring is not only for suits`,
+    `Small alterations matter because the margin is smaller. Hemming jeans, shortening sleeves, tapering trousers lightly below the knee, or cleaning up a shirt length can do more than buying another new piece. If the item is worn weekly, it earns alteration money faster than something you only wear twice a year.`,
+    `Start with the clothes that already get the most use. Fix the pants you wear twice a week before tailoring the blazer you rarely touch. This keeps the process practical. It also means your everyday baseline improves first, which is where most people actually judge your style.`,
+    `## Run the final scorecard before you buy`,
+    `Before buying, ask four questions. Does it reduce visual breaks? Does it work with shoes you already own? Does it fit without needing heroic tailoring? Does it make your most common outfits easier? If the answer is no, the piece is probably another orphan that will sit in the closet.`,
+    `If you want a more personal read, take the [StyleScore style quiz](/style-quiz). It will tell you whether fit, shoes, grooming, color, wardrobe, or occasion dressing is doing the most damage right now. That matters because many shorter men keep fixing the wrong category. Sometimes the issue is not the clothes at all. Sometimes the haircut, shoe condition, or trouser break is the thing making every outfit underperform.`
+  ]
+    .join("\n\n")
+    .trim();
+
+  return {
+    slug: queueEntry.slug,
+    title: spec.title,
+    meta_description: spec.metaDescription,
+    h1: spec.h1,
+    content_markdown: content,
+    faq: buildShortMenFaq(queueEntry, spec),
+    sources: spec.sources,
+    internal_links: spec.internalLinks,
+    external_links: spec.sources.map((source) => source.url),
+    primary_keyword: queueEntry.keyword,
+    secondary_keywords: queueEntry.secondaryKeywords || [],
+    word_count: 0
+  };
+}
+
+function buildShortMenFaq(queueEntry, spec) {
+  return [
+    {
+      question: `What matters most for ${queueEntry.keyword}?`,
+      answer: `Clean proportions matter most. Start with ${spec.usefulMove}, then remove obvious breaks at the shirt hem, trouser hem, and shoe.`
+    },
+    {
+      question: `What should short men avoid with ${spec.focus}?`,
+      answer: `Avoid ${spec.avoidMove}. Those details make the outfit look heavier and interrupt the line from torso to shoe.`
+    },
+    {
+      question: "Do short men need special brands?",
+      answer:
+        "Not always. Better cuts, cleaner lengths, and small alterations usually matter more than the brand name on the tag."
+    },
+    {
+      question: "Should short men wear tighter clothes?",
+      answer:
+        "No. Close fit is good, but tight fit usually creates pulling and makes proportions look worse. Aim for clean drape instead."
+    },
+    {
+      question: "What is the fastest style fix for short men?",
+      answer:
+        "Fix trouser length and shoe bulk first. Those two details change the lower half immediately and make the whole outfit read cleaner."
+    }
+  ];
+}
+
 function buildEditorialPlan(queueEntry) {
   const keyword = queueEntry.keyword.toLowerCase();
+  const shortMenSpec = SHORT_MEN_RESCUE_SPECS[queueEntry.slug];
+
+  if (queueEntry.cluster === "short-men-style" && shortMenSpec) {
+    return {
+      editorialAngle:
+        `Make this specifically about ${queueEntry.keyword}, not a generic short-men style article. Focus on proportion, visual breaks, fit, and practical outfit decisions.`,
+      mustCover: [
+        shortMenSpec.measurement,
+        `the useful move: ${shortMenSpec.usefulMove}`,
+        `what to avoid: ${shortMenSpec.avoidMove}`,
+        "3 concrete outfit formulas that fit this exact keyword"
+      ],
+      mustAvoid: [
+        "generic confidence advice",
+        "repeating the existing short-men pillar articles",
+        "height-increase gimmicks or obvious platform-shoe framing"
+      ]
+    };
+  }
 
   if (keyword.includes("30s")) {
     return {
@@ -725,6 +1171,17 @@ function buildEditorialPlan(queueEntry) {
 }
 
 function getEditorialBlueprint(queueEntry) {
+  const shortMenSpec = SHORT_MEN_RESCUE_SPECS[queueEntry.slug];
+
+  if (shortMenSpec) {
+    return [
+      `Keep the article specific to ${queueEntry.keyword}.`,
+      `Use this measurement/detail: ${shortMenSpec.measurement}`,
+      `Feature these formulas: ${shortMenSpec.formulas.join("; ")}`,
+      `Avoid this mistake pattern: ${shortMenSpec.avoidMove}`
+    ];
+  }
+
   return DETERMINISTIC_RESCUE_LIBRARY[queueEntry.slug]?.editorialBlueprint || [];
 }
 
@@ -789,7 +1246,8 @@ function normalizeArticleDraft(articleJson, queueEntry) {
     primary_keyword: articleJson.primary_keyword || queueEntry.keyword,
     secondary_keywords: Array.isArray(articleJson.secondary_keywords)
       ? articleJson.secondary_keywords
-      : queueEntry.secondaryKeywords
+      : queueEntry.secondaryKeywords,
+    word_count: 0
   };
 
   if (normalized.sources.length > 0 && normalized.external_links.length === 0) {
@@ -823,7 +1281,8 @@ function buildDeterministicRescueArticle(articleJson, queueEntry) {
   const spec = DETERMINISTIC_RESCUE_LIBRARY[queueEntry.slug];
 
   if (!spec) {
-    return articleJson;
+    const shortMenArticle = buildShortMenRescueArticle(queueEntry);
+    return shortMenArticle ? { ...articleJson, ...shortMenArticle } : articleJson;
   }
 
   const rescueContent = [
@@ -852,7 +1311,8 @@ function buildDeterministicRescueArticle(articleJson, queueEntry) {
     faq: spec.faq,
     sources: mergedSources,
     internal_links: mergedInternalLinks,
-    external_links: mergedExternalLinks
+    external_links: mergedExternalLinks,
+    word_count: 0
   };
 }
 
@@ -906,7 +1366,7 @@ async function expandArticleWithOpenAI(client, articleJson, queueEntry, validati
 
 async function generateArticleWithOpenAI(queueEntry) {
   if (!process.env.OPENAI_API_KEY) {
-    throw new Error("OPENAI_API_KEY is required for article generation.");
+    return normalizeArticleDraft(buildDeterministicRescueArticle({}, queueEntry), queueEntry);
   }
 
   const client = new OpenAIClient({ apiKey: process.env.OPENAI_API_KEY });

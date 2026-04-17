@@ -8,6 +8,7 @@ const relatedArticlesPath = path.join(rootDir, "content", "related-articles.json
 const generatedArticlesDir = path.join(rootDir, "content", "generated-articles");
 const MIN_WORD_COUNT = 1250;
 const MAX_WORD_COUNT = 2000;
+const MAX_DAILY_PUBLISHES = 2;
 
 function parseArgs(argv) {
   const args = {};
@@ -72,7 +73,7 @@ function selectNextQueueEntry(config) {
   const today = new Date().toISOString().slice(0, 10);
   const publishedTodayCount = countPublishedArticlesForDate(today);
 
-  if (publishedTodayCount >= 1) {
+  if (publishedTodayCount >= MAX_DAILY_PUBLISHES) {
     return undefined;
   }
 
