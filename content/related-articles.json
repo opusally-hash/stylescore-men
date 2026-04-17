@@ -154,6 +154,12 @@
     ],
     "summer-outfits-short-men": [
       {
+        "slug": "shoes-for-short-men",
+        "title": "Shoes for Short Men: What Actually Works",
+        "href": "/blog/shoes-for-short-men",
+        "description": "A practical shoe guide for short men covering low-profile sneakers, loafers, boots, color matching, and the footwear mistakes that cut height."
+      },
+      {
         "slug": "smart-casual-date-night-outfits-men",
         "title": "Smart Casual Date Night Outfits for Men",
         "href": "/blog/smart-casual-date-night-outfits-men",
@@ -232,6 +238,12 @@
     ],
     "best-shoes-for-short-men": [
       {
+        "slug": "shoes-for-short-men",
+        "title": "Shoes for Short Men: What Actually Works",
+        "href": "/blog/shoes-for-short-men",
+        "description": "A practical shoe guide for short men covering low-profile sneakers, loafers, boots, color matching, and the footwear mistakes that cut height."
+      },
+      {
         "slug": "what-shoes-to-wear-with-chinos-men",
         "title": "What Shoes to Wear With Chinos for Men",
         "href": "/blog/what-shoes-to-wear-with-chinos-men",
@@ -308,6 +320,34 @@
         "title": "Summer Style for Short Men",
         "href": "/blog/summer-outfits-short-men",
         "description": "Warm-weather outfit rules that keep proportions clean."
+      }
+    ],
+    "shoes-for-short-men": [
+      {
+        "slug": "best-shoes-for-short-men",
+        "title": "7 Best Shoes for Short Men That Actually Add Height",
+        "href": "/blog/best-shoes-for-short-men",
+        "description": "The strongest footwear choices for shorter men."
+      },
+      {
+        "slug": "how-clothes-should-fit-short-men",
+        "title": "How Clothes Should Fit If You're 5'6\"",
+        "href": "/blog/how-clothes-should-fit-short-men",
+        "description": "Specific fit landmarks for shirts, trousers, and jackets."
+      },
+      {
+        "slug": "summer-outfits-short-men",
+        "title": "Summer Style for Short Men",
+        "href": "/blog/summer-outfits-short-men",
+        "description": "Warm-weather outfit rules that keep proportions clean."
+      }
+    ],
+    "how-clothes-should-fit-short-men": [
+      {
+        "slug": "shoes-for-short-men",
+        "title": "Shoes for Short Men: What Actually Works",
+        "href": "/blog/shoes-for-short-men",
+        "description": "A practical shoe guide for short men covering low-profile sneakers, loafers, boots, color matching, and the footwear mistakes that cut height."
       }
     ]
   }

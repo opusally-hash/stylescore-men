@@ -140,7 +140,7 @@
       "keyword": "shoes for short men",
       "slug": "shoes-for-short-men",
       "priority": 110,
-      "status": "draft",
+      "status": "published",
       "cluster": "short-men-style",
       "articleFormat": "buying guide",
       "secondaryKeywords": [
@@ -148,7 +148,10 @@
         "shoes that make short men look taller",
         "short men shoe guide"
       ],
-      "scheduledFor": "2026-04-13"
+      "scheduledFor": "2026-04-13",
+      "publishedAt": "2026-04-17",
+      "updatedAt": "2026-04-17",
+      "title": "Shoes for Short Men: The Pairs That Keep Your Leg Line Clean | StyleScore"
     },
     {
       "keyword": "dress shoes for short men",
@@ -279,6 +282,14 @@
   ],
   "clusters": {
     "short-men-style": [
+      {
+        "slug": "shoes-for-short-men",
+        "title": "Shoes for Short Men: What Actually Works",
+        "href": "/blog/shoes-for-short-men",
+        "description": "A practical shoe guide for short men covering low-profile sneakers, loafers, boots, color matching, and the footwear mistakes that cut height.",
+        "role": "supporting",
+        "publishedAt": "2026-04-17"
+      },
       {
         "slug": "how-clothes-should-fit-short-men",
         "title": "How Clothes Should Fit If You're 5'6\"",
