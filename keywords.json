@@ -174,7 +174,7 @@
       "keyword": "tuxedo for short men",
       "slug": "tuxedo-for-short-men",
       "priority": 108,
-      "status": "draft",
+      "status": "published",
       "cluster": "short-men-style",
       "articleFormat": "occasion guide",
       "secondaryKeywords": [
@@ -182,7 +182,10 @@
         "short men tuxedo fit",
         "wedding tuxedo short men"
       ],
-      "scheduledFor": "2026-04-17"
+      "scheduledFor": "2026-04-17",
+      "publishedAt": "2026-04-18",
+      "updatedAt": "2026-04-18",
+      "title": "Tuxedo for Short Men: Black Tie Rules That Protect Your Proportions | StyleScore"
     },
     {
       "keyword": "jeans for short men",
@@ -285,6 +288,14 @@
   ],
   "clusters": {
     "short-men-style": [
+      {
+        "slug": "tuxedo-for-short-men",
+        "title": "Tuxedo for Short Men: Black Tie Without Bad Proportions",
+        "href": "/blog/tuxedo-for-short-men",
+        "description": "A tuxedo fit guide for short men covering jacket length, lapels, trouser break, shirt details, shoes, and black tie mistakes.",
+        "role": "supporting",
+        "publishedAt": "2026-04-18"
+      },
       {
         "slug": "dress-shoes-for-short-men",
         "title": "Dress Shoes for Short Men: The Clean Formal Guide",

@@ -238,6 +238,12 @@
     ],
     "best-shoes-for-short-men": [
       {
+        "slug": "tuxedo-for-short-men",
+        "title": "Tuxedo for Short Men: Black Tie Without Bad Proportions",
+        "href": "/blog/tuxedo-for-short-men",
+        "description": "A tuxedo fit guide for short men covering jacket length, lapels, trouser break, shirt details, shoes, and black tie mistakes."
+      },
+      {
         "slug": "dress-shoes-for-short-men",
         "title": "Dress Shoes for Short Men: The Clean Formal Guide",
         "href": "/blog/dress-shoes-for-short-men",
@@ -248,12 +254,6 @@
         "title": "Shoes for Short Men: What Actually Works",
         "href": "/blog/shoes-for-short-men",
         "description": "A practical shoe guide for short men covering low-profile sneakers, loafers, boots, color matching, and the footwear mistakes that cut height."
-      },
-      {
-        "slug": "what-shoes-to-wear-with-chinos-men",
-        "title": "What Shoes to Wear With Chinos for Men",
-        "href": "/blog/what-shoes-to-wear-with-chinos-men",
-        "description": "Discover the best shoes to wear with chinos for men, whether you're dressing for work or the weekend."
       }
     ],
     "best-white-sneakers-men": [
@@ -350,6 +350,12 @@
     ],
     "how-clothes-should-fit-short-men": [
       {
+        "slug": "tuxedo-for-short-men",
+        "title": "Tuxedo for Short Men: Black Tie Without Bad Proportions",
+        "href": "/blog/tuxedo-for-short-men",
+        "description": "A tuxedo fit guide for short men covering jacket length, lapels, trouser break, shirt details, shoes, and black tie mistakes."
+      },
+      {
         "slug": "dress-shoes-for-short-men",
         "title": "Dress Shoes for Short Men: The Clean Formal Guide",
         "href": "/blog/dress-shoes-for-short-men",
@@ -364,6 +370,26 @@
     ],
     "dress-shoes-for-short-men": [
       {
+        "slug": "tuxedo-for-short-men",
+        "title": "Tuxedo for Short Men: Black Tie Without Bad Proportions",
+        "href": "/blog/tuxedo-for-short-men",
+        "description": "A tuxedo fit guide for short men covering jacket length, lapels, trouser break, shirt details, shoes, and black tie mistakes."
+      },
+      {
+        "slug": "best-shoes-for-short-men",
+        "title": "7 Best Shoes for Short Men That Actually Add Height",
+        "href": "/blog/best-shoes-for-short-men",
+        "description": "The strongest footwear choices for shorter men."
+      },
+      {
+        "slug": "how-clothes-should-fit-short-men",
+        "title": "How Clothes Should Fit If You're 5'6\"",
+        "href": "/blog/how-clothes-should-fit-short-men",
+        "description": "Specific fit landmarks for shirts, trousers, and jackets."
+      }
+    ],
+    "tuxedo-for-short-men": [
+      {
         "slug": "best-shoes-for-short-men",
         "title": "7 Best Shoes for Short Men That Actually Add Height",
         "href": "/blog/best-shoes-for-short-men",
@@ -376,10 +402,10 @@
         "description": "Specific fit landmarks for shirts, trousers, and jackets."
       },
       {
-        "slug": "shoes-for-short-men",
-        "title": "Shoes for Short Men: What Actually Works",
-        "href": "/blog/shoes-for-short-men",
-        "description": "A practical shoe guide for short men covering low-profile sneakers, loafers, boots, color matching, and the footwear mistakes that cut height."
+        "slug": "dress-shoes-for-short-men",
+        "title": "Dress Shoes for Short Men: The Clean Formal Guide",
+        "href": "/blog/dress-shoes-for-short-men",
+        "description": "How short men should choose dress shoes, from toe shape and sole thickness to color matching, trouser break, and formal outfit pairings."
       }
     ]
   }
