@@ -191,7 +191,7 @@
       "keyword": "jeans for short men",
       "slug": "jeans-for-short-men",
       "priority": 107,
-      "status": "draft",
+      "status": "published",
       "cluster": "short-men-style",
       "articleFormat": "fit guide",
       "secondaryKeywords": [
@@ -199,7 +199,10 @@
         "jeans inseam for short men",
         "short men denim fit"
       ],
-      "scheduledFor": "2026-04-20"
+      "scheduledFor": "2026-04-20",
+      "publishedAt": "2026-04-20",
+      "updatedAt": "2026-04-20",
+      "title": "Jeans for Short Men: Fit Rules That Stop Denim From Shrinking You | StyleScore"
     },
     {
       "keyword": "suits for short men",
@@ -288,6 +291,14 @@
   ],
   "clusters": {
     "short-men-style": [
+      {
+        "slug": "jeans-for-short-men",
+        "title": "Jeans for Short Men: The Fit Guide That Actually Helps",
+        "href": "/blog/jeans-for-short-men",
+        "description": "A denim fit guide for short men covering rise, inseam, taper, wash, break, and the jeans mistakes that make legs look shorter.",
+        "role": "supporting",
+        "publishedAt": "2026-04-20"
+      },
       {
         "slug": "tuxedo-for-short-men",
         "title": "Tuxedo for Short Men: Black Tie Without Bad Proportions",
