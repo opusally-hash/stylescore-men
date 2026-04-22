@@ -238,6 +238,12 @@
     ],
     "best-shoes-for-short-men": [
       {
+        "slug": "suits-for-short-men",
+        "title": "Suits for Short Men: Fit Details That Matter Most",
+        "href": "/blog/suits-for-short-men",
+        "description": "A suit guide for short men covering jacket length, button stance, trouser rise, lapels, tailoring priorities, and common proportion mistakes."
+      },
+      {
         "slug": "jeans-for-short-men",
         "title": "Jeans for Short Men: The Fit Guide That Actually Helps",
         "href": "/blog/jeans-for-short-men",
@@ -248,12 +254,6 @@
         "title": "Tuxedo for Short Men: Black Tie Without Bad Proportions",
         "href": "/blog/tuxedo-for-short-men",
         "description": "A tuxedo fit guide for short men covering jacket length, lapels, trouser break, shirt details, shoes, and black tie mistakes."
-      },
-      {
-        "slug": "dress-shoes-for-short-men",
-        "title": "Dress Shoes for Short Men: The Clean Formal Guide",
-        "href": "/blog/dress-shoes-for-short-men",
-        "description": "How short men should choose dress shoes, from toe shape and sole thickness to color matching, trouser break, and formal outfit pairings."
       }
     ],
     "best-white-sneakers-men": [
@@ -350,6 +350,12 @@
     ],
     "how-clothes-should-fit-short-men": [
       {
+        "slug": "suits-for-short-men",
+        "title": "Suits for Short Men: Fit Details That Matter Most",
+        "href": "/blog/suits-for-short-men",
+        "description": "A suit guide for short men covering jacket length, button stance, trouser rise, lapels, tailoring priorities, and common proportion mistakes."
+      },
+      {
         "slug": "jeans-for-short-men",
         "title": "Jeans for Short Men: The Fit Guide That Actually Helps",
         "href": "/blog/jeans-for-short-men",
@@ -360,12 +366,6 @@
         "title": "Tuxedo for Short Men: Black Tie Without Bad Proportions",
         "href": "/blog/tuxedo-for-short-men",
         "description": "A tuxedo fit guide for short men covering jacket length, lapels, trouser break, shirt details, shoes, and black tie mistakes."
-      },
-      {
-        "slug": "dress-shoes-for-short-men",
-        "title": "Dress Shoes for Short Men: The Clean Formal Guide",
-        "href": "/blog/dress-shoes-for-short-men",
-        "description": "How short men should choose dress shoes, from toe shape and sole thickness to color matching, trouser break, and formal outfit pairings."
       }
     ],
     "dress-shoes-for-short-men": [
@@ -410,6 +410,26 @@
     ],
     "jeans-for-short-men": [
       {
+        "slug": "suits-for-short-men",
+        "title": "Suits for Short Men: Fit Details That Matter Most",
+        "href": "/blog/suits-for-short-men",
+        "description": "A suit guide for short men covering jacket length, button stance, trouser rise, lapels, tailoring priorities, and common proportion mistakes."
+      },
+      {
+        "slug": "best-shoes-for-short-men",
+        "title": "7 Best Shoes for Short Men That Actually Add Height",
+        "href": "/blog/best-shoes-for-short-men",
+        "description": "The strongest footwear choices for shorter men."
+      },
+      {
+        "slug": "how-clothes-should-fit-short-men",
+        "title": "How Clothes Should Fit If You're 5'6\"",
+        "href": "/blog/how-clothes-should-fit-short-men",
+        "description": "Specific fit landmarks for shirts, trousers, and jackets."
+      }
+    ],
+    "suits-for-short-men": [
+      {
         "slug": "best-shoes-for-short-men",
         "title": "7 Best Shoes for Short Men That Actually Add Height",
         "href": "/blog/best-shoes-for-short-men",
@@ -422,10 +442,10 @@
         "description": "Specific fit landmarks for shirts, trousers, and jackets."
       },
       {
-        "slug": "tuxedo-for-short-men",
-        "title": "Tuxedo for Short Men: Black Tie Without Bad Proportions",
-        "href": "/blog/tuxedo-for-short-men",
-        "description": "A tuxedo fit guide for short men covering jacket length, lapels, trouser break, shirt details, shoes, and black tie mistakes."
+        "slug": "jeans-for-short-men",
+        "title": "Jeans for Short Men: The Fit Guide That Actually Helps",
+        "href": "/blog/jeans-for-short-men",
+        "description": "A denim fit guide for short men covering rise, inseam, taper, wash, break, and the jeans mistakes that make legs look shorter."
       }
     ]
   }

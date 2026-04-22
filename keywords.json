@@ -208,7 +208,7 @@
       "keyword": "suits for short men",
       "slug": "suits-for-short-men",
       "priority": 106,
-      "status": "draft",
+      "status": "published",
       "cluster": "short-men-style",
       "articleFormat": "fit guide",
       "secondaryKeywords": [
@@ -216,7 +216,10 @@
         "short men suit fit",
         "suit proportions for short men"
       ],
-      "scheduledFor": "2026-04-22"
+      "scheduledFor": "2026-04-22",
+      "publishedAt": "2026-04-22",
+      "updatedAt": "2026-04-22",
+      "title": "Suits for Short Men: The Fit Details That Matter Most | StyleScore"
     },
     {
       "keyword": "inseam guide short men",
@@ -291,6 +294,14 @@
   ],
   "clusters": {
     "short-men-style": [
+      {
+        "slug": "suits-for-short-men",
+        "title": "Suits for Short Men: Fit Details That Matter Most",
+        "href": "/blog/suits-for-short-men",
+        "description": "A suit guide for short men covering jacket length, button stance, trouser rise, lapels, tailoring priorities, and common proportion mistakes.",
+        "role": "supporting",
+        "publishedAt": "2026-04-22"
+      },
       {
         "slug": "jeans-for-short-men",
         "title": "Jeans for Short Men: The Fit Guide That Actually Helps",
