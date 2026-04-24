@@ -225,7 +225,7 @@
       "keyword": "inseam guide short men",
       "slug": "inseam-guide-short-men",
       "priority": 105,
-      "status": "draft",
+      "status": "published",
       "cluster": "short-men-style",
       "articleFormat": "measurement guide",
       "secondaryKeywords": [
@@ -233,7 +233,10 @@
         "short men inseam chart",
         "pants length for short men"
       ],
-      "scheduledFor": "2026-04-24"
+      "scheduledFor": "2026-04-24",
+      "publishedAt": "2026-04-24",
+      "updatedAt": "2026-04-24",
+      "title": "Inseam Guide for Short Men: Pants Length Without Guessing | StyleScore"
     },
     {
       "keyword": "5'7 outfits men",
@@ -294,6 +297,14 @@
   ],
   "clusters": {
     "short-men-style": [
+      {
+        "slug": "inseam-guide-short-men",
+        "title": "Inseam Guide Short for Men",
+        "href": "/blog/inseam-guide-short-men",
+        "description": "A short men's inseam guide with practical starting points, rise notes, pant break rules, and tailoring advice for cleaner proportions.",
+        "role": "supporting",
+        "publishedAt": "2026-04-24"
+      },
       {
         "slug": "suits-for-short-men",
         "title": "Suits for Short Men: Fit Details That Matter Most",
