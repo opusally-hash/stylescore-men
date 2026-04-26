@@ -1266,9 +1266,245 @@ function buildShortMenFaq(queueEntry, spec) {
   ];
 }
 
+const SHORT_MEN_EDITORIAL_PLANS = {
+  "shoes-for-short-men": {
+    editorialAngle: "Treat this as a footwear decision guide, not a general proportion article. The central question is: which shoe profiles extend the leg line and which ones interrupt it. Answer that specifically for sneakers, loafers, boots, and dress shoes.",
+    mustCover: [
+      "why sole thickness matters more than heel height for daily wear",
+      "how toe shape (round vs pointed vs square) affects leg-line reading",
+      "the colors that keep the lower half clean vs colors that cut it",
+      "specific shoe types to avoid and why (chunky soles, contrasting soles, overly glossy dress shoes)"
+    ],
+    mustAvoid: [
+      "general proportion rules that apply to any garment",
+      "outfit formula sections — this article is about footwear specifically",
+      "height elevator shoe framing"
+    ],
+    blueprint: [
+      "Open with the specific footwear problem: most shoe advice ignores how profile and sole depth hit differently on a shorter leg.",
+      "Explain the leg-line principle once, clearly, then apply it to each shoe category.",
+      "Rate specific silhouettes: low-profile sneakers vs chunky trainers, suede loafers vs glossy oxfords, chelsea boots vs lug-sole boots.",
+      "End with a buying checklist: what to check in a shoe before committing."
+    ]
+  },
+  "dress-shoes-for-short-men": {
+    editorialAngle: "This is a formal footwear guide — not a general shoes article. Focus on the specific tension between formality and proportion: dress shoes for short men need to look intentional without adding visual weight or chopping the trouser line. The fit between shoe and trouser hem is the central topic.",
+    mustCover: [
+      "how trouser break interacts with dress shoe silhouette for shorter men",
+      "oxford vs derby vs loafer for formal contexts — which wins and why",
+      "cap-toe vs plain-toe vs brogue — how much decoration is too much at shorter heights",
+      "sole thickness rules for formal shoes specifically"
+    ],
+    mustAvoid: [
+      "casual sneaker or boot content — this article is formal footwear only",
+      "general short-men proportion overview",
+      "outfit formula content — stay focused on the shoes and their trouser relationship"
+    ],
+    blueprint: [
+      "Open with the specific formal footwear tension: most dress shoe advice ignores how the shoe-trouser boundary reads on a shorter leg.",
+      "Cover the silhouette choices in order of importance: toe shape, then vamp height, then sole thickness.",
+      "Address color matching for formal contexts — when to match to trouser, when to contrast.",
+      "Give a specific recommendation for 3 formal shoe types that consistently work for shorter men."
+    ]
+  },
+  "tuxedo-for-short-men": {
+    editorialAngle: "This is a black-tie and formal event guide, not a general suit article. The specific challenge is that tuxedo rules were written for taller average frames — jacket length, shawl lapel width, trousers with no break, and peak lapel sizing all behave differently on a shorter frame. Treat the tuxedo as a system with interdependent parts.",
+    mustCover: [
+      "jacket length for tuxedos specifically vs regular suits — why the rule differs",
+      "shawl vs peak lapel for shorter men — which creates a longer vertical read",
+      "trouser break for black tie — why no break or a very slight break is even more important here",
+      "formal shirt details: bib width, collar height, and how they affect the neckline read",
+      "when renting vs buying a tuxedo changes the fit calculus"
+    ],
+    mustAvoid: [
+      "general suit advice that applies to everyday suiting",
+      "repeating trouser rise/inseam basics already covered in the inseam guide",
+      "general short-men proportion overview that could apply to any garment"
+    ],
+    blueprint: [
+      "Open with the specific black-tie context: tuxedo rules were written for a 6-foot baseline. Name the exact adjustments shorter men need.",
+      "Break down the jacket: length, button stance, lapel choice.",
+      "Break down the trousers: break, rise, and the case for no break at black tie.",
+      "Cover the shirt and accessories as part of the whole system.",
+      "End with the one thing most shorter men get wrong at black-tie events."
+    ]
+  },
+  "jeans-for-short-men": {
+    editorialAngle: "This is entirely about denim fit mechanics — not a general lower-body article. Focus on the three numbers that matter most in jeans: rise, inseam, and taper. Every section should connect back to a specific measurement or fit outcome, not a general style principle.",
+    mustCover: [
+      "why rise is the most important denim decision for shorter men (more than inseam)",
+      "the inseam numbers by height (28 to 30 for most men under 5'8)",
+      "how taper affects the leg line — why straight-leg often reads wider than it is on shorter legs",
+      "the break question: no break vs quarter break vs half break for denim specifically",
+      "how to identify if a pair of jeans is cut for a taller body even before trying them on"
+    ],
+    mustAvoid: [
+      "trouser or chino advice — stay in denim specifically",
+      "general silhouette rules that apply to all bottoms",
+      "outfit formula sections outside of brief pairing notes"
+    ],
+    blueprint: [
+      "Open with the specific denim challenge: most jeans are cut for a 32-inch inseam and a mid-rise that sits lower on a shorter torso.",
+      "Explain rise first — how it changes the visual torso-to-leg ratio.",
+      "Then inseam — give the actual numbers by height range.",
+      "Then taper — how to read taper from the product page before trying them on.",
+      "Close with the break question and a quick denim shopping checklist."
+    ]
+  },
+  "suits-for-short-men": {
+    editorialAngle: "This is a suit construction guide — the fit details that make a suit work or fail on a shorter frame. Focus on jacket length, button stance, lapel width, and trouser rise as specific, measurable decisions. The reader needs numbers and fit checkpoints, not general proportion philosophy.",
+    mustCover: [
+      "jacket length: the exact test (fingertip rule vs seat-coverage rule) and why it matters more at shorter heights",
+      "button stance: why higher is better and what to look for on a jacket tag",
+      "lapel width: the 3-inch vs 3.5-inch difference and how it reads on a shorter frame",
+      "shoulder padding: structured vs unstructured and which adds or removes visual bulk",
+      "trouser rise in suit trousers specifically — why this differs from casual trouser advice"
+    ],
+    mustAvoid: [
+      "general short-men overview content",
+      "tuxedo or black-tie specific advice — that is covered elsewhere",
+      "advice that applies to any man regardless of height"
+    ],
+    blueprint: [
+      "Open with the suit-specific challenge: off-the-rack suiting is cut for a 5'10 to 6'0 baseline. Name the exact parts that fail at 5'6 to 5'8.",
+      "Cover the jacket from top to bottom: shoulders, chest, button stance, jacket length.",
+      "Cover the trousers: rise, taper, break.",
+      "Address lapels and details: width, notch vs peak vs shawl, pocket placement.",
+      "End with a fit checklist for buying off-the-rack and a guide to what to ask a tailor to fix first."
+    ]
+  },
+  "inseam-guide-short-men": {
+    editorialAngle: "This is a measurement guide, not a style article. The reader wants numbers. Give them inseam ranges by height, by trouser type, and by intended break. Treat this like a technical reference that a man can return to every time he buys trousers.",
+    mustCover: [
+      "inseam ranges by height: 5'4, 5'5, 5'6, 5'7, 5'8 — what starting point to ask for",
+      "how the intended break (no break, quarter break, half break) changes the target inseam by 0.5 to 1 inch",
+      "how trouser rise affects where the inseam measurement starts and why a higher rise often needs a shorter inseam",
+      "how to measure your own inseam correctly at home",
+      "brand sizing inconsistencies and how to compensate"
+    ],
+    mustAvoid: [
+      "general proportion or style philosophy",
+      "outfit formula sections",
+      "advice that overlaps with the jeans fit guide"
+    ],
+    blueprint: [
+      "Open with a measurement-first framing: inseam is the single number most men get wrong when buying trousers.",
+      "Give the height-to-inseam table as the central section.",
+      "Explain how rise changes the math.",
+      "Show how break preference shifts the target.",
+      "End with a practical tailoring guide: what to tell the tailor and how much a hem alteration costs."
+    ]
+  },
+  "5-7-outfits-men": {
+    editorialAngle: "This is a complete head-to-toe outfit guide for men at exactly 5'7 — not a general proportion article. At 5'7, most off-the-rack clothing is close but not quite right. The article should give specific, real-world outfit combinations that work at this height, with notes on what to watch for in each layer.",
+    mustCover: [
+      "why 5'7 is a particularly tricky height — close to average, so some standard sizing works and some doesn't",
+      "3 to 5 specific outfit combinations with actual garment details (not just categories)",
+      "the trouser length situation at 5'7 — which inseams to look for",
+      "jacket and overshirt length — where to find pieces that don't need alteration",
+      "the shoe choice that makes or breaks the leg line at this height specifically"
+    ],
+    mustAvoid: [
+      "generic short-men proportion overview",
+      "advice that applies equally to 5'4 and 5'9",
+      "outfit formulas without specific garment or measurement details"
+    ],
+    blueprint: [
+      "Open with the 5'7 paradox: you're tall enough that most short-men advice doesn't quite apply, but short enough that average sizing still causes problems.",
+      "Give a seasonal or occasion-based outfit breakdown with specific garment details.",
+      "Cover the fit zones that need the most attention at 5'7: trouser break, jacket length, shirt hem.",
+      "Give a brand or sizing shortcut specific to this height.",
+      "End with a 5'7 shopping checklist."
+    ]
+  },
+  "5-6-style-guide-men": {
+    editorialAngle: "5'6 is the exact height where most ready-to-wear sizing assumptions break down hardest. This article is about understanding why — and building a practical system around that reality. It should feel like a personal sizing consultant, not a proportion lecture.",
+    mustCover: [
+      "why 5'6 is different from 5'7 or 5'8 in terms of off-the-rack fit (the numbers that cause problems)",
+      "which brands and lines cut for shorter torsos without requiring alteration",
+      "the specific fit zones that need checking on every garment: shirt length, jacket length, trouser break",
+      "when to buy regular sizing and alter vs when to look for short or petite cuts",
+      "a realistic capsule framework for 5'6 — not a full wardrobe list, but the 4-5 core pieces that form the foundation"
+    ],
+    mustAvoid: [
+      "repeating the general proportion rules already covered in other short-men articles",
+      "advice that applies equally to any height under 5'9",
+      "outfit formula content that doesn't reference 5'6 specific fit notes"
+    ],
+    blueprint: [
+      "Open with the 5'6 sizing reality: at this height, you're short enough for the off-the-rack system to consistently fail you, but the industry rarely acknowledges it.",
+      "Cover the fit zones in order of impact: trouser break first, then shirt length, then jacket length.",
+      "Address the brand landscape: which lines cut well for shorter torsos without being marketed as 'short' sizes.",
+      "Give a practical alteration priority list — what to fix first if budget is limited.",
+      "End with a 5'6-specific shopping habit: what to check before buying and what to walk away from."
+    ]
+  },
+  "short-men-business-casual": {
+    editorialAngle: "Generic business casual advice is written for men around 5'10. This article is about what changes when you're 5'6 or 5'7 in an office context — specifically how standard business casual formulas (chinos + OCBD + loafers) need to be adjusted to not look like borrowed clothes.",
+    mustCover: [
+      "why chinos cut for a 5'10 frame make the lower half look heavy at 5'6",
+      "trouser length for office settings specifically — slightly shorter break reads sharper",
+      "shirt length in office context: the tucked-vs-untucked question and why it matters more at shorter heights",
+      "how to wear a blazer without making the jacket look too long",
+      "shoes for business casual at shorter heights — why loafer vs derby vs clean sneaker choice matters for the office silhouette"
+    ],
+    mustAvoid: [
+      "general business casual advice that applies to any man",
+      "repeating short-men proportion basics already covered in the pillar articles",
+      "outfit formula sections without office-specific context"
+    ],
+    blueprint: [
+      "Open with the office-specific problem: business casual dress codes were written for an average-height baseline. Name what fails at 5'6.",
+      "Cover the trouser situation first — it's the biggest office fail for shorter men.",
+      "Address the shirt and layer situation: tucked shirts, blazers, and overshirts in an office context.",
+      "Cover shoes — what works for office smart casual at shorter heights.",
+      "End with a practical 5-day workwear rotation that a shorter man can actually wear without second-guessing."
+    ]
+  },
+  "short-men-gym-physique-style": {
+    editorialAngle: "Short and muscular is a completely different fit challenge from short and lean. Most short-men style advice is written for the lean frame. This article is for men who lift — where the problems are excess bulk in the upper body, strain across the chest and shoulders, and trousers that fit the seat but not the thigh. The advice needs to reflect that specific body.",
+    mustCover: [
+      "why standard short-men advice fails on a muscular frame (the problems are opposite)",
+      "how to find shirts that fit the chest and shoulders without excess length",
+      "trouser fit for muscular legs: why standard taper often creates strain rather than a clean line",
+      "the jacket and blazer situation for a muscular shorter man: where to buy, what to alter",
+      "how to dress to show shape without the clothes looking stretched or stuffed"
+    ],
+    mustAvoid: [
+      "advice written for a lean or average build",
+      "repeating general short-men proportion basics",
+      "outfit formulas that don't account for the muscular-frame fit constraints"
+    ],
+    blueprint: [
+      "Open by naming the specific tension: gym physique + short height creates fit problems that most menswear advice ignores entirely.",
+      "Address upper body fit first: how to find shirts and jackets that fit the chest without pulling.",
+      "Address lower body fit: trousers for muscular legs, why standard taper is often the wrong choice.",
+      "Cover the shoe question for a muscular shorter man: how to balance a heavier upper body with the lower half.",
+      "End with a practical buying guide: what to try in-store, what to order with the intent to alter, and what to avoid entirely."
+    ]
+  }
+};
+
 function buildEditorialPlan(queueEntry) {
   const keyword = queueEntry.keyword.toLowerCase();
   const shortMenSpec = SHORT_MEN_RESCUE_SPECS[queueEntry.slug];
+  const shortMenPlan = SHORT_MEN_EDITORIAL_PLANS[queueEntry.slug];
+
+  if (queueEntry.cluster === "short-men-style" && shortMenPlan) {
+    return {
+      editorialAngle: shortMenPlan.editorialAngle,
+      mustCover: shortMenPlan.mustCover,
+      mustAvoid: [
+        ...shortMenPlan.mustAvoid,
+        "opening with 'should be judged by one question first: does the outfit keep your body looking clean from shoulder to shoe'",
+        "the section heading 'Start with the vertical line'",
+        "the section heading 'Keep the lower half quiet'",
+        "the section heading 'Fit beats the style label'",
+        "the section heading 'Avoid the shortcuts that backfire'",
+        "paragraphs that begin with 'Shorter frames are less forgiving'"
+      ]
+    };
+  }
 
   if (queueEntry.cluster === "short-men-style" && shortMenSpec) {
     return {
@@ -1283,7 +1519,11 @@ function buildEditorialPlan(queueEntry) {
       mustAvoid: [
         "generic confidence advice",
         "repeating the existing short-men pillar articles",
-        "height-increase gimmicks or obvious platform-shoe framing"
+        "height-increase gimmicks or obvious platform-shoe framing",
+        "opening with 'should be judged by one question first: does the outfit keep your body looking clean from shoulder to shoe'",
+        "the section heading 'Start with the vertical line'",
+        "the section heading 'Keep the lower half quiet'",
+        "paragraphs that begin with 'Shorter frames are less forgiving'"
       ]
     };
   }
@@ -1355,6 +1595,12 @@ function buildEditorialPlan(queueEntry) {
 }
 
 function getEditorialBlueprint(queueEntry) {
+  const shortMenPlan = SHORT_MEN_EDITORIAL_PLANS[queueEntry.slug];
+
+  if (shortMenPlan) {
+    return shortMenPlan.blueprint;
+  }
+
   const shortMenSpec = SHORT_MEN_RESCUE_SPECS[queueEntry.slug];
 
   if (shortMenSpec) {
@@ -1371,16 +1617,35 @@ function getEditorialBlueprint(queueEntry) {
 
 function getSiblingArticleContext(queueEntry) {
   const config = loadKeywordsConfig();
-  const siblings = config.queue
+
+  const publishedTitles = config.queue
     .filter(
       (entry) =>
         entry.cluster === queueEntry.cluster &&
         entry.slug !== queueEntry.slug &&
-        (entry.status === "published" || entry.title)
+        entry.status === "published" &&
+        entry.title
     )
-    .map((entry) => entry.title || entry.slug);
+    .map((entry) => entry.title);
 
-  return siblings.slice(0, 4);
+  const generatedDir = path.join(__dirname, "..", "content", "generated-articles");
+  const generatedTitles = fs.existsSync(generatedDir)
+    ? fs
+        .readdirSync(generatedDir)
+        .filter((f) => f.endsWith(".json") && f !== `${queueEntry.slug}.json`)
+        .map((f) => {
+          try {
+            const article = JSON.parse(fs.readFileSync(path.join(generatedDir, f), "utf8"));
+            return article.cluster === queueEntry.cluster ? article.title : null;
+          } catch {
+            return null;
+          }
+        })
+        .filter(Boolean)
+    : [];
+
+  const all = Array.from(new Set([...publishedTitles, ...generatedTitles]));
+  return all.slice(0, 6);
 }
 
 function normalizeArticleDraft(articleJson, queueEntry) {
