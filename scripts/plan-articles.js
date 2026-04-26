@@ -277,7 +277,7 @@ async function main() {
     cluster: article.cluster,
     articleFormat: article.articleFormat,
     secondaryKeywords: article.secondaryKeywords || [],
-    scheduledFor: addDays(lastDate, (i + 1) * 2)
+    scheduledFor: addDays(lastDate, i + 1)
   }));
 
   if (dryRun) {
