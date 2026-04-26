@@ -1885,6 +1885,12 @@ async function generateArticleWithClaude(queueEntry) {
   const siblingArticles = getSiblingArticleContext(queueEntry);
   const editorialBlueprint = getEditorialBlueprint(queueEntry);
 
+  const config = loadKeywordsConfig();
+  const relatedForLinks = chooseRelatedArticles(config, queueEntry.cluster, queueEntry.slug, 4);
+  const suggestedInternalLinks = relatedForLinks
+    .filter((a) => a.href && a.title)
+    .map((a) => ({ title: a.title, href: a.href }));
+
   const article = await createClaudeJson({
     apiKey,
     model,
@@ -1898,6 +1904,7 @@ async function generateArticleWithClaude(queueEntry) {
       editorialAngle: editorialPlan.editorialAngle,
       editorialBlueprint,
       siblingArticles,
+      suggestedInternalLinks,
       mustCover: editorialPlan.mustCover,
       mustAvoid: editorialPlan.mustAvoid
     })

@@ -6,8 +6,8 @@ const rootDir = path.resolve(__dirname, "..", "..");
 const keywordsPath = path.join(rootDir, "keywords.json");
 const relatedArticlesPath = path.join(rootDir, "content", "related-articles.json");
 const generatedArticlesDir = path.join(rootDir, "content", "generated-articles");
-const MIN_WORD_COUNT = 1250;
-const MAX_WORD_COUNT = 2000;
+const MIN_WORD_COUNT = 1500;
+const MAX_WORD_COUNT = 2800;
 const MAX_DAILY_PUBLISHES = 2;
 
 function parseArgs(argv) {
@@ -345,8 +345,8 @@ function validateArticlePayload(article, queueEntry) {
     errors.push("Missing required internal link");
   }
 
-  if (countInlineInternalLinks(contentMarkdown) < 1) {
-    errors.push("Need at least 1 inline internal link in the article body");
+  if (countInlineInternalLinks(contentMarkdown) < 2) {
+    errors.push("Need at least 2 inline internal links in the article body");
   }
 
   if (externalLinks.length < 3) {

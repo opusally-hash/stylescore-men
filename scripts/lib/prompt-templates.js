@@ -64,16 +64,21 @@ function buildArticlePrompt({
   editorialAngle,
   editorialBlueprint = [],
   siblingArticles = [],
+  suggestedInternalLinks = [],
   mustCover = [],
   mustAvoid = []
 }) {
+  const internalLinkBlock = suggestedInternalLinks.length > 0
+    ? `- Suggested internal links to weave naturally into the body (use at least 2-3 of these where relevant):\n${suggestedInternalLinks.map((l) => `  - [${l.title}](${l.href})`).join("\n")}`
+    : `- Include at least 2 natural internal links to /style-quiz or relevant /blog articles`;
+
   return `Write a complete SEO-optimized blog article for stylescore.live.
 
 Article brief:
 - Primary keyword: ${keyword}
 - Secondary keywords: ${secondaryKeywords.join(", ")}
 - Article format: ${articleFormat}
-- Target word count: 1,500-1,900 words
+- Target word count: 2,000-2,600 words
 - Target URL: https://stylescore.live/blog/${slug}
 - Audience: men aged 25-45 who want practical style improvement
 - Editorial angle: ${editorialAngle || "Make the advice concrete, specific, and clearly different from generic menswear roundup content."}
@@ -85,17 +90,17 @@ Article brief:
 SEO requirements:
 - Primary keyword must appear in the H1, first 100 words, and at least 2 H2s
 - The title and H1 should read like a natural editorial headline, not a raw keyword string
-- Include at least one natural internal link to /style-quiz or a relevant /blog article
-- Include at least 3 inline external links to real authoritative sources inside the article body
-- Include 3-5 source references in the sources array and make sure they match the links actually used in the body
+${internalLinkBlock}
+- Include at least 4 inline external links to real, verifiable authoritative sources (GQ, Esquire, academic journals, brand fit guides, Permanent Style, Put This On, etc.)
+- Include 4-5 source references in the sources array and make sure they match links actually used in the body
 - Do not include a FAQ section, Sources section, or Related Articles section inside content_markdown
 - Do not include a section called conclusion
 - Avoid AI phrases such as "When it comes to" and "It's important to"
 - Add one sentence that pushes back on bad conventional style advice
 - Add one self-aware sentence acknowledging most men do not want to spend all day thinking about clothes
-- Include at least one concrete detail such as a price, measurement, study result, or named brand
+- Include at least two concrete details: a price, measurement, study result, named brand, or specific product
 - Make the body materially different from other StyleScore posts on adjacent topics. Do not recycle the same section order, hook, or advice phrasing.
-- Build at least 5 H2 sections.
+- Build at least 6 H2 sections.
 - FAQ items must be 4-6 total, answer the keyword directly, and be phrased differently from the body.
 - If a paragraph could fit another StyleScore article by swapping a few nouns, rewrite it until it feels specific.
 
@@ -114,7 +119,7 @@ Return only valid JSON with this shape:
   ],
   "internal_links": ["list of internal URLs used"],
   "external_links": ["list of external URLs used"],
-  "word_count": 1250,
+  "word_count": 2000,
   "primary_keyword": "${keyword}",
   "secondary_keywords": ["${secondaryKeywords.join('", "')}"]
 }`;
@@ -157,7 +162,7 @@ Requirements you must satisfy:
 - The H1 must clearly contain the primary keyword: ${queueEntry.keyword}
 - If the raw keyword sounds awkward, rewrite it into a clean editorial H1 while still covering the main terms naturally
 - The first 100 words of content_markdown must include the primary keyword naturally
-- Keep content_markdown between 1,500 and 1,900 words
+- Keep content_markdown between 2,000 and 2,600 words
 - content_markdown must not contain FAQ, Sources, or Related Articles headings or embedded Q&A blocks
 - Remove every banned word: crucial, paramount, elevate, curate, effortless, timeless, versatile, "In conclusion", "In this article"
 - Remove AI tell phrases such as: ${AI_TELL_PHRASES.join(", ")}
@@ -194,7 +199,7 @@ Current failures:
 Your job:
 - Expand the article into a complete publishable draft, not a light revision
 - Keep the same topic and keyword: ${queueEntry.keyword}
-- Make sure content_markdown ends between 1,500 and 1,900 words
+- Make sure content_markdown ends between 2,000 and 2,600 words
 - Add enough real H2 sections so the article has at least 5
 - Add at least one natural inline internal link to /style-quiz or a strongly relevant /blog page
 - Add 4-6 FAQ items if the article currently has too few
