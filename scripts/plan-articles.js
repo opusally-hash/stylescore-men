@@ -90,7 +90,7 @@ async function callClaude(prompt) {
     },
     body: JSON.stringify({
       model: getModel(),
-      max_tokens: 4000,
+      max_tokens: 8000,
       temperature: 0.7,
       messages: [{ role: "user", content: prompt }]
     })
@@ -125,41 +125,56 @@ function buildGapAnalysisPrompt({ generatedArticles, legacySlugs, queuedKeywords
     .map((k) => `- [${k.cluster}] "${k.keyword}"`)
     .join("\n");
 
-  return `You are the content strategist for StyleScore, a men's style platform.
+  return `You are the content strategist for StyleScore, a men's style platform targeting men aged 20-50 who want to dress better but don't want to become fashion obsessives.
 
-The site's editorial voice is: direct, practical, no-bullshit. Writes like a sharp friend, not a fashion magazine.
+Editorial voice: direct, practical, no-bullshit. Like a sharp friend who understands real clothes.
 
-## EXISTING PUBLISHED ARTICLES
+## WHAT ALREADY EXISTS (do not duplicate or closely overlap)
 ${published}
 
-## ARTICLES ALREADY IN THE QUEUE (do not duplicate)
+## ALREADY QUEUED (do not duplicate)
 ${queued || "none"}
 
 ## YOUR TASK
-Identify the most impactful content gaps and return exactly ${requestedCount} new article ideas that:
 
-1. Cover distinct topics not already published or queued
-2. Vary widely across clusters — do NOT propose more than 3 from the same cluster
-3. Avoid structural repetition (e.g., don't suggest another "X for short men" unless the angle is genuinely different)
-4. Target real search intent with high relevance to men who want to dress better
-5. Include a mix of: beginner-friendly, intermediate, and specific/niche topics
-6. Cover underserved areas like: accessories, seasonal dressing, fabric/care, body types beyond short men, specific lifestyle contexts, budget guidance, occasion-specific beyond what exists
+Think from first principles. Forget the existing list for a moment. Ask: what are ALL the things men aged 20-50 search for when they want to dress better? Then find the ones not covered above.
 
-For each article, choose the best cluster from:
-- short-men-style
-- age-specific
-- occasion-dressing
-- footwear
-- grooming
-- color-coordination
-- common-style-problems
-- fit-proportion
-- wardrobe
-- body-type
-- accessories (new)
-- seasonal (new)
-- fabric-care (new)
-- lifestyle (new)
+Consider every dimension of men's style needs:
+
+**Audience segments** — students, first-job men, professionals, dads, men re-entering dating, men who just lost weight, men moving cities, men attending their first formal event, men who work from home, men who travel for work, men who lift
+
+**Garment categories** — shirts, trousers, jeans, suits, outerwear (coats, jackets), knitwear, T-shirts, polos, shorts, swimwear, underwear, socks, accessories (belts, watches, bags, sunglasses, hats, ties, pocket squares)
+
+**Occasions** — job interview, wedding guest, funeral, graduation, first date, work from home, black tie, casual Friday, weekend brunch, travel, gym, outdoor events, holiday parties, beach, summer BBQ
+
+**Style problems** — clothes that don't fit, looking sloppy despite spending money, dressing age-appropriately, transitioning between dress codes, looking overdressed or underdressed, shopping confusion, wardrobe that doesn't work together
+
+**Body types** — slim/lean, athletic/muscular, tall, overweight/larger, barrel chest, long torso, short legs (not just short overall)
+
+**Budget tiers** — budget shopping, fast fashion traps, investment pieces, thrift/secondhand, cost-per-wear thinking
+
+**Fabric and care** — how to wash, iron, store, repair common garments; wool, cotton, linen, synthetic blends; pilling, fading, shrinking; dry cleaning myths
+
+**Seasonal and climate** — winter layering, summer heat, transitional weather, dressing for rain, cold-weather formality
+
+**Grooming adjacents** — haircut styles, beard styles, skincare for men who hate skincare, fragrance basics, nail care
+
+**Color and styling** — pattern mixing, navy vs black, when to wear white, how to wear bold colors, neutral wardrobes
+
+**Shopping and wardrobe building** — capsule wardrobe by lifestyle, where to shop at each budget, how to thrift, when to invest vs save, wardrobe audits, selling old clothes
+
+**Cultural and lifestyle** — streetwear to smart casual transition, dressing professionally in a casual industry, remote-work style, travel packing light, style for different climates
+
+Now return exactly ${requestedCount} article ideas that fill real gaps across this full landscape. Requirements:
+
+1. Cover at least 8 different clusters — spread wide, no cluster should have more than 3 entries
+2. Include a mix of high-volume beginner topics AND specific niche topics with clear intent
+3. Every keyword must target a real search phrase a man would actually type
+4. No topic should closely overlap with anything already published or queued
+5. Prioritize topics where the StyleScore voice (direct, practical) has a clear advantage over generic magazine content
+
+Use these clusters (or invent a new one if it genuinely fits better):
+short-men-style | age-specific | occasion-dressing | footwear | grooming | color-coordination | common-style-problems | fit-proportion | wardrobe | body-type | accessories | seasonal | fabric-care | lifestyle | budget | outerwear | knitwear
 
 Return ONLY a valid JSON array. No markdown, no explanation. Each object must have:
 {
