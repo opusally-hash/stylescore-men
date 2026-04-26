@@ -242,7 +242,7 @@
       "keyword": "5'7 outfits men",
       "slug": "5-7-outfits-men",
       "priority": 104,
-      "status": "draft",
+      "status": "published",
       "cluster": "short-men-style",
       "articleFormat": "outfit guide",
       "secondaryKeywords": [
@@ -250,7 +250,27 @@
         "outfits for 5'7 men",
         "style for 5'7 men"
       ],
-      "scheduledFor": "2026-04-27"
+      "scheduledFor": "2026-04-26",
+      "publishedAt": "2026-04-26",
+      "updatedAt": "2026-04-26",
+      "title": "5'7 Outfits for Men: Real Looks That Fix Proportion Fast | StyleScore"
+    },
+    {
+      "keyword": "how to dress better men 20s",
+      "slug": "how-to-dress-better-men-20s",
+      "priority": 93,
+      "status": "published",
+      "cluster": "age-specific",
+      "articleFormat": "how-to guide",
+      "secondaryKeywords": [
+        "mens style in your 20s",
+        "how to dress in your 20s male",
+        "fashion tips for men in their 20s"
+      ],
+      "scheduledFor": "2026-04-26",
+      "publishedAt": "2026-04-26",
+      "updatedAt": "2026-04-26",
+      "title": "How to Dress Better in Your 20s: Build the Foundation That Lasts | StyleScore"
     },
     {
       "keyword": "5'6 style guide men",
@@ -297,6 +317,14 @@
   ],
   "clusters": {
     "short-men-style": [
+      {
+        "slug": "5-7-outfits-men",
+        "title": "5'7 Outfits for Men: Real Looks That Fix Proportion Fast",
+        "href": "/blog/5-7-outfits-men",
+        "description": "Outfit ideas for 5'7 men covering casual, office, date, wedding, and warm-weather looks with proportion rules that work in real life.",
+        "role": "supporting",
+        "publishedAt": "2026-04-26"
+      },
       {
         "slug": "inseam-guide-short-men",
         "title": "Inseam Guide Short for Men",
@@ -642,6 +670,14 @@
         "description": "How to sharpen your style in your 30s without overthinking every outfit.",
         "role": "supporting",
         "publishedAt": "2026-04-07"
+      },
+      {
+        "slug": "how-to-dress-better-men-20s",
+        "title": "How Men in Their 20s Can Dress Better",
+        "href": "/blog/how-to-dress-better-men-20s",
+        "description": "How to build a real style foundation in your 20s without wasting money on trends.",
+        "role": "supporting",
+        "publishedAt": "2026-04-26"
       }
     ],
     "common-style-problems": [

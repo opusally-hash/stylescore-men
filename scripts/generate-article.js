@@ -550,6 +550,122 @@ Too many layers. Shoes that are dressier than the venue. Loud fragrance on top o
 ## Date-night smart casual should make you calmer, not more self-conscious
 
 If the outfit makes you constantly adjust the jacket, wonder about the shirt length, or second-guess the shoe choice, it is the wrong outfit. The right one disappears once it is on. That is part of the point. And if you want to know whether the weak link is fit, shoes, or occasion dressing itself, the [StyleScore style quiz](/style-quiz) gives you the faster answer than guessing from scratch every time.`
+  },
+  "how-to-dress-better-men-20s": {
+    title: "How to Dress Better in Your 20s: Build the Foundation That Lasts | StyleScore",
+    metaDescription:
+      "How men in their 20s can dress better without wasting money on trends. Fit fundamentals, wardrobe basics, shoe rules, and the mistakes that cost most guys years of looking average.",
+    h1: "How to Dress Better in Your 20s",
+    editorialBlueprint: [
+      "Open by framing the 20s as the decade where the foundation either gets built or gets deferred.",
+      "Push back on trend-chasing and fast fashion as the dominant approach most young men take.",
+      "Build around fit, basics, shoes, and grooming as the four pillars.",
+      "Keep the tone honest and slightly blunt — the reader is smart enough for direct advice."
+    ],
+    internalLinks: [
+      "/style-quiz",
+      "/blog/how-to-dress-better-men-30s",
+      "/blog/how-to-dress-better-men"
+    ],
+    sources: [
+      {
+        title: "How to Build a Men's Capsule Wardrobe",
+        url: "https://www.gq.com/story/how-to-build-a-capsule-wardrobe-men",
+        publisher: "GQ"
+      },
+      {
+        title: "The Best White T-Shirts for Men",
+        url: "https://www.gq.com/story/best-white-t-shirts-for-men",
+        publisher: "GQ"
+      },
+      {
+        title: "How a Dress Shirt Should Fit",
+        url: "https://propercloth.com/reference/how-dress-shirt-should-fit/",
+        publisher: "Proper Cloth"
+      }
+    ],
+    faq: [
+      {
+        question: "What is the most important style rule for men in their 20s?",
+        answer:
+          "Fit. A cheap shirt that fits correctly will always look better than an expensive one that does not. Before you buy anything else, learn where clothes should sit on your body and start measuring that against what you already own."
+      },
+      {
+        question: "How much should men in their 20s spend on clothes?",
+        answer:
+          "Less than you think on quantity, more on fit and shoes. Buying fewer pieces that are well-made and correctly sized beats a full closet of cheap fast fashion that ages badly and never looks sharp."
+      },
+      {
+        question: "Should men in their 20s follow trends?",
+        answer:
+          "Not as the foundation. Trends can work as small additions once the basics are in place, but building an entire wardrobe around seasonal trends means you are always starting over. Build the base first."
+      },
+      {
+        question: "What shoes should men in their 20s own?",
+        answer:
+          "At minimum: clean white or off-white sneakers, a pair of loafers or clean derbies, and one simple boot. Those three cover most situations and give you a strong default for casual, smart casual, and dressed-up occasions."
+      },
+      {
+        question: "How does grooming affect style in your 20s?",
+        answer:
+          "More than most young men expect. A consistent haircut, clean skin, and a maintained beard or shave line change the way every outfit reads. Grooming is a multiplier. Ignore it and the clothes underperform."
+      }
+    ],
+    supplement: `## Your 20s are when the foundation either gets built or gets deferred
+
+Most men look back at their 20s and wish they had sorted this out earlier. Not because they were badly dressed — but because they wasted a decade buying the wrong things, chasing the wrong moves, and ignoring the one thing that actually changes everything: fit. How men in their 20s can dress better is less about a shopping list and more about a different way of looking at clothes. [GQ's capsule wardrobe guide](https://www.gq.com/story/how-to-build-a-capsule-wardrobe-men) is worth reading because it pushes the same idea: fewer pieces that actually work together beat a closet full of orphaned impulse buys.
+
+## Fit is the only rule you need in your 20s
+
+You do not need an expensive wardrobe. You need clothes that fit your body. A clean white tee that sits correctly across the shoulder and stops at the right length will always look better than a designer piece that swallows your frame. [Proper Cloth's shirt fit guide](https://propercloth.com/reference/how-dress-shirt-should-fit/) is useful because it gives the actual landmarks: shoulder seam, chest room, sleeve length, shirt tail. Learn those checkpoints and you will stop making the most expensive mistake in menswear, which is buying things that look fine on a hanger and wrong on you.
+
+## Stop building a wardrobe around trends
+
+The fast fashion model is built for the 20s. The ads are targeted at you. The prices feel accessible. But trend-driven wardrobes reset every season, never look cohesive, and age badly in photos. The smarter approach is to own the clothes that work in two years the same way they work today: well-fitting jeans, a few quality tees, one or two good shirts, clean trousers, and shoes that belong to more than one outfit. That is not boring. That is a base. Once it exists, you can add whatever you want on top of it.
+
+## Shoes are the fastest shortcut to looking more put together
+
+Most men in their 20s underestimate shoes and then wonder why the outfit feels half-finished. [GQ's white tee guide](https://www.gq.com/story/best-white-t-shirts-for-men) reflects the same principle from the top half: clean basics land better than complicated ones. The shoe version of that is a clean, low-profile sneaker that does not look athletic, a loafer you can wear to dinner or a weekend, and one solid boot. Those three pairs handle most situations. The biggest mistake is owning a dozen pairs of shoes that all belong to one narrow setting.
+
+## Grooming compounds every outfit decision you make
+
+Men in their 20s often treat grooming as optional or as an afterthought. It is neither. A consistent haircut, maintained facial hair or a clean shave, decent skin, and trimmed nails change the read of every outfit. A strong outfit with bad grooming looks careless. Average clothes with sharp grooming look intentional. That asymmetry is worth understanding early. The [StyleScore style quiz](/style-quiz) measures this directly and tells you whether grooming is the category dragging your overall presentation down.
+
+## Build toward the 30s version of your style, not just for right now
+
+The best thing a man in his 20s can do for his long-term style is stop thinking in seasons and start thinking in foundations. The [how to dress better in your 30s guide](/blog/how-to-dress-better-men-30s) describes what comes next: refined fit, better restraint, clothes that actually work in professional and social contexts at the same time. That does not happen automatically when you turn 30. It happens because you built the base in your 20s instead of waiting.
+
+## Buy less, but buy better
+
+The most common mistake men make in their 20s is volume. They buy cheap and they buy a lot. The result is a closet that feels full but has nothing to wear, because nothing actually works together. A better approach is to buy one good thing instead of three mediocre ones. A well-made oxford at 80 dollars will outlast four 20-dollar shirts and look sharper doing it. That math applies to everything: shoes, outerwear, denim, and even basics. Less inventory, more intention.
+
+## Learn what actually fits your body before you buy anything new
+
+The fitting room test is the starting point for all of this. Before you decide what to buy next, take fifteen minutes with what you already own and check the shoulders, chest, length, and seat on each piece. Anything that does not fit correctly should be altered or replaced — not kept because it was expensive or because you might "grow into it." Understanding your own measurements is the fastest way to stop wasting money at every price point. Most men in their 20s have never had a garment altered. That alone is a larger upgrade than most new purchases.`
+    ,
+    extension: `## The five pieces every man in his 20s should own
+
+Not a full capsule wardrobe. Just the five that do the most work:
+
+1. One pair of well-fitting dark or mid-wash jeans. Not skinny. Not baggy. Tapered or straight with a clean break.
+2. Three clean tees in white, grey, and navy. No logos, no graphics. These are the foundation layer for everything else.
+3. One oxford cloth button-down in white or light blue. This goes from weekend to smart casual to dinner without changing the plan.
+4. One pair of clean loafers or minimal leather sneakers. Versatile enough for dates, dinners, and casual Fridays.
+5. One simple overshirt or lightweight jacket that finishes an outfit without swallowing it.
+
+That is not an exciting list. It is an effective one. And once those five things fit correctly and stay in rotation, every other purchase you make has a context to land in. You stop buying orphaned pieces that only work with one specific outfit and start building combinations instead.
+
+## Why the 20s is the most important decade for style decisions
+
+The decisions you make in your 20s about clothes are not just style decisions. They are buying habit decisions. Men who build a foundation of quality, fit, and restraint in their 20s spend less in their 30s and look sharper doing it. Men who chase trends and volume in their 20s usually reset the whole system later — or live with a closet that never quite works. The foundation compounds. A wardrobe built on fit and restraint at 24 is already useful at 34, with some additions, rather than something you need to rebuild from scratch.
+
+## The color system that makes every morning easier
+
+You do not need to memorize color theory. You need three ranges that always work together: neutrals (white, grey, cream, navy, black), earth tones (olive, tan, camel, brown, burgundy), and one accent you actually like. Keep 80 percent of your wardrobe in those first two ranges and the accent shows up intentionally instead of clashing. Most young men fail at color because their wardrobe is random — not because they do not understand color. Structure solves that faster than rules do.
+
+## Use the StyleScore quiz before you buy anything else
+
+If you want to know where your style is actually weak — fit, shoes, grooming, or occasion dressing — the [StyleScore style quiz](/style-quiz) gives you a score across all four categories. That is a better starting point than a shopping list, because most men in their 20s are not weak across the board. They are weak in one or two specific areas that are pulling everything else down.`
   }
 };
 

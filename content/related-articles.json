@@ -2,6 +2,12 @@
   "links": {
     "how-to-dress-better-men-30s": [
       {
+        "slug": "how-to-dress-better-men-20s",
+        "title": "How Men in Their 20s Can Dress Better",
+        "href": "/blog/how-to-dress-better-men-20s",
+        "description": "How men in their 20s can dress better without wasting money on trends."
+      },
+      {
         "slug": "how-to-dress-better-men-40s",
         "title": "How Men in Their 40s Can Dress Better",
         "href": "/blog/how-to-dress-better-men-40s",
@@ -12,15 +18,15 @@
         "title": "Men's Style Quiz: Find Your Style Score Online",
         "href": "/blog/mens-style-test",
         "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
-      },
-      {
-        "slug": "7-signs-dress-well",
-        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
-        "href": "/blog/7-signs-dress-well",
-        "description": "Practical signs that separate a sharp look from an average one."
       }
     ],
     "mens-style-test": [
+      {
+        "slug": "how-to-dress-better-men-20s",
+        "title": "How Men in Their 20s Can Dress Better",
+        "href": "/blog/how-to-dress-better-men-20s",
+        "description": "How men in their 20s can dress better without wasting money on trends."
+      },
       {
         "slug": "what-shoes-to-wear-with-chinos-men",
         "title": "What Shoes to Wear With Chinos for Men",
@@ -32,12 +38,6 @@
         "title": "How Men Can Match Colors Without Thinking Too Hard",
         "href": "/blog/how-to-match-colors-men-without-thinking",
         "description": "Stop stressing over color coordination."
-      },
-      {
-        "slug": "how-to-dress-better-men-40s",
-        "title": "How Men in Their 40s Can Dress Better",
-        "href": "/blog/how-to-dress-better-men-40s",
-        "description": "How to dress better in your 40s without chasing trends or looking stiff."
       }
     ],
     "7-signs-dress-well": [
@@ -56,6 +56,12 @@
     ],
     "how-to-dress-better-men-40s": [
       {
+        "slug": "how-to-dress-better-men-20s",
+        "title": "How Men in Their 20s Can Dress Better",
+        "href": "/blog/how-to-dress-better-men-20s",
+        "description": "How men in their 20s can dress better without wasting money on trends."
+      },
+      {
         "slug": "how-to-dress-better-men-30s",
         "title": "How Men in Their 30s Can Dress Better",
         "href": "/blog/how-to-dress-better-men-30s",
@@ -66,12 +72,6 @@
         "title": "Men's Style Quiz: Find Your Style Score Online",
         "href": "/blog/mens-style-test",
         "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
-      },
-      {
-        "slug": "7-signs-dress-well",
-        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
-        "href": "/blog/7-signs-dress-well",
-        "description": "Practical signs that separate a sharp look from an average one."
       }
     ],
     "why-clothes-look-bad-in-photos-men": [
@@ -238,6 +238,12 @@
     ],
     "best-shoes-for-short-men": [
       {
+        "slug": "5-7-outfits-men",
+        "title": "5'7 Outfits for Men: Real Looks That Fix Proportion Fast",
+        "href": "/blog/5-7-outfits-men",
+        "description": "Outfit ideas for 5'7 men covering casual, office, date, wedding, and warm-weather looks with proportion rules that work in real life."
+      },
+      {
         "slug": "inseam-guide-short-men",
         "title": "Inseam Guide Short for Men",
         "href": "/blog/inseam-guide-short-men",
@@ -248,12 +254,6 @@
         "title": "Suits for Short Men: Fit Details That Matter Most",
         "href": "/blog/suits-for-short-men",
         "description": "A suit guide for short men covering jacket length, button stance, trouser rise, lapels, tailoring priorities, and common proportion mistakes."
-      },
-      {
-        "slug": "jeans-for-short-men",
-        "title": "Jeans for Short Men: The Fit Guide That Actually Helps",
-        "href": "/blog/jeans-for-short-men",
-        "description": "A denim fit guide for short men covering rise, inseam, taper, wash, break, and the jeans mistakes that make legs look shorter."
       }
     ],
     "best-white-sneakers-men": [
@@ -350,6 +350,12 @@
     ],
     "how-clothes-should-fit-short-men": [
       {
+        "slug": "5-7-outfits-men",
+        "title": "5'7 Outfits for Men: Real Looks That Fix Proportion Fast",
+        "href": "/blog/5-7-outfits-men",
+        "description": "Outfit ideas for 5'7 men covering casual, office, date, wedding, and warm-weather looks with proportion rules that work in real life."
+      },
+      {
         "slug": "inseam-guide-short-men",
         "title": "Inseam Guide Short for Men",
         "href": "/blog/inseam-guide-short-men",
@@ -360,12 +366,6 @@
         "title": "Suits for Short Men: Fit Details That Matter Most",
         "href": "/blog/suits-for-short-men",
         "description": "A suit guide for short men covering jacket length, button stance, trouser rise, lapels, tailoring priorities, and common proportion mistakes."
-      },
-      {
-        "slug": "jeans-for-short-men",
-        "title": "Jeans for Short Men: The Fit Guide That Actually Helps",
-        "href": "/blog/jeans-for-short-men",
-        "description": "A denim fit guide for short men covering rise, inseam, taper, wash, break, and the jeans mistakes that make legs look shorter."
       }
     ],
     "dress-shoes-for-short-men": [
@@ -450,6 +450,26 @@
     ],
     "inseam-guide-short-men": [
       {
+        "slug": "5-7-outfits-men",
+        "title": "5'7 Outfits for Men: Real Looks That Fix Proportion Fast",
+        "href": "/blog/5-7-outfits-men",
+        "description": "Outfit ideas for 5'7 men covering casual, office, date, wedding, and warm-weather looks with proportion rules that work in real life."
+      },
+      {
+        "slug": "best-shoes-for-short-men",
+        "title": "7 Best Shoes for Short Men That Actually Add Height",
+        "href": "/blog/best-shoes-for-short-men",
+        "description": "The strongest footwear choices for shorter men."
+      },
+      {
+        "slug": "how-clothes-should-fit-short-men",
+        "title": "How Clothes Should Fit If You're 5'6\"",
+        "href": "/blog/how-clothes-should-fit-short-men",
+        "description": "Specific fit landmarks for shirts, trousers, and jackets."
+      }
+    ],
+    "5-7-outfits-men": [
+      {
         "slug": "best-shoes-for-short-men",
         "title": "7 Best Shoes for Short Men That Actually Add Height",
         "href": "/blog/best-shoes-for-short-men",
@@ -462,10 +482,30 @@
         "description": "Specific fit landmarks for shirts, trousers, and jackets."
       },
       {
-        "slug": "suits-for-short-men",
-        "title": "Suits for Short Men: Fit Details That Matter Most",
-        "href": "/blog/suits-for-short-men",
-        "description": "A suit guide for short men covering jacket length, button stance, trouser rise, lapels, tailoring priorities, and common proportion mistakes."
+        "slug": "inseam-guide-short-men",
+        "title": "Inseam Guide Short for Men",
+        "href": "/blog/inseam-guide-short-men",
+        "description": "A short men's inseam guide with practical starting points, rise notes, pant break rules, and tailoring advice for cleaner proportions."
+      }
+    ],
+    "how-to-dress-better-men-20s": [
+      {
+        "slug": "how-to-dress-better-men-40s",
+        "title": "How Men in Their 40s Can Dress Better",
+        "href": "/blog/how-to-dress-better-men-40s",
+        "description": "How to dress better in your 40s without chasing trends or looking stiff."
+      },
+      {
+        "slug": "how-to-dress-better-men-30s",
+        "title": "How Men in Their 30s Can Dress Better",
+        "href": "/blog/how-to-dress-better-men-30s",
+        "description": "How to sharpen your style in your 30s without overthinking every outfit."
+      },
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
       }
     ]
   }
