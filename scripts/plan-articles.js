@@ -115,6 +115,9 @@ async function callClaude(prompt) {
 }
 
 function buildGapAnalysisPrompt({ generatedArticles, legacySlugs, queuedKeywords, requestedCount }) {
+  const shortMenCount = Math.ceil(requestedCount / 2);
+  const generalCount = requestedCount - shortMenCount;
+
   const published = [
     ...generatedArticles.map((a) => `- [${a.cluster}] "${a.primaryKeyword}" (${a.slug})`),
     ...legacySlugs.map((s) => `- [legacy] ${s}`)
@@ -125,9 +128,7 @@ function buildGapAnalysisPrompt({ generatedArticles, legacySlugs, queuedKeywords
     .map((k) => `- [${k.cluster}] "${k.keyword}"`)
     .join("\n");
 
-  return `You are the content strategist for StyleScore, a men's style platform targeting men aged 20-50 who want to dress better but don't want to become fashion obsessives.
-
-Editorial voice: direct, practical, no-bullshit. Like a sharp friend who understands real clothes.
+  return `You are the content strategist for StyleScore, a men's style platform. StyleScore's core audience is shorter men (5'4–5'8) but it covers all men's style topics. The site's voice is direct, practical, no-bullshit.
 
 ## WHAT ALREADY EXISTS (do not duplicate or closely overlap)
 ${published}
@@ -135,58 +136,101 @@ ${published}
 ## ALREADY QUEUED (do not duplicate)
 ${queued || "none"}
 
+---
+
 ## YOUR TASK
 
-Think from first principles. Forget the existing list for a moment. Ask: what are ALL the things men aged 20-50 search for when they want to dress better? Then find the ones not covered above.
+Return exactly ${requestedCount} article ideas split as follows:
+- **${shortMenCount} articles** with cluster "short-men-style"
+- **${generalCount} articles** across all other clusters
 
-Consider every dimension of men's style needs:
+---
 
-**Audience segments** — students, first-job men, professionals, dads, men re-entering dating, men who just lost weight, men moving cities, men attending their first formal event, men who work from home, men who travel for work, men who lift
+### PART 1: ${shortMenCount} SHORT-MEN-STYLE ARTICLES
 
-**Garment categories** — shirts, trousers, jeans, suits, outerwear (coats, jackets), knitwear, T-shirts, polos, shorts, swimwear, underwear, socks, accessories (belts, watches, bags, sunglasses, hats, ties, pocket squares)
+Short men (5'4–5'8) have a massive underserved content need. Go beyond garment-by-garment guides. Think about every dimension of a shorter man's style life:
 
-**Occasions** — job interview, wedding guest, funeral, graduation, first date, work from home, black tie, casual Friday, weekend brunch, travel, gym, outdoor events, holiday parties, beach, summer BBQ
+**Height-specific guides**
+- 5'4, 5'5, 5'6, 5'7, 5'8 — each height has subtly different fit challenges
+- Short men with specific builds: slim, stocky, barrel chest, athletic/muscular, lean
 
-**Style problems** — clothes that don't fit, looking sloppy despite spending money, dressing age-appropriately, transitioning between dress codes, looking overdressed or underdressed, shopping confusion, wardrobe that doesn't work together
+**Garments not yet covered**
+- Coats and overcoats (a short man in a long coat is a different problem from a suit)
+- Leather jackets and bomber jackets (jacket length is critical)
+- Button-down shirts (shirt tail length, sleeve length)
+- Knitwear and sweaters (hem length, bulk)
+- Shorts (length, rise, proportion)
+- Polos (body length, collar proportion)
+- Swimwear (trunk length, waistband placement)
+- Chinos specifically (not just inseam — cut, rise, taper)
+- T-shirts (hem length, shoulder width)
+- Boots specifically (shaft height, heel, toe box)
 
-**Body types** — slim/lean, athletic/muscular, tall, overweight/larger, barrel chest, long torso, short legs (not just short overall)
+**Occasions not yet covered**
+- Winter/layering (how short men layer without adding bulk)
+- Spring/transitional outfits
+- Casual weekend outfits (not occasion-specific)
+- Date night (not black tie — casual/smart casual)
+- Job interview for short men
+- Vacation and travel outfits
+- Wedding guest (not as groom — as guest)
+- Gym-to-out (not gym physique style — transitional)
+- Holiday party
 
-**Budget tiers** — budget shopping, fast fashion traps, investment pieces, thrift/secondhand, cost-per-wear thinking
+**Styling concepts not yet covered**
+- How short men should wear oversized/relaxed clothing (it's trending)
+- Vertical stripe and pattern rules (do they actually work?)
+- Short men monochrome (already exists as legacy — angle it differently)
+- Color blocking for short men
+- Layering rules (what to layer and what makes the silhouette heavier)
+- How short men should wear accessories (belt width, bag size, watch size)
 
-**Fabric and care** — how to wash, iron, store, repair common garments; wool, cotton, linen, synthetic blends; pilling, fading, shrinking; dry cleaning myths
+**Shopping and practical**
+- Best brands that cut for shorter men without petite labelling
+- Alteration guide: what to alter first, what's not worth it
+- Short men capsule wardrobe on a budget
+- How to shop online as a short man (size charts, what measurements matter)
 
-**Seasonal and climate** — winter layering, summer heat, transitional weather, dressing for rain, cold-weather formality
+**Age-height intersection**
+- Short men in their 20s (different challenges from 30s)
+- Short men in their 40s (authority vs proportion tension)
+- Short men re-entering dating
 
-**Grooming adjacents** — haircut styles, beard styles, skincare for men who hate skincare, fragrance basics, nail care
+Each short-men article must have a clearly different angle from the others and from what's already published. Do NOT suggest "X for short men" if it's just a version of something already covered with a different noun.
 
-**Color and styling** — pattern mixing, navy vs black, when to wear white, how to wear bold colors, neutral wardrobes
+---
 
-**Shopping and wardrobe building** — capsule wardrobe by lifestyle, where to shop at each budget, how to thrift, when to invest vs save, wardrobe audits, selling old clothes
+### PART 2: ${generalCount} GENERAL ARTICLES
 
-**Cultural and lifestyle** — streetwear to smart casual transition, dressing professionally in a casual industry, remote-work style, travel packing light, style for different climates
+Think from the full universe of what men aged 20-50 search for. Cover gaps across:
 
-Now return exactly ${requestedCount} article ideas that fill real gaps across this full landscape. Requirements:
+**Garments** — knitwear, coats, outerwear, T-shirts, polos, shorts, swimwear
+**Occasions** — cocktail, graduation, work from home, beach, holiday party, casual Friday
+**Body types** — slim/lean, overweight, tall, barrel chest, broad shoulders, long torso
+**Budget** — thrifting, investment pieces, cost-per-wear, fast fashion traps
+**Fabric/care** — ironing, washing wool, storing suits, pilling prevention
+**Grooming** — beard styles, skincare for men who hate skincare, haircut by face shape
+**Shopping** — building a capsule wardrobe, wardrobe audit, where to shop at each budget
+**Styling** — pattern mixing, how to wear bold colors, navy vs black, blazer with jeans
+**Lifestyle** — work from home style, travel packing, gym-to-office, streetwear transition
 
-1. Cover at least 8 different clusters — spread wide, no cluster should have more than 3 entries
-2. Include a mix of high-volume beginner topics AND specific niche topics with clear intent
-3. Every keyword must target a real search phrase a man would actually type
-4. No topic should closely overlap with anything already published or queued
-5. Prioritize topics where the StyleScore voice (direct, practical) has a clear advantage over generic magazine content
+No cluster should have more than 2 entries in this section.
 
-Use these clusters (or invent a new one if it genuinely fits better):
-short-men-style | age-specific | occasion-dressing | footwear | grooming | color-coordination | common-style-problems | fit-proportion | wardrobe | body-type | accessories | seasonal | fabric-care | lifestyle | budget | outerwear | knitwear
+---
 
-Return ONLY a valid JSON array. No markdown, no explanation. Each object must have:
+Return ONLY a valid JSON array of exactly ${requestedCount} objects. No markdown, no explanation.
+
+Each object must have:
 {
   "keyword": "exact search phrase (lowercase, natural)",
   "slug": "url-slug-version",
-  "priority": <number 60-89>,
-  "cluster": "cluster-name",
-  "articleFormat": "one of: how-to guide | listicle | buying guide | fit guide | comparison | outfit guide | style guide | measurement guide | occasion guide | care guide",
+  "priority": <number 60-89, higher = broader appeal>,
+  "cluster": "short-men-style for part 1, appropriate cluster for part 2",
+  "articleFormat": "how-to guide | listicle | buying guide | fit guide | comparison | outfit guide | style guide | measurement guide | occasion guide | care guide",
   "secondaryKeywords": ["3 related phrases"]
 }
 
-Order by priority descending. Assign higher priority to topics with broader search appeal.`;
+List the ${shortMenCount} short-men articles first, then the ${generalCount} general articles. Order each group by priority descending.`;
 }
 
 async function main() {
