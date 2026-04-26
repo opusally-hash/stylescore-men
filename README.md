@@ -16,6 +16,24 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Automated Article Generation
+
+Daily SEO articles are generated with Claude through Anthropic's Messages API.
+
+Required GitHub secret:
+
+```bash
+ANTHROPIC_API_KEY
+```
+
+Optional GitHub variable:
+
+```bash
+ANTHROPIC_MODEL=claude-sonnet-4-5
+```
+
+The generator also accepts `CLAUDE_API_KEY` and `CLAUDE_MODEL` locally. If no Claude API key is present, the article script falls back to deterministic rescue content so scheduled runs can still fail gracefully.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

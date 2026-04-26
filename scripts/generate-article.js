@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const path = require("node:path");
-const OpenAIImport = require("openai");
 const {
   SYSTEM_PROMPT,
   buildArticlePrompt,
@@ -28,8 +27,6 @@ const {
   validateArticlePayload,
   writeJson
 } = require("./lib/publishing-helpers");
-
-const OpenAIClient = OpenAIImport.default || OpenAIImport;
 
 const BANNED_WORD_REPLACEMENTS = {
   crucial: "important",
@@ -926,6 +923,60 @@ function titleCaseKeyword(keyword) {
     .join(" ");
 }
 
+function hasNaturalKeywordCoverage(text, keyword) {
+  const stopWords = new Set([
+    "a",
+    "an",
+    "and",
+    "are",
+    "as",
+    "at",
+    "can",
+    "do",
+    "for",
+    "how",
+    "in",
+    "is",
+    "my",
+    "of",
+    "should",
+    "the",
+    "to",
+    "what",
+    "with",
+    "why",
+    "you",
+    "your"
+  ]);
+  const textTokens = new Set(
+    text.toLowerCase().match(/[a-z0-9']+/g)?.map((token) => token.replace(/'/g, "")) || []
+  );
+  const keywordTokens =
+    keyword
+      .toLowerCase()
+      .match(/[a-z0-9']+/g)
+      ?.map((token) => token.replace(/'/g, ""))
+      .filter((token) => !stopWords.has(token)) || [];
+  const synonymMap = {
+    man: ["men"],
+    men: ["man"]
+  };
+
+  return keywordTokens.every((token) => {
+    if (textTokens.has(token)) {
+      return true;
+    }
+
+    const alternateNumber = token.endsWith("s") ? token.slice(0, -1) : `${token}s`;
+
+    if (textTokens.has(alternateNumber)) {
+      return true;
+    }
+
+    return (synonymMap[token] || []).some((candidate) => textTokens.has(candidate));
+  });
+}
+
 function buildFallbackHeading(keyword) {
   const normalizedKeyword = keyword.toLowerCase().trim();
   const ageSpecificMatch = normalizedKeyword.match(/^how to dress better men (\d{2}s)$/);
@@ -988,6 +1039,20 @@ function buildFallbackLead(keyword) {
   return `${buildFallbackHeading(keyword)} matters more than most men realize.`;
 }
 
+function getShortMenTopicPhrase(spec) {
+  const titlePhrase = spec.h1.split(":")[0].trim();
+
+  if (titlePhrase === "Inseam Guide for Short Men") {
+    return "an inseam guide for short men";
+  }
+
+  return titlePhrase.charAt(0).toLowerCase() + titlePhrase.slice(1);
+}
+
+function capitalizeFirst(text) {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
 function buildShortMenRescueArticle(queueEntry) {
   const spec = SHORT_MEN_RESCUE_SPECS[queueEntry.slug];
 
@@ -1000,11 +1065,12 @@ function buildShortMenRescueArticle(queueEntry) {
     .map((formula) => `- ${formula}`)
     .join("\n");
   const relatedFitLink = spec.internalLinks.find((link) => link !== "/style-quiz") || "/blog/how-clothes-should-fit-short-men";
+  const topicPhrase = getShortMenTopicPhrase(spec);
   const content = [
-    `${queueEntry.keyword} should be judged by one question first: does the outfit keep your body looking clean from shoulder to shoe, or does it chop you into short blocks? The answer usually has less to do with buying louder clothes and more to do with controlling length, contrast, and bulk. ${spec.measurement}`,
+    `${capitalizeFirst(topicPhrase)} should be judged by one question first: does the outfit keep your body looking clean from shoulder to shoe, or does it chop you into short blocks? The answer usually has less to do with buying louder clothes and more to do with controlling length, contrast, and bulk. ${spec.measurement}`,
     `Shorter frames are less forgiving because every break is easier to see. A shirt that hangs a little too long, a shoe that looks a little too chunky, or a trouser hem with extra fabric can change the whole read. Most men do not want to spend all day thinking about clothes. Fair. The fix is to build a few rules that remove the worst mistakes before you leave the house.`,
     `## Start with the vertical line`,
-    `The useful move for ${queueEntry.keyword} is ${spec.usefulMove}. That sounds simple, but it changes how the eye travels through the outfit. [${primarySource.title}](${primarySource.url}) is useful here because the strongest outfits usually make the body feel organized before anyone notices individual pieces.`,
+    `The useful move for ${topicPhrase} is ${spec.usefulMove}. That sounds simple, but it changes how the eye travels through the outfit. [${primarySource.title}](${primarySource.url}) is useful here because the strongest outfits usually make the body feel organized before anyone notices individual pieces.`,
     `This is where generic advice gets lazy. It tells shorter men to "dress taller" as if the answer is hidden height. The better answer is cleaner interruption control. If the top half is too long, the shoes are too loud, and the pants break heavily, the outfit creates three separate stops. Remove two of those stops and the same body looks sharper.`,
     `## Keep the lower half quiet`,
     `The lower half carries more visual weight than men expect. ${spec.avoidMove} are the fastest way to make a shorter frame look boxed in. [${secondarySource.title}](${secondarySource.url}) is useful because it treats small details as part of the whole outfit, not isolated shopping trivia.`,
@@ -1013,7 +1079,7 @@ function buildShortMenRescueArticle(queueEntry) {
     `Short men lose more from bad fit than from missing a trend. A trendy jacket that hangs too low still shortens the leg. A popular sneaker that widens the foot still makes the lower half heavier. A nice shirt that floats away from the body still reads sloppy. The label on the piece matters less than where it starts, stops, and breaks.`,
     `Use the mirror test from the side, not just straight on. Check whether fabric is stacking behind the ankle, whether the shirt covers too much of the zipper, and whether the jacket cuts the body in half. If you want the wider proportion system, the [short men's fit guide](${relatedFitLink}) gives the full picture before you spend more money.`,
     `## Use repeatable outfit formulas`,
-    `You do not need a giant wardrobe to make ${queueEntry.keyword} work. You need a few combinations that protect your proportions without making the outfit look like a trick. Start with these and adjust color for your closet:`,
+    `You do not need a giant wardrobe to make ${topicPhrase} work. You need a few combinations that protect your proportions without making the outfit look like a trick. Start with these and adjust color for your closet:`,
     formulas,
     `Those formulas work because they keep the top, trouser, and shoe in the same conversation. No single piece is trying to rescue the outfit. The fit does the work. The colors support it. The shoe finishes it instead of dragging the eye downward.`,
     `## Shop by shape before brand`,
@@ -1055,9 +1121,11 @@ function buildShortMenRescueArticle(queueEntry) {
 }
 
 function buildShortMenFaq(queueEntry, spec) {
+  const topicPhrase = getShortMenTopicPhrase(spec);
+
   return [
     {
-      question: `What matters most for ${queueEntry.keyword}?`,
+      question: `What matters most for ${topicPhrase}?`,
       answer: `Clean proportions matter most. Start with ${spec.usefulMove}, then remove obvious breaks at the shirt hem, trouser hem, and shoe.`
     },
     {
@@ -1264,13 +1332,13 @@ function normalizeArticleDraft(articleJson, queueEntry) {
 
   const keywordPhrase = queueEntry.keyword;
 
-  if (!normalized.h1.toLowerCase().includes(keywordPhrase.toLowerCase())) {
+  if (!hasNaturalKeywordCoverage(normalized.h1, keywordPhrase)) {
     normalized.h1 = buildFallbackHeading(keywordPhrase);
   }
 
   const firstChunk = normalized.content_markdown.slice(0, 500).toLowerCase();
 
-  if (!firstChunk.includes(keywordPhrase.toLowerCase())) {
+  if (!hasNaturalKeywordCoverage(firstChunk, keywordPhrase)) {
     normalized.content_markdown = `${buildFallbackLead(keywordPhrase)}\n\n${normalized.content_markdown}`.trim();
   }
 
@@ -1316,103 +1384,151 @@ function buildDeterministicRescueArticle(articleJson, queueEntry) {
   };
 }
 
-async function repairArticleWithOpenAI(client, articleJson, queueEntry, validationErrors) {
+const ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages";
+const DEFAULT_CLAUDE_MODEL = "claude-sonnet-4-5";
+
+function getAnthropicApiKey() {
+  return process.env.ANTHROPIC_API_KEY || process.env.CLAUDE_API_KEY;
+}
+
+function getClaudeModel() {
+  return process.env.ANTHROPIC_MODEL || process.env.CLAUDE_MODEL || DEFAULT_CLAUDE_MODEL;
+}
+
+function parseJsonResponse(text) {
+  try {
+    return JSON.parse(text);
+  } catch {
+    const start = text.indexOf("{");
+    const end = text.lastIndexOf("}");
+
+    if (start === -1 || end === -1 || end <= start) {
+      throw new Error("Claude response did not contain a JSON object.");
+    }
+
+    return JSON.parse(text.slice(start, end + 1));
+  }
+}
+
+async function createClaudeJson({
+  apiKey,
+  model,
+  system,
+  prompt,
+  temperature,
+  maxTokens = 8000
+}) {
+  const response = await fetch(ANTHROPIC_API_URL, {
+    method: "POST",
+    headers: {
+      "x-api-key": apiKey,
+      "anthropic-version": "2023-06-01",
+      "content-type": "application/json"
+    },
+    body: JSON.stringify({
+      model,
+      max_tokens: maxTokens,
+      temperature,
+      ...(system ? { system } : {}),
+      messages: [
+        {
+          role: "user",
+          content: prompt
+        }
+      ]
+    })
+  });
+
+  if (!response.ok) {
+    const body = await response.text();
+    throw new Error(`Claude API request failed: ${response.status} ${body}`);
+  }
+
+  const payload = await response.json();
+  const text = (payload.content || [])
+    .filter((block) => block.type === "text")
+    .map((block) => block.text)
+    .join("\n")
+    .trim();
+
+  if (!text) {
+    throw new Error("Claude API returned an empty response.");
+  }
+
+  return parseJsonResponse(text);
+}
+
+async function repairArticleWithClaude(apiKey, model, articleJson, queueEntry, validationErrors) {
   const siblingArticles = getSiblingArticleContext(queueEntry);
   const editorialBlueprint = getEditorialBlueprint(queueEntry);
-  const repairResponse = await client.chat.completions.create({
-    model: "gpt-4o",
+  return createClaudeJson({
+    apiKey,
+    model,
     temperature: 0.3,
-    response_format: { type: "json_object" },
-    messages: [
-      {
-        role: "user",
-        content: buildRepairPrompt({
-          articleJson,
-          queueEntry,
-          validationErrors,
-          siblingArticles,
-          editorialBlueprint
-        })
-      }
-    ]
+    prompt: buildRepairPrompt({
+      articleJson,
+      queueEntry,
+      validationErrors,
+      siblingArticles,
+      editorialBlueprint
+    })
   });
-
-  return JSON.parse(repairResponse.choices[0].message.content);
 }
 
-async function expandArticleWithOpenAI(client, articleJson, queueEntry, validationErrors) {
+async function expandArticleWithClaude(apiKey, model, articleJson, queueEntry, validationErrors) {
   const siblingArticles = getSiblingArticleContext(queueEntry);
   const editorialBlueprint = getEditorialBlueprint(queueEntry);
-  const expansionResponse = await client.chat.completions.create({
-    model: "gpt-4o",
+  return createClaudeJson({
+    apiKey,
+    model,
     temperature: 0.5,
-    response_format: { type: "json_object" },
-    messages: [
-      {
-        role: "user",
-        content: buildExpansionPrompt({
-          articleJson,
-          queueEntry,
-          validationErrors,
-          siblingArticles,
-          editorialBlueprint
-        })
-      }
-    ]
+    prompt: buildExpansionPrompt({
+      articleJson,
+      queueEntry,
+      validationErrors,
+      siblingArticles,
+      editorialBlueprint
+    })
   });
-
-  return JSON.parse(expansionResponse.choices[0].message.content);
 }
 
-async function generateArticleWithOpenAI(queueEntry) {
-  if (!process.env.OPENAI_API_KEY) {
+async function generateArticleWithClaude(queueEntry) {
+  const apiKey = getAnthropicApiKey();
+
+  if (!apiKey) {
     return normalizeArticleDraft(buildDeterministicRescueArticle({}, queueEntry), queueEntry);
   }
 
-  const client = new OpenAIClient({ apiKey: process.env.OPENAI_API_KEY });
-
+  const model = getClaudeModel();
   const editorialPlan = buildEditorialPlan(queueEntry);
   const siblingArticles = getSiblingArticleContext(queueEntry);
   const editorialBlueprint = getEditorialBlueprint(queueEntry);
 
-  const articleResponse = await client.chat.completions.create({
-    model: "gpt-4o",
+  const article = await createClaudeJson({
+    apiKey,
+    model,
+    system: SYSTEM_PROMPT,
     temperature: 0.7,
-    response_format: { type: "json_object" },
-    messages: [
-      { role: "system", content: SYSTEM_PROMPT },
-      {
-        role: "user",
-        content: buildArticlePrompt({
-          keyword: queueEntry.keyword,
-          slug: queueEntry.slug,
-          articleFormat: queueEntry.articleFormat,
-          secondaryKeywords: queueEntry.secondaryKeywords,
-          editorialAngle: editorialPlan.editorialAngle,
-          editorialBlueprint,
-          siblingArticles,
-          mustCover: editorialPlan.mustCover,
-          mustAvoid: editorialPlan.mustAvoid
-        })
-      }
-    ]
+    prompt: buildArticlePrompt({
+      keyword: queueEntry.keyword,
+      slug: queueEntry.slug,
+      articleFormat: queueEntry.articleFormat,
+      secondaryKeywords: queueEntry.secondaryKeywords,
+      editorialAngle: editorialPlan.editorialAngle,
+      editorialBlueprint,
+      siblingArticles,
+      mustCover: editorialPlan.mustCover,
+      mustAvoid: editorialPlan.mustAvoid
+    })
   });
 
-  const article = JSON.parse(articleResponse.choices[0].message.content);
-
-  const humanizedResponse = await client.chat.completions.create({
-    model: "gpt-4o",
+  const humanizedArticle = await createClaudeJson({
+    apiKey,
+    model,
     temperature: 0.8,
-    response_format: { type: "json_object" },
-    messages: [
-      {
-        role: "user",
-        content: buildHumanizationPrompt(article, siblingArticles, editorialBlueprint)
-      }
-    ]
+    prompt: buildHumanizationPrompt(article, siblingArticles, editorialBlueprint)
   });
 
-  const humanizedArticle = JSON.parse(humanizedResponse.choices[0].message.content);
   let normalizedArticle = normalizeArticleDraft(humanizedArticle, queueEntry);
   let validationErrors = validateArticlePayload(normalizedArticle, queueEntry);
 
@@ -1420,8 +1536,9 @@ async function generateArticleWithOpenAI(queueEntry) {
     return normalizedArticle;
   }
 
-  const repairedArticle = await repairArticleWithOpenAI(
-    client,
+  const repairedArticle = await repairArticleWithClaude(
+    apiKey,
+    model,
     normalizedArticle,
     queueEntry,
     validationErrors
@@ -1433,8 +1550,9 @@ async function generateArticleWithOpenAI(queueEntry) {
     return normalizedArticle;
   }
 
-  const expandedArticle = await expandArticleWithOpenAI(
-    client,
+  const expandedArticle = await expandArticleWithClaude(
+    apiKey,
+    model,
     normalizedArticle,
     queueEntry,
     validationErrors
@@ -1475,7 +1593,7 @@ async function main() {
 
   const articleJson = args.input
     ? normalizeArticleDraft(readJson(path.resolve(process.cwd(), args.input)), queueEntry)
-    : await generateArticleWithOpenAI(queueEntry);
+    : await generateArticleWithClaude(queueEntry);
 
   const validationErrors = validateArticlePayload(articleJson, queueEntry);
 
