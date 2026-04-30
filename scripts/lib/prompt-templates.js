@@ -173,6 +173,7 @@ Requirements you must satisfy:
 - Make the article clearly different from these sibling posts: ${siblingArticles.length > 0 ? siblingArticles.join("; ") : "none yet"}
 - Keep these editorial priorities visible: ${editorialBlueprint.length > 0 ? editorialBlueprint.join("; ") : "none"}
 - Preserve or add at least 5 real H2 sections in the article body
+- Preserve or add at least 2 inline internal links in content_markdown (links to /style-quiz or /blog pages)
 - FAQ answers must stay concise and should not copy the wording of body paragraphs
 - Keep the same JSON shape
 - Preserve the article's overall meaning and format
@@ -201,7 +202,7 @@ Your job:
 - Keep the same topic and keyword: ${queueEntry.keyword}
 - Make sure content_markdown ends between 2,000 and 2,600 words
 - Add enough real H2 sections so the article has at least 5
-- Add at least one natural inline internal link to /style-quiz or a strongly relevant /blog page
+- Add at least 2 natural inline internal links to /style-quiz or strongly relevant /blog pages
 - Add 4-6 FAQ items if the article currently has too few
 - Add or preserve 3-5 real source references and make sure at least 3 of them appear as inline links in the body
 - Remove any embedded FAQ/source/related-articles sections from content_markdown
