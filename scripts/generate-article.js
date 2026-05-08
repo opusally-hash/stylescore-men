@@ -1767,7 +1767,7 @@ function buildDeterministicRescueArticle(articleJson, queueEntry) {
 }
 
 const ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages";
-const DEFAULT_CLAUDE_MODEL = "claude-sonnet-4-5";
+const DEFAULT_CLAUDE_MODEL = "claude-sonnet-4-6";
 
 function getAnthropicApiKey() {
   return process.env.ANTHROPIC_API_KEY || process.env.CLAUDE_API_KEY;
@@ -1878,7 +1878,7 @@ async function generateArticleWithClaude(queueEntry) {
   const apiKey = getAnthropicApiKey();
 
   if (!apiKey) {
-    return normalizeArticleDraft(buildDeterministicRescueArticle({}, queueEntry), queueEntry);
+    throw new Error("ANTHROPIC_API_KEY is not set. Add it as a secret in GitHub repository Settings → Secrets and variables → Actions.");
   }
 
   const model = getClaudeModel();

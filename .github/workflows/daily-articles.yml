@@ -21,6 +21,18 @@ jobs:
           echo "Running workflow for commit: $GITHUB_SHA"
           git log --oneline -n 1
 
+      - name: Check API key
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "ERROR: ANTHROPIC_API_KEY secret is not set."
+            echo "Go to: GitHub repo → Settings → Secrets and variables → Actions → New repository secret"
+            echo "Name: ANTHROPIC_API_KEY  Value: your Anthropic API key (starts with sk-ant-)"
+            exit 1
+          fi
+          echo "API key is configured."
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -51,8 +63,8 @@ jobs:
       - name: Generate and publish article
         if: steps.keyword.outputs.has_entry == 'true'
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY || secrets.CLAUDE_API_KEY || secrets.anthropic_api_key || secrets.claude_api_key }}
-          ANTHROPIC_MODEL: ${{ vars.ANTHROPIC_MODEL || vars.CLAUDE_MODEL || 'claude-sonnet-4-5' }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_MODEL: ${{ vars.ANTHROPIC_MODEL || 'claude-sonnet-4-6' }}
           GSC_SERVICE_ACCOUNT: ${{ secrets.GSC_SERVICE_ACCOUNT }}
         run: |
           node scripts/generate-article.js --keyword "${{ steps.keyword.outputs.keyword }}" --slug "${{ steps.keyword.outputs.slug }}"
