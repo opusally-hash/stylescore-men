@@ -293,7 +293,7 @@
       "keyword": "short men business casual",
       "slug": "short-men-business-casual",
       "priority": 102,
-      "status": "draft",
+      "status": "published",
       "cluster": "short-men-style",
       "articleFormat": "office outfit guide",
       "secondaryKeywords": [
@@ -301,7 +301,10 @@
         "office outfits for short men",
         "short men work outfits"
       ],
-      "scheduledFor": "2026-04-28"
+      "scheduledFor": "2026-04-28",
+      "publishedAt": "2026-05-08",
+      "updatedAt": "2026-05-08",
+      "title": "Short Men Business Casual: How to Fix the Office Outfit Formula That Wasn't Written for You | StyleScore"
     },
     {
       "keyword": "short men gym physique style",
@@ -1300,6 +1303,14 @@
   ],
   "clusters": {
     "short-men-style": [
+      {
+        "slug": "short-men-business-casual",
+        "title": "Short Men Business Casual: How to Fix the Office Outfit Formula That Wasn't Written for You",
+        "href": "/blog/short-men-business-casual",
+        "description": "Business casual advice is built around a 5'10 baseline.",
+        "role": "supporting",
+        "publishedAt": "2026-05-08"
+      },
       {
         "slug": "5-6-style-guide-men",
         "title": "The 5'6 Style Guide for Men: How to Work Around the Sizing System That Wasn't Built for You",
