@@ -238,6 +238,12 @@
     ],
     "best-shoes-for-short-men": [
       {
+        "slug": "5-6-style-guide-men",
+        "title": "The 5'6 Style Guide for Men: How to Work Around the Sizing System That Wasn't Built for You",
+        "href": "/blog/5-6-style-guide-men",
+        "description": "A practical 5'6 style guide for men covering the exact fit zones that fail at this height, which brands actually cut for shorter torsos, and how to build a wardrobe that works without constant tailoring."
+      },
+      {
         "slug": "5-7-outfits-men",
         "title": "5'7 Outfits Men: How to Build Proportions That Work, Not Fight Them",
         "href": "/blog/5-7-outfits-men",
@@ -248,12 +254,6 @@
         "title": "Inseam Guide Short for Men",
         "href": "/blog/inseam-guide-short-men",
         "description": "A short men's inseam guide with practical starting points, rise notes, pant break rules, and tailoring advice for cleaner proportions."
-      },
-      {
-        "slug": "suits-for-short-men",
-        "title": "Suits for Short Men: Fit Details That Matter Most",
-        "href": "/blog/suits-for-short-men",
-        "description": "A suit guide for short men covering jacket length, button stance, trouser rise, lapels, tailoring priorities, and common proportion mistakes."
       }
     ],
     "best-white-sneakers-men": [
@@ -350,6 +350,12 @@
     ],
     "how-clothes-should-fit-short-men": [
       {
+        "slug": "5-6-style-guide-men",
+        "title": "The 5'6 Style Guide for Men: How to Work Around the Sizing System That Wasn't Built for You",
+        "href": "/blog/5-6-style-guide-men",
+        "description": "A practical 5'6 style guide for men covering the exact fit zones that fail at this height, which brands actually cut for shorter torsos, and how to build a wardrobe that works without constant tailoring."
+      },
+      {
         "slug": "5-7-outfits-men",
         "title": "5'7 Outfits Men: How to Build Proportions That Work, Not Fight Them",
         "href": "/blog/5-7-outfits-men",
@@ -360,12 +366,6 @@
         "title": "Inseam Guide Short for Men",
         "href": "/blog/inseam-guide-short-men",
         "description": "A short men's inseam guide with practical starting points, rise notes, pant break rules, and tailoring advice for cleaner proportions."
-      },
-      {
-        "slug": "suits-for-short-men",
-        "title": "Suits for Short Men: Fit Details That Matter Most",
-        "href": "/blog/suits-for-short-men",
-        "description": "A suit guide for short men covering jacket length, button stance, trouser rise, lapels, tailoring priorities, and common proportion mistakes."
       }
     ],
     "dress-shoes-for-short-men": [
@@ -470,6 +470,12 @@
     ],
     "5-7-outfits-men": [
       {
+        "slug": "5-6-style-guide-men",
+        "title": "The 5'6 Style Guide for Men: How to Work Around the Sizing System That Wasn't Built for You",
+        "href": "/blog/5-6-style-guide-men",
+        "description": "A practical 5'6 style guide for men covering the exact fit zones that fail at this height, which brands actually cut for shorter torsos, and how to build a wardrobe that works without constant tailoring."
+      },
+      {
         "slug": "best-shoes-for-short-men",
         "title": "7 Best Shoes for Short Men That Actually Add Height",
         "href": "/blog/best-shoes-for-short-men",
@@ -480,12 +486,6 @@
         "title": "How Clothes Should Fit If You're 5'6\"",
         "href": "/blog/how-clothes-should-fit-short-men",
         "description": "Specific fit landmarks for shirts, trousers, and jackets."
-      },
-      {
-        "slug": "inseam-guide-short-men",
-        "title": "Inseam Guide Short for Men",
-        "href": "/blog/inseam-guide-short-men",
-        "description": "A short men's inseam guide with practical starting points, rise notes, pant break rules, and tailoring advice for cleaner proportions."
       }
     ],
     "how-to-dress-better-men-20s": [
@@ -506,6 +506,26 @@
         "title": "Men's Style Quiz: Find Your Style Score Online",
         "href": "/blog/mens-style-test",
         "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
+      }
+    ],
+    "5-6-style-guide-men": [
+      {
+        "slug": "best-shoes-for-short-men",
+        "title": "7 Best Shoes for Short Men That Actually Add Height",
+        "href": "/blog/best-shoes-for-short-men",
+        "description": "The strongest footwear choices for shorter men."
+      },
+      {
+        "slug": "how-clothes-should-fit-short-men",
+        "title": "How Clothes Should Fit If You're 5'6\"",
+        "href": "/blog/how-clothes-should-fit-short-men",
+        "description": "Specific fit landmarks for shirts, trousers, and jackets."
+      },
+      {
+        "slug": "5-7-outfits-men",
+        "title": "5'7 Outfits for Men: Real Looks That Fix Proportion Fast",
+        "href": "/blog/5-7-outfits-men",
+        "description": "Outfit ideas for 5'7 men covering casual, office, date, wedding, and warm-weather looks with proportion rules that work in real life."
       }
     ]
   }

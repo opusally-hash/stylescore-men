@@ -276,7 +276,7 @@
       "keyword": "5'6 style guide men",
       "slug": "5-6-style-guide-men",
       "priority": 103,
-      "status": "draft",
+      "status": "published",
       "cluster": "short-men-style",
       "articleFormat": "style guide",
       "secondaryKeywords": [
@@ -284,7 +284,10 @@
         "style tips for 5'6 men",
         "how to dress at 5'6 male"
       ],
-      "scheduledFor": "2026-04-27"
+      "scheduledFor": "2026-04-27",
+      "publishedAt": "2026-05-08",
+      "updatedAt": "2026-05-08",
+      "title": "The 5'6 Style Guide for Men: How to Work Around the Sizing System That Wasn't Built for You | StyleScore"
     },
     {
       "keyword": "short men business casual",
@@ -1297,6 +1300,14 @@
   ],
   "clusters": {
     "short-men-style": [
+      {
+        "slug": "5-6-style-guide-men",
+        "title": "The 5'6 Style Guide for Men: How to Work Around the Sizing System That Wasn't Built for You",
+        "href": "/blog/5-6-style-guide-men",
+        "description": "A practical 5'6 style guide for men covering the exact fit zones that fail at this height, which brands actually cut for shorter torsos, and how to build a wardrobe that works without constant tailoring.",
+        "role": "supporting",
+        "publishedAt": "2026-05-08"
+      },
       {
         "slug": "5-7-outfits-men",
         "title": "5'7 Outfits for Men: Real Looks That Fix Proportion Fast",
