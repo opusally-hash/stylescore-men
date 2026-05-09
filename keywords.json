@@ -310,7 +310,7 @@
       "keyword": "short men gym physique style",
       "slug": "short-men-gym-physique-style",
       "priority": 101,
-      "status": "draft",
+      "status": "published",
       "cluster": "short-men-style",
       "articleFormat": "body-type guide",
       "secondaryKeywords": [
@@ -318,7 +318,10 @@
         "short men athletic build style",
         "how short gym guys should dress"
       ],
-      "scheduledFor": "2026-04-29"
+      "scheduledFor": "2026-04-29",
+      "publishedAt": "2026-05-09",
+      "updatedAt": "2026-05-09",
+      "title": "Short Men Gym Physique Style: How to Dress a Muscular Frame Without Looking Stuffed | StyleScore"
     },
     {
       "keyword": "how to wear a leather jacket men",
@@ -1303,6 +1306,14 @@
   ],
   "clusters": {
     "short-men-style": [
+      {
+        "slug": "short-men-gym-physique-style",
+        "title": "Short Men Gym Physique Style: How to Dress a Muscular Frame Without Looking Stuffed",
+        "href": "/blog/short-men-gym-physique-style",
+        "description": "Most short-men style advice is written for lean frames.",
+        "role": "supporting",
+        "publishedAt": "2026-05-09"
+      },
       {
         "slug": "short-men-business-casual",
         "title": "Short Men Business Casual: How to Fix the Office Outfit Formula That Wasn't Written for You",

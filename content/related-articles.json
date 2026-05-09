@@ -238,6 +238,12 @@
     ],
     "best-shoes-for-short-men": [
       {
+        "slug": "short-men-gym-physique-style",
+        "title": "Short Men Gym Physique Style: How to Dress a Muscular Frame Without Looking Stuffed",
+        "href": "/blog/short-men-gym-physique-style",
+        "description": "Most short-men style advice is written for lean frames."
+      },
+      {
         "slug": "short-men-business-casual",
         "title": "Short Men Business Casual: How to Fix the Office Outfit Formula That Wasn't Written for You",
         "href": "/blog/short-men-business-casual",
@@ -248,12 +254,6 @@
         "title": "The 5'6 Style Guide for Men: How to Work Around the Sizing System That Wasn't Built for You",
         "href": "/blog/5-6-style-guide-men",
         "description": "A practical 5'6 style guide for men covering the exact fit zones that fail at this height, which brands actually cut for shorter torsos, and how to build a wardrobe that works without constant tailoring."
-      },
-      {
-        "slug": "5-7-outfits-men",
-        "title": "5'7 Outfits Men: How to Build Proportions That Work, Not Fight Them",
-        "href": "/blog/5-7-outfits-men",
-        "description": "5'7 outfits men need to prioritize proportion over trends."
       }
     ],
     "best-white-sneakers-men": [
@@ -350,6 +350,12 @@
     ],
     "how-clothes-should-fit-short-men": [
       {
+        "slug": "short-men-gym-physique-style",
+        "title": "Short Men Gym Physique Style: How to Dress a Muscular Frame Without Looking Stuffed",
+        "href": "/blog/short-men-gym-physique-style",
+        "description": "Most short-men style advice is written for lean frames."
+      },
+      {
         "slug": "short-men-business-casual",
         "title": "Short Men Business Casual: How to Fix the Office Outfit Formula That Wasn't Written for You",
         "href": "/blog/short-men-business-casual",
@@ -360,12 +366,6 @@
         "title": "The 5'6 Style Guide for Men: How to Work Around the Sizing System That Wasn't Built for You",
         "href": "/blog/5-6-style-guide-men",
         "description": "A practical 5'6 style guide for men covering the exact fit zones that fail at this height, which brands actually cut for shorter torsos, and how to build a wardrobe that works without constant tailoring."
-      },
-      {
-        "slug": "5-7-outfits-men",
-        "title": "5'7 Outfits Men: How to Build Proportions That Work, Not Fight Them",
-        "href": "/blog/5-7-outfits-men",
-        "description": "5'7 outfits men need to prioritize proportion over trends."
       }
     ],
     "dress-shoes-for-short-men": [
@@ -530,6 +530,26 @@
     ],
     "short-men-business-casual": [
       {
+        "slug": "short-men-gym-physique-style",
+        "title": "Short Men Gym Physique Style: How to Dress a Muscular Frame Without Looking Stuffed",
+        "href": "/blog/short-men-gym-physique-style",
+        "description": "Most short-men style advice is written for lean frames."
+      },
+      {
+        "slug": "best-shoes-for-short-men",
+        "title": "7 Best Shoes for Short Men That Actually Add Height",
+        "href": "/blog/best-shoes-for-short-men",
+        "description": "The strongest footwear choices for shorter men."
+      },
+      {
+        "slug": "how-clothes-should-fit-short-men",
+        "title": "How Clothes Should Fit If You're 5'6\"",
+        "href": "/blog/how-clothes-should-fit-short-men",
+        "description": "Specific fit landmarks for shirts, trousers, and jackets."
+      }
+    ],
+    "short-men-gym-physique-style": [
+      {
         "slug": "best-shoes-for-short-men",
         "title": "7 Best Shoes for Short Men That Actually Add Height",
         "href": "/blog/best-shoes-for-short-men",
@@ -542,10 +562,10 @@
         "description": "Specific fit landmarks for shirts, trousers, and jackets."
       },
       {
-        "slug": "5-6-style-guide-men",
-        "title": "The 5'6 Style Guide for Men: How to Work Around the Sizing System That Wasn't Built for You",
-        "href": "/blog/5-6-style-guide-men",
-        "description": "A practical 5'6 style guide for men covering the exact fit zones that fail at this height, which brands actually cut for shorter torsos, and how to build a wardrobe that works without constant tailoring."
+        "slug": "short-men-business-casual",
+        "title": "Short Men Business Casual: How to Fix the Office Outfit Formula That Wasn't Written for You",
+        "href": "/blog/short-men-business-casual",
+        "description": "Business casual advice is built around a 5'10 baseline."
       }
     ]
   }
