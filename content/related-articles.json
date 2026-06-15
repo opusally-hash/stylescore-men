@@ -567,6 +567,50 @@
         "href": "/blog/short-men-business-casual",
         "description": "Business casual advice is built around a 5'10 baseline."
       }
+    ],
+    "how-to-wear-leather-jacket-men": [
+      {
+        "slug": "capsule-wardrobe-short-men",
+        "title": "The 5'7\" Capsule Wardrobe: 15 Pieces That Actually Work for Shorter Frames",
+        "href": "/blog/capsule-wardrobe-short-men",
+        "description": "A compact wardrobe built around stronger proportions."
+      },
+      {
+        "slug": "mens-wardrobe-essentials",
+        "title": "Essential Wardrobe Items Every Man Should Own",
+        "href": "/blog/mens-wardrobe-essentials",
+        "description": "The basics that make everyday outfits easier to build."
+      },
+      {
+        "slug": "casual-outfits-men",
+        "title": "Casual Outfits for Men That Look Effortless",
+        "href": "/blog/casual-outfits-men",
+        "description": "Easy formulas that still look intentional in real life."
+      }
+    ],
+    "capsule-wardrobe-short-men": [
+      {
+        "slug": "how-to-wear-leather-jacket-men",
+        "title": "How to Wear a Leather Jacket: The Men's Guide for Men Who Actually Want to Wear It",
+        "href": "/blog/how-to-wear-leather-jacket-men",
+        "description": "Learn how to wear a leather jacket men actually reach for — with specific outfit formulas, fit rules, and styling calls that work in real life, not just on a mood board."
+      }
+    ],
+    "mens-wardrobe-essentials": [
+      {
+        "slug": "how-to-wear-leather-jacket-men",
+        "title": "How to Wear a Leather Jacket: The Men's Guide for Men Who Actually Want to Wear It",
+        "href": "/blog/how-to-wear-leather-jacket-men",
+        "description": "Learn how to wear a leather jacket men actually reach for — with specific outfit formulas, fit rules, and styling calls that work in real life, not just on a mood board."
+      }
+    ],
+    "casual-outfits-men": [
+      {
+        "slug": "how-to-wear-leather-jacket-men",
+        "title": "How to Wear a Leather Jacket: The Men's Guide for Men Who Actually Want to Wear It",
+        "href": "/blog/how-to-wear-leather-jacket-men",
+        "description": "Learn how to wear a leather jacket men actually reach for — with specific outfit formulas, fit rules, and styling calls that work in real life, not just on a mood board."
+      }
     ]
   }
 }

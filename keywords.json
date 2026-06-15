@@ -327,7 +327,7 @@
       "keyword": "how to wear a leather jacket men",
       "slug": "how-to-wear-leather-jacket-men",
       "priority": 89,
-      "status": "draft",
+      "status": "published",
       "cluster": "wardrobe",
       "articleFormat": "style guide",
       "secondaryKeywords": [
@@ -335,7 +335,10 @@
         "styling leather jacket",
         "what to wear with leather jacket"
       ],
-      "scheduledFor": "2026-04-30"
+      "scheduledFor": "2026-04-30",
+      "publishedAt": "2026-06-15",
+      "updatedAt": "2026-06-15",
+      "title": "How to Wear a Leather Jacket: The Men's Guide That Actually Gets Worn | StyleScore"
     },
     {
       "keyword": "business casual shoes men",
@@ -1556,6 +1559,14 @@
       }
     ],
     "wardrobe": [
+      {
+        "slug": "how-to-wear-leather-jacket-men",
+        "title": "How to Wear a Leather Jacket: The Men's Guide for Men Who Actually Want to Wear It",
+        "href": "/blog/how-to-wear-leather-jacket-men",
+        "description": "Learn how to wear a leather jacket men actually reach for — with specific outfit formulas, fit rules, and styling calls that work in real life, not just on a mood board.",
+        "role": "supporting",
+        "publishedAt": "2026-06-15"
+      },
       {
         "slug": "capsule-wardrobe-short-men",
         "title": "The 5'7\" Capsule Wardrobe: 15 Pieces That Actually Work for Shorter Frames",
