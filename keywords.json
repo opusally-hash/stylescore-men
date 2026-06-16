@@ -610,7 +610,7 @@
       "keyword": "how to wear a polo shirt men",
       "slug": "how-to-wear-polo-shirt-men",
       "priority": 89,
-      "status": "draft",
+      "status": "published",
       "cluster": "wardrobe",
       "articleFormat": "style guide",
       "secondaryKeywords": [
@@ -618,7 +618,10 @@
         "when to wear a polo shirt",
         "polo shirt style tips"
       ],
-      "scheduledFor": "2026-05-20"
+      "scheduledFor": "2026-05-20",
+      "publishedAt": "2026-06-16",
+      "updatedAt": "2026-06-16",
+      "title": "How to Wear a Polo Shirt: The Men's Guide That Actually Respects Your Time | StyleScore"
     },
     {
       "keyword": "best t-shirts for men",
@@ -1559,6 +1562,14 @@
       }
     ],
     "wardrobe": [
+      {
+        "slug": "how-to-wear-polo-shirt-men",
+        "title": "How to Wear a Polo Shirt Men Actually Look Good In",
+        "href": "/blog/how-to-wear-polo-shirt-men",
+        "description": "Learn exactly how to wear a polo shirt as a man — fit rules, outfit formulas, and style tips that work in real life, not just on mood boards.",
+        "role": "supporting",
+        "publishedAt": "2026-06-16"
+      },
       {
         "slug": "how-to-wear-leather-jacket-men",
         "title": "How to Wear a Leather Jacket: The Men's Guide for Men Who Actually Want to Wear It",
