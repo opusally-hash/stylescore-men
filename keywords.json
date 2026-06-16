@@ -627,7 +627,7 @@
       "keyword": "best t-shirts for men",
       "slug": "best-t-shirts-for-men",
       "priority": 88,
-      "status": "draft",
+      "status": "published",
       "cluster": "wardrobe",
       "articleFormat": "buying guide",
       "secondaryKeywords": [
@@ -635,7 +635,10 @@
         "t-shirt brands worth buying",
         "plain t-shirts that fit well"
       ],
-      "scheduledFor": "2026-05-21"
+      "scheduledFor": "2026-05-21",
+      "publishedAt": "2026-06-16",
+      "updatedAt": "2026-06-16",
+      "title": "The Best T-Shirts for Men Who Want to Look Good Without Thinking About It | StyleScore"
     },
     {
       "keyword": "how to dress better on a budget",
@@ -1562,6 +1565,14 @@
       }
     ],
     "wardrobe": [
+      {
+        "slug": "best-t-shirts-for-men",
+        "title": "The Best T-Shirts for Men Who Want to Look Good Without Thinking About It",
+        "href": "/blog/best-t-shirts-for-men",
+        "description": "A no-nonsense buying guide to the best t-shirts for men in 2024.",
+        "role": "supporting",
+        "publishedAt": "2026-06-16"
+      },
       {
         "slug": "how-to-wear-polo-shirt-men",
         "title": "How to Wear a Polo Shirt Men Actually Look Good In",

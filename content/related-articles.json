@@ -570,6 +570,12 @@
     ],
     "how-to-wear-leather-jacket-men": [
       {
+        "slug": "best-t-shirts-for-men",
+        "title": "The Best T-Shirts for Men Who Want to Look Good Without Thinking About It",
+        "href": "/blog/best-t-shirts-for-men",
+        "description": "A no-nonsense buying guide to the best t-shirts for men in 2024."
+      },
+      {
         "slug": "how-to-wear-polo-shirt-men",
         "title": "How to Wear a Polo Shirt Men Actually Look Good In",
         "href": "/blog/how-to-wear-polo-shirt-men",
@@ -580,15 +586,15 @@
         "title": "The 5'7\" Capsule Wardrobe: 15 Pieces That Actually Work for Shorter Frames",
         "href": "/blog/capsule-wardrobe-short-men",
         "description": "A compact wardrobe built around stronger proportions."
-      },
-      {
-        "slug": "mens-wardrobe-essentials",
-        "title": "Essential Wardrobe Items Every Man Should Own",
-        "href": "/blog/mens-wardrobe-essentials",
-        "description": "The basics that make everyday outfits easier to build."
       }
     ],
     "capsule-wardrobe-short-men": [
+      {
+        "slug": "best-t-shirts-for-men",
+        "title": "The Best T-Shirts for Men Who Want to Look Good Without Thinking About It",
+        "href": "/blog/best-t-shirts-for-men",
+        "description": "A no-nonsense buying guide to the best t-shirts for men in 2024."
+      },
       {
         "slug": "how-to-wear-polo-shirt-men",
         "title": "How to Wear a Polo Shirt Men Actually Look Good In",
@@ -626,6 +632,12 @@
     ],
     "how-to-wear-polo-shirt-men": [
       {
+        "slug": "best-t-shirts-for-men",
+        "title": "The Best T-Shirts for Men Who Want to Look Good Without Thinking About It",
+        "href": "/blog/best-t-shirts-for-men",
+        "description": "A no-nonsense buying guide to the best t-shirts for men in 2024."
+      },
+      {
         "slug": "capsule-wardrobe-short-men",
         "title": "The 5'7\" Capsule Wardrobe: 15 Pieces That Actually Work for Shorter Frames",
         "href": "/blog/capsule-wardrobe-short-men",
@@ -636,12 +648,26 @@
         "title": "How to Wear a Leather Jacket: The Men's Guide for Men Who Actually Want to Wear It",
         "href": "/blog/how-to-wear-leather-jacket-men",
         "description": "Learn how to wear a leather jacket men actually reach for — with specific outfit formulas, fit rules, and styling calls that work in real life, not just on a mood board."
+      }
+    ],
+    "best-t-shirts-for-men": [
+      {
+        "slug": "capsule-wardrobe-short-men",
+        "title": "The 5'7\" Capsule Wardrobe: 15 Pieces That Actually Work for Shorter Frames",
+        "href": "/blog/capsule-wardrobe-short-men",
+        "description": "A compact wardrobe built around stronger proportions."
       },
       {
-        "slug": "mens-wardrobe-essentials",
-        "title": "Essential Wardrobe Items Every Man Should Own",
-        "href": "/blog/mens-wardrobe-essentials",
-        "description": "The basics that make everyday outfits easier to build."
+        "slug": "how-to-wear-polo-shirt-men",
+        "title": "How to Wear a Polo Shirt Men Actually Look Good In",
+        "href": "/blog/how-to-wear-polo-shirt-men",
+        "description": "Learn exactly how to wear a polo shirt as a man — fit rules, outfit formulas, and style tips that work in real life, not just on mood boards."
+      },
+      {
+        "slug": "how-to-wear-leather-jacket-men",
+        "title": "How to Wear a Leather Jacket: The Men's Guide for Men Who Actually Want to Wear It",
+        "href": "/blog/how-to-wear-leather-jacket-men",
+        "description": "Learn how to wear a leather jacket men actually reach for — with specific outfit formulas, fit rules, and styling calls that work in real life, not just on a mood board."
       }
     ]
   }
