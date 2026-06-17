@@ -218,6 +218,12 @@
     ],
     "what-shoes-to-wear-with-chinos-men": [
       {
+        "slug": "business-casual-shoes-men",
+        "title": "Business Casual Shoes for Men: Simple Formulas That Actually Work",
+        "href": "/blog/business-casual-shoes-men",
+        "description": "Stop guessing what shoes work for business casual."
+      },
+      {
         "slug": "best-shoes-for-short-men",
         "title": "The Short Man's Shoe Guide: 7 Styles That Extend Your Leg Line",
         "href": "/blog/best-shoes-for-short-men",
@@ -228,15 +234,15 @@
         "title": "Best White Sneakers for Men (Style Upgrade Guide)",
         "href": "/blog/best-white-sneakers-men",
         "description": "One of the fastest shoe upgrades most men can make."
-      },
-      {
-        "slug": "mens-style-test",
-        "title": "Men's Style Quiz: Find Your Style Score Online",
-        "href": "/blog/mens-style-test",
-        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
       }
     ],
     "best-shoes-for-short-men": [
+      {
+        "slug": "business-casual-shoes-men",
+        "title": "Business Casual Shoes for Men: Simple Formulas That Actually Work",
+        "href": "/blog/business-casual-shoes-men",
+        "description": "Stop guessing what shoes work for business casual."
+      },
       {
         "slug": "short-men-gym-physique-style",
         "title": "Short Men Gym Physique Style: How to Dress a Muscular Frame Without Looking Stuffed",
@@ -248,15 +254,15 @@
         "title": "Short Men Business Casual: How to Fix the Office Outfit Formula That Wasn't Written for You",
         "href": "/blog/short-men-business-casual",
         "description": "Business casual advice is built around a 5'10 baseline."
-      },
-      {
-        "slug": "5-6-style-guide-men",
-        "title": "The 5'6 Style Guide for Men: How to Work Around the Sizing System That Wasn't Built for You",
-        "href": "/blog/5-6-style-guide-men",
-        "description": "A practical 5'6 style guide for men covering the exact fit zones that fail at this height, which brands actually cut for shorter torsos, and how to build a wardrobe that works without constant tailoring."
       }
     ],
     "best-white-sneakers-men": [
+      {
+        "slug": "business-casual-shoes-men",
+        "title": "Business Casual Shoes for Men: Simple Formulas That Actually Work",
+        "href": "/blog/business-casual-shoes-men",
+        "description": "Stop guessing what shoes work for business casual."
+      },
       {
         "slug": "what-shoes-to-wear-with-chinos-men",
         "title": "What Shoes to Wear With Chinos for Men",
@@ -668,6 +674,26 @@
         "title": "How to Wear a Leather Jacket: The Men's Guide for Men Who Actually Want to Wear It",
         "href": "/blog/how-to-wear-leather-jacket-men",
         "description": "Learn how to wear a leather jacket men actually reach for — with specific outfit formulas, fit rules, and styling calls that work in real life, not just on a mood board."
+      }
+    ],
+    "business-casual-shoes-men": [
+      {
+        "slug": "best-shoes-for-short-men",
+        "title": "The Short Man's Shoe Guide: 7 Styles That Extend Your Leg Line",
+        "href": "/blog/best-shoes-for-short-men",
+        "description": "The strongest footwear choices for shorter men."
+      },
+      {
+        "slug": "what-shoes-to-wear-with-chinos-men",
+        "title": "What Shoes to Wear With Chinos for Men",
+        "href": "/blog/what-shoes-to-wear-with-chinos-men",
+        "description": "Discover the best shoes to wear with chinos for men, whether you're dressing for work or the weekend."
+      },
+      {
+        "slug": "best-white-sneakers-men",
+        "title": "Best White Sneakers for Men (Style Upgrade Guide)",
+        "href": "/blog/best-white-sneakers-men",
+        "description": "One of the fastest shoe upgrades most men can make."
       }
     ]
   }

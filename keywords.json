@@ -344,7 +344,7 @@
       "keyword": "business casual shoes men",
       "slug": "business-casual-shoes-men",
       "priority": 87,
-      "status": "draft",
+      "status": "published",
       "cluster": "footwear",
       "articleFormat": "buying guide",
       "secondaryKeywords": [
@@ -352,7 +352,10 @@
         "office shoes men",
         "dress casual footwear"
       ],
-      "scheduledFor": "2026-05-01"
+      "scheduledFor": "2026-05-01",
+      "publishedAt": "2026-06-17",
+      "updatedAt": "2026-06-17",
+      "title": "The Best Business Casual Shoes for Men (Without Looking Like You're Trying Too Hard) | StyleScore"
     },
     {
       "keyword": "how to dress for winter men",
@@ -1505,6 +1508,14 @@
       }
     ],
     "footwear": [
+      {
+        "slug": "business-casual-shoes-men",
+        "title": "Business Casual Shoes for Men: Simple Formulas That Actually Work",
+        "href": "/blog/business-casual-shoes-men",
+        "description": "Stop guessing what shoes work for business casual.",
+        "role": "supporting",
+        "publishedAt": "2026-06-17"
+      },
       {
         "slug": "what-shoes-to-wear-with-chinos-men",
         "title": "What Shoes to Wear With Chinos for Men",
