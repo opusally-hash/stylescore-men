@@ -22,6 +22,12 @@
     ],
     "mens-style-test": [
       {
+        "slug": "how-to-dress-better-on-a-budget",
+        "title": "How to Dress Better on a Budget: The No-Excuses Guide for Men",
+        "href": "/blog/how-to-dress-better-on-a-budget",
+        "description": "Want to dress better on a budget without buying a whole new wardrobe?"
+      },
+      {
         "slug": "how-to-dress-better-men-20s",
         "title": "How Men in Their 20s Can Dress Better",
         "href": "/blog/how-to-dress-better-men-20s",
@@ -32,15 +38,15 @@
         "title": "What Shoes to Wear With Chinos for Men",
         "href": "/blog/what-shoes-to-wear-with-chinos-men",
         "description": "Discover the best shoes to wear with chinos for men, whether you're dressing for work or the weekend."
-      },
-      {
-        "slug": "how-to-match-colors-men-without-thinking",
-        "title": "How Men Can Match Colors Without Thinking Too Hard",
-        "href": "/blog/how-to-match-colors-men-without-thinking",
-        "description": "Stop stressing over color coordination."
       }
     ],
     "7-signs-dress-well": [
+      {
+        "slug": "how-to-dress-better-on-a-budget",
+        "title": "How to Dress Better on a Budget: The No-Excuses Guide for Men",
+        "href": "/blog/how-to-dress-better-on-a-budget",
+        "description": "Want to dress better on a budget without buying a whole new wardrobe?"
+      },
       {
         "slug": "how-to-dress-better-men-40s",
         "title": "How Men in Their 40s Can Dress Better",
@@ -694,6 +700,20 @@
         "title": "Best White Sneakers for Men (Style Upgrade Guide)",
         "href": "/blog/best-white-sneakers-men",
         "description": "One of the fastest shoe upgrades most men can make."
+      }
+    ],
+    "how-to-dress-better-on-a-budget": [
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
+      },
+      {
+        "slug": "7-signs-dress-well",
+        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
+        "href": "/blog/7-signs-dress-well",
+        "description": "Practical signs that separate a sharp look from an average one."
       }
     ]
   }
