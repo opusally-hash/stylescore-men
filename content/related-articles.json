@@ -22,6 +22,12 @@
     ],
     "mens-style-test": [
       {
+        "slug": "how-to-dress-for-winter-men",
+        "title": "How to Dress for Winter: The Men's Cold-Weather Style Guide That Actually Works",
+        "href": "/blog/how-to-dress-for-winter-men",
+        "description": "Learn exactly how to dress for winter as a man — specific outfit formulas, layering systems, fit rules, and wardrobe essentials that actually work when temperatures drop."
+      },
+      {
         "slug": "how-to-dress-better-on-a-budget",
         "title": "How to Dress Better on a Budget: The No-Excuses Guide for Men",
         "href": "/blog/how-to-dress-better-on-a-budget",
@@ -32,15 +38,15 @@
         "title": "How Men in Their 20s Can Dress Better",
         "href": "/blog/how-to-dress-better-men-20s",
         "description": "How men in their 20s can dress better without wasting money on trends."
-      },
-      {
-        "slug": "what-shoes-to-wear-with-chinos-men",
-        "title": "What Shoes to Wear With Chinos for Men",
-        "href": "/blog/what-shoes-to-wear-with-chinos-men",
-        "description": "Discover the best shoes to wear with chinos for men, whether you're dressing for work or the weekend."
       }
     ],
     "7-signs-dress-well": [
+      {
+        "slug": "how-to-dress-for-winter-men",
+        "title": "How to Dress for Winter: The Men's Cold-Weather Style Guide That Actually Works",
+        "href": "/blog/how-to-dress-for-winter-men",
+        "description": "Learn exactly how to dress for winter as a man — specific outfit formulas, layering systems, fit rules, and wardrobe essentials that actually work when temperatures drop."
+      },
       {
         "slug": "how-to-dress-better-on-a-budget",
         "title": "How to Dress Better on a Budget: The No-Excuses Guide for Men",
@@ -52,12 +58,6 @@
         "title": "How Men in Their 40s Can Dress Better",
         "href": "/blog/how-to-dress-better-men-40s",
         "description": "How to dress better in your 40s without chasing trends or looking stiff."
-      },
-      {
-        "slug": "how-to-dress-better-men-30s",
-        "title": "How Men in Their 30s Can Dress Better",
-        "href": "/blog/how-to-dress-better-men-30s",
-        "description": "How to sharpen your style in your 30s without overthinking every outfit."
       }
     ],
     "how-to-dress-better-men-40s": [
@@ -703,6 +703,20 @@
       }
     ],
     "how-to-dress-better-on-a-budget": [
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
+      },
+      {
+        "slug": "7-signs-dress-well",
+        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
+        "href": "/blog/7-signs-dress-well",
+        "description": "Practical signs that separate a sharp look from an average one."
+      }
+    ],
+    "how-to-dress-for-winter-men": [
       {
         "slug": "mens-style-test",
         "title": "Men's Style Quiz: Find Your Style Score Online",

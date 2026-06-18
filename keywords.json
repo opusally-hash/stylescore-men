@@ -361,7 +361,7 @@
       "keyword": "how to dress for winter men",
       "slug": "how-to-dress-for-winter-men",
       "priority": 86,
-      "status": "draft",
+      "status": "published",
       "cluster": "seasonal",
       "articleFormat": "style guide",
       "secondaryKeywords": [
@@ -369,7 +369,10 @@
         "layering for cold weather",
         "winter wardrobe essentials"
       ],
-      "scheduledFor": "2026-05-02"
+      "scheduledFor": "2026-05-02",
+      "publishedAt": "2026-06-18",
+      "updatedAt": "2026-06-18",
+      "title": "How to Dress for Winter Men: The No-Nonsense Cold-Weather Style Guide | StyleScore"
     },
     {
       "keyword": "watch guide for men",
@@ -1782,6 +1785,16 @@
         "description": "Want to dress better on a budget without buying a whole new wardrobe?",
         "role": "supporting",
         "publishedAt": "2026-06-17"
+      }
+    ],
+    "seasonal": [
+      {
+        "slug": "how-to-dress-for-winter-men",
+        "title": "How to Dress for Winter: The Men's Cold-Weather Style Guide That Actually Works",
+        "href": "/blog/how-to-dress-for-winter-men",
+        "description": "Learn exactly how to dress for winter as a man — specific outfit formulas, layering systems, fit rules, and wardrobe essentials that actually work when temperatures drop.",
+        "role": "supporting",
+        "publishedAt": "2026-06-18"
       }
     ]
   }
