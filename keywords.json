@@ -667,7 +667,7 @@
       "keyword": "what to wear with black jeans men",
       "slug": "what-to-wear-with-black-jeans-men",
       "priority": 86,
-      "status": "draft",
+      "status": "published",
       "cluster": "wardrobe",
       "articleFormat": "outfit guide",
       "secondaryKeywords": [
@@ -675,7 +675,10 @@
         "styling black jeans men",
         "shoes with black jeans"
       ],
-      "scheduledFor": "2026-05-23"
+      "scheduledFor": "2026-05-23",
+      "publishedAt": "2026-06-18",
+      "updatedAt": "2026-06-18",
+      "title": "What to Wear With Black Jeans: The Men's Outfit Guide That Actually Commits | StyleScore"
     },
     {
       "keyword": "how to dress for a wedding as a guest men",
@@ -1582,6 +1585,14 @@
       }
     ],
     "wardrobe": [
+      {
+        "slug": "what-to-wear-with-black-jeans-men",
+        "title": "What to Wear With Black Jeans: The Men's Outfit Guide That Actually Commits",
+        "href": "/blog/what-to-wear-with-black-jeans-men",
+        "description": "Stop treating black jeans like a fallback.",
+        "role": "supporting",
+        "publishedAt": "2026-06-18"
+      },
       {
         "slug": "best-t-shirts-for-men",
         "title": "The Best T-Shirts for Men Who Want to Look Good Without Thinking About It",
