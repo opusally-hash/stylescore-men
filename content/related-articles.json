@@ -22,6 +22,12 @@
     ],
     "mens-style-test": [
       {
+        "slug": "watch-guide-men-style",
+        "title": "The Only Watch Guide for Men Who Actually Want to Wear One Right",
+        "href": "/blog/watch-guide-men-style",
+        "description": "A practical watch guide for men who want sharper style without obsessing over horology."
+      },
+      {
         "slug": "how-to-dress-for-winter-men",
         "title": "How to Dress for Winter: The Men's Cold-Weather Style Guide That Actually Works",
         "href": "/blog/how-to-dress-for-winter-men",
@@ -32,16 +38,16 @@
         "title": "How to Dress Better on a Budget: The No-Excuses Guide for Men",
         "href": "/blog/how-to-dress-better-on-a-budget",
         "description": "Want to dress better on a budget without buying a whole new wardrobe?"
-      },
-      {
-        "slug": "how-to-dress-better-men-20s",
-        "title": "How Men in Their 20s Can Dress Better",
-        "href": "/blog/how-to-dress-better-men-20s",
-        "description": "How men in their 20s can dress better without wasting money on trends."
       }
     ],
     "7-signs-dress-well": [
       {
+        "slug": "watch-guide-men-style",
+        "title": "The Only Watch Guide for Men Who Actually Want to Wear One Right",
+        "href": "/blog/watch-guide-men-style",
+        "description": "A practical watch guide for men who want sharper style without obsessing over horology."
+      },
+      {
         "slug": "how-to-dress-for-winter-men",
         "title": "How to Dress for Winter: The Men's Cold-Weather Style Guide That Actually Works",
         "href": "/blog/how-to-dress-for-winter-men",
@@ -52,12 +58,6 @@
         "title": "How to Dress Better on a Budget: The No-Excuses Guide for Men",
         "href": "/blog/how-to-dress-better-on-a-budget",
         "description": "Want to dress better on a budget without buying a whole new wardrobe?"
-      },
-      {
-        "slug": "how-to-dress-better-men-40s",
-        "title": "How Men in Their 40s Can Dress Better",
-        "href": "/blog/how-to-dress-better-men-40s",
-        "description": "How to dress better in your 40s without chasing trends or looking stiff."
       }
     ],
     "how-to-dress-better-men-40s": [
@@ -748,6 +748,20 @@
         "title": "How to Wear a Polo Shirt Men Actually Look Good In",
         "href": "/blog/how-to-wear-polo-shirt-men",
         "description": "Learn exactly how to wear a polo shirt as a man — fit rules, outfit formulas, and style tips that work in real life, not just on mood boards."
+      }
+    ],
+    "watch-guide-men-style": [
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
+      },
+      {
+        "slug": "7-signs-dress-well",
+        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
+        "href": "/blog/7-signs-dress-well",
+        "description": "Practical signs that separate a sharp look from an average one."
       }
     ]
   }

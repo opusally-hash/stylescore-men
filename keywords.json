@@ -378,7 +378,7 @@
       "keyword": "watch guide for men",
       "slug": "watch-guide-men-style",
       "priority": 85,
-      "status": "draft",
+      "status": "published",
       "cluster": "accessories",
       "articleFormat": "buying guide",
       "secondaryKeywords": [
@@ -386,7 +386,10 @@
         "best watches for style",
         "watch style rules"
       ],
-      "scheduledFor": "2026-05-03"
+      "scheduledFor": "2026-05-03",
+      "publishedAt": "2026-06-19",
+      "updatedAt": "2026-06-19",
+      "title": "The Only Watch Guide for Men Who Actually Want to Wear One Right | StyleScore"
     },
     {
       "keyword": "how to dress for your body type men",
@@ -1806,6 +1809,16 @@
         "description": "Learn exactly how to dress for winter as a man — specific outfit formulas, layering systems, fit rules, and wardrobe essentials that actually work when temperatures drop.",
         "role": "supporting",
         "publishedAt": "2026-06-18"
+      }
+    ],
+    "accessories": [
+      {
+        "slug": "watch-guide-men-style",
+        "title": "The Only Watch Guide for Men Who Actually Want to Wear One Right",
+        "href": "/blog/watch-guide-men-style",
+        "description": "A practical watch guide for men who want sharper style without obsessing over horology.",
+        "role": "supporting",
+        "publishedAt": "2026-06-19"
       }
     ]
   }
