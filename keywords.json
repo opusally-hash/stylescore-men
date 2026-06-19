@@ -687,7 +687,7 @@
       "keyword": "how to dress for a wedding as a guest men",
       "slug": "how-to-dress-for-wedding-guest-men",
       "priority": 85,
-      "status": "draft",
+      "status": "published",
       "cluster": "occasion-dressing",
       "articleFormat": "occasion guide",
       "secondaryKeywords": [
@@ -695,7 +695,10 @@
         "what to wear to a wedding men",
         "summer wedding outfit men"
       ],
-      "scheduledFor": "2026-05-24"
+      "scheduledFor": "2026-05-24",
+      "publishedAt": "2026-06-19",
+      "updatedAt": "2026-06-19",
+      "title": "How to Dress for a Wedding as a Guest (Men's Edition): Outfit Formulas That Actually Work | StyleScore"
     },
     {
       "keyword": "best jeans for athletic build men",
@@ -1672,6 +1675,14 @@
       }
     ],
     "occasion-dressing": [
+      {
+        "slug": "how-to-dress-for-wedding-guest-men",
+        "title": "How to Dress for a Wedding as a Guest Men: The Guide That Skips the Guesswork",
+        "href": "/blog/how-to-dress-for-wedding-guest-men",
+        "description": "Figuring out how to dress for a wedding as a guest men often means guessing wrong.",
+        "role": "supporting",
+        "publishedAt": "2026-06-19"
+      },
       {
         "slug": "smart-casual-date-night-outfits-men",
         "title": "Smart Casual Date Night Outfits for Men",

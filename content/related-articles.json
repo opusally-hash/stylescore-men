@@ -126,6 +126,12 @@
     ],
     "business-casual-outfits-men-who-hate-dressing-up": [
       {
+        "slug": "how-to-dress-for-wedding-guest-men",
+        "title": "How to Dress for a Wedding as a Guest Men: The Guide That Skips the Guesswork",
+        "href": "/blog/how-to-dress-for-wedding-guest-men",
+        "description": "Figuring out how to dress for a wedding as a guest men often means guessing wrong."
+      },
+      {
         "slug": "smart-casual-date-night-outfits-men",
         "title": "Smart Casual Date Night Outfits for Men",
         "href": "/blog/smart-casual-date-night-outfits-men",
@@ -136,15 +142,15 @@
         "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
         "href": "/blog/wedding-outfit-short-men",
         "description": "Wedding dressing rules for shorter men across formality levels."
-      },
-      {
-        "slug": "summer-outfits-short-men",
-        "title": "Summer Style for Short Men",
-        "href": "/blog/summer-outfits-short-men",
-        "description": "Warm-weather outfit rules that keep proportions clean."
       }
     ],
     "wedding-outfit-short-men": [
+      {
+        "slug": "how-to-dress-for-wedding-guest-men",
+        "title": "How to Dress for a Wedding as a Guest Men: The Guide That Skips the Guesswork",
+        "href": "/blog/how-to-dress-for-wedding-guest-men",
+        "description": "Figuring out how to dress for a wedding as a guest men often means guessing wrong."
+      },
       {
         "slug": "smart-casual-date-night-outfits-men",
         "title": "Smart Casual Date Night Outfits for Men",
@@ -322,6 +328,12 @@
     ],
     "smart-casual-date-night-outfits-men": [
       {
+        "slug": "how-to-dress-for-wedding-guest-men",
+        "title": "How to Dress for a Wedding as a Guest Men: The Guide That Skips the Guesswork",
+        "href": "/blog/how-to-dress-for-wedding-guest-men",
+        "description": "Figuring out how to dress for a wedding as a guest men often means guessing wrong."
+      },
+      {
         "slug": "wedding-outfit-short-men",
         "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
         "href": "/blog/wedding-outfit-short-men",
@@ -332,12 +344,6 @@
         "title": "Business Casual Outfits for Men Who Hate Dressing Up",
         "href": "/blog/business-casual-outfits-men-who-hate-dressing-up",
         "description": "Say goodbye to corporate costumes with these easy business casual outfit formulas for men who hate dressing up."
-      },
-      {
-        "slug": "summer-outfits-short-men",
-        "title": "Summer Style for Short Men",
-        "href": "/blog/summer-outfits-short-men",
-        "description": "Warm-weather outfit rules that keep proportions clean."
       }
     ],
     "shoes-for-short-men": [
@@ -762,6 +768,26 @@
         "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
         "href": "/blog/7-signs-dress-well",
         "description": "Practical signs that separate a sharp look from an average one."
+      }
+    ],
+    "how-to-dress-for-wedding-guest-men": [
+      {
+        "slug": "wedding-outfit-short-men",
+        "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
+        "href": "/blog/wedding-outfit-short-men",
+        "description": "Wedding dressing rules for shorter men across formality levels."
+      },
+      {
+        "slug": "smart-casual-date-night-outfits-men",
+        "title": "Smart Casual Date Night Outfits for Men",
+        "href": "/blog/smart-casual-date-night-outfits-men",
+        "description": "Nail your next date night with these practical smart casual outfit ideas."
+      },
+      {
+        "slug": "business-casual-outfits-men-who-hate-dressing-up",
+        "title": "Business Casual Outfits for Men Who Hate Dressing Up",
+        "href": "/blog/business-casual-outfits-men-who-hate-dressing-up",
+        "description": "Say goodbye to corporate costumes with these easy business casual outfit formulas for men who hate dressing up."
       }
     ]
   }
