@@ -707,7 +707,7 @@
       "keyword": "best jeans for athletic build men",
       "slug": "best-jeans-for-athletic-build-men",
       "priority": 84,
-      "status": "draft",
+      "status": "published",
       "cluster": "body-type",
       "articleFormat": "buying guide",
       "secondaryKeywords": [
@@ -715,7 +715,10 @@
         "athletic fit jeans",
         "jeans for men who lift"
       ],
-      "scheduledFor": "2026-05-25"
+      "scheduledFor": "2026-05-25",
+      "publishedAt": "2026-06-20",
+      "updatedAt": "2026-06-20",
+      "title": "The Best Jeans for Athletic Build Men (No More Choosing Between Waist and Thighs) | StyleScore"
     },
     {
       "keyword": "how to iron a dress shirt",
@@ -1728,6 +1731,14 @@
       }
     ],
     "body-type": [
+      {
+        "slug": "best-jeans-for-athletic-build-men",
+        "title": "The Best Jeans for Athletic Build Men (No More Choosing Between Waist and Thighs)",
+        "href": "/blog/best-jeans-for-athletic-build-men",
+        "description": "Finding the best jeans for athletic build men means solving the waist-thigh gap problem for good.",
+        "role": "supporting",
+        "publishedAt": "2026-06-20"
+      },
       {
         "slug": "how-to-dress-for-body-type-men",
         "title": "How to Dress for Your Body Type: A No-Nonsense Guide for Men",

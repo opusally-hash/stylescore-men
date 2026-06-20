@@ -792,6 +792,12 @@
     ],
     "how-to-dress-for-body-type-men": [
       {
+        "slug": "best-jeans-for-athletic-build-men",
+        "title": "The Best Jeans for Athletic Build Men (No More Choosing Between Waist and Thighs)",
+        "href": "/blog/best-jeans-for-athletic-build-men",
+        "description": "Finding the best jeans for athletic build men means solving the waist-thigh gap problem for good."
+      },
+      {
         "slug": "fashion-for-short-men",
         "title": "Fashion Tips for Short Men (Look Taller Instantly)",
         "href": "/blog/fashion-for-short-men",
@@ -802,15 +808,15 @@
         "title": "Best Clothes for Muscular Men",
         "href": "/blog/Fashion-for-muscular-men",
         "description": "How muscular builds can stop fighting their own proportions."
-      },
-      {
-        "slug": "mens-style-test",
-        "title": "Men's Style Quiz: Find Your Style Score Online",
-        "href": "/blog/mens-style-test",
-        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
       }
     ],
     "fashion-for-short-men": [
+      {
+        "slug": "best-jeans-for-athletic-build-men",
+        "title": "The Best Jeans for Athletic Build Men (No More Choosing Between Waist and Thighs)",
+        "href": "/blog/best-jeans-for-athletic-build-men",
+        "description": "Finding the best jeans for athletic build men means solving the waist-thigh gap problem for good."
+      },
       {
         "slug": "how-to-dress-for-body-type-men",
         "title": "How to Dress for Your Body Type: A No-Nonsense Guide for Men",
@@ -820,10 +826,36 @@
     ],
     "Fashion-for-muscular-men": [
       {
+        "slug": "best-jeans-for-athletic-build-men",
+        "title": "The Best Jeans for Athletic Build Men (No More Choosing Between Waist and Thighs)",
+        "href": "/blog/best-jeans-for-athletic-build-men",
+        "description": "Finding the best jeans for athletic build men means solving the waist-thigh gap problem for good."
+      },
+      {
         "slug": "how-to-dress-for-body-type-men",
         "title": "How to Dress for Your Body Type: A No-Nonsense Guide for Men",
         "href": "/blog/how-to-dress-for-body-type-men",
         "description": "Learn exactly how to dress for your body type as a man."
+      }
+    ],
+    "best-jeans-for-athletic-build-men": [
+      {
+        "slug": "fashion-for-short-men",
+        "title": "Fashion Tips for Short Men (Look Taller Instantly)",
+        "href": "/blog/fashion-for-short-men",
+        "description": "The body-type rules that make shorter frames look sharper."
+      },
+      {
+        "slug": "how-to-dress-for-body-type-men",
+        "title": "How to Dress for Your Body Type: A No-Nonsense Guide for Men",
+        "href": "/blog/how-to-dress-for-body-type-men",
+        "description": "Learn exactly how to dress for your body type as a man."
+      },
+      {
+        "slug": "Fashion-for-muscular-men",
+        "title": "Best Clothes for Muscular Men",
+        "href": "/blog/Fashion-for-muscular-men",
+        "description": "How muscular builds can stop fighting their own proportions."
       }
     ]
   }
