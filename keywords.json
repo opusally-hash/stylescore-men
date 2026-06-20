@@ -395,7 +395,7 @@
       "keyword": "how to dress for your body type men",
       "slug": "how-to-dress-for-body-type-men",
       "priority": 84,
-      "status": "draft",
+      "status": "published",
       "cluster": "body-type",
       "articleFormat": "style guide",
       "secondaryKeywords": [
@@ -403,7 +403,10 @@
         "body type style guide",
         "flattering clothes for men"
       ],
-      "scheduledFor": "2026-05-04"
+      "scheduledFor": "2026-05-04",
+      "publishedAt": "2026-06-20",
+      "updatedAt": "2026-06-20",
+      "title": "How to Dress for Your Body Type: A No-Nonsense Guide for Men | StyleScore"
     },
     {
       "keyword": "how to tuck in a shirt properly",
@@ -1725,6 +1728,14 @@
       }
     ],
     "body-type": [
+      {
+        "slug": "how-to-dress-for-body-type-men",
+        "title": "How to Dress for Your Body Type: A No-Nonsense Guide for Men",
+        "href": "/blog/how-to-dress-for-body-type-men",
+        "description": "Learn exactly how to dress for your body type as a man.",
+        "role": "supporting",
+        "publishedAt": "2026-06-20"
+      },
       {
         "slug": "fashion-for-short-men",
         "title": "Fashion Tips for Short Men (Look Taller Instantly)",

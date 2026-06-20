@@ -22,6 +22,12 @@
     ],
     "mens-style-test": [
       {
+        "slug": "how-to-dress-for-body-type-men",
+        "title": "How to Dress for Your Body Type: A No-Nonsense Guide for Men",
+        "href": "/blog/how-to-dress-for-body-type-men",
+        "description": "Learn exactly how to dress for your body type as a man."
+      },
+      {
         "slug": "watch-guide-men-style",
         "title": "The Only Watch Guide for Men Who Actually Want to Wear One Right",
         "href": "/blog/watch-guide-men-style",
@@ -32,12 +38,6 @@
         "title": "How to Dress for Winter: The Men's Cold-Weather Style Guide That Actually Works",
         "href": "/blog/how-to-dress-for-winter-men",
         "description": "Learn exactly how to dress for winter as a man — specific outfit formulas, layering systems, fit rules, and wardrobe essentials that actually work when temperatures drop."
-      },
-      {
-        "slug": "how-to-dress-better-on-a-budget",
-        "title": "How to Dress Better on a Budget: The No-Excuses Guide for Men",
-        "href": "/blog/how-to-dress-better-on-a-budget",
-        "description": "Want to dress better on a budget without buying a whole new wardrobe?"
       }
     ],
     "7-signs-dress-well": [
@@ -788,6 +788,42 @@
         "title": "Business Casual Outfits for Men Who Hate Dressing Up",
         "href": "/blog/business-casual-outfits-men-who-hate-dressing-up",
         "description": "Say goodbye to corporate costumes with these easy business casual outfit formulas for men who hate dressing up."
+      }
+    ],
+    "how-to-dress-for-body-type-men": [
+      {
+        "slug": "fashion-for-short-men",
+        "title": "Fashion Tips for Short Men (Look Taller Instantly)",
+        "href": "/blog/fashion-for-short-men",
+        "description": "The body-type rules that make shorter frames look sharper."
+      },
+      {
+        "slug": "Fashion-for-muscular-men",
+        "title": "Best Clothes for Muscular Men",
+        "href": "/blog/Fashion-for-muscular-men",
+        "description": "How muscular builds can stop fighting their own proportions."
+      },
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
+      }
+    ],
+    "fashion-for-short-men": [
+      {
+        "slug": "how-to-dress-for-body-type-men",
+        "title": "How to Dress for Your Body Type: A No-Nonsense Guide for Men",
+        "href": "/blog/how-to-dress-for-body-type-men",
+        "description": "Learn exactly how to dress for your body type as a man."
+      }
+    ],
+    "Fashion-for-muscular-men": [
+      {
+        "slug": "how-to-dress-for-body-type-men",
+        "title": "How to Dress for Your Body Type: A No-Nonsense Guide for Men",
+        "href": "/blog/how-to-dress-for-body-type-men",
+        "description": "Learn exactly how to dress for your body type as a man."
       }
     ]
   }
