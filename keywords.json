@@ -1060,7 +1060,7 @@
       "keyword": "how to wear oversized clothing short men",
       "slug": "how-to-wear-oversized-clothing-short-men",
       "priority": 84,
-      "status": "draft",
+      "status": "published",
       "cluster": "short-men-style",
       "articleFormat": "style guide",
       "secondaryKeywords": [
@@ -1068,7 +1068,10 @@
         "baggy clothes short guys",
         "oversized trend short men"
       ],
-      "scheduledFor": "2026-06-19"
+      "scheduledFor": "2026-06-19",
+      "publishedAt": "2026-06-21",
+      "updatedAt": "2026-06-21",
+      "title": "How to Wear Oversized Clothing If You're a Short Man (Without Disappearing Into Your Outfit) | StyleScore"
     },
     {
       "keyword": "best overcoats for short men",
@@ -1339,6 +1342,14 @@
   ],
   "clusters": {
     "short-men-style": [
+      {
+        "slug": "how-to-wear-oversized-clothing-short-men",
+        "title": "How to Wear Oversized Clothing If You're a Short Man (Without Disappearing Into Your Outfit)",
+        "href": "/blog/how-to-wear-oversized-clothing-short-men",
+        "description": "Short men can absolutely wear oversized clothing—if they know the rules.",
+        "role": "supporting",
+        "publishedAt": "2026-06-21"
+      },
       {
         "slug": "short-men-gym-physique-style",
         "title": "Short Men Gym Physique Style: How to Dress a Muscular Frame Without Looking Stuffed",

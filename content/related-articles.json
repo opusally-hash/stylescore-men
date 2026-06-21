@@ -250,6 +250,12 @@
     ],
     "best-shoes-for-short-men": [
       {
+        "slug": "how-to-wear-oversized-clothing-short-men",
+        "title": "How to Wear Oversized Clothing If You're a Short Man (Without Disappearing Into Your Outfit)",
+        "href": "/blog/how-to-wear-oversized-clothing-short-men",
+        "description": "Short men can absolutely wear oversized clothing—if they know the rules."
+      },
+      {
         "slug": "business-casual-shoes-men",
         "title": "Business Casual Shoes for Men: Simple Formulas That Actually Work",
         "href": "/blog/business-casual-shoes-men",
@@ -260,12 +266,6 @@
         "title": "Short Men Gym Physique Style: How to Dress a Muscular Frame Without Looking Stuffed",
         "href": "/blog/short-men-gym-physique-style",
         "description": "Most short-men style advice is written for lean frames."
-      },
-      {
-        "slug": "short-men-business-casual",
-        "title": "Short Men Business Casual: How to Fix the Office Outfit Formula That Wasn't Written for You",
-        "href": "/blog/short-men-business-casual",
-        "description": "Business casual advice is built around a 5'10 baseline."
       }
     ],
     "best-white-sneakers-men": [
@@ -368,6 +368,12 @@
     ],
     "how-clothes-should-fit-short-men": [
       {
+        "slug": "how-to-wear-oversized-clothing-short-men",
+        "title": "How to Wear Oversized Clothing If You're a Short Man (Without Disappearing Into Your Outfit)",
+        "href": "/blog/how-to-wear-oversized-clothing-short-men",
+        "description": "Short men can absolutely wear oversized clothing—if they know the rules."
+      },
+      {
         "slug": "short-men-gym-physique-style",
         "title": "Short Men Gym Physique Style: How to Dress a Muscular Frame Without Looking Stuffed",
         "href": "/blog/short-men-gym-physique-style",
@@ -378,12 +384,6 @@
         "title": "Short Men Business Casual: How to Fix the Office Outfit Formula That Wasn't Written for You",
         "href": "/blog/short-men-business-casual",
         "description": "Business casual advice is built around a 5'10 baseline."
-      },
-      {
-        "slug": "5-6-style-guide-men",
-        "title": "The 5'6 Style Guide for Men: How to Work Around the Sizing System That Wasn't Built for You",
-        "href": "/blog/5-6-style-guide-men",
-        "description": "A practical 5'6 style guide for men covering the exact fit zones that fail at this height, which brands actually cut for shorter torsos, and how to build a wardrobe that works without constant tailoring."
       }
     ],
     "dress-shoes-for-short-men": [
@@ -568,6 +568,12 @@
     ],
     "short-men-gym-physique-style": [
       {
+        "slug": "how-to-wear-oversized-clothing-short-men",
+        "title": "How to Wear Oversized Clothing If You're a Short Man (Without Disappearing Into Your Outfit)",
+        "href": "/blog/how-to-wear-oversized-clothing-short-men",
+        "description": "Short men can absolutely wear oversized clothing—if they know the rules."
+      },
+      {
         "slug": "best-shoes-for-short-men",
         "title": "7 Best Shoes for Short Men That Actually Add Height",
         "href": "/blog/best-shoes-for-short-men",
@@ -578,12 +584,6 @@
         "title": "How Clothes Should Fit If You're 5'6\"",
         "href": "/blog/how-clothes-should-fit-short-men",
         "description": "Specific fit landmarks for shirts, trousers, and jackets."
-      },
-      {
-        "slug": "short-men-business-casual",
-        "title": "Short Men Business Casual: How to Fix the Office Outfit Formula That Wasn't Written for You",
-        "href": "/blog/short-men-business-casual",
-        "description": "Business casual advice is built around a 5'10 baseline."
       }
     ],
     "how-to-wear-leather-jacket-men": [
@@ -856,6 +856,26 @@
         "title": "Best Clothes for Muscular Men",
         "href": "/blog/Fashion-for-muscular-men",
         "description": "How muscular builds can stop fighting their own proportions."
+      }
+    ],
+    "how-to-wear-oversized-clothing-short-men": [
+      {
+        "slug": "best-shoes-for-short-men",
+        "title": "7 Best Shoes for Short Men That Actually Add Height",
+        "href": "/blog/best-shoes-for-short-men",
+        "description": "The strongest footwear choices for shorter men."
+      },
+      {
+        "slug": "how-clothes-should-fit-short-men",
+        "title": "How Clothes Should Fit If You're 5'6\"",
+        "href": "/blog/how-clothes-should-fit-short-men",
+        "description": "Specific fit landmarks for shirts, trousers, and jackets."
+      },
+      {
+        "slug": "short-men-gym-physique-style",
+        "title": "Short Men Gym Physique Style: How to Dress a Muscular Frame Without Looking Stuffed",
+        "href": "/blog/short-men-gym-physique-style",
+        "description": "Most short-men style advice is written for lean frames."
       }
     ]
   }
