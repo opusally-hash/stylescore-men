@@ -412,7 +412,7 @@
       "keyword": "how to tuck in a shirt properly",
       "slug": "how-to-tuck-in-shirt-properly-men",
       "priority": 83,
-      "status": "draft",
+      "status": "published",
       "cluster": "fit-proportion",
       "articleFormat": "how-to guide",
       "secondaryKeywords": [
@@ -420,7 +420,10 @@
         "military tuck",
         "when to tuck shirt"
       ],
-      "scheduledFor": "2026-05-05"
+      "scheduledFor": "2026-05-05",
+      "publishedAt": "2026-06-22",
+      "updatedAt": "2026-06-22",
+      "title": "How to Tuck In a Shirt Properly (And Actually Keep It Tucked) | StyleScore"
     },
     {
       "keyword": "best belts for men",
@@ -1514,6 +1517,14 @@
       }
     ],
     "fit-proportion": [
+      {
+        "slug": "how-to-tuck-in-shirt-properly-men",
+        "title": "How to Tuck In a Shirt Properly (And Actually Keep It Tucked)",
+        "href": "/blog/how-to-tuck-in-shirt-properly-men",
+        "description": "Learn how to tuck in a shirt properly with specific methods, fit callouts, and outfit formulas that work in real life — not just on a runway.",
+        "role": "supporting",
+        "publishedAt": "2026-06-22"
+      },
       {
         "slug": "how-clothes-should-fit-short-men",
         "title": "How Clothes Should Actually Fit If You're 5'6\"",
