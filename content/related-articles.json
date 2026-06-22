@@ -22,6 +22,12 @@
     ],
     "mens-style-test": [
       {
+        "slug": "how-to-iron-dress-shirt",
+        "title": "How to Iron a Dress Shirt Without Ruining It (Or Your Morning)",
+        "href": "/blog/how-to-iron-dress-shirt",
+        "description": "Learn how to iron a dress shirt the right way — fast, crease-free, and without scorching the collar."
+      },
+      {
         "slug": "how-to-dress-for-body-type-men",
         "title": "How to Dress for Your Body Type: A No-Nonsense Guide for Men",
         "href": "/blog/how-to-dress-for-body-type-men",
@@ -32,15 +38,15 @@
         "title": "The Only Watch Guide for Men Who Actually Want to Wear One Right",
         "href": "/blog/watch-guide-men-style",
         "description": "A practical watch guide for men who want sharper style without obsessing over horology."
-      },
-      {
-        "slug": "how-to-dress-for-winter-men",
-        "title": "How to Dress for Winter: The Men's Cold-Weather Style Guide That Actually Works",
-        "href": "/blog/how-to-dress-for-winter-men",
-        "description": "Learn exactly how to dress for winter as a man — specific outfit formulas, layering systems, fit rules, and wardrobe essentials that actually work when temperatures drop."
       }
     ],
     "7-signs-dress-well": [
+      {
+        "slug": "how-to-iron-dress-shirt",
+        "title": "How to Iron a Dress Shirt Without Ruining It (Or Your Morning)",
+        "href": "/blog/how-to-iron-dress-shirt",
+        "description": "Learn how to iron a dress shirt the right way — fast, crease-free, and without scorching the collar."
+      },
       {
         "slug": "watch-guide-men-style",
         "title": "The Only Watch Guide for Men Who Actually Want to Wear One Right",
@@ -52,12 +58,6 @@
         "title": "How to Dress for Winter: The Men's Cold-Weather Style Guide That Actually Works",
         "href": "/blog/how-to-dress-for-winter-men",
         "description": "Learn exactly how to dress for winter as a man — specific outfit formulas, layering systems, fit rules, and wardrobe essentials that actually work when temperatures drop."
-      },
-      {
-        "slug": "how-to-dress-better-on-a-budget",
-        "title": "How to Dress Better on a Budget: The No-Excuses Guide for Men",
-        "href": "/blog/how-to-dress-better-on-a-budget",
-        "description": "Want to dress better on a budget without buying a whole new wardrobe?"
       }
     ],
     "how-to-dress-better-men-40s": [
@@ -912,6 +912,20 @@
         "title": "How to Tuck In a Shirt Properly (And Actually Keep It Tucked)",
         "href": "/blog/how-to-tuck-in-shirt-properly-men",
         "description": "Learn how to tuck in a shirt properly with specific methods, fit callouts, and outfit formulas that work in real life — not just on a runway."
+      }
+    ],
+    "how-to-iron-dress-shirt": [
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
+      },
+      {
+        "slug": "7-signs-dress-well",
+        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
+        "href": "/blog/7-signs-dress-well",
+        "description": "Practical signs that separate a sharp look from an average one."
       }
     ]
   }

@@ -727,7 +727,7 @@
       "keyword": "how to iron a dress shirt",
       "slug": "how-to-iron-dress-shirt",
       "priority": 83,
-      "status": "draft",
+      "status": "published",
       "cluster": "fabric-care",
       "articleFormat": "how-to guide",
       "secondaryKeywords": [
@@ -735,7 +735,10 @@
         "how to iron a shirt fast",
         "wrinkle-free dress shirts"
       ],
-      "scheduledFor": "2026-05-26"
+      "scheduledFor": "2026-05-26",
+      "publishedAt": "2026-06-22",
+      "updatedAt": "2026-06-22",
+      "title": "How to Iron a Dress Shirt Without Ruining It (Or Your Morning) | StyleScore"
     },
     {
       "keyword": "smart casual vs business casual",
@@ -1874,6 +1877,16 @@
         "description": "A practical watch guide for men who want sharper style without obsessing over horology.",
         "role": "supporting",
         "publishedAt": "2026-06-19"
+      }
+    ],
+    "fabric-care": [
+      {
+        "slug": "how-to-iron-dress-shirt",
+        "title": "How to Iron a Dress Shirt Without Ruining It (Or Your Morning)",
+        "href": "/blog/how-to-iron-dress-shirt",
+        "description": "Learn how to iron a dress shirt the right way — fast, crease-free, and without scorching the collar.",
+        "role": "supporting",
+        "publishedAt": "2026-06-22"
       }
     ]
   }
