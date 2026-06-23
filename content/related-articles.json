@@ -82,6 +82,12 @@
     ],
     "why-clothes-look-bad-in-photos-men": [
       {
+        "slug": "smart-casual-vs-business-casual",
+        "title": "Smart Casual vs Business Casual: The Only Guide Men Actually Need",
+        "href": "/blog/smart-casual-vs-business-casual",
+        "description": "Confused about smart casual vs business casual?"
+      },
+      {
         "slug": "why-men-look-bad-in-clothes",
         "title": "Why Most Men Look Bad in Clothes (And How to Fix It)",
         "href": "/blog/why-men-look-bad-in-clothes",
@@ -92,15 +98,15 @@
         "title": "How to Improve Your Style in 30 Days",
         "href": "/blog/how-to-improve-style",
         "description": "A 30-day path for fixing the biggest style bottlenecks first."
-      },
-      {
-        "slug": "how-to-dress-better-men",
-        "title": "How to Dress Better as a Man (Simple Rules That Work)",
-        "href": "/blog/how-to-dress-better-men",
-        "description": "The simplest upgrade path for men who want clearer rules."
       }
     ],
     "why-men-look-bad-in-clothes": [
+      {
+        "slug": "smart-casual-vs-business-casual",
+        "title": "Smart Casual vs Business Casual: The Only Guide Men Actually Need",
+        "href": "/blog/smart-casual-vs-business-casual",
+        "description": "Confused about smart casual vs business casual?"
+      },
       {
         "slug": "why-clothes-look-bad-in-photos-men",
         "title": "Why Do My Clothes Look Bad in Photos as a Man?",
@@ -109,6 +115,12 @@
       }
     ],
     "how-to-improve-style": [
+      {
+        "slug": "smart-casual-vs-business-casual",
+        "title": "Smart Casual vs Business Casual: The Only Guide Men Actually Need",
+        "href": "/blog/smart-casual-vs-business-casual",
+        "description": "Confused about smart casual vs business casual?"
+      },
       {
         "slug": "why-clothes-look-bad-in-photos-men",
         "title": "Why Do My Clothes Look Bad in Photos as a Man?",
@@ -952,6 +964,26 @@
         "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
         "href": "/blog/7-signs-dress-well",
         "description": "Practical signs that separate a sharp look from an average one."
+      }
+    ],
+    "smart-casual-vs-business-casual": [
+      {
+        "slug": "why-men-look-bad-in-clothes",
+        "title": "Why Most Men Look Bad in Clothes (And How to Fix It)",
+        "href": "/blog/why-men-look-bad-in-clothes",
+        "description": "The real reasons outfits feel weak even when the pieces seem fine."
+      },
+      {
+        "slug": "why-clothes-look-bad-in-photos-men",
+        "title": "Why Do My Clothes Look Bad in Photos as a Man?",
+        "href": "/blog/why-clothes-look-bad-in-photos-men",
+        "description": "Discover why your outfits don't look as good in photos and learn practical tips to dress better for the camera."
+      },
+      {
+        "slug": "how-to-improve-style",
+        "title": "How to Improve Your Style in 30 Days",
+        "href": "/blog/how-to-improve-style",
+        "description": "A 30-day path for fixing the biggest style bottlenecks first."
       }
     ]
   }

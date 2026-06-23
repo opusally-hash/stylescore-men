@@ -747,7 +747,7 @@
       "keyword": "smart casual vs business casual",
       "slug": "smart-casual-vs-business-casual",
       "priority": 82,
-      "status": "draft",
+      "status": "published",
       "cluster": "common-style-problems",
       "articleFormat": "comparison",
       "secondaryKeywords": [
@@ -755,7 +755,10 @@
         "dress code definitions men",
         "what is smart casual"
       ],
-      "scheduledFor": "2026-05-27"
+      "scheduledFor": "2026-05-27",
+      "publishedAt": "2026-06-23",
+      "updatedAt": "2026-06-23",
+      "title": "Smart Casual vs Business Casual: The Only Guide Men Actually Need | StyleScore"
     },
     {
       "keyword": "how to wear shorts men over 30",
@@ -1819,6 +1822,14 @@
       }
     ],
     "common-style-problems": [
+      {
+        "slug": "smart-casual-vs-business-casual",
+        "title": "Smart Casual vs Business Casual: The Only Guide Men Actually Need",
+        "href": "/blog/smart-casual-vs-business-casual",
+        "description": "Confused about smart casual vs business casual?",
+        "role": "supporting",
+        "publishedAt": "2026-06-23"
+      },
       {
         "slug": "why-clothes-look-bad-in-photos-men",
         "title": "Why Do My Clothes Look Bad in Photos as a Man?",
