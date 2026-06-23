@@ -429,7 +429,7 @@
       "keyword": "best belts for men",
       "slug": "best-belts-men-style",
       "priority": 82,
-      "status": "draft",
+      "status": "published",
       "cluster": "accessories",
       "articleFormat": "buying guide",
       "secondaryKeywords": [
@@ -437,7 +437,10 @@
         "dress belt vs casual belt",
         "how to choose a belt"
       ],
-      "scheduledFor": "2026-05-06"
+      "scheduledFor": "2026-05-06",
+      "publishedAt": "2026-06-23",
+      "updatedAt": "2026-06-23",
+      "title": "The Best Belts for Men (And How to Stop Getting This Wrong) | StyleScore"
     },
     {
       "keyword": "how to dress for fall men",
@@ -1870,6 +1873,14 @@
       }
     ],
     "accessories": [
+      {
+        "slug": "best-belts-men-style",
+        "title": "The Best Belts for Men (And How to Stop Getting This Wrong)",
+        "href": "/blog/best-belts-men-style",
+        "description": "A practical guide to the best belts for men — covering leather belt choices, dress vs casual belt decisions, fit rules, and outfit formulas that actually work.",
+        "role": "supporting",
+        "publishedAt": "2026-06-23"
+      },
       {
         "slug": "watch-guide-men-style",
         "title": "The Only Watch Guide for Men Who Actually Want to Wear One Right",
