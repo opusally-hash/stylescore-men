@@ -446,7 +446,7 @@
       "keyword": "how to dress for fall men",
       "slug": "how-to-dress-for-fall-men",
       "priority": 81,
-      "status": "draft",
+      "status": "published",
       "cluster": "seasonal",
       "articleFormat": "outfit guide",
       "secondaryKeywords": [
@@ -454,7 +454,10 @@
         "autumn wardrobe",
         "transitional weather dressing"
       ],
-      "scheduledFor": "2026-05-07"
+      "scheduledFor": "2026-05-07",
+      "publishedAt": "2026-06-24",
+      "updatedAt": "2026-06-24",
+      "title": "How to Dress for Fall: The Men's Outfit Guide That Works in Real Weather | StyleScore"
     },
     {
       "keyword": "dress code guide men",
@@ -1885,6 +1888,14 @@
       }
     ],
     "seasonal": [
+      {
+        "slug": "how-to-dress-for-fall-men",
+        "title": "How to Dress for Fall: The Men's Outfit Guide That Works in Real Weather",
+        "href": "/blog/how-to-dress-for-fall-men",
+        "description": "Practical advice on how to dress for fall men — specific outfit formulas, layering calls, and fit notes that actually work when the temperature won't make up its mind.",
+        "role": "supporting",
+        "publishedAt": "2026-06-24"
+      },
       {
         "slug": "how-to-dress-for-winter-men",
         "title": "How to Dress for Winter: The Men's Cold-Weather Style Guide That Actually Works",

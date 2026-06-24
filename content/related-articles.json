@@ -22,6 +22,12 @@
     ],
     "mens-style-test": [
       {
+        "slug": "how-to-dress-for-fall-men",
+        "title": "How to Dress for Fall: The Men's Outfit Guide That Works in Real Weather",
+        "href": "/blog/how-to-dress-for-fall-men",
+        "description": "Practical advice on how to dress for fall men — specific outfit formulas, layering calls, and fit notes that actually work when the temperature won't make up its mind."
+      },
+      {
         "slug": "best-belts-men-style",
         "title": "The Best Belts for Men (And How to Stop Getting This Wrong)",
         "href": "/blog/best-belts-men-style",
@@ -32,16 +38,16 @@
         "title": "How to Iron a Dress Shirt Without Ruining It (Or Your Morning)",
         "href": "/blog/how-to-iron-dress-shirt",
         "description": "Learn how to iron a dress shirt the right way — fast, crease-free, and without scorching the collar."
-      },
-      {
-        "slug": "how-to-dress-for-body-type-men",
-        "title": "How to Dress for Your Body Type: A No-Nonsense Guide for Men",
-        "href": "/blog/how-to-dress-for-body-type-men",
-        "description": "Learn exactly how to dress for your body type as a man."
       }
     ],
     "7-signs-dress-well": [
       {
+        "slug": "how-to-dress-for-fall-men",
+        "title": "How to Dress for Fall: The Men's Outfit Guide That Works in Real Weather",
+        "href": "/blog/how-to-dress-for-fall-men",
+        "description": "Practical advice on how to dress for fall men — specific outfit formulas, layering calls, and fit notes that actually work when the temperature won't make up its mind."
+      },
+      {
         "slug": "best-belts-men-style",
         "title": "The Best Belts for Men (And How to Stop Getting This Wrong)",
         "href": "/blog/best-belts-men-style",
@@ -52,12 +58,6 @@
         "title": "How to Iron a Dress Shirt Without Ruining It (Or Your Morning)",
         "href": "/blog/how-to-iron-dress-shirt",
         "description": "Learn how to iron a dress shirt the right way — fast, crease-free, and without scorching the collar."
-      },
-      {
-        "slug": "watch-guide-men-style",
-        "title": "The Only Watch Guide for Men Who Actually Want to Wear One Right",
-        "href": "/blog/watch-guide-men-style",
-        "description": "A practical watch guide for men who want sharper style without obsessing over horology."
       }
     ],
     "how-to-dress-better-men-40s": [
@@ -736,6 +736,12 @@
     ],
     "how-to-dress-for-winter-men": [
       {
+        "slug": "how-to-dress-for-fall-men",
+        "title": "How to Dress for Fall: The Men's Outfit Guide That Works in Real Weather",
+        "href": "/blog/how-to-dress-for-fall-men",
+        "description": "Practical advice on how to dress for fall men — specific outfit formulas, layering calls, and fit notes that actually work when the temperature won't make up its mind."
+      },
+      {
         "slug": "mens-style-test",
         "title": "Men's Style Quiz: Find Your Style Score Online",
         "href": "/blog/mens-style-test",
@@ -1004,6 +1010,26 @@
         "title": "How to Wear Oversized Clothing If You're a Short Man (Without Disappearing Into Your Outfit)",
         "href": "/blog/how-to-wear-oversized-clothing-short-men",
         "description": "Short men can absolutely wear oversized clothing—if they know the rules."
+      }
+    ],
+    "how-to-dress-for-fall-men": [
+      {
+        "slug": "how-to-dress-for-winter-men",
+        "title": "How to Dress for Winter: The Men's Cold-Weather Style Guide That Actually Works",
+        "href": "/blog/how-to-dress-for-winter-men",
+        "description": "Learn exactly how to dress for winter as a man — specific outfit formulas, layering systems, fit rules, and wardrobe essentials that actually work when temperatures drop."
+      },
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
+      },
+      {
+        "slug": "7-signs-dress-well",
+        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
+        "href": "/blog/7-signs-dress-well",
+        "description": "Practical signs that separate a sharp look from an average one."
       }
     ]
   }
