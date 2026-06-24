@@ -1089,7 +1089,7 @@
       "keyword": "best overcoats for short men",
       "slug": "best-overcoats-for-short-men",
       "priority": 82,
-      "status": "draft",
+      "status": "published",
       "cluster": "short-men-style",
       "articleFormat": "buying guide",
       "secondaryKeywords": [
@@ -1097,7 +1097,10 @@
         "topcoat length short men",
         "peacoat short guys"
       ],
-      "scheduledFor": "2026-06-20"
+      "scheduledFor": "2026-06-20",
+      "publishedAt": "2026-06-24",
+      "updatedAt": "2026-06-24",
+      "title": "Best Overcoats for Short Men: The Fit Rules That Actually Work | StyleScore"
     },
     {
       "keyword": "layering guide for short men",
@@ -1354,6 +1357,14 @@
   ],
   "clusters": {
     "short-men-style": [
+      {
+        "slug": "best-overcoats-for-short-men",
+        "title": "Best Overcoats for Short Men: The Fit Rules That Actually Work",
+        "href": "/blog/best-overcoats-for-short-men",
+        "description": "Shopping for the best overcoats for short men?",
+        "role": "supporting",
+        "publishedAt": "2026-06-24"
+      },
       {
         "slug": "how-to-wear-oversized-clothing-short-men",
         "title": "How to Wear Oversized Clothing If You're a Short Man (Without Disappearing Into Your Outfit)",
