@@ -262,6 +262,12 @@
     ],
     "best-shoes-for-short-men": [
       {
+        "slug": "layering-guide-short-men",
+        "title": "The Layering Guide for Short Men: How to Add Warmth Without Adding Width",
+        "href": "/blog/layering-guide-short-men",
+        "description": "A practical layering guide for short men that covers specific outfit formulas, fit rules, and real examples for adding warmth without bulk, visual noise, or lost proportions."
+      },
+      {
         "slug": "best-overcoats-for-short-men",
         "title": "Best Overcoats for Short Men: The Fit Rules That Actually Work",
         "href": "/blog/best-overcoats-for-short-men",
@@ -272,12 +278,6 @@
         "title": "How to Wear Oversized Clothing If You're a Short Man (Without Disappearing Into Your Outfit)",
         "href": "/blog/how-to-wear-oversized-clothing-short-men",
         "description": "Short men can absolutely wear oversized clothing—if they know the rules."
-      },
-      {
-        "slug": "business-casual-shoes-men",
-        "title": "Business Casual Shoes for Men: Simple Formulas That Actually Work",
-        "href": "/blog/business-casual-shoes-men",
-        "description": "Stop guessing what shoes work for business casual."
       }
     ],
     "best-white-sneakers-men": [
@@ -380,6 +380,12 @@
     ],
     "how-clothes-should-fit-short-men": [
       {
+        "slug": "layering-guide-short-men",
+        "title": "The Layering Guide for Short Men: How to Add Warmth Without Adding Width",
+        "href": "/blog/layering-guide-short-men",
+        "description": "A practical layering guide for short men that covers specific outfit formulas, fit rules, and real examples for adding warmth without bulk, visual noise, or lost proportions."
+      },
+      {
         "slug": "best-overcoats-for-short-men",
         "title": "Best Overcoats for Short Men: The Fit Rules That Actually Work",
         "href": "/blog/best-overcoats-for-short-men",
@@ -390,12 +396,6 @@
         "title": "How to Tuck In a Shirt Properly (And Actually Keep It Tucked)",
         "href": "/blog/how-to-tuck-in-shirt-properly-men",
         "description": "Learn how to tuck in a shirt properly with specific methods, fit callouts, and outfit formulas that work in real life — not just on a runway."
-      },
-      {
-        "slug": "how-to-wear-oversized-clothing-short-men",
-        "title": "How to Wear Oversized Clothing If You're a Short Man (Without Disappearing Into Your Outfit)",
-        "href": "/blog/how-to-wear-oversized-clothing-short-men",
-        "description": "Short men can absolutely wear oversized clothing—if they know the rules."
       }
     ],
     "dress-shoes-for-short-men": [
@@ -994,6 +994,12 @@
     ],
     "best-overcoats-for-short-men": [
       {
+        "slug": "layering-guide-short-men",
+        "title": "The Layering Guide for Short Men: How to Add Warmth Without Adding Width",
+        "href": "/blog/layering-guide-short-men",
+        "description": "A practical layering guide for short men that covers specific outfit formulas, fit rules, and real examples for adding warmth without bulk, visual noise, or lost proportions."
+      },
+      {
         "slug": "best-shoes-for-short-men",
         "title": "7 Best Shoes for Short Men That Actually Add Height",
         "href": "/blog/best-shoes-for-short-men",
@@ -1004,12 +1010,6 @@
         "title": "How Clothes Should Fit If You're 5'6\"",
         "href": "/blog/how-clothes-should-fit-short-men",
         "description": "Specific fit landmarks for shirts, trousers, and jackets."
-      },
-      {
-        "slug": "how-to-wear-oversized-clothing-short-men",
-        "title": "How to Wear Oversized Clothing If You're a Short Man (Without Disappearing Into Your Outfit)",
-        "href": "/blog/how-to-wear-oversized-clothing-short-men",
-        "description": "Short men can absolutely wear oversized clothing—if they know the rules."
       }
     ],
     "how-to-dress-for-fall-men": [
@@ -1050,6 +1050,26 @@
         "title": "How Men in Their 30s Can Dress Better",
         "href": "/blog/how-to-dress-better-men-30s",
         "description": "How to sharpen your style in your 30s without overthinking every outfit."
+      }
+    ],
+    "layering-guide-short-men": [
+      {
+        "slug": "best-shoes-for-short-men",
+        "title": "7 Best Shoes for Short Men That Actually Add Height",
+        "href": "/blog/best-shoes-for-short-men",
+        "description": "The strongest footwear choices for shorter men."
+      },
+      {
+        "slug": "how-clothes-should-fit-short-men",
+        "title": "How Clothes Should Fit If You're 5'6\"",
+        "href": "/blog/how-clothes-should-fit-short-men",
+        "description": "Specific fit landmarks for shirts, trousers, and jackets."
+      },
+      {
+        "slug": "best-overcoats-for-short-men",
+        "title": "Best Overcoats for Short Men: The Fit Rules That Actually Work",
+        "href": "/blog/best-overcoats-for-short-men",
+        "description": "Shopping for the best overcoats for short men?"
       }
     ]
   }

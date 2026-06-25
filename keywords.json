@@ -1112,7 +1112,7 @@
       "keyword": "layering guide for short men",
       "slug": "layering-guide-short-men",
       "priority": 81,
-      "status": "draft",
+      "status": "published",
       "cluster": "short-men-style",
       "articleFormat": "how-to guide",
       "secondaryKeywords": [
@@ -1120,7 +1120,10 @@
         "winter layering short guys",
         "jacket over sweater short men"
       ],
-      "scheduledFor": "2026-06-21"
+      "scheduledFor": "2026-06-21",
+      "publishedAt": "2026-06-25",
+      "updatedAt": "2026-06-25",
+      "title": "The Layering Guide for Short Men: How to Add Warmth Without Adding Width | StyleScore"
     },
     {
       "keyword": "best brands for short men under 5'8",
@@ -1363,6 +1366,14 @@
   ],
   "clusters": {
     "short-men-style": [
+      {
+        "slug": "layering-guide-short-men",
+        "title": "The Layering Guide for Short Men: How to Add Warmth Without Adding Width",
+        "href": "/blog/layering-guide-short-men",
+        "description": "A practical layering guide for short men that covers specific outfit formulas, fit rules, and real examples for adding warmth without bulk, visual noise, or lost proportions.",
+        "role": "supporting",
+        "publishedAt": "2026-06-25"
+      },
       {
         "slug": "best-overcoats-for-short-men",
         "title": "Best Overcoats for Short Men: The Fit Rules That Actually Work",
