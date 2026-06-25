@@ -767,7 +767,7 @@
       "keyword": "how to wear shorts men over 30",
       "slug": "how-to-wear-shorts-men-over-30",
       "priority": 81,
-      "status": "draft",
+      "status": "published",
       "cluster": "age-specific",
       "articleFormat": "style guide",
       "secondaryKeywords": [
@@ -775,7 +775,10 @@
         "adult men shorts style",
         "shorts length men"
       ],
-      "scheduledFor": "2026-05-28"
+      "scheduledFor": "2026-05-28",
+      "publishedAt": "2026-06-25",
+      "updatedAt": "2026-06-25",
+      "title": "How to Wear Shorts After 30 Without Looking Like You Raided a Teenager's Closet | StyleScore"
     },
     {
       "keyword": "best chinos for men",
@@ -1810,6 +1813,14 @@
       }
     ],
     "age-specific": [
+      {
+        "slug": "how-to-wear-shorts-men-over-30",
+        "title": "How To Wear Shorts Men Over 30",
+        "href": "/blog/how-to-wear-shorts-men-over-30",
+        "description": "A practical guide on how to wear shorts men over 30 should actually read.",
+        "role": "supporting",
+        "publishedAt": "2026-06-25"
+      },
       {
         "slug": "how-to-dress-better-men-40s",
         "title": "How Men in Their 40s Can Dress Better",
