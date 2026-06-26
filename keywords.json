@@ -787,7 +787,7 @@
       "keyword": "best chinos for men",
       "slug": "best-chinos-for-men",
       "priority": 80,
-      "status": "draft",
+      "status": "published",
       "cluster": "wardrobe",
       "articleFormat": "buying guide",
       "secondaryKeywords": [
@@ -795,7 +795,10 @@
         "chino brands men",
         "where to buy good chinos"
       ],
-      "scheduledFor": "2026-05-29"
+      "scheduledFor": "2026-05-29",
+      "publishedAt": "2026-06-26",
+      "updatedAt": "2026-06-26",
+      "title": "The Best Chinos for Men Who Want to Stop Second-Guessing Their Wardrobe | StyleScore"
     },
     {
       "keyword": "how to style a blazer casually",
@@ -1659,6 +1662,14 @@
       }
     ],
     "wardrobe": [
+      {
+        "slug": "best-chinos-for-men",
+        "title": "The Best Chinos for Men Who Want to Stop Second-Guessing Their Wardrobe",
+        "href": "/blog/best-chinos-for-men",
+        "description": "A practical buying guide to the best chinos for men — covering fit, fabric, brands worth your money, and outfit formulas that actually work in real life.",
+        "role": "supporting",
+        "publishedAt": "2026-06-26"
+      },
       {
         "slug": "what-to-wear-with-black-jeans-men",
         "title": "What to Wear With Black Jeans: The Men's Outfit Guide That Actually Commits",

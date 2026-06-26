@@ -620,6 +620,12 @@
     ],
     "capsule-wardrobe-short-men": [
       {
+        "slug": "best-chinos-for-men",
+        "title": "The Best Chinos for Men Who Want to Stop Second-Guessing Their Wardrobe",
+        "href": "/blog/best-chinos-for-men",
+        "description": "A practical buying guide to the best chinos for men — covering fit, fabric, brands worth your money, and outfit formulas that actually work in real life."
+      },
+      {
         "slug": "what-to-wear-with-black-jeans-men",
         "title": "What to Wear With Black Jeans: The Men's Outfit Guide That Actually Commits",
         "href": "/blog/what-to-wear-with-black-jeans-men",
@@ -630,12 +636,6 @@
         "title": "The Best T-Shirts for Men Who Want to Look Good Without Thinking About It",
         "href": "/blog/best-t-shirts-for-men",
         "description": "A no-nonsense buying guide to the best t-shirts for men in 2024."
-      },
-      {
-        "slug": "how-to-wear-polo-shirt-men",
-        "title": "How to Wear a Polo Shirt Men Actually Look Good In",
-        "href": "/blog/how-to-wear-polo-shirt-men",
-        "description": "Learn exactly how to wear a polo shirt as a man — fit rules, outfit formulas, and style tips that work in real life, not just on mood boards."
       }
     ],
     "mens-wardrobe-essentials": [
@@ -682,6 +682,12 @@
     ],
     "best-t-shirts-for-men": [
       {
+        "slug": "best-chinos-for-men",
+        "title": "The Best Chinos for Men Who Want to Stop Second-Guessing Their Wardrobe",
+        "href": "/blog/best-chinos-for-men",
+        "description": "A practical buying guide to the best chinos for men — covering fit, fabric, brands worth your money, and outfit formulas that actually work in real life."
+      },
+      {
         "slug": "what-to-wear-with-black-jeans-men",
         "title": "What to Wear With Black Jeans: The Men's Outfit Guide That Actually Commits",
         "href": "/blog/what-to-wear-with-black-jeans-men",
@@ -692,12 +698,6 @@
         "title": "The 5'7\" Capsule Wardrobe: 15 Pieces That Actually Work for Shorter Frames",
         "href": "/blog/capsule-wardrobe-short-men",
         "description": "A compact wardrobe built around stronger proportions."
-      },
-      {
-        "slug": "how-to-wear-polo-shirt-men",
-        "title": "How to Wear a Polo Shirt Men Actually Look Good In",
-        "href": "/blog/how-to-wear-polo-shirt-men",
-        "description": "Learn exactly how to wear a polo shirt as a man — fit rules, outfit formulas, and style tips that work in real life, not just on mood boards."
       }
     ],
     "business-casual-shoes-men": [
@@ -756,6 +756,12 @@
     ],
     "what-to-wear-with-black-jeans-men": [
       {
+        "slug": "best-chinos-for-men",
+        "title": "The Best Chinos for Men Who Want to Stop Second-Guessing Their Wardrobe",
+        "href": "/blog/best-chinos-for-men",
+        "description": "A practical buying guide to the best chinos for men — covering fit, fabric, brands worth your money, and outfit formulas that actually work in real life."
+      },
+      {
         "slug": "capsule-wardrobe-short-men",
         "title": "The 5'7\" Capsule Wardrobe: 15 Pieces That Actually Work for Shorter Frames",
         "href": "/blog/capsule-wardrobe-short-men",
@@ -766,12 +772,6 @@
         "title": "The Best T-Shirts for Men Who Want to Look Good Without Thinking About It",
         "href": "/blog/best-t-shirts-for-men",
         "description": "A no-nonsense buying guide to the best t-shirts for men in 2024."
-      },
-      {
-        "slug": "how-to-wear-polo-shirt-men",
-        "title": "How to Wear a Polo Shirt Men Actually Look Good In",
-        "href": "/blog/how-to-wear-polo-shirt-men",
-        "description": "Learn exactly how to wear a polo shirt as a man — fit rules, outfit formulas, and style tips that work in real life, not just on mood boards."
       }
     ],
     "watch-guide-men-style": [
@@ -1090,6 +1090,26 @@
         "title": "Smart Casual Date Night Outfits for Men",
         "href": "/blog/smart-casual-date-night-outfits-men",
         "description": "Nail your next date night with these practical smart casual outfit ideas."
+      }
+    ],
+    "best-chinos-for-men": [
+      {
+        "slug": "capsule-wardrobe-short-men",
+        "title": "The 5'7\" Capsule Wardrobe: 15 Pieces That Actually Work for Shorter Frames",
+        "href": "/blog/capsule-wardrobe-short-men",
+        "description": "A compact wardrobe built around stronger proportions."
+      },
+      {
+        "slug": "what-to-wear-with-black-jeans-men",
+        "title": "What to Wear With Black Jeans: The Men's Outfit Guide That Actually Commits",
+        "href": "/blog/what-to-wear-with-black-jeans-men",
+        "description": "Stop treating black jeans like a fallback."
+      },
+      {
+        "slug": "best-t-shirts-for-men",
+        "title": "The Best T-Shirts for Men Who Want to Look Good Without Thinking About It",
+        "href": "/blog/best-t-shirts-for-men",
+        "description": "A no-nonsense buying guide to the best t-shirts for men in 2024."
       }
     ]
   }
