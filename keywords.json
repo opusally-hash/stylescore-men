@@ -463,7 +463,7 @@
       "keyword": "dress code guide men",
       "slug": "dress-code-guide-men",
       "priority": 80,
-      "status": "draft",
+      "status": "published",
       "cluster": "occasion-dressing",
       "articleFormat": "occasion guide",
       "secondaryKeywords": [
@@ -471,7 +471,10 @@
         "black tie optional",
         "semi formal dress code"
       ],
-      "scheduledFor": "2026-05-08"
+      "scheduledFor": "2026-05-08",
+      "publishedAt": "2026-06-26",
+      "updatedAt": "2026-06-26",
+      "title": "The Only Dress Code Guide Men Actually Need: What to Wear to Every Occasion | StyleScore"
     },
     {
       "keyword": "how to care for leather shoes",
@@ -1740,6 +1743,14 @@
       }
     ],
     "occasion-dressing": [
+      {
+        "slug": "dress-code-guide-men",
+        "title": "The Only Dress Code Guide Men Actually Need: What to Wear to Every Occasion",
+        "href": "/blog/dress-code-guide-men",
+        "description": "Confused by cocktail attire, black tie optional, or semi formal dress code?",
+        "role": "supporting",
+        "publishedAt": "2026-06-26"
+      },
       {
         "slug": "how-to-dress-for-wedding-guest-men",
         "title": "How to Dress for a Wedding as a Guest Men: The Guide That Skips the Guesswork",

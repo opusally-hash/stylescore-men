@@ -158,6 +158,12 @@
     ],
     "wedding-outfit-short-men": [
       {
+        "slug": "dress-code-guide-men",
+        "title": "The Only Dress Code Guide Men Actually Need: What to Wear to Every Occasion",
+        "href": "/blog/dress-code-guide-men",
+        "description": "Confused by cocktail attire, black tie optional, or semi formal dress code?"
+      },
+      {
         "slug": "how-to-dress-for-wedding-guest-men",
         "title": "How to Dress for a Wedding as a Guest Men: The Guide That Skips the Guesswork",
         "href": "/blog/how-to-dress-for-wedding-guest-men",
@@ -168,12 +174,6 @@
         "title": "Smart Casual Date Night Outfits for Men",
         "href": "/blog/smart-casual-date-night-outfits-men",
         "description": "Nail your next date night with these practical smart casual outfit ideas."
-      },
-      {
-        "slug": "business-casual-outfits-men-who-hate-dressing-up",
-        "title": "Business Casual Outfits for Men Who Hate Dressing Up",
-        "href": "/blog/business-casual-outfits-men-who-hate-dressing-up",
-        "description": "Say goodbye to corporate costumes with these easy business casual outfit formulas for men who hate dressing up."
       }
     ],
     "summer-outfits-short-men": [
@@ -340,6 +340,12 @@
     ],
     "smart-casual-date-night-outfits-men": [
       {
+        "slug": "dress-code-guide-men",
+        "title": "The Only Dress Code Guide Men Actually Need: What to Wear to Every Occasion",
+        "href": "/blog/dress-code-guide-men",
+        "description": "Confused by cocktail attire, black tie optional, or semi formal dress code?"
+      },
+      {
         "slug": "how-to-dress-for-wedding-guest-men",
         "title": "How to Dress for a Wedding as a Guest Men: The Guide That Skips the Guesswork",
         "href": "/blog/how-to-dress-for-wedding-guest-men",
@@ -350,12 +356,6 @@
         "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
         "href": "/blog/wedding-outfit-short-men",
         "description": "Wedding dressing rules for shorter men across formality levels."
-      },
-      {
-        "slug": "business-casual-outfits-men-who-hate-dressing-up",
-        "title": "Business Casual Outfits for Men Who Hate Dressing Up",
-        "href": "/blog/business-casual-outfits-men-who-hate-dressing-up",
-        "description": "Say goodbye to corporate costumes with these easy business casual outfit formulas for men who hate dressing up."
       }
     ],
     "shoes-for-short-men": [
@@ -796,6 +796,12 @@
     ],
     "how-to-dress-for-wedding-guest-men": [
       {
+        "slug": "dress-code-guide-men",
+        "title": "The Only Dress Code Guide Men Actually Need: What to Wear to Every Occasion",
+        "href": "/blog/dress-code-guide-men",
+        "description": "Confused by cocktail attire, black tie optional, or semi formal dress code?"
+      },
+      {
         "slug": "wedding-outfit-short-men",
         "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
         "href": "/blog/wedding-outfit-short-men",
@@ -806,12 +812,6 @@
         "title": "Smart Casual Date Night Outfits for Men",
         "href": "/blog/smart-casual-date-night-outfits-men",
         "description": "Nail your next date night with these practical smart casual outfit ideas."
-      },
-      {
-        "slug": "business-casual-outfits-men-who-hate-dressing-up",
-        "title": "Business Casual Outfits for Men Who Hate Dressing Up",
-        "href": "/blog/business-casual-outfits-men-who-hate-dressing-up",
-        "description": "Say goodbye to corporate costumes with these easy business casual outfit formulas for men who hate dressing up."
       }
     ],
     "how-to-dress-for-body-type-men": [
@@ -1070,6 +1070,26 @@
         "title": "Best Overcoats for Short Men: The Fit Rules That Actually Work",
         "href": "/blog/best-overcoats-for-short-men",
         "description": "Shopping for the best overcoats for short men?"
+      }
+    ],
+    "dress-code-guide-men": [
+      {
+        "slug": "wedding-outfit-short-men",
+        "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
+        "href": "/blog/wedding-outfit-short-men",
+        "description": "Wedding dressing rules for shorter men across formality levels."
+      },
+      {
+        "slug": "how-to-dress-for-wedding-guest-men",
+        "title": "How to Dress for a Wedding as a Guest Men: The Guide That Skips the Guesswork",
+        "href": "/blog/how-to-dress-for-wedding-guest-men",
+        "description": "Figuring out how to dress for a wedding as a guest men often means guessing wrong."
+      },
+      {
+        "slug": "smart-casual-date-night-outfits-men",
+        "title": "Smart Casual Date Night Outfits for Men",
+        "href": "/blog/smart-casual-date-night-outfits-men",
+        "description": "Nail your next date night with these practical smart casual outfit ideas."
       }
     ]
   }
