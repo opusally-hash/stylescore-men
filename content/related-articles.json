@@ -262,6 +262,12 @@
     ],
     "best-shoes-for-short-men": [
       {
+        "slug": "best-brands-for-short-men-under-5-8",
+        "title": "The Best Brands for Short Men Under 5'8\" (And What to Actually Buy From Each)",
+        "href": "/blog/best-brands-for-short-men-under-5-8",
+        "description": "Looking for brands that actually fit if you're under 5'8\"?"
+      },
+      {
         "slug": "layering-guide-short-men",
         "title": "The Layering Guide for Short Men: How to Add Warmth Without Adding Width",
         "href": "/blog/layering-guide-short-men",
@@ -272,12 +278,6 @@
         "title": "Best Overcoats for Short Men: The Fit Rules That Actually Work",
         "href": "/blog/best-overcoats-for-short-men",
         "description": "Shopping for the best overcoats for short men?"
-      },
-      {
-        "slug": "how-to-wear-oversized-clothing-short-men",
-        "title": "How to Wear Oversized Clothing If You're a Short Man (Without Disappearing Into Your Outfit)",
-        "href": "/blog/how-to-wear-oversized-clothing-short-men",
-        "description": "Short men can absolutely wear oversized clothing—if they know the rules."
       }
     ],
     "best-white-sneakers-men": [
@@ -380,6 +380,12 @@
     ],
     "how-clothes-should-fit-short-men": [
       {
+        "slug": "best-brands-for-short-men-under-5-8",
+        "title": "The Best Brands for Short Men Under 5'8\" (And What to Actually Buy From Each)",
+        "href": "/blog/best-brands-for-short-men-under-5-8",
+        "description": "Looking for brands that actually fit if you're under 5'8\"?"
+      },
+      {
         "slug": "layering-guide-short-men",
         "title": "The Layering Guide for Short Men: How to Add Warmth Without Adding Width",
         "href": "/blog/layering-guide-short-men",
@@ -390,12 +396,6 @@
         "title": "Best Overcoats for Short Men: The Fit Rules That Actually Work",
         "href": "/blog/best-overcoats-for-short-men",
         "description": "Shopping for the best overcoats for short men?"
-      },
-      {
-        "slug": "how-to-tuck-in-shirt-properly-men",
-        "title": "How to Tuck In a Shirt Properly (And Actually Keep It Tucked)",
-        "href": "/blog/how-to-tuck-in-shirt-properly-men",
-        "description": "Learn how to tuck in a shirt properly with specific methods, fit callouts, and outfit formulas that work in real life — not just on a runway."
       }
     ],
     "dress-shoes-for-short-men": [
@@ -1054,6 +1054,12 @@
     ],
     "layering-guide-short-men": [
       {
+        "slug": "best-brands-for-short-men-under-5-8",
+        "title": "The Best Brands for Short Men Under 5'8\" (And What to Actually Buy From Each)",
+        "href": "/blog/best-brands-for-short-men-under-5-8",
+        "description": "Looking for brands that actually fit if you're under 5'8\"?"
+      },
+      {
         "slug": "best-shoes-for-short-men",
         "title": "7 Best Shoes for Short Men That Actually Add Height",
         "href": "/blog/best-shoes-for-short-men",
@@ -1064,12 +1070,6 @@
         "title": "How Clothes Should Fit If You're 5'6\"",
         "href": "/blog/how-clothes-should-fit-short-men",
         "description": "Specific fit landmarks for shirts, trousers, and jackets."
-      },
-      {
-        "slug": "best-overcoats-for-short-men",
-        "title": "Best Overcoats for Short Men: The Fit Rules That Actually Work",
-        "href": "/blog/best-overcoats-for-short-men",
-        "description": "Shopping for the best overcoats for short men?"
       }
     ],
     "dress-code-guide-men": [
@@ -1110,6 +1110,26 @@
         "title": "The Best T-Shirts for Men Who Want to Look Good Without Thinking About It",
         "href": "/blog/best-t-shirts-for-men",
         "description": "A no-nonsense buying guide to the best t-shirts for men in 2024."
+      }
+    ],
+    "best-brands-for-short-men-under-5-8": [
+      {
+        "slug": "best-shoes-for-short-men",
+        "title": "7 Best Shoes for Short Men That Actually Add Height",
+        "href": "/blog/best-shoes-for-short-men",
+        "description": "The strongest footwear choices for shorter men."
+      },
+      {
+        "slug": "how-clothes-should-fit-short-men",
+        "title": "How Clothes Should Fit If You're 5'6\"",
+        "href": "/blog/how-clothes-should-fit-short-men",
+        "description": "Specific fit landmarks for shirts, trousers, and jackets."
+      },
+      {
+        "slug": "layering-guide-short-men",
+        "title": "The Layering Guide for Short Men: How to Add Warmth Without Adding Width",
+        "href": "/blog/layering-guide-short-men",
+        "description": "A practical layering guide for short men that covers specific outfit formulas, fit rules, and real examples for adding warmth without bulk, visual noise, or lost proportions."
       }
     ]
   }

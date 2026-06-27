@@ -1135,7 +1135,7 @@
       "keyword": "best brands for short men under 5'8",
       "slug": "best-brands-for-short-men-under-5-8",
       "priority": 80,
-      "status": "draft",
+      "status": "published",
       "cluster": "short-men-style",
       "articleFormat": "buying guide",
       "secondaryKeywords": [
@@ -1143,7 +1143,10 @@
         "brands that fit short guys",
         "short men clothing stores"
       ],
-      "scheduledFor": "2026-06-22"
+      "scheduledFor": "2026-06-22",
+      "publishedAt": "2026-06-27",
+      "updatedAt": "2026-06-27",
+      "title": "The Best Brands for Short Men Under 5'8\" (And What to Actually Buy From Each) | StyleScore"
     },
     {
       "keyword": "5'4 style guide men",
@@ -1372,6 +1375,14 @@
   ],
   "clusters": {
     "short-men-style": [
+      {
+        "slug": "best-brands-for-short-men-under-5-8",
+        "title": "The Best Brands for Short Men Under 5'8\" (And What to Actually Buy From Each)",
+        "href": "/blog/best-brands-for-short-men-under-5-8",
+        "description": "Looking for brands that actually fit if you're under 5'8\"?",
+        "role": "supporting",
+        "publishedAt": "2026-06-27"
+      },
       {
         "slug": "layering-guide-short-men",
         "title": "The Layering Guide for Short Men: How to Add Warmth Without Adding Width",
