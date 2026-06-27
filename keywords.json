@@ -480,7 +480,7 @@
       "keyword": "how to care for leather shoes",
       "slug": "how-to-care-for-leather-shoes",
       "priority": 79,
-      "status": "draft",
+      "status": "published",
       "cluster": "fabric-care",
       "articleFormat": "care guide",
       "secondaryKeywords": [
@@ -488,7 +488,10 @@
         "polish leather shoes",
         "shoe maintenance"
       ],
-      "scheduledFor": "2026-05-09"
+      "scheduledFor": "2026-05-09",
+      "publishedAt": "2026-06-27",
+      "updatedAt": "2026-06-27",
+      "title": "How to Care for Leather Shoes (And Actually Make Them Last) | StyleScore"
     },
     {
       "keyword": "style tips for tall men",
@@ -1979,6 +1982,14 @@
       }
     ],
     "fabric-care": [
+      {
+        "slug": "how-to-care-for-leather-shoes",
+        "title": "How to Care for Leather Shoes (And Actually Make Them Last)",
+        "href": "/blog/how-to-care-for-leather-shoes",
+        "description": "A practical, no-fluff guide on how to care for leather shoes — covering cleaning, conditioning, polishing, and storage so your shoes last years, not months.",
+        "role": "supporting",
+        "publishedAt": "2026-06-27"
+      },
       {
         "slug": "how-to-iron-dress-shirt",
         "title": "How to Iron a Dress Shirt Without Ruining It (Or Your Morning)",
