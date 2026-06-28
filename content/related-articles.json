@@ -816,6 +816,12 @@
     ],
     "how-to-dress-for-body-type-men": [
       {
+        "slug": "style-tips-tall-men",
+        "title": "Style Tips for Tall Men: How to Actually Dress Your Frame (Not Against It)",
+        "href": "/blog/style-tips-tall-men",
+        "description": "Practical style tips for tall men that go beyond 'wear horizontal stripes.' Specific outfit formulas, fit calls, and proportion fixes that work at 6'2\" and above."
+      },
+      {
         "slug": "best-jeans-for-athletic-build-men",
         "title": "The Best Jeans for Athletic Build Men (No More Choosing Between Waist and Thighs)",
         "href": "/blog/best-jeans-for-athletic-build-men",
@@ -826,15 +832,15 @@
         "title": "Fashion Tips for Short Men (Look Taller Instantly)",
         "href": "/blog/fashion-for-short-men",
         "description": "The body-type rules that make shorter frames look sharper."
-      },
-      {
-        "slug": "Fashion-for-muscular-men",
-        "title": "Best Clothes for Muscular Men",
-        "href": "/blog/Fashion-for-muscular-men",
-        "description": "How muscular builds can stop fighting their own proportions."
       }
     ],
     "fashion-for-short-men": [
+      {
+        "slug": "style-tips-tall-men",
+        "title": "Style Tips for Tall Men: How to Actually Dress Your Frame (Not Against It)",
+        "href": "/blog/style-tips-tall-men",
+        "description": "Practical style tips for tall men that go beyond 'wear horizontal stripes.' Specific outfit formulas, fit calls, and proportion fixes that work at 6'2\" and above."
+      },
       {
         "slug": "best-jeans-for-athletic-build-men",
         "title": "The Best Jeans for Athletic Build Men (No More Choosing Between Waist and Thighs)",
@@ -864,6 +870,12 @@
     ],
     "best-jeans-for-athletic-build-men": [
       {
+        "slug": "style-tips-tall-men",
+        "title": "Style Tips for Tall Men: How to Actually Dress Your Frame (Not Against It)",
+        "href": "/blog/style-tips-tall-men",
+        "description": "Practical style tips for tall men that go beyond 'wear horizontal stripes.' Specific outfit formulas, fit calls, and proportion fixes that work at 6'2\" and above."
+      },
+      {
         "slug": "fashion-for-short-men",
         "title": "Fashion Tips for Short Men (Look Taller Instantly)",
         "href": "/blog/fashion-for-short-men",
@@ -874,12 +886,6 @@
         "title": "How to Dress for Your Body Type: A No-Nonsense Guide for Men",
         "href": "/blog/how-to-dress-for-body-type-men",
         "description": "Learn exactly how to dress for your body type as a man."
-      },
-      {
-        "slug": "Fashion-for-muscular-men",
-        "title": "Best Clothes for Muscular Men",
-        "href": "/blog/Fashion-for-muscular-men",
-        "description": "How muscular builds can stop fighting their own proportions."
       }
     ],
     "how-to-wear-oversized-clothing-short-men": [
@@ -1170,6 +1176,26 @@
         "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
         "href": "/blog/7-signs-dress-well",
         "description": "Practical signs that separate a sharp look from an average one."
+      }
+    ],
+    "style-tips-tall-men": [
+      {
+        "slug": "fashion-for-short-men",
+        "title": "Fashion Tips for Short Men (Look Taller Instantly)",
+        "href": "/blog/fashion-for-short-men",
+        "description": "The body-type rules that make shorter frames look sharper."
+      },
+      {
+        "slug": "best-jeans-for-athletic-build-men",
+        "title": "The Best Jeans for Athletic Build Men (No More Choosing Between Waist and Thighs)",
+        "href": "/blog/best-jeans-for-athletic-build-men",
+        "description": "Finding the best jeans for athletic build men means solving the waist-thigh gap problem for good."
+      },
+      {
+        "slug": "how-to-dress-for-body-type-men",
+        "title": "How to Dress for Your Body Type: A No-Nonsense Guide for Men",
+        "href": "/blog/how-to-dress-for-body-type-men",
+        "description": "Learn exactly how to dress for your body type as a man."
       }
     ]
   }

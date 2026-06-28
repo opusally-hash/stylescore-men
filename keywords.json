@@ -497,7 +497,7 @@
       "keyword": "style tips for tall men",
       "slug": "style-tips-tall-men",
       "priority": 78,
-      "status": "draft",
+      "status": "published",
       "cluster": "body-type",
       "articleFormat": "style guide",
       "secondaryKeywords": [
@@ -505,7 +505,10 @@
         "dressing when you're tall",
         "tall men proportions"
       ],
-      "scheduledFor": "2026-05-10"
+      "scheduledFor": "2026-05-10",
+      "publishedAt": "2026-06-28",
+      "updatedAt": "2026-06-28",
+      "title": "Style Tips for Tall Men: How to Actually Dress Your Frame (Not Against It) | StyleScore"
     },
     {
       "keyword": "sunglasses guide for men",
@@ -1829,6 +1832,14 @@
       }
     ],
     "body-type": [
+      {
+        "slug": "style-tips-tall-men",
+        "title": "Style Tips for Tall Men: How to Actually Dress Your Frame (Not Against It)",
+        "href": "/blog/style-tips-tall-men",
+        "description": "Practical style tips for tall men that go beyond 'wear horizontal stripes.' Specific outfit formulas, fit calls, and proportion fixes that work at 6'2\" and above.",
+        "role": "supporting",
+        "publishedAt": "2026-06-28"
+      },
       {
         "slug": "best-jeans-for-athletic-build-men",
         "title": "The Best Jeans for Athletic Build Men (No More Choosing Between Waist and Thighs)",
