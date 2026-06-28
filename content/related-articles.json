@@ -22,6 +22,12 @@
     ],
     "mens-style-test": [
       {
+        "slug": "how-to-style-blazer-casually-men",
+        "title": "How to Style a Blazer Casually (Without Looking Like You Forgot to Change After Work)",
+        "href": "/blog/how-to-style-blazer-casually-men",
+        "description": "Learn how to style a blazer casually with specific outfit formulas, fit rules, and real examples."
+      },
+      {
         "slug": "how-to-care-for-leather-shoes",
         "title": "How to Care for Leather Shoes (And Actually Make Them Last)",
         "href": "/blog/how-to-care-for-leather-shoes",
@@ -32,16 +38,16 @@
         "title": "How to Dress for Fall: The Men's Outfit Guide That Works in Real Weather",
         "href": "/blog/how-to-dress-for-fall-men",
         "description": "Practical advice on how to dress for fall men — specific outfit formulas, layering calls, and fit notes that actually work when the temperature won't make up its mind."
-      },
-      {
-        "slug": "best-belts-men-style",
-        "title": "The Best Belts for Men (And How to Stop Getting This Wrong)",
-        "href": "/blog/best-belts-men-style",
-        "description": "A practical guide to the best belts for men — covering leather belt choices, dress vs casual belt decisions, fit rules, and outfit formulas that actually work."
       }
     ],
     "7-signs-dress-well": [
       {
+        "slug": "how-to-style-blazer-casually-men",
+        "title": "How to Style a Blazer Casually (Without Looking Like You Forgot to Change After Work)",
+        "href": "/blog/how-to-style-blazer-casually-men",
+        "description": "Learn how to style a blazer casually with specific outfit formulas, fit rules, and real examples."
+      },
+      {
         "slug": "how-to-care-for-leather-shoes",
         "title": "How to Care for Leather Shoes (And Actually Make Them Last)",
         "href": "/blog/how-to-care-for-leather-shoes",
@@ -52,12 +58,6 @@
         "title": "How to Dress for Fall: The Men's Outfit Guide That Works in Real Weather",
         "href": "/blog/how-to-dress-for-fall-men",
         "description": "Practical advice on how to dress for fall men — specific outfit formulas, layering calls, and fit notes that actually work when the temperature won't make up its mind."
-      },
-      {
-        "slug": "best-belts-men-style",
-        "title": "The Best Belts for Men (And How to Stop Getting This Wrong)",
-        "href": "/blog/best-belts-men-style",
-        "description": "A practical guide to the best belts for men — covering leather belt choices, dress vs casual belt decisions, fit rules, and outfit formulas that actually work."
       }
     ],
     "how-to-dress-better-men-40s": [
@@ -1145,6 +1145,20 @@
         "href": "/blog/how-to-iron-dress-shirt",
         "description": "Learn how to iron a dress shirt the right way — fast, crease-free, and without scorching the collar."
       },
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
+      },
+      {
+        "slug": "7-signs-dress-well",
+        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
+        "href": "/blog/7-signs-dress-well",
+        "description": "Practical signs that separate a sharp look from an average one."
+      }
+    ],
+    "how-to-style-blazer-casually-men": [
       {
         "slug": "mens-style-test",
         "title": "Men's Style Quiz: Find Your Style Score Online",

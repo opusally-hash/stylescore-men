@@ -807,7 +807,7 @@
       "keyword": "how to style a blazer casually",
       "slug": "how-to-style-blazer-casually-men",
       "priority": 79,
-      "status": "draft",
+      "status": "published",
       "cluster": "outerwear",
       "articleFormat": "style guide",
       "secondaryKeywords": [
@@ -815,7 +815,10 @@
         "wearing a blazer with jeans",
         "sport coat casual"
       ],
-      "scheduledFor": "2026-05-30"
+      "scheduledFor": "2026-05-30",
+      "publishedAt": "2026-06-28",
+      "updatedAt": "2026-06-28",
+      "title": "How to Style a Blazer Casually (Without Looking Like You Forgot to Change After Work) | StyleScore"
     },
     {
       "keyword": "what to wear to a cocktail party men",
@@ -1997,6 +2000,16 @@
         "description": "Learn how to iron a dress shirt the right way — fast, crease-free, and without scorching the collar.",
         "role": "supporting",
         "publishedAt": "2026-06-22"
+      }
+    ],
+    "outerwear": [
+      {
+        "slug": "how-to-style-blazer-casually-men",
+        "title": "How to Style a Blazer Casually (Without Looking Like You Forgot to Change After Work)",
+        "href": "/blog/how-to-style-blazer-casually-men",
+        "description": "Learn how to style a blazer casually with specific outfit formulas, fit rules, and real examples.",
+        "role": "supporting",
+        "publishedAt": "2026-06-28"
       }
     ]
   }
