@@ -827,7 +827,7 @@
       "keyword": "what to wear to a cocktail party men",
       "slug": "what-to-wear-cocktail-party-men",
       "priority": 78,
-      "status": "draft",
+      "status": "published",
       "cluster": "occasion-dressing",
       "articleFormat": "occasion guide",
       "secondaryKeywords": [
@@ -835,7 +835,10 @@
         "semi-formal outfit men",
         "cocktail dress code men"
       ],
-      "scheduledFor": "2026-05-31"
+      "scheduledFor": "2026-05-31",
+      "publishedAt": "2026-06-29",
+      "updatedAt": "2026-06-29",
+      "title": "What to Wear to a Cocktail Party: The Men's Guide That Actually Answers the Question | StyleScore"
     },
     {
       "keyword": "how to find your style as a man",
@@ -1777,6 +1780,14 @@
       }
     ],
     "occasion-dressing": [
+      {
+        "slug": "what-to-wear-cocktail-party-men",
+        "title": "What to Wear to a Cocktail Party: The Men's Guide That Actually Answers the Question",
+        "href": "/blog/what-to-wear-cocktail-party-men",
+        "description": "Confused about cocktail attire for men?",
+        "role": "supporting",
+        "publishedAt": "2026-06-29"
+      },
       {
         "slug": "dress-code-guide-men",
         "title": "The Only Dress Code Guide Men Actually Need: What to Wear to Every Occasion",

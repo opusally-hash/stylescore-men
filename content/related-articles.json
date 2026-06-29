@@ -158,6 +158,12 @@
     ],
     "wedding-outfit-short-men": [
       {
+        "slug": "what-to-wear-cocktail-party-men",
+        "title": "What to Wear to a Cocktail Party: The Men's Guide That Actually Answers the Question",
+        "href": "/blog/what-to-wear-cocktail-party-men",
+        "description": "Confused about cocktail attire for men?"
+      },
+      {
         "slug": "dress-code-guide-men",
         "title": "The Only Dress Code Guide Men Actually Need: What to Wear to Every Occasion",
         "href": "/blog/dress-code-guide-men",
@@ -168,12 +174,6 @@
         "title": "How to Dress for a Wedding as a Guest Men: The Guide That Skips the Guesswork",
         "href": "/blog/how-to-dress-for-wedding-guest-men",
         "description": "Figuring out how to dress for a wedding as a guest men often means guessing wrong."
-      },
-      {
-        "slug": "smart-casual-date-night-outfits-men",
-        "title": "Smart Casual Date Night Outfits for Men",
-        "href": "/blog/smart-casual-date-night-outfits-men",
-        "description": "Nail your next date night with these practical smart casual outfit ideas."
       }
     ],
     "summer-outfits-short-men": [
@@ -796,6 +796,12 @@
     ],
     "how-to-dress-for-wedding-guest-men": [
       {
+        "slug": "what-to-wear-cocktail-party-men",
+        "title": "What to Wear to a Cocktail Party: The Men's Guide That Actually Answers the Question",
+        "href": "/blog/what-to-wear-cocktail-party-men",
+        "description": "Confused about cocktail attire for men?"
+      },
+      {
         "slug": "dress-code-guide-men",
         "title": "The Only Dress Code Guide Men Actually Need: What to Wear to Every Occasion",
         "href": "/blog/dress-code-guide-men",
@@ -806,12 +812,6 @@
         "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
         "href": "/blog/wedding-outfit-short-men",
         "description": "Wedding dressing rules for shorter men across formality levels."
-      },
-      {
-        "slug": "smart-casual-date-night-outfits-men",
-        "title": "Smart Casual Date Night Outfits for Men",
-        "href": "/blog/smart-casual-date-night-outfits-men",
-        "description": "Nail your next date night with these practical smart casual outfit ideas."
       }
     ],
     "how-to-dress-for-body-type-men": [
@@ -1086,6 +1086,12 @@
     ],
     "dress-code-guide-men": [
       {
+        "slug": "what-to-wear-cocktail-party-men",
+        "title": "What to Wear to a Cocktail Party: The Men's Guide That Actually Answers the Question",
+        "href": "/blog/what-to-wear-cocktail-party-men",
+        "description": "Confused about cocktail attire for men?"
+      },
+      {
         "slug": "wedding-outfit-short-men",
         "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
         "href": "/blog/wedding-outfit-short-men",
@@ -1096,12 +1102,6 @@
         "title": "How to Dress for a Wedding as a Guest Men: The Guide That Skips the Guesswork",
         "href": "/blog/how-to-dress-for-wedding-guest-men",
         "description": "Figuring out how to dress for a wedding as a guest men often means guessing wrong."
-      },
-      {
-        "slug": "smart-casual-date-night-outfits-men",
-        "title": "Smart Casual Date Night Outfits for Men",
-        "href": "/blog/smart-casual-date-night-outfits-men",
-        "description": "Nail your next date night with these practical smart casual outfit ideas."
       }
     ],
     "best-chinos-for-men": [
@@ -1210,6 +1210,26 @@
         "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
         "href": "/blog/7-signs-dress-well",
         "description": "Practical signs that separate a sharp look from an average one."
+      }
+    ],
+    "what-to-wear-cocktail-party-men": [
+      {
+        "slug": "wedding-outfit-short-men",
+        "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
+        "href": "/blog/wedding-outfit-short-men",
+        "description": "Wedding dressing rules for shorter men across formality levels."
+      },
+      {
+        "slug": "dress-code-guide-men",
+        "title": "The Only Dress Code Guide Men Actually Need: What to Wear to Every Occasion",
+        "href": "/blog/dress-code-guide-men",
+        "description": "Confused by cocktail attire, black tie optional, or semi formal dress code?"
+      },
+      {
+        "slug": "how-to-dress-for-wedding-guest-men",
+        "title": "How to Dress for a Wedding as a Guest Men: The Guide That Skips the Guesswork",
+        "href": "/blog/how-to-dress-for-wedding-guest-men",
+        "description": "Figuring out how to dress for a wedding as a guest men often means guessing wrong."
       }
     ]
   }
