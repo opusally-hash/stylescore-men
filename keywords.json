@@ -1245,7 +1245,7 @@
       "keyword": "how to mix patterns men",
       "slug": "how-to-mix-patterns-men",
       "priority": 85,
-      "status": "draft",
+      "status": "published",
       "cluster": "styling-techniques",
       "articleFormat": "how-to guide",
       "secondaryKeywords": [
@@ -1253,7 +1253,10 @@
         "stripes and checks outfit",
         "clashing patterns men"
       ],
-      "scheduledFor": "2026-06-29"
+      "scheduledFor": "2026-06-29",
+      "publishedAt": "2026-06-29",
+      "updatedAt": "2026-06-29",
+      "title": "How to Mix Patterns Men Actually Wear Without Looking Like a Mistake | StyleScore"
     },
     {
       "keyword": "best coats for men",
@@ -2021,6 +2024,16 @@
         "description": "Learn how to style a blazer casually with specific outfit formulas, fit rules, and real examples.",
         "role": "supporting",
         "publishedAt": "2026-06-28"
+      }
+    ],
+    "styling-techniques": [
+      {
+        "slug": "how-to-mix-patterns-men",
+        "title": "How to Mix Patterns Men Actually Wear Without Looking Like a Mistake",
+        "href": "/blog/how-to-mix-patterns-men",
+        "description": "Learn how to mix patterns men can actually pull off — with specific outfit formulas, scale rules, and real examples that go beyond the tired 'just wear stripes and checks' advice.",
+        "role": "supporting",
+        "publishedAt": "2026-06-29"
       }
     ]
   }

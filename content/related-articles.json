@@ -22,6 +22,12 @@
     ],
     "mens-style-test": [
       {
+        "slug": "how-to-mix-patterns-men",
+        "title": "How to Mix Patterns Men Actually Wear Without Looking Like a Mistake",
+        "href": "/blog/how-to-mix-patterns-men",
+        "description": "Learn how to mix patterns men can actually pull off — with specific outfit formulas, scale rules, and real examples that go beyond the tired 'just wear stripes and checks' advice."
+      },
+      {
         "slug": "how-to-style-blazer-casually-men",
         "title": "How to Style a Blazer Casually (Without Looking Like You Forgot to Change After Work)",
         "href": "/blog/how-to-style-blazer-casually-men",
@@ -32,16 +38,16 @@
         "title": "How to Care for Leather Shoes (And Actually Make Them Last)",
         "href": "/blog/how-to-care-for-leather-shoes",
         "description": "A practical, no-fluff guide on how to care for leather shoes — covering cleaning, conditioning, polishing, and storage so your shoes last years, not months."
-      },
-      {
-        "slug": "how-to-dress-for-fall-men",
-        "title": "How to Dress for Fall: The Men's Outfit Guide That Works in Real Weather",
-        "href": "/blog/how-to-dress-for-fall-men",
-        "description": "Practical advice on how to dress for fall men — specific outfit formulas, layering calls, and fit notes that actually work when the temperature won't make up its mind."
       }
     ],
     "7-signs-dress-well": [
       {
+        "slug": "how-to-mix-patterns-men",
+        "title": "How to Mix Patterns Men Actually Wear Without Looking Like a Mistake",
+        "href": "/blog/how-to-mix-patterns-men",
+        "description": "Learn how to mix patterns men can actually pull off — with specific outfit formulas, scale rules, and real examples that go beyond the tired 'just wear stripes and checks' advice."
+      },
+      {
         "slug": "how-to-style-blazer-casually-men",
         "title": "How to Style a Blazer Casually (Without Looking Like You Forgot to Change After Work)",
         "href": "/blog/how-to-style-blazer-casually-men",
@@ -52,12 +58,6 @@
         "title": "How to Care for Leather Shoes (And Actually Make Them Last)",
         "href": "/blog/how-to-care-for-leather-shoes",
         "description": "A practical, no-fluff guide on how to care for leather shoes — covering cleaning, conditioning, polishing, and storage so your shoes last years, not months."
-      },
-      {
-        "slug": "how-to-dress-for-fall-men",
-        "title": "How to Dress for Fall: The Men's Outfit Guide That Works in Real Weather",
-        "href": "/blog/how-to-dress-for-fall-men",
-        "description": "Practical advice on how to dress for fall men — specific outfit formulas, layering calls, and fit notes that actually work when the temperature won't make up its mind."
       }
     ],
     "how-to-dress-better-men-40s": [
@@ -1196,6 +1196,20 @@
         "title": "How to Dress for Your Body Type: A No-Nonsense Guide for Men",
         "href": "/blog/how-to-dress-for-body-type-men",
         "description": "Learn exactly how to dress for your body type as a man."
+      }
+    ],
+    "how-to-mix-patterns-men": [
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
+      },
+      {
+        "slug": "7-signs-dress-well",
+        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
+        "href": "/blog/7-signs-dress-well",
+        "description": "Practical signs that separate a sharp look from an average one."
       }
     ]
   }
