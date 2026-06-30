@@ -22,6 +22,12 @@
     ],
     "mens-style-test": [
       {
+        "slug": "best-coats-for-men",
+        "title": "The Best Coats for Men: What to Buy, How It Should Fit, and What to Skip",
+        "href": "/blog/best-coats-for-men",
+        "description": "Looking for the best coats for men?"
+      },
+      {
         "slug": "how-to-mix-patterns-men",
         "title": "How to Mix Patterns Men Actually Wear Without Looking Like a Mistake",
         "href": "/blog/how-to-mix-patterns-men",
@@ -32,16 +38,16 @@
         "title": "How to Style a Blazer Casually (Without Looking Like You Forgot to Change After Work)",
         "href": "/blog/how-to-style-blazer-casually-men",
         "description": "Learn how to style a blazer casually with specific outfit formulas, fit rules, and real examples."
-      },
-      {
-        "slug": "how-to-care-for-leather-shoes",
-        "title": "How to Care for Leather Shoes (And Actually Make Them Last)",
-        "href": "/blog/how-to-care-for-leather-shoes",
-        "description": "A practical, no-fluff guide on how to care for leather shoes — covering cleaning, conditioning, polishing, and storage so your shoes last years, not months."
       }
     ],
     "7-signs-dress-well": [
       {
+        "slug": "best-coats-for-men",
+        "title": "The Best Coats for Men: What to Buy, How It Should Fit, and What to Skip",
+        "href": "/blog/best-coats-for-men",
+        "description": "Looking for the best coats for men?"
+      },
+      {
         "slug": "how-to-mix-patterns-men",
         "title": "How to Mix Patterns Men Actually Wear Without Looking Like a Mistake",
         "href": "/blog/how-to-mix-patterns-men",
@@ -52,12 +58,6 @@
         "title": "How to Style a Blazer Casually (Without Looking Like You Forgot to Change After Work)",
         "href": "/blog/how-to-style-blazer-casually-men",
         "description": "Learn how to style a blazer casually with specific outfit formulas, fit rules, and real examples."
-      },
-      {
-        "slug": "how-to-care-for-leather-shoes",
-        "title": "How to Care for Leather Shoes (And Actually Make Them Last)",
-        "href": "/blog/how-to-care-for-leather-shoes",
-        "description": "A practical, no-fluff guide on how to care for leather shoes — covering cleaning, conditioning, polishing, and storage so your shoes last years, not months."
       }
     ],
     "how-to-dress-better-men-40s": [
@@ -1166,6 +1166,12 @@
     ],
     "how-to-style-blazer-casually-men": [
       {
+        "slug": "best-coats-for-men",
+        "title": "The Best Coats for Men: What to Buy, How It Should Fit, and What to Skip",
+        "href": "/blog/best-coats-for-men",
+        "description": "Looking for the best coats for men?"
+      },
+      {
         "slug": "mens-style-test",
         "title": "Men's Style Quiz: Find Your Style Score Online",
         "href": "/blog/mens-style-test",
@@ -1230,6 +1236,26 @@
         "title": "How to Dress for a Wedding as a Guest Men: The Guide That Skips the Guesswork",
         "href": "/blog/how-to-dress-for-wedding-guest-men",
         "description": "Figuring out how to dress for a wedding as a guest men often means guessing wrong."
+      }
+    ],
+    "best-coats-for-men": [
+      {
+        "slug": "how-to-style-blazer-casually-men",
+        "title": "How to Style a Blazer Casually (Without Looking Like You Forgot to Change After Work)",
+        "href": "/blog/how-to-style-blazer-casually-men",
+        "description": "Learn how to style a blazer casually with specific outfit formulas, fit rules, and real examples."
+      },
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
+      },
+      {
+        "slug": "7-signs-dress-well",
+        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
+        "href": "/blog/7-signs-dress-well",
+        "description": "Practical signs that separate a sharp look from an average one."
       }
     ]
   }

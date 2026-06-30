@@ -1265,7 +1265,7 @@
       "keyword": "best coats for men",
       "slug": "best-coats-for-men",
       "priority": 83,
-      "status": "draft",
+      "status": "published",
       "cluster": "outerwear",
       "articleFormat": "buying guide",
       "secondaryKeywords": [
@@ -1273,7 +1273,10 @@
         "winter coat guide men",
         "overcoat vs topcoat"
       ],
-      "scheduledFor": "2026-06-30"
+      "scheduledFor": "2026-06-30",
+      "publishedAt": "2026-06-30",
+      "updatedAt": "2026-06-30",
+      "title": "The Best Coats for Men in 2024: A No-Nonsense Buying Guide | StyleScore"
     },
     {
       "keyword": "how to dress for your face shape men",
@@ -2028,6 +2031,14 @@
       }
     ],
     "outerwear": [
+      {
+        "slug": "best-coats-for-men",
+        "title": "The Best Coats for Men: What to Buy, How It Should Fit, and What to Skip",
+        "href": "/blog/best-coats-for-men",
+        "description": "Looking for the best coats for men?",
+        "role": "supporting",
+        "publishedAt": "2026-06-30"
+      },
       {
         "slug": "how-to-style-blazer-casually-men",
         "title": "How to Style a Blazer Casually (Without Looking Like You Forgot to Change After Work)",
