@@ -836,6 +836,12 @@
     ],
     "fashion-for-short-men": [
       {
+        "slug": "how-to-dress-for-your-face-shape-men",
+        "title": "How to Dress for Your Face Shape: The Men's Guide That Actually Gets Specific",
+        "href": "/blog/how-to-dress-for-your-face-shape-men",
+        "description": "Learn how to dress for your face shape men — with real collar advice, glasses picks, hairstyle guidance, and outfit formulas that work for oval, square, round, and oblong faces."
+      },
+      {
         "slug": "style-tips-tall-men",
         "title": "Style Tips for Tall Men: How to Actually Dress Your Frame (Not Against It)",
         "href": "/blog/style-tips-tall-men",
@@ -846,12 +852,6 @@
         "title": "The Best Jeans for Athletic Build Men (No More Choosing Between Waist and Thighs)",
         "href": "/blog/best-jeans-for-athletic-build-men",
         "description": "Finding the best jeans for athletic build men means solving the waist-thigh gap problem for good."
-      },
-      {
-        "slug": "how-to-dress-for-body-type-men",
-        "title": "How to Dress for Your Body Type: A No-Nonsense Guide for Men",
-        "href": "/blog/how-to-dress-for-body-type-men",
-        "description": "Learn exactly how to dress for your body type as a man."
       }
     ],
     "Fashion-for-muscular-men": [
@@ -870,6 +870,12 @@
     ],
     "best-jeans-for-athletic-build-men": [
       {
+        "slug": "how-to-dress-for-your-face-shape-men",
+        "title": "How to Dress for Your Face Shape: The Men's Guide That Actually Gets Specific",
+        "href": "/blog/how-to-dress-for-your-face-shape-men",
+        "description": "Learn how to dress for your face shape men — with real collar advice, glasses picks, hairstyle guidance, and outfit formulas that work for oval, square, round, and oblong faces."
+      },
+      {
         "slug": "style-tips-tall-men",
         "title": "Style Tips for Tall Men: How to Actually Dress Your Frame (Not Against It)",
         "href": "/blog/style-tips-tall-men",
@@ -880,12 +886,6 @@
         "title": "Fashion Tips for Short Men (Look Taller Instantly)",
         "href": "/blog/fashion-for-short-men",
         "description": "The body-type rules that make shorter frames look sharper."
-      },
-      {
-        "slug": "how-to-dress-for-body-type-men",
-        "title": "How to Dress for Your Body Type: A No-Nonsense Guide for Men",
-        "href": "/blog/how-to-dress-for-body-type-men",
-        "description": "Learn exactly how to dress for your body type as a man."
       }
     ],
     "how-to-wear-oversized-clothing-short-men": [
@@ -1186,6 +1186,12 @@
     ],
     "style-tips-tall-men": [
       {
+        "slug": "how-to-dress-for-your-face-shape-men",
+        "title": "How to Dress for Your Face Shape: The Men's Guide That Actually Gets Specific",
+        "href": "/blog/how-to-dress-for-your-face-shape-men",
+        "description": "Learn how to dress for your face shape men — with real collar advice, glasses picks, hairstyle guidance, and outfit formulas that work for oval, square, round, and oblong faces."
+      },
+      {
         "slug": "fashion-for-short-men",
         "title": "Fashion Tips for Short Men (Look Taller Instantly)",
         "href": "/blog/fashion-for-short-men",
@@ -1196,12 +1202,6 @@
         "title": "The Best Jeans for Athletic Build Men (No More Choosing Between Waist and Thighs)",
         "href": "/blog/best-jeans-for-athletic-build-men",
         "description": "Finding the best jeans for athletic build men means solving the waist-thigh gap problem for good."
-      },
-      {
-        "slug": "how-to-dress-for-body-type-men",
-        "title": "How to Dress for Your Body Type: A No-Nonsense Guide for Men",
-        "href": "/blog/how-to-dress-for-body-type-men",
-        "description": "Learn exactly how to dress for your body type as a man."
       }
     ],
     "how-to-mix-patterns-men": [
@@ -1256,6 +1256,26 @@
         "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
         "href": "/blog/7-signs-dress-well",
         "description": "Practical signs that separate a sharp look from an average one."
+      }
+    ],
+    "how-to-dress-for-your-face-shape-men": [
+      {
+        "slug": "fashion-for-short-men",
+        "title": "Fashion Tips for Short Men (Look Taller Instantly)",
+        "href": "/blog/fashion-for-short-men",
+        "description": "The body-type rules that make shorter frames look sharper."
+      },
+      {
+        "slug": "style-tips-tall-men",
+        "title": "Style Tips for Tall Men: How to Actually Dress Your Frame (Not Against It)",
+        "href": "/blog/style-tips-tall-men",
+        "description": "Practical style tips for tall men that go beyond 'wear horizontal stripes.' Specific outfit formulas, fit calls, and proportion fixes that work at 6'2\" and above."
+      },
+      {
+        "slug": "best-jeans-for-athletic-build-men",
+        "title": "The Best Jeans for Athletic Build Men (No More Choosing Between Waist and Thighs)",
+        "href": "/blog/best-jeans-for-athletic-build-men",
+        "description": "Finding the best jeans for athletic build men means solving the waist-thigh gap problem for good."
       }
     ]
   }

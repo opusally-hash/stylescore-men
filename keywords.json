@@ -1282,7 +1282,7 @@
       "keyword": "how to dress for your face shape men",
       "slug": "how-to-dress-for-your-face-shape-men",
       "priority": 79,
-      "status": "draft",
+      "status": "published",
       "cluster": "body-type",
       "articleFormat": "style guide",
       "secondaryKeywords": [
@@ -1290,7 +1290,10 @@
         "glasses for face shape men",
         "hairstyle face shape men"
       ],
-      "scheduledFor": "2026-07-01"
+      "scheduledFor": "2026-07-01",
+      "publishedAt": "2026-07-01",
+      "updatedAt": "2026-07-01",
+      "title": "How to Dress for Your Face Shape: The Men's Guide That Actually Gets Specific | StyleScore"
     },
     {
       "keyword": "best shorts for men",
@@ -1849,6 +1852,14 @@
       }
     ],
     "body-type": [
+      {
+        "slug": "how-to-dress-for-your-face-shape-men",
+        "title": "How to Dress for Your Face Shape: The Men's Guide That Actually Gets Specific",
+        "href": "/blog/how-to-dress-for-your-face-shape-men",
+        "description": "Learn how to dress for your face shape men — with real collar advice, glasses picks, hairstyle guidance, and outfit formulas that work for oval, square, round, and oblong faces.",
+        "role": "supporting",
+        "publishedAt": "2026-07-01"
+      },
       {
         "slug": "style-tips-tall-men",
         "title": "Style Tips for Tall Men: How to Actually Dress Your Frame (Not Against It)",
