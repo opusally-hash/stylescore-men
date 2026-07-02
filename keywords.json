@@ -1302,7 +1302,7 @@
       "keyword": "best shorts for men",
       "slug": "best-shorts-for-men",
       "priority": 78,
-      "status": "draft",
+      "status": "published",
       "cluster": "wardrobe",
       "articleFormat": "buying guide",
       "secondaryKeywords": [
@@ -1310,7 +1310,10 @@
         "chino shorts vs cargo shorts",
         "summer shorts men"
       ],
-      "scheduledFor": "2026-07-02"
+      "scheduledFor": "2026-07-02",
+      "publishedAt": "2026-07-02",
+      "updatedAt": "2026-07-02",
+      "title": "The Best Shorts for Men Who Want to Look Sharp Without Overthinking Summer | StyleScore"
     },
     {
       "keyword": "how to prevent pilling on clothes",
@@ -1705,6 +1708,14 @@
       }
     ],
     "wardrobe": [
+      {
+        "slug": "best-shorts-for-men",
+        "title": "The Best Shorts for Men Who Want to Look Sharp Without Overthinking Summer",
+        "href": "/blog/best-shorts-for-men",
+        "description": "A practical buying guide to the best shorts for men — covering fit, length, fabric, and outfit formulas that actually work for real life in 2024.",
+        "role": "supporting",
+        "publishedAt": "2026-07-02"
+      },
       {
         "slug": "best-chinos-for-men",
         "title": "The Best Chinos for Men Who Want to Stop Second-Guessing Their Wardrobe",
