@@ -1164,7 +1164,7 @@
       "keyword": "5'4 style guide men",
       "slug": "5-4-style-guide-men",
       "priority": 78,
-      "status": "draft",
+      "status": "published",
       "cluster": "short-men-style",
       "articleFormat": "style guide",
       "secondaryKeywords": [
@@ -1172,7 +1172,10 @@
         "outfit ideas 5'4 men",
         "proportion tips 5'4 guys"
       ],
-      "scheduledFor": "2026-06-23"
+      "scheduledFor": "2026-06-23",
+      "publishedAt": "2026-07-02",
+      "updatedAt": "2026-07-02",
+      "title": "The 5'4 Style Guide for Men: Outfit Formulas That Actually Work | StyleScore"
     },
     {
       "keyword": "best t-shirts for short men",
@@ -1396,6 +1399,14 @@
   ],
   "clusters": {
     "short-men-style": [
+      {
+        "slug": "5-4-style-guide-men",
+        "title": "The 5'4 Style Guide for Men: Outfit Formulas That Actually Work",
+        "href": "/blog/5-4-style-guide-men",
+        "description": "A practical 5'4 style guide for men covering outfit formulas, fit rules, and proportion tips that create a sharper, longer silhouette without gimmicks.",
+        "role": "supporting",
+        "publishedAt": "2026-07-02"
+      },
       {
         "slug": "best-brands-for-short-men-under-5-8",
         "title": "The Best Brands for Short Men Under 5'8\" (And What to Actually Buy From Each)",

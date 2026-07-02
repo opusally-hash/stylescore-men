@@ -262,6 +262,12 @@
     ],
     "best-shoes-for-short-men": [
       {
+        "slug": "5-4-style-guide-men",
+        "title": "The 5'4 Style Guide for Men: Outfit Formulas That Actually Work",
+        "href": "/blog/5-4-style-guide-men",
+        "description": "A practical 5'4 style guide for men covering outfit formulas, fit rules, and proportion tips that create a sharper, longer silhouette without gimmicks."
+      },
+      {
         "slug": "best-brands-for-short-men-under-5-8",
         "title": "The Best Brands for Short Men Under 5'8\" (And What to Actually Buy From Each)",
         "href": "/blog/best-brands-for-short-men-under-5-8",
@@ -272,12 +278,6 @@
         "title": "The Layering Guide for Short Men: How to Add Warmth Without Adding Width",
         "href": "/blog/layering-guide-short-men",
         "description": "A practical layering guide for short men that covers specific outfit formulas, fit rules, and real examples for adding warmth without bulk, visual noise, or lost proportions."
-      },
-      {
-        "slug": "best-overcoats-for-short-men",
-        "title": "Best Overcoats for Short Men: The Fit Rules That Actually Work",
-        "href": "/blog/best-overcoats-for-short-men",
-        "description": "Shopping for the best overcoats for short men?"
       }
     ],
     "best-white-sneakers-men": [
@@ -380,6 +380,12 @@
     ],
     "how-clothes-should-fit-short-men": [
       {
+        "slug": "5-4-style-guide-men",
+        "title": "The 5'4 Style Guide for Men: Outfit Formulas That Actually Work",
+        "href": "/blog/5-4-style-guide-men",
+        "description": "A practical 5'4 style guide for men covering outfit formulas, fit rules, and proportion tips that create a sharper, longer silhouette without gimmicks."
+      },
+      {
         "slug": "best-brands-for-short-men-under-5-8",
         "title": "The Best Brands for Short Men Under 5'8\" (And What to Actually Buy From Each)",
         "href": "/blog/best-brands-for-short-men-under-5-8",
@@ -390,12 +396,6 @@
         "title": "The Layering Guide for Short Men: How to Add Warmth Without Adding Width",
         "href": "/blog/layering-guide-short-men",
         "description": "A practical layering guide for short men that covers specific outfit formulas, fit rules, and real examples for adding warmth without bulk, visual noise, or lost proportions."
-      },
-      {
-        "slug": "best-overcoats-for-short-men",
-        "title": "Best Overcoats for Short Men: The Fit Rules That Actually Work",
-        "href": "/blog/best-overcoats-for-short-men",
-        "description": "Shopping for the best overcoats for short men?"
       }
     ],
     "dress-shoes-for-short-men": [
@@ -1126,6 +1126,12 @@
     ],
     "best-brands-for-short-men-under-5-8": [
       {
+        "slug": "5-4-style-guide-men",
+        "title": "The 5'4 Style Guide for Men: Outfit Formulas That Actually Work",
+        "href": "/blog/5-4-style-guide-men",
+        "description": "A practical 5'4 style guide for men covering outfit formulas, fit rules, and proportion tips that create a sharper, longer silhouette without gimmicks."
+      },
+      {
         "slug": "best-shoes-for-short-men",
         "title": "7 Best Shoes for Short Men That Actually Add Height",
         "href": "/blog/best-shoes-for-short-men",
@@ -1136,12 +1142,6 @@
         "title": "How Clothes Should Fit If You're 5'6\"",
         "href": "/blog/how-clothes-should-fit-short-men",
         "description": "Specific fit landmarks for shirts, trousers, and jackets."
-      },
-      {
-        "slug": "layering-guide-short-men",
-        "title": "The Layering Guide for Short Men: How to Add Warmth Without Adding Width",
-        "href": "/blog/layering-guide-short-men",
-        "description": "A practical layering guide for short men that covers specific outfit formulas, fit rules, and real examples for adding warmth without bulk, visual noise, or lost proportions."
       }
     ],
     "how-to-care-for-leather-shoes": [
@@ -1276,6 +1276,26 @@
         "title": "The Best Jeans for Athletic Build Men (No More Choosing Between Waist and Thighs)",
         "href": "/blog/best-jeans-for-athletic-build-men",
         "description": "Finding the best jeans for athletic build men means solving the waist-thigh gap problem for good."
+      }
+    ],
+    "5-4-style-guide-men": [
+      {
+        "slug": "best-shoes-for-short-men",
+        "title": "7 Best Shoes for Short Men That Actually Add Height",
+        "href": "/blog/best-shoes-for-short-men",
+        "description": "The strongest footwear choices for shorter men."
+      },
+      {
+        "slug": "how-clothes-should-fit-short-men",
+        "title": "How Clothes Should Fit If You're 5'6\"",
+        "href": "/blog/how-clothes-should-fit-short-men",
+        "description": "Specific fit landmarks for shirts, trousers, and jackets."
+      },
+      {
+        "slug": "best-brands-for-short-men-under-5-8",
+        "title": "The Best Brands for Short Men Under 5'8\" (And What to Actually Buy From Each)",
+        "href": "/blog/best-brands-for-short-men-under-5-8",
+        "description": "Looking for brands that actually fit if you're under 5'8\"?"
       }
     ]
   }
