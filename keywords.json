@@ -847,7 +847,7 @@
       "keyword": "how to find your style as a man",
       "slug": "how-to-find-your-style-men",
       "priority": 77,
-      "status": "draft",
+      "status": "published",
       "cluster": "common-style-problems",
       "articleFormat": "how-to guide",
       "secondaryKeywords": [
@@ -855,7 +855,10 @@
         "find my fashion style",
         "creating a signature look"
       ],
-      "scheduledFor": "2026-06-01"
+      "scheduledFor": "2026-06-01",
+      "publishedAt": "2026-07-03",
+      "updatedAt": "2026-07-03",
+      "title": "How to Find Your Style as a Man (Without Overthinking It) | StyleScore"
     },
     {
       "keyword": "best sweaters for men",
@@ -1961,6 +1964,14 @@
       }
     ],
     "common-style-problems": [
+      {
+        "slug": "how-to-find-your-style-men",
+        "title": "How to Find Your Style as a Man (Without Overthinking It)",
+        "href": "/blog/how-to-find-your-style-men",
+        "description": "A practical, no-fluff guide to finding your personal style as a man.",
+        "role": "supporting",
+        "publishedAt": "2026-07-03"
+      },
       {
         "slug": "smart-casual-vs-business-casual",
         "title": "Smart Casual vs Business Casual: The Only Guide Men Actually Need",
