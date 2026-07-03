@@ -514,7 +514,7 @@
       "keyword": "sunglasses guide for men",
       "slug": "sunglasses-guide-men-face-shape",
       "priority": 77,
-      "status": "draft",
+      "status": "published",
       "cluster": "accessories",
       "articleFormat": "buying guide",
       "secondaryKeywords": [
@@ -522,7 +522,10 @@
         "how to choose sunglasses",
         "sunglasses style men"
       ],
-      "scheduledFor": "2026-05-11"
+      "scheduledFor": "2026-05-11",
+      "publishedAt": "2026-07-03",
+      "updatedAt": "2026-07-03",
+      "title": "The Sunglasses Guide for Men Who Are Tired of Guessing at the Rack | StyleScore"
     },
     {
       "keyword": "what to wear to a job interview men",
@@ -2028,6 +2031,14 @@
       }
     ],
     "accessories": [
+      {
+        "slug": "sunglasses-guide-men-face-shape",
+        "title": "The Sunglasses Guide for Men Who Are Tired of Guessing at the Rack",
+        "href": "/blog/sunglasses-guide-men-face-shape",
+        "description": "A practical sunglasses guide for men that cuts through the noise—find the right frame for your face shape, skin tone, and lifestyle without overthinking it.",
+        "role": "supporting",
+        "publishedAt": "2026-07-03"
+      },
       {
         "slug": "best-belts-men-style",
         "title": "The Best Belts for Men (And How to Stop Getting This Wrong)",

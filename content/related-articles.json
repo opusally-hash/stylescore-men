@@ -22,6 +22,12 @@
     ],
     "mens-style-test": [
       {
+        "slug": "sunglasses-guide-men-face-shape",
+        "title": "The Sunglasses Guide for Men Who Are Tired of Guessing at the Rack",
+        "href": "/blog/sunglasses-guide-men-face-shape",
+        "description": "A practical sunglasses guide for men that cuts through the noise—find the right frame for your face shape, skin tone, and lifestyle without overthinking it."
+      },
+      {
         "slug": "best-coats-for-men",
         "title": "The Best Coats for Men: What to Buy, How It Should Fit, and What to Skip",
         "href": "/blog/best-coats-for-men",
@@ -32,12 +38,6 @@
         "title": "How to Mix Patterns Men Actually Wear Without Looking Like a Mistake",
         "href": "/blog/how-to-mix-patterns-men",
         "description": "Learn how to mix patterns men can actually pull off — with specific outfit formulas, scale rules, and real examples that go beyond the tired 'just wear stripes and checks' advice."
-      },
-      {
-        "slug": "how-to-style-blazer-casually-men",
-        "title": "How to Style a Blazer Casually (Without Looking Like You Forgot to Change After Work)",
-        "href": "/blog/how-to-style-blazer-casually-men",
-        "description": "Learn how to style a blazer casually with specific outfit formulas, fit rules, and real examples."
       }
     ],
     "7-signs-dress-well": [
@@ -776,6 +776,12 @@
     ],
     "watch-guide-men-style": [
       {
+        "slug": "sunglasses-guide-men-face-shape",
+        "title": "The Sunglasses Guide for Men Who Are Tired of Guessing at the Rack",
+        "href": "/blog/sunglasses-guide-men-face-shape",
+        "description": "A practical sunglasses guide for men that cuts through the noise—find the right frame for your face shape, skin tone, and lifestyle without overthinking it."
+      },
+      {
         "slug": "best-belts-men-style",
         "title": "The Best Belts for Men (And How to Stop Getting This Wrong)",
         "href": "/blog/best-belts-men-style",
@@ -786,12 +792,6 @@
         "title": "Men's Style Quiz: Find Your Style Score Online",
         "href": "/blog/mens-style-test",
         "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
-      },
-      {
-        "slug": "7-signs-dress-well",
-        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
-        "href": "/blog/7-signs-dress-well",
-        "description": "Practical signs that separate a sharp look from an average one."
       }
     ],
     "how-to-dress-for-wedding-guest-men": [
@@ -966,6 +966,12 @@
     ],
     "best-belts-men-style": [
       {
+        "slug": "sunglasses-guide-men-face-shape",
+        "title": "The Sunglasses Guide for Men Who Are Tired of Guessing at the Rack",
+        "href": "/blog/sunglasses-guide-men-face-shape",
+        "description": "A practical sunglasses guide for men that cuts through the noise—find the right frame for your face shape, skin tone, and lifestyle without overthinking it."
+      },
+      {
         "slug": "watch-guide-men-style",
         "title": "The Only Watch Guide for Men Who Actually Want to Wear One Right",
         "href": "/blog/watch-guide-men-style",
@@ -976,12 +982,6 @@
         "title": "Men's Style Quiz: Find Your Style Score Online",
         "href": "/blog/mens-style-test",
         "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
-      },
-      {
-        "slug": "7-signs-dress-well",
-        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
-        "href": "/blog/7-signs-dress-well",
-        "description": "Practical signs that separate a sharp look from an average one."
       }
     ],
     "smart-casual-vs-business-casual": [
@@ -1316,6 +1316,26 @@
         "title": "What to Wear With Black Jeans: The Men's Outfit Guide That Actually Commits",
         "href": "/blog/what-to-wear-with-black-jeans-men",
         "description": "Stop treating black jeans like a fallback."
+      }
+    ],
+    "sunglasses-guide-men-face-shape": [
+      {
+        "slug": "best-belts-men-style",
+        "title": "The Best Belts for Men (And How to Stop Getting This Wrong)",
+        "href": "/blog/best-belts-men-style",
+        "description": "A practical guide to the best belts for men — covering leather belt choices, dress vs casual belt decisions, fit rules, and outfit formulas that actually work."
+      },
+      {
+        "slug": "watch-guide-men-style",
+        "title": "The Only Watch Guide for Men Who Actually Want to Wear One Right",
+        "href": "/blog/watch-guide-men-style",
+        "description": "A practical watch guide for men who want sharper style without obsessing over horology."
+      },
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
       }
     ]
   }
