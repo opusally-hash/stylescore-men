@@ -1187,7 +1187,7 @@
       "keyword": "best t-shirts for short men",
       "slug": "best-t-shirts-for-short-men",
       "priority": 77,
-      "status": "draft",
+      "status": "published",
       "cluster": "short-men-style",
       "articleFormat": "buying guide",
       "secondaryKeywords": [
@@ -1195,7 +1195,10 @@
         "fitted tees short guys",
         "short torso t-shirts"
       ],
-      "scheduledFor": "2026-06-24"
+      "scheduledFor": "2026-06-24",
+      "publishedAt": "2026-07-04",
+      "updatedAt": "2026-07-04",
+      "title": "Best T-Shirts for Short Men: Fit Rules That Stop a Tee From Swallowing You | StyleScore"
     },
     {
       "keyword": "how to dress stocky short men",
@@ -1408,6 +1411,14 @@
   ],
   "clusters": {
     "short-men-style": [
+      {
+        "slug": "best-t-shirts-for-short-men",
+        "title": "Best T-Shirts for Short Men: Fit Rules That Stop a Tee From Swallowing You",
+        "href": "/blog/best-t-shirts-for-short-men",
+        "description": "The best t-shirts for short men come down to three numbers: body length, sleeve length, and chest width.",
+        "role": "supporting",
+        "publishedAt": "2026-07-04"
+      },
       {
         "slug": "5-4-style-guide-men",
         "title": "The 5'4 Style Guide for Men: Outfit Formulas That Actually Work",
