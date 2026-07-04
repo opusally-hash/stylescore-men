@@ -164,6 +164,12 @@
     ],
     "wedding-outfit-short-men": [
       {
+        "slug": "what-to-wear-job-interview-men",
+        "title": "What to Wear to a Job Interview: The Men's Guide That Gets You Taken Seriously",
+        "href": "/blog/what-to-wear-job-interview-men",
+        "description": "Exact outfit formulas for what to wear to a job interview men actually land."
+      },
+      {
         "slug": "what-to-wear-cocktail-party-men",
         "title": "What to Wear to a Cocktail Party: The Men's Guide That Actually Answers the Question",
         "href": "/blog/what-to-wear-cocktail-party-men",
@@ -174,12 +180,6 @@
         "title": "The Only Dress Code Guide Men Actually Need: What to Wear to Every Occasion",
         "href": "/blog/dress-code-guide-men",
         "description": "Confused by cocktail attire, black tie optional, or semi formal dress code?"
-      },
-      {
-        "slug": "how-to-dress-for-wedding-guest-men",
-        "title": "How to Dress for a Wedding as a Guest Men: The Guide That Skips the Guesswork",
-        "href": "/blog/how-to-dress-for-wedding-guest-men",
-        "description": "Figuring out how to dress for a wedding as a guest men often means guessing wrong."
       }
     ],
     "summer-outfits-short-men": [
@@ -1092,6 +1092,12 @@
     ],
     "dress-code-guide-men": [
       {
+        "slug": "what-to-wear-job-interview-men",
+        "title": "What to Wear to a Job Interview: The Men's Guide That Gets You Taken Seriously",
+        "href": "/blog/what-to-wear-job-interview-men",
+        "description": "Exact outfit formulas for what to wear to a job interview men actually land."
+      },
+      {
         "slug": "what-to-wear-cocktail-party-men",
         "title": "What to Wear to a Cocktail Party: The Men's Guide That Actually Answers the Question",
         "href": "/blog/what-to-wear-cocktail-party-men",
@@ -1102,12 +1108,6 @@
         "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
         "href": "/blog/wedding-outfit-short-men",
         "description": "Wedding dressing rules for shorter men across formality levels."
-      },
-      {
-        "slug": "how-to-dress-for-wedding-guest-men",
-        "title": "How to Dress for a Wedding as a Guest Men: The Guide That Skips the Guesswork",
-        "href": "/blog/how-to-dress-for-wedding-guest-men",
-        "description": "Figuring out how to dress for a wedding as a guest men often means guessing wrong."
       }
     ],
     "best-chinos-for-men": [
@@ -1226,6 +1226,12 @@
     ],
     "what-to-wear-cocktail-party-men": [
       {
+        "slug": "what-to-wear-job-interview-men",
+        "title": "What to Wear to a Job Interview: The Men's Guide That Gets You Taken Seriously",
+        "href": "/blog/what-to-wear-job-interview-men",
+        "description": "Exact outfit formulas for what to wear to a job interview men actually land."
+      },
+      {
         "slug": "wedding-outfit-short-men",
         "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
         "href": "/blog/wedding-outfit-short-men",
@@ -1236,12 +1242,6 @@
         "title": "The Only Dress Code Guide Men Actually Need: What to Wear to Every Occasion",
         "href": "/blog/dress-code-guide-men",
         "description": "Confused by cocktail attire, black tie optional, or semi formal dress code?"
-      },
-      {
-        "slug": "how-to-dress-for-wedding-guest-men",
-        "title": "How to Dress for a Wedding as a Guest Men: The Guide That Skips the Guesswork",
-        "href": "/blog/how-to-dress-for-wedding-guest-men",
-        "description": "Figuring out how to dress for a wedding as a guest men often means guessing wrong."
       }
     ],
     "best-coats-for-men": [
@@ -1382,6 +1382,26 @@
         "title": "The 5'4 Style Guide for Men: Outfit Formulas That Actually Work",
         "href": "/blog/5-4-style-guide-men",
         "description": "A practical 5'4 style guide for men covering outfit formulas, fit rules, and proportion tips that create a sharper, longer silhouette without gimmicks."
+      }
+    ],
+    "what-to-wear-job-interview-men": [
+      {
+        "slug": "wedding-outfit-short-men",
+        "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
+        "href": "/blog/wedding-outfit-short-men",
+        "description": "Wedding dressing rules for shorter men across formality levels."
+      },
+      {
+        "slug": "what-to-wear-cocktail-party-men",
+        "title": "What to Wear to a Cocktail Party: The Men's Guide That Actually Answers the Question",
+        "href": "/blog/what-to-wear-cocktail-party-men",
+        "description": "Confused about cocktail attire for men?"
+      },
+      {
+        "slug": "dress-code-guide-men",
+        "title": "The Only Dress Code Guide Men Actually Need: What to Wear to Every Occasion",
+        "href": "/blog/dress-code-guide-men",
+        "description": "Confused by cocktail attire, black tie optional, or semi formal dress code?"
       }
     ]
   }

@@ -531,7 +531,7 @@
       "keyword": "what to wear to a job interview men",
       "slug": "what-to-wear-job-interview-men",
       "priority": 76,
-      "status": "draft",
+      "status": "published",
       "cluster": "occasion-dressing",
       "articleFormat": "occasion guide",
       "secondaryKeywords": [
@@ -539,7 +539,10 @@
         "interview attire",
         "dressing for interview"
       ],
-      "scheduledFor": "2026-05-12"
+      "scheduledFor": "2026-05-12",
+      "publishedAt": "2026-07-04",
+      "updatedAt": "2026-07-04",
+      "title": "What to Wear to a Job Interview: The Men's Guide That Gets You Taken Seriously | StyleScore"
     },
     {
       "keyword": "how to build a work wardrobe",
@@ -1825,6 +1828,14 @@
       }
     ],
     "occasion-dressing": [
+      {
+        "slug": "what-to-wear-job-interview-men",
+        "title": "What to Wear to a Job Interview: The Men's Guide That Gets You Taken Seriously",
+        "href": "/blog/what-to-wear-job-interview-men",
+        "description": "Exact outfit formulas for what to wear to a job interview men actually land.",
+        "role": "supporting",
+        "publishedAt": "2026-07-04"
+      },
       {
         "slug": "what-to-wear-cocktail-party-men",
         "title": "What to Wear to a Cocktail Party: The Men's Guide That Actually Answers the Question",
