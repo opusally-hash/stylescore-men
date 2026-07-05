@@ -867,7 +867,7 @@
       "keyword": "best sweaters for men",
       "slug": "best-sweaters-for-men",
       "priority": 76,
-      "status": "draft",
+      "status": "published",
       "cluster": "knitwear",
       "articleFormat": "buying guide",
       "secondaryKeywords": [
@@ -875,7 +875,10 @@
         "sweater types men",
         "crewneck vs v-neck sweater"
       ],
-      "scheduledFor": "2026-06-02"
+      "scheduledFor": "2026-06-02",
+      "publishedAt": "2026-07-05",
+      "updatedAt": "2026-07-05",
+      "title": "The Best Sweaters for Men in 2024: A No-Fluff Buying Guide | StyleScore"
     },
     {
       "keyword": "loafers vs boat shoes",
@@ -2133,6 +2136,16 @@
         "description": "Learn how to mix patterns men can actually pull off — with specific outfit formulas, scale rules, and real examples that go beyond the tired 'just wear stripes and checks' advice.",
         "role": "supporting",
         "publishedAt": "2026-06-29"
+      }
+    ],
+    "knitwear": [
+      {
+        "slug": "best-sweaters-for-men",
+        "title": "The Best Sweaters for Men: What to Buy, What to Skip, and How to Wear Them",
+        "href": "/blog/best-sweaters-for-men",
+        "description": "Looking for the best sweaters for men?",
+        "role": "supporting",
+        "publishedAt": "2026-07-05"
       }
     ]
   }

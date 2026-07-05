@@ -22,6 +22,12 @@
     ],
     "mens-style-test": [
       {
+        "slug": "best-sweaters-for-men",
+        "title": "The Best Sweaters for Men: What to Buy, What to Skip, and How to Wear Them",
+        "href": "/blog/best-sweaters-for-men",
+        "description": "Looking for the best sweaters for men?"
+      },
+      {
         "slug": "sunglasses-guide-men-face-shape",
         "title": "The Sunglasses Guide for Men Who Are Tired of Guessing at the Rack",
         "href": "/blog/sunglasses-guide-men-face-shape",
@@ -32,15 +38,15 @@
         "title": "The Best Coats for Men: What to Buy, How It Should Fit, and What to Skip",
         "href": "/blog/best-coats-for-men",
         "description": "Looking for the best coats for men?"
-      },
-      {
-        "slug": "how-to-mix-patterns-men",
-        "title": "How to Mix Patterns Men Actually Wear Without Looking Like a Mistake",
-        "href": "/blog/how-to-mix-patterns-men",
-        "description": "Learn how to mix patterns men can actually pull off — with specific outfit formulas, scale rules, and real examples that go beyond the tired 'just wear stripes and checks' advice."
       }
     ],
     "7-signs-dress-well": [
+      {
+        "slug": "best-sweaters-for-men",
+        "title": "The Best Sweaters for Men: What to Buy, What to Skip, and How to Wear Them",
+        "href": "/blog/best-sweaters-for-men",
+        "description": "Looking for the best sweaters for men?"
+      },
       {
         "slug": "best-coats-for-men",
         "title": "The Best Coats for Men: What to Buy, How It Should Fit, and What to Skip",
@@ -52,12 +58,6 @@
         "title": "How to Mix Patterns Men Actually Wear Without Looking Like a Mistake",
         "href": "/blog/how-to-mix-patterns-men",
         "description": "Learn how to mix patterns men can actually pull off — with specific outfit formulas, scale rules, and real examples that go beyond the tired 'just wear stripes and checks' advice."
-      },
-      {
-        "slug": "how-to-style-blazer-casually-men",
-        "title": "How to Style a Blazer Casually (Without Looking Like You Forgot to Change After Work)",
-        "href": "/blog/how-to-style-blazer-casually-men",
-        "description": "Learn how to style a blazer casually with specific outfit formulas, fit rules, and real examples."
       }
     ],
     "how-to-dress-better-men-40s": [
@@ -1402,6 +1402,20 @@
         "title": "The Only Dress Code Guide Men Actually Need: What to Wear to Every Occasion",
         "href": "/blog/dress-code-guide-men",
         "description": "Confused by cocktail attire, black tie optional, or semi formal dress code?"
+      }
+    ],
+    "best-sweaters-for-men": [
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
+      },
+      {
+        "slug": "7-signs-dress-well",
+        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
+        "href": "/blog/7-signs-dress-well",
+        "description": "Practical signs that separate a sharp look from an average one."
       }
     ]
   }
