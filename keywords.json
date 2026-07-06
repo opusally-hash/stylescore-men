@@ -1210,7 +1210,7 @@
       "keyword": "how to dress stocky short men",
       "slug": "how-to-dress-stocky-short-men",
       "priority": 76,
-      "status": "draft",
+      "status": "published",
       "cluster": "short-men-style",
       "articleFormat": "style guide",
       "secondaryKeywords": [
@@ -1218,7 +1218,10 @@
         "clothes for barrel chest short men",
         "short and broad men fashion"
       ],
-      "scheduledFor": "2026-06-25"
+      "scheduledFor": "2026-06-25",
+      "publishedAt": "2026-07-06",
+      "updatedAt": "2026-07-06",
+      "title": "How to Dress Stocky Short Men: Outfit Formulas That Work With Your Build | StyleScore"
     },
     {
       "keyword": "alteration guide for short men",
@@ -1417,6 +1420,14 @@
   ],
   "clusters": {
     "short-men-style": [
+      {
+        "slug": "how-to-dress-stocky-short-men",
+        "title": "How to Dress Stocky Short Men: Outfit Formulas That Work With Your Build",
+        "href": "/blog/how-to-dress-stocky-short-men",
+        "description": "Practical style guide for stocky short men.",
+        "role": "supporting",
+        "publishedAt": "2026-07-06"
+      },
       {
         "slug": "best-t-shirts-for-short-men",
         "title": "Best T-Shirts for Short Men: Fit Rules That Stop a Tee From Swallowing You",
