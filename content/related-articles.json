@@ -248,6 +248,12 @@
     ],
     "what-shoes-to-wear-with-chinos-men": [
       {
+        "slug": "loafers-vs-boat-shoes-men",
+        "title": "Loafers vs Boat Shoes: Which One Actually Belongs in Your Rotation?",
+        "href": "/blog/loafers-vs-boat-shoes-men",
+        "description": "Loafers vs boat shoes — which one should you actually be wearing?"
+      },
+      {
         "slug": "business-casual-shoes-men",
         "title": "Business Casual Shoes for Men: Simple Formulas That Actually Work",
         "href": "/blog/business-casual-shoes-men",
@@ -258,15 +264,15 @@
         "title": "The Short Man's Shoe Guide: 7 Styles That Extend Your Leg Line",
         "href": "/blog/best-shoes-for-short-men",
         "description": "The strongest footwear choices for shorter men."
-      },
-      {
-        "slug": "best-white-sneakers-men",
-        "title": "Best White Sneakers for Men (Style Upgrade Guide)",
-        "href": "/blog/best-white-sneakers-men",
-        "description": "One of the fastest shoe upgrades most men can make."
       }
     ],
     "best-shoes-for-short-men": [
+      {
+        "slug": "loafers-vs-boat-shoes-men",
+        "title": "Loafers vs Boat Shoes: Which One Actually Belongs in Your Rotation?",
+        "href": "/blog/loafers-vs-boat-shoes-men",
+        "description": "Loafers vs boat shoes — which one should you actually be wearing?"
+      },
       {
         "slug": "how-to-dress-stocky-short-men",
         "title": "How to Dress Stocky Short Men: Outfit Formulas That Work With Your Build",
@@ -278,12 +284,6 @@
         "title": "Best T-Shirts for Short Men: Fit Rules That Stop a Tee From Swallowing You",
         "href": "/blog/best-t-shirts-for-short-men",
         "description": "The best t-shirts for short men come down to three numbers: body length, sleeve length, and chest width."
-      },
-      {
-        "slug": "5-4-style-guide-men",
-        "title": "The 5'4 Style Guide for Men: Outfit Formulas That Actually Work",
-        "href": "/blog/5-4-style-guide-men",
-        "description": "A practical 5'4 style guide for men covering outfit formulas, fit rules, and proportion tips that create a sharper, longer silhouette without gimmicks."
       }
     ],
     "best-white-sneakers-men": [
@@ -708,6 +708,12 @@
     ],
     "business-casual-shoes-men": [
       {
+        "slug": "loafers-vs-boat-shoes-men",
+        "title": "Loafers vs Boat Shoes: Which One Actually Belongs in Your Rotation?",
+        "href": "/blog/loafers-vs-boat-shoes-men",
+        "description": "Loafers vs boat shoes — which one should you actually be wearing?"
+      },
+      {
         "slug": "best-shoes-for-short-men",
         "title": "The Short Man's Shoe Guide: 7 Styles That Extend Your Leg Line",
         "href": "/blog/best-shoes-for-short-men",
@@ -718,12 +724,6 @@
         "title": "What Shoes to Wear With Chinos for Men",
         "href": "/blog/what-shoes-to-wear-with-chinos-men",
         "description": "Discover the best shoes to wear with chinos for men, whether you're dressing for work or the weekend."
-      },
-      {
-        "slug": "best-white-sneakers-men",
-        "title": "Best White Sneakers for Men (Style Upgrade Guide)",
-        "href": "/blog/best-white-sneakers-men",
-        "description": "One of the fastest shoe upgrades most men can make."
       }
     ],
     "how-to-dress-better-on-a-budget": [
@@ -1450,6 +1450,26 @@
         "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
         "href": "/blog/7-signs-dress-well",
         "description": "Practical signs that separate a sharp look from an average one."
+      }
+    ],
+    "loafers-vs-boat-shoes-men": [
+      {
+        "slug": "best-shoes-for-short-men",
+        "title": "The Short Man's Shoe Guide: 7 Styles That Extend Your Leg Line",
+        "href": "/blog/best-shoes-for-short-men",
+        "description": "The strongest footwear choices for shorter men."
+      },
+      {
+        "slug": "business-casual-shoes-men",
+        "title": "Business Casual Shoes for Men: Simple Formulas That Actually Work",
+        "href": "/blog/business-casual-shoes-men",
+        "description": "Stop guessing what shoes work for business casual."
+      },
+      {
+        "slug": "what-shoes-to-wear-with-chinos-men",
+        "title": "What Shoes to Wear With Chinos for Men",
+        "href": "/blog/what-shoes-to-wear-with-chinos-men",
+        "description": "Discover the best shoes to wear with chinos for men, whether you're dressing for work or the weekend."
       }
     ]
   }

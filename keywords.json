@@ -887,7 +887,7 @@
       "keyword": "loafers vs boat shoes",
       "slug": "loafers-vs-boat-shoes-men",
       "priority": 75,
-      "status": "draft",
+      "status": "published",
       "cluster": "footwear",
       "articleFormat": "comparison",
       "secondaryKeywords": [
@@ -895,7 +895,10 @@
         "boat shoes vs loafers style",
         "summer shoes men"
       ],
-      "scheduledFor": "2026-06-03"
+      "scheduledFor": "2026-06-03",
+      "publishedAt": "2026-07-07",
+      "updatedAt": "2026-07-07",
+      "title": "Loafers vs Boat Shoes: Which One Actually Belongs in Your Rotation? | StyleScore"
     },
     {
       "keyword": "how to dress for big and tall men",
@@ -1677,6 +1680,14 @@
       }
     ],
     "footwear": [
+      {
+        "slug": "loafers-vs-boat-shoes-men",
+        "title": "Loafers vs Boat Shoes: Which One Actually Belongs in Your Rotation?",
+        "href": "/blog/loafers-vs-boat-shoes-men",
+        "description": "Loafers vs boat shoes — which one should you actually be wearing?",
+        "role": "supporting",
+        "publishedAt": "2026-07-07"
+      },
       {
         "slug": "business-casual-shoes-men",
         "title": "Business Casual Shoes for Men: Simple Formulas That Actually Work",
