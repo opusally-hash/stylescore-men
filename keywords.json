@@ -548,7 +548,7 @@
       "keyword": "how to build a work wardrobe",
       "slug": "how-to-build-work-wardrobe-men",
       "priority": 75,
-      "status": "draft",
+      "status": "published",
       "cluster": "lifestyle",
       "articleFormat": "how-to guide",
       "secondaryKeywords": [
@@ -556,7 +556,10 @@
         "professional wardrobe men",
         "work clothes basics"
       ],
-      "scheduledFor": "2026-05-13"
+      "scheduledFor": "2026-05-13",
+      "publishedAt": "2026-07-07",
+      "updatedAt": "2026-07-07",
+      "title": "How to Build a Work Wardrobe That Actually Gets You Taken Seriously | StyleScore"
     },
     {
       "keyword": "how to remove wrinkles from clothes",
@@ -2157,6 +2160,16 @@
         "description": "Looking for the best sweaters for men?",
         "role": "supporting",
         "publishedAt": "2026-07-05"
+      }
+    ],
+    "lifestyle": [
+      {
+        "slug": "how-to-build-work-wardrobe-men",
+        "title": "How to Build a Work Wardrobe That Actually Gets You Taken Seriously",
+        "href": "/blog/how-to-build-work-wardrobe-men",
+        "description": "A practical guide on how to build a work wardrobe for men aged 25-45.",
+        "role": "supporting",
+        "publishedAt": "2026-07-07"
       }
     ]
   }
