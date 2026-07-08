@@ -565,7 +565,7 @@
       "keyword": "how to remove wrinkles from clothes",
       "slug": "how-to-remove-wrinkles-clothes-men",
       "priority": 74,
-      "status": "draft",
+      "status": "published",
       "cluster": "fabric-care",
       "articleFormat": "care guide",
       "secondaryKeywords": [
@@ -573,7 +573,10 @@
         "steaming vs ironing",
         "wrinkle free clothes"
       ],
-      "scheduledFor": "2026-05-14"
+      "scheduledFor": "2026-05-14",
+      "publishedAt": "2026-07-08",
+      "updatedAt": "2026-07-08",
+      "title": "How to Remove Wrinkles from Clothes (Without Losing 20 Minutes Every Morning) | StyleScore"
     },
     {
       "keyword": "style mistakes tall men make",
@@ -2129,6 +2132,14 @@
       }
     ],
     "fabric-care": [
+      {
+        "slug": "how-to-remove-wrinkles-clothes-men",
+        "title": "How to Remove Wrinkles from Clothes (Without Losing 20 Minutes Every Morning)",
+        "href": "/blog/how-to-remove-wrinkles-clothes-men",
+        "description": "Learn exactly how to remove wrinkles from clothes fast — whether you're steaming, ironing, or working with nothing but a shower.",
+        "role": "supporting",
+        "publishedAt": "2026-07-08"
+      },
       {
         "slug": "how-to-care-for-leather-shoes",
         "title": "How to Care for Leather Shoes (And Actually Make Them Last)",

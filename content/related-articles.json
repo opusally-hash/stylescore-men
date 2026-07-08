@@ -22,6 +22,12 @@
     ],
     "mens-style-test": [
       {
+        "slug": "how-to-remove-wrinkles-clothes-men",
+        "title": "How to Remove Wrinkles from Clothes (Without Losing 20 Minutes Every Morning)",
+        "href": "/blog/how-to-remove-wrinkles-clothes-men",
+        "description": "Learn exactly how to remove wrinkles from clothes fast — whether you're steaming, ironing, or working with nothing but a shower."
+      },
+      {
         "slug": "how-to-build-work-wardrobe-men",
         "title": "How to Build a Work Wardrobe That Actually Gets You Taken Seriously",
         "href": "/blog/how-to-build-work-wardrobe-men",
@@ -32,12 +38,6 @@
         "title": "The Best Sweaters for Men: What to Buy, What to Skip, and How to Wear Them",
         "href": "/blog/best-sweaters-for-men",
         "description": "Looking for the best sweaters for men?"
-      },
-      {
-        "slug": "sunglasses-guide-men-face-shape",
-        "title": "The Sunglasses Guide for Men Who Are Tired of Guessing at the Rack",
-        "href": "/blog/sunglasses-guide-men-face-shape",
-        "description": "A practical sunglasses guide for men that cuts through the noise—find the right frame for your face shape, skin tone, and lifestyle without overthinking it."
       }
     ],
     "7-signs-dress-well": [
@@ -952,6 +952,12 @@
     ],
     "how-to-iron-dress-shirt": [
       {
+        "slug": "how-to-remove-wrinkles-clothes-men",
+        "title": "How to Remove Wrinkles from Clothes (Without Losing 20 Minutes Every Morning)",
+        "href": "/blog/how-to-remove-wrinkles-clothes-men",
+        "description": "Learn exactly how to remove wrinkles from clothes fast — whether you're steaming, ironing, or working with nothing but a shower."
+      },
+      {
         "slug": "how-to-care-for-leather-shoes",
         "title": "How to Care for Leather Shoes (And Actually Make Them Last)",
         "href": "/blog/how-to-care-for-leather-shoes",
@@ -962,12 +968,6 @@
         "title": "Men's Style Quiz: Find Your Style Score Online",
         "href": "/blog/mens-style-test",
         "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
-      },
-      {
-        "slug": "7-signs-dress-well",
-        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
-        "href": "/blog/7-signs-dress-well",
-        "description": "Practical signs that separate a sharp look from an average one."
       }
     ],
     "best-belts-men-style": [
@@ -1152,6 +1152,12 @@
     ],
     "how-to-care-for-leather-shoes": [
       {
+        "slug": "how-to-remove-wrinkles-clothes-men",
+        "title": "How to Remove Wrinkles from Clothes (Without Losing 20 Minutes Every Morning)",
+        "href": "/blog/how-to-remove-wrinkles-clothes-men",
+        "description": "Learn exactly how to remove wrinkles from clothes fast — whether you're steaming, ironing, or working with nothing but a shower."
+      },
+      {
         "slug": "how-to-iron-dress-shirt",
         "title": "How to Iron a Dress Shirt Without Ruining It (Or Your Morning)",
         "href": "/blog/how-to-iron-dress-shirt",
@@ -1162,12 +1168,6 @@
         "title": "Men's Style Quiz: Find Your Style Score Online",
         "href": "/blog/mens-style-test",
         "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
-      },
-      {
-        "slug": "7-signs-dress-well",
-        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
-        "href": "/blog/7-signs-dress-well",
-        "description": "Practical signs that separate a sharp look from an average one."
       }
     ],
     "how-to-style-blazer-casually-men": [
@@ -1490,6 +1490,26 @@
         "title": "How to Dress Stocky Short Men: Outfit Formulas That Work With Your Build",
         "href": "/blog/how-to-dress-stocky-short-men",
         "description": "Practical style guide for stocky short men."
+      }
+    ],
+    "how-to-remove-wrinkles-clothes-men": [
+      {
+        "slug": "how-to-care-for-leather-shoes",
+        "title": "How to Care for Leather Shoes (And Actually Make Them Last)",
+        "href": "/blog/how-to-care-for-leather-shoes",
+        "description": "A practical, no-fluff guide on how to care for leather shoes — covering cleaning, conditioning, polishing, and storage so your shoes last years, not months."
+      },
+      {
+        "slug": "how-to-iron-dress-shirt",
+        "title": "How to Iron a Dress Shirt Without Ruining It (Or Your Morning)",
+        "href": "/blog/how-to-iron-dress-shirt",
+        "description": "Learn how to iron a dress shirt the right way — fast, crease-free, and without scorching the collar."
+      },
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
       }
     ]
   }
