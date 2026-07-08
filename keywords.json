@@ -1233,7 +1233,7 @@
       "keyword": "alteration guide for short men",
       "slug": "alteration-guide-short-men",
       "priority": 75,
-      "status": "draft",
+      "status": "published",
       "cluster": "short-men-style",
       "articleFormat": "how-to guide",
       "secondaryKeywords": [
@@ -1241,7 +1241,10 @@
         "tailoring priorities short guys",
         "hemming vs tapering short men"
       ],
-      "scheduledFor": "2026-06-26"
+      "scheduledFor": "2026-06-26",
+      "publishedAt": "2026-07-08",
+      "updatedAt": "2026-07-08",
+      "title": "The Alteration Guide for Short Men: What to Fix First and What to Skip | StyleScore"
     },
     {
       "keyword": "best chinos for short men",
@@ -1426,6 +1429,14 @@
   ],
   "clusters": {
     "short-men-style": [
+      {
+        "slug": "alteration-guide-short-men",
+        "title": "The Alteration Guide for Short Men: What to Fix First and What to Skip",
+        "href": "/blog/alteration-guide-short-men",
+        "description": "A practical alteration guide for short men covering the exact tailoring fixes that change how your clothes read on a shorter frame—ranked by impact, not theory.",
+        "role": "supporting",
+        "publishedAt": "2026-07-08"
+      },
       {
         "slug": "how-to-dress-stocky-short-men",
         "title": "How to Dress Stocky Short Men: Outfit Formulas That Work With Your Build",

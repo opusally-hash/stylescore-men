@@ -268,6 +268,12 @@
     ],
     "best-shoes-for-short-men": [
       {
+        "slug": "alteration-guide-short-men",
+        "title": "The Alteration Guide for Short Men: What to Fix First and What to Skip",
+        "href": "/blog/alteration-guide-short-men",
+        "description": "A practical alteration guide for short men covering the exact tailoring fixes that change how your clothes read on a shorter frame—ranked by impact, not theory."
+      },
+      {
         "slug": "loafers-vs-boat-shoes-men",
         "title": "Loafers vs Boat Shoes: Which One Actually Belongs in Your Rotation?",
         "href": "/blog/loafers-vs-boat-shoes-men",
@@ -278,12 +284,6 @@
         "title": "How to Dress Stocky Short Men: Outfit Formulas That Work With Your Build",
         "href": "/blog/how-to-dress-stocky-short-men",
         "description": "Practical style guide for stocky short men."
-      },
-      {
-        "slug": "best-t-shirts-for-short-men",
-        "title": "Best T-Shirts for Short Men: Fit Rules That Stop a Tee From Swallowing You",
-        "href": "/blog/best-t-shirts-for-short-men",
-        "description": "The best t-shirts for short men come down to three numbers: body length, sleeve length, and chest width."
       }
     ],
     "best-white-sneakers-men": [
@@ -386,6 +386,12 @@
     ],
     "how-clothes-should-fit-short-men": [
       {
+        "slug": "alteration-guide-short-men",
+        "title": "The Alteration Guide for Short Men: What to Fix First and What to Skip",
+        "href": "/blog/alteration-guide-short-men",
+        "description": "A practical alteration guide for short men covering the exact tailoring fixes that change how your clothes read on a shorter frame—ranked by impact, not theory."
+      },
+      {
         "slug": "how-to-dress-stocky-short-men",
         "title": "How to Dress Stocky Short Men: Outfit Formulas That Work With Your Build",
         "href": "/blog/how-to-dress-stocky-short-men",
@@ -396,12 +402,6 @@
         "title": "Best T-Shirts for Short Men: Fit Rules That Stop a Tee From Swallowing You",
         "href": "/blog/best-t-shirts-for-short-men",
         "description": "The best t-shirts for short men come down to three numbers: body length, sleeve length, and chest width."
-      },
-      {
-        "slug": "5-4-style-guide-men",
-        "title": "The 5'4 Style Guide for Men: Outfit Formulas That Actually Work",
-        "href": "/blog/5-4-style-guide-men",
-        "description": "A practical 5'4 style guide for men covering outfit formulas, fit rules, and proportion tips that create a sharper, longer silhouette without gimmicks."
       }
     ],
     "dress-shoes-for-short-men": [
@@ -1420,6 +1420,12 @@
     ],
     "how-to-dress-stocky-short-men": [
       {
+        "slug": "alteration-guide-short-men",
+        "title": "The Alteration Guide for Short Men: What to Fix First and What to Skip",
+        "href": "/blog/alteration-guide-short-men",
+        "description": "A practical alteration guide for short men covering the exact tailoring fixes that change how your clothes read on a shorter frame—ranked by impact, not theory."
+      },
+      {
         "slug": "best-shoes-for-short-men",
         "title": "7 Best Shoes for Short Men That Actually Add Height",
         "href": "/blog/best-shoes-for-short-men",
@@ -1430,12 +1436,6 @@
         "title": "How Clothes Should Fit If You're 5'6\"",
         "href": "/blog/how-clothes-should-fit-short-men",
         "description": "Specific fit landmarks for shirts, trousers, and jackets."
-      },
-      {
-        "slug": "best-t-shirts-for-short-men",
-        "title": "Best T-Shirts for Short Men: Fit Rules That Stop a Tee From Swallowing You",
-        "href": "/blog/best-t-shirts-for-short-men",
-        "description": "The best t-shirts for short men come down to three numbers: body length, sleeve length, and chest width."
       }
     ],
     "how-to-build-work-wardrobe-men": [
@@ -1470,6 +1470,26 @@
         "title": "What Shoes to Wear With Chinos for Men",
         "href": "/blog/what-shoes-to-wear-with-chinos-men",
         "description": "Discover the best shoes to wear with chinos for men, whether you're dressing for work or the weekend."
+      }
+    ],
+    "alteration-guide-short-men": [
+      {
+        "slug": "best-shoes-for-short-men",
+        "title": "7 Best Shoes for Short Men That Actually Add Height",
+        "href": "/blog/best-shoes-for-short-men",
+        "description": "The strongest footwear choices for shorter men."
+      },
+      {
+        "slug": "how-clothes-should-fit-short-men",
+        "title": "How Clothes Should Fit If You're 5'6\"",
+        "href": "/blog/how-clothes-should-fit-short-men",
+        "description": "Specific fit landmarks for shirts, trousers, and jackets."
+      },
+      {
+        "slug": "how-to-dress-stocky-short-men",
+        "title": "How to Dress Stocky Short Men: Outfit Formulas That Work With Your Build",
+        "href": "/blog/how-to-dress-stocky-short-men",
+        "description": "Practical style guide for stocky short men."
       }
     ]
   }
