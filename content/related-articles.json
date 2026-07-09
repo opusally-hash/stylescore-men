@@ -842,6 +842,12 @@
     ],
     "fashion-for-short-men": [
       {
+        "slug": "how-to-dress-big-and-tall-men",
+        "title": "How to Dress for Big and Tall Men: What Actually Works at Your Size",
+        "href": "/blog/how-to-dress-big-and-tall-men",
+        "description": "Real style advice for big and tall men—specific outfit formulas, fit rules, and brand picks that work at your size."
+      },
+      {
         "slug": "how-to-dress-for-your-face-shape-men",
         "title": "How to Dress for Your Face Shape: The Men's Guide That Actually Gets Specific",
         "href": "/blog/how-to-dress-for-your-face-shape-men",
@@ -852,12 +858,6 @@
         "title": "Style Tips for Tall Men: How to Actually Dress Your Frame (Not Against It)",
         "href": "/blog/style-tips-tall-men",
         "description": "Practical style tips for tall men that go beyond 'wear horizontal stripes.' Specific outfit formulas, fit calls, and proportion fixes that work at 6'2\" and above."
-      },
-      {
-        "slug": "best-jeans-for-athletic-build-men",
-        "title": "The Best Jeans for Athletic Build Men (No More Choosing Between Waist and Thighs)",
-        "href": "/blog/best-jeans-for-athletic-build-men",
-        "description": "Finding the best jeans for athletic build men means solving the waist-thigh gap problem for good."
       }
     ],
     "Fashion-for-muscular-men": [
@@ -1192,6 +1192,12 @@
     ],
     "style-tips-tall-men": [
       {
+        "slug": "how-to-dress-big-and-tall-men",
+        "title": "How to Dress for Big and Tall Men: What Actually Works at Your Size",
+        "href": "/blog/how-to-dress-big-and-tall-men",
+        "description": "Real style advice for big and tall men—specific outfit formulas, fit rules, and brand picks that work at your size."
+      },
+      {
         "slug": "how-to-dress-for-your-face-shape-men",
         "title": "How to Dress for Your Face Shape: The Men's Guide That Actually Gets Specific",
         "href": "/blog/how-to-dress-for-your-face-shape-men",
@@ -1202,12 +1208,6 @@
         "title": "Fashion Tips for Short Men (Look Taller Instantly)",
         "href": "/blog/fashion-for-short-men",
         "description": "The body-type rules that make shorter frames look sharper."
-      },
-      {
-        "slug": "best-jeans-for-athletic-build-men",
-        "title": "The Best Jeans for Athletic Build Men (No More Choosing Between Waist and Thighs)",
-        "href": "/blog/best-jeans-for-athletic-build-men",
-        "description": "Finding the best jeans for athletic build men means solving the waist-thigh gap problem for good."
       }
     ],
     "how-to-mix-patterns-men": [
@@ -1266,6 +1266,12 @@
     ],
     "how-to-dress-for-your-face-shape-men": [
       {
+        "slug": "how-to-dress-big-and-tall-men",
+        "title": "How to Dress for Big and Tall Men: What Actually Works at Your Size",
+        "href": "/blog/how-to-dress-big-and-tall-men",
+        "description": "Real style advice for big and tall men—specific outfit formulas, fit rules, and brand picks that work at your size."
+      },
+      {
         "slug": "fashion-for-short-men",
         "title": "Fashion Tips for Short Men (Look Taller Instantly)",
         "href": "/blog/fashion-for-short-men",
@@ -1276,12 +1282,6 @@
         "title": "Style Tips for Tall Men: How to Actually Dress Your Frame (Not Against It)",
         "href": "/blog/style-tips-tall-men",
         "description": "Practical style tips for tall men that go beyond 'wear horizontal stripes.' Specific outfit formulas, fit calls, and proportion fixes that work at 6'2\" and above."
-      },
-      {
-        "slug": "best-jeans-for-athletic-build-men",
-        "title": "The Best Jeans for Athletic Build Men (No More Choosing Between Waist and Thighs)",
-        "href": "/blog/best-jeans-for-athletic-build-men",
-        "description": "Finding the best jeans for athletic build men means solving the waist-thigh gap problem for good."
       }
     ],
     "5-4-style-guide-men": [
@@ -1510,6 +1510,26 @@
         "title": "Men's Style Quiz: Find Your Style Score Online",
         "href": "/blog/mens-style-test",
         "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
+      }
+    ],
+    "how-to-dress-big-and-tall-men": [
+      {
+        "slug": "fashion-for-short-men",
+        "title": "Fashion Tips for Short Men (Look Taller Instantly)",
+        "href": "/blog/fashion-for-short-men",
+        "description": "The body-type rules that make shorter frames look sharper."
+      },
+      {
+        "slug": "how-to-dress-for-your-face-shape-men",
+        "title": "How to Dress for Your Face Shape: The Men's Guide That Actually Gets Specific",
+        "href": "/blog/how-to-dress-for-your-face-shape-men",
+        "description": "Learn how to dress for your face shape men — with real collar advice, glasses picks, hairstyle guidance, and outfit formulas that work for oval, square, round, and oblong faces."
+      },
+      {
+        "slug": "style-tips-tall-men",
+        "title": "Style Tips for Tall Men: How to Actually Dress Your Frame (Not Against It)",
+        "href": "/blog/style-tips-tall-men",
+        "description": "Practical style tips for tall men that go beyond 'wear horizontal stripes.' Specific outfit formulas, fit calls, and proportion fixes that work at 6'2\" and above."
       }
     ]
   }

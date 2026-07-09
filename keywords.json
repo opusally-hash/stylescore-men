@@ -907,7 +907,7 @@
       "keyword": "how to dress for big and tall men",
       "slug": "how-to-dress-big-and-tall-men",
       "priority": 74,
-      "status": "draft",
+      "status": "published",
       "cluster": "body-type",
       "articleFormat": "style guide",
       "secondaryKeywords": [
@@ -915,7 +915,10 @@
         "big and tall fashion",
         "dressing well overweight"
       ],
-      "scheduledFor": "2026-06-04"
+      "scheduledFor": "2026-06-04",
+      "publishedAt": "2026-07-09",
+      "updatedAt": "2026-07-09",
+      "title": "How to Dress for Big and Tall Men: A Practical Style Guide That Actually Fits | StyleScore"
     },
     {
       "keyword": "when to wear a tie",
@@ -1944,6 +1947,14 @@
       }
     ],
     "body-type": [
+      {
+        "slug": "how-to-dress-big-and-tall-men",
+        "title": "How to Dress for Big and Tall Men: What Actually Works at Your Size",
+        "href": "/blog/how-to-dress-big-and-tall-men",
+        "description": "Real style advice for big and tall men—specific outfit formulas, fit rules, and brand picks that work at your size.",
+        "role": "supporting",
+        "publishedAt": "2026-07-09"
+      },
       {
         "slug": "how-to-dress-for-your-face-shape-men",
         "title": "How to Dress for Your Face Shape: The Men's Guide That Actually Gets Specific",
