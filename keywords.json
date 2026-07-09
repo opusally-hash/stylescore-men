@@ -1256,7 +1256,7 @@
       "keyword": "best chinos for short men",
       "slug": "best-chinos-for-short-men",
       "priority": 74,
-      "status": "draft",
+      "status": "published",
       "cluster": "short-men-style",
       "articleFormat": "buying guide",
       "secondaryKeywords": [
@@ -1264,7 +1264,10 @@
         "short inseam chinos",
         "chino rise short guys"
       ],
-      "scheduledFor": "2026-06-27"
+      "scheduledFor": "2026-06-27",
+      "publishedAt": "2026-07-09",
+      "updatedAt": "2026-07-09",
+      "title": "Best Chinos for Short Men: Fit Rules That Make the Difference | StyleScore"
     },
     {
       "keyword": "casual weekend outfits short men",
@@ -1435,6 +1438,14 @@
   ],
   "clusters": {
     "short-men-style": [
+      {
+        "slug": "best-chinos-for-short-men",
+        "title": "Best Chinos for Short Men: Fit Rules That Make the Difference",
+        "href": "/blog/best-chinos-for-short-men",
+        "description": "The best chinos for short men come down to three fit variables most guys ignore.",
+        "role": "supporting",
+        "publishedAt": "2026-07-09"
+      },
       {
         "slug": "alteration-guide-short-men",
         "title": "The Alteration Guide for Short Men: What to Fix First and What to Skip",
