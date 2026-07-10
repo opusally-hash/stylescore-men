@@ -924,7 +924,7 @@
       "keyword": "when to wear a tie",
       "slug": "when-to-wear-tie-men",
       "priority": 73,
-      "status": "draft",
+      "status": "published",
       "cluster": "accessories",
       "articleFormat": "how-to guide",
       "secondaryKeywords": [
@@ -932,7 +932,10 @@
         "tie or no tie",
         "modern tie rules"
       ],
-      "scheduledFor": "2026-06-05"
+      "scheduledFor": "2026-06-05",
+      "publishedAt": "2026-07-10",
+      "updatedAt": "2026-07-10",
+      "title": "When to Wear a Tie (And When You're Just Making Things Awkward) | StyleScore"
     },
     {
       "keyword": "how to pack a suit in a suitcase",
@@ -2128,6 +2131,14 @@
       }
     ],
     "accessories": [
+      {
+        "slug": "when-to-wear-tie-men",
+        "title": "When to Wear a Tie (And When You're Just Making Things Awkward)",
+        "href": "/blog/when-to-wear-tie-men",
+        "description": "Not sure when to wear a tie in 2024?",
+        "role": "supporting",
+        "publishedAt": "2026-07-10"
+      },
       {
         "slug": "sunglasses-guide-men-face-shape",
         "title": "The Sunglasses Guide for Men Who Are Tired of Guessing at the Rack",

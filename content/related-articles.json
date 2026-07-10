@@ -782,6 +782,12 @@
     ],
     "watch-guide-men-style": [
       {
+        "slug": "when-to-wear-tie-men",
+        "title": "When to Wear a Tie (And When You're Just Making Things Awkward)",
+        "href": "/blog/when-to-wear-tie-men",
+        "description": "Not sure when to wear a tie in 2024?"
+      },
+      {
         "slug": "sunglasses-guide-men-face-shape",
         "title": "The Sunglasses Guide for Men Who Are Tired of Guessing at the Rack",
         "href": "/blog/sunglasses-guide-men-face-shape",
@@ -792,12 +798,6 @@
         "title": "The Best Belts for Men (And How to Stop Getting This Wrong)",
         "href": "/blog/best-belts-men-style",
         "description": "A practical guide to the best belts for men — covering leather belt choices, dress vs casual belt decisions, fit rules, and outfit formulas that actually work."
-      },
-      {
-        "slug": "mens-style-test",
-        "title": "Men's Style Quiz: Find Your Style Score Online",
-        "href": "/blog/mens-style-test",
-        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
       }
     ],
     "how-to-dress-for-wedding-guest-men": [
@@ -972,6 +972,12 @@
     ],
     "best-belts-men-style": [
       {
+        "slug": "when-to-wear-tie-men",
+        "title": "When to Wear a Tie (And When You're Just Making Things Awkward)",
+        "href": "/blog/when-to-wear-tie-men",
+        "description": "Not sure when to wear a tie in 2024?"
+      },
+      {
         "slug": "sunglasses-guide-men-face-shape",
         "title": "The Sunglasses Guide for Men Who Are Tired of Guessing at the Rack",
         "href": "/blog/sunglasses-guide-men-face-shape",
@@ -982,12 +988,6 @@
         "title": "The Only Watch Guide for Men Who Actually Want to Wear One Right",
         "href": "/blog/watch-guide-men-style",
         "description": "A practical watch guide for men who want sharper style without obsessing over horology."
-      },
-      {
-        "slug": "mens-style-test",
-        "title": "Men's Style Quiz: Find Your Style Score Online",
-        "href": "/blog/mens-style-test",
-        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
       }
     ],
     "smart-casual-vs-business-casual": [
@@ -1326,6 +1326,12 @@
     ],
     "sunglasses-guide-men-face-shape": [
       {
+        "slug": "when-to-wear-tie-men",
+        "title": "When to Wear a Tie (And When You're Just Making Things Awkward)",
+        "href": "/blog/when-to-wear-tie-men",
+        "description": "Not sure when to wear a tie in 2024?"
+      },
+      {
         "slug": "best-belts-men-style",
         "title": "The Best Belts for Men (And How to Stop Getting This Wrong)",
         "href": "/blog/best-belts-men-style",
@@ -1336,12 +1342,6 @@
         "title": "The Only Watch Guide for Men Who Actually Want to Wear One Right",
         "href": "/blog/watch-guide-men-style",
         "description": "A practical watch guide for men who want sharper style without obsessing over horology."
-      },
-      {
-        "slug": "mens-style-test",
-        "title": "Men's Style Quiz: Find Your Style Score Online",
-        "href": "/blog/mens-style-test",
-        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
       }
     ],
     "how-to-find-your-style-men": [
@@ -1550,6 +1550,26 @@
         "title": "The Alteration Guide for Short Men: What to Fix First and What to Skip",
         "href": "/blog/alteration-guide-short-men",
         "description": "A practical alteration guide for short men covering the exact tailoring fixes that change how your clothes read on a shorter frame—ranked by impact, not theory."
+      }
+    ],
+    "when-to-wear-tie-men": [
+      {
+        "slug": "sunglasses-guide-men-face-shape",
+        "title": "The Sunglasses Guide for Men Who Are Tired of Guessing at the Rack",
+        "href": "/blog/sunglasses-guide-men-face-shape",
+        "description": "A practical sunglasses guide for men that cuts through the noise—find the right frame for your face shape, skin tone, and lifestyle without overthinking it."
+      },
+      {
+        "slug": "best-belts-men-style",
+        "title": "The Best Belts for Men (And How to Stop Getting This Wrong)",
+        "href": "/blog/best-belts-men-style",
+        "description": "A practical guide to the best belts for men — covering leather belt choices, dress vs casual belt decisions, fit rules, and outfit formulas that actually work."
+      },
+      {
+        "slug": "watch-guide-men-style",
+        "title": "The Only Watch Guide for Men Who Actually Want to Wear One Right",
+        "href": "/blog/watch-guide-men-style",
+        "description": "A practical watch guide for men who want sharper style without obsessing over horology."
       }
     ]
   }
