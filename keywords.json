@@ -1358,7 +1358,7 @@
       "keyword": "how to prevent pilling on clothes",
       "slug": "how-to-prevent-pilling-on-clothes",
       "priority": 73,
-      "status": "draft",
+      "status": "published",
       "cluster": "fabric-care",
       "articleFormat": "care guide",
       "secondaryKeywords": [
@@ -1366,7 +1366,10 @@
         "remove pills from clothes",
         "fabric shaver guide"
       ],
-      "scheduledFor": "2026-07-03"
+      "scheduledFor": "2026-07-03",
+      "publishedAt": "2026-07-10",
+      "updatedAt": "2026-07-10",
+      "title": "How to Prevent Pilling on Clothes (Before Your Best Sweater Looks Like a Tennis Ball) | StyleScore"
     },
     {
       "keyword": "style for men with broad shoulders",
@@ -2165,6 +2168,14 @@
       }
     ],
     "fabric-care": [
+      {
+        "slug": "how-to-prevent-pilling-on-clothes",
+        "title": "How to Prevent Pilling on Clothes (Before Your Best Sweater Looks Like a Tennis Ball)",
+        "href": "/blog/how-to-prevent-pilling-on-clothes",
+        "description": "Pilling ruins good knitwear fast.",
+        "role": "supporting",
+        "publishedAt": "2026-07-10"
+      },
       {
         "slug": "how-to-remove-wrinkles-clothes-men",
         "title": "How to Remove Wrinkles from Clothes (Without Losing 20 Minutes Every Morning)",

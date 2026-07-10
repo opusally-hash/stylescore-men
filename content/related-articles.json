@@ -952,6 +952,12 @@
     ],
     "how-to-iron-dress-shirt": [
       {
+        "slug": "how-to-prevent-pilling-on-clothes",
+        "title": "How to Prevent Pilling on Clothes (Before Your Best Sweater Looks Like a Tennis Ball)",
+        "href": "/blog/how-to-prevent-pilling-on-clothes",
+        "description": "Pilling ruins good knitwear fast."
+      },
+      {
         "slug": "how-to-remove-wrinkles-clothes-men",
         "title": "How to Remove Wrinkles from Clothes (Without Losing 20 Minutes Every Morning)",
         "href": "/blog/how-to-remove-wrinkles-clothes-men",
@@ -962,12 +968,6 @@
         "title": "How to Care for Leather Shoes (And Actually Make Them Last)",
         "href": "/blog/how-to-care-for-leather-shoes",
         "description": "A practical, no-fluff guide on how to care for leather shoes — covering cleaning, conditioning, polishing, and storage so your shoes last years, not months."
-      },
-      {
-        "slug": "mens-style-test",
-        "title": "Men's Style Quiz: Find Your Style Score Online",
-        "href": "/blog/mens-style-test",
-        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
       }
     ],
     "best-belts-men-style": [
@@ -1152,6 +1152,12 @@
     ],
     "how-to-care-for-leather-shoes": [
       {
+        "slug": "how-to-prevent-pilling-on-clothes",
+        "title": "How to Prevent Pilling on Clothes (Before Your Best Sweater Looks Like a Tennis Ball)",
+        "href": "/blog/how-to-prevent-pilling-on-clothes",
+        "description": "Pilling ruins good knitwear fast."
+      },
+      {
         "slug": "how-to-remove-wrinkles-clothes-men",
         "title": "How to Remove Wrinkles from Clothes (Without Losing 20 Minutes Every Morning)",
         "href": "/blog/how-to-remove-wrinkles-clothes-men",
@@ -1162,12 +1168,6 @@
         "title": "How to Iron a Dress Shirt Without Ruining It (Or Your Morning)",
         "href": "/blog/how-to-iron-dress-shirt",
         "description": "Learn how to iron a dress shirt the right way — fast, crease-free, and without scorching the collar."
-      },
-      {
-        "slug": "mens-style-test",
-        "title": "Men's Style Quiz: Find Your Style Score Online",
-        "href": "/blog/mens-style-test",
-        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
       }
     ],
     "how-to-style-blazer-casually-men": [
@@ -1494,6 +1494,12 @@
     ],
     "how-to-remove-wrinkles-clothes-men": [
       {
+        "slug": "how-to-prevent-pilling-on-clothes",
+        "title": "How to Prevent Pilling on Clothes (Before Your Best Sweater Looks Like a Tennis Ball)",
+        "href": "/blog/how-to-prevent-pilling-on-clothes",
+        "description": "Pilling ruins good knitwear fast."
+      },
+      {
         "slug": "how-to-care-for-leather-shoes",
         "title": "How to Care for Leather Shoes (And Actually Make Them Last)",
         "href": "/blog/how-to-care-for-leather-shoes",
@@ -1504,12 +1510,6 @@
         "title": "How to Iron a Dress Shirt Without Ruining It (Or Your Morning)",
         "href": "/blog/how-to-iron-dress-shirt",
         "description": "Learn how to iron a dress shirt the right way — fast, crease-free, and without scorching the collar."
-      },
-      {
-        "slug": "mens-style-test",
-        "title": "Men's Style Quiz: Find Your Style Score Online",
-        "href": "/blog/mens-style-test",
-        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
       }
     ],
     "how-to-dress-big-and-tall-men": [
@@ -1570,6 +1570,26 @@
         "title": "The Only Watch Guide for Men Who Actually Want to Wear One Right",
         "href": "/blog/watch-guide-men-style",
         "description": "A practical watch guide for men who want sharper style without obsessing over horology."
+      }
+    ],
+    "how-to-prevent-pilling-on-clothes": [
+      {
+        "slug": "how-to-remove-wrinkles-clothes-men",
+        "title": "How to Remove Wrinkles from Clothes (Without Losing 20 Minutes Every Morning)",
+        "href": "/blog/how-to-remove-wrinkles-clothes-men",
+        "description": "Learn exactly how to remove wrinkles from clothes fast — whether you're steaming, ironing, or working with nothing but a shower."
+      },
+      {
+        "slug": "how-to-care-for-leather-shoes",
+        "title": "How to Care for Leather Shoes (And Actually Make Them Last)",
+        "href": "/blog/how-to-care-for-leather-shoes",
+        "description": "A practical, no-fluff guide on how to care for leather shoes — covering cleaning, conditioning, polishing, and storage so your shoes last years, not months."
+      },
+      {
+        "slug": "how-to-iron-dress-shirt",
+        "title": "How to Iron a Dress Shirt Without Ruining It (Or Your Morning)",
+        "href": "/blog/how-to-iron-dress-shirt",
+        "description": "Learn how to iron a dress shirt the right way — fast, crease-free, and without scorching the collar."
       }
     ]
   }
