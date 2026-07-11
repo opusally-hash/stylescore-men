@@ -582,7 +582,7 @@
       "keyword": "style mistakes tall men make",
       "slug": "style-mistakes-tall-men",
       "priority": 72,
-      "status": "draft",
+      "status": "published",
       "cluster": "common-style-problems",
       "articleFormat": "listicle",
       "secondaryKeywords": [
@@ -590,7 +590,10 @@
         "what tall guys do wrong",
         "tall men clothing errors"
       ],
-      "scheduledFor": "2026-05-15"
+      "scheduledFor": "2026-05-15",
+      "publishedAt": "2026-07-11",
+      "updatedAt": "2026-07-11",
+      "title": "The Style Mistakes Tall Men Make (And Why Most Guides Get It Wrong) | StyleScore"
     },
     {
       "keyword": "what to wear to a funeral men",
@@ -2056,6 +2059,14 @@
       }
     ],
     "common-style-problems": [
+      {
+        "slug": "style-mistakes-tall-men",
+        "title": "The Style Mistakes Tall Men Make (And Why Most Guides Get It Wrong)",
+        "href": "/blog/style-mistakes-tall-men",
+        "description": "Tall guys face specific fit and proportion problems that generic style advice ignores.",
+        "role": "supporting",
+        "publishedAt": "2026-07-11"
+      },
       {
         "slug": "how-to-find-your-style-men",
         "title": "How to Find Your Style as a Man (Without Overthinking It)",
