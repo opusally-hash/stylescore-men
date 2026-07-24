@@ -1282,7 +1282,7 @@
       "keyword": "casual weekend outfits short men",
       "slug": "casual-weekend-outfits-short-men",
       "priority": 72,
-      "status": "draft",
+      "status": "published",
       "cluster": "short-men-style",
       "articleFormat": "outfit guide",
       "secondaryKeywords": [
@@ -1290,7 +1290,10 @@
         "weekend style short guys",
         "casual looks short men"
       ],
-      "scheduledFor": "2026-06-28"
+      "scheduledFor": "2026-06-28",
+      "publishedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "title": "Casual Weekend Outfits for Short Men: Outfit Formulas That Actually Work | StyleScore"
     },
     {
       "keyword": "how to mix patterns men",
@@ -1450,6 +1453,14 @@
   ],
   "clusters": {
     "short-men-style": [
+      {
+        "slug": "casual-weekend-outfits-short-men",
+        "title": "Casual Weekend Outfits for Short Men: Outfit Formulas That Actually Work",
+        "href": "/blog/casual-weekend-outfits-short-men",
+        "description": "The best casual weekend outfits for short men aren't about tricks or hacks.",
+        "role": "supporting",
+        "publishedAt": "2026-07-24"
+      },
       {
         "slug": "best-chinos-for-short-men",
         "title": "Best Chinos for Short Men: Fit Rules That Make the Difference",
