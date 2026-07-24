@@ -1152,6 +1152,12 @@
     ],
     "how-to-care-for-leather-shoes": [
       {
+        "slug": "how-to-pack-suit-in-suitcase",
+        "title": "How to Pack a Suit in a Suitcase Without Destroying It Before You Even Arrive",
+        "href": "/blog/how-to-pack-suit-in-suitcase",
+        "description": "Learn exactly how to pack a suit in a suitcase so it lands wrinkle-free and ready to wear."
+      },
+      {
         "slug": "how-to-prevent-pilling-on-clothes",
         "title": "How to Prevent Pilling on Clothes (Before Your Best Sweater Looks Like a Tennis Ball)",
         "href": "/blog/how-to-prevent-pilling-on-clothes",
@@ -1162,12 +1168,6 @@
         "title": "How to Remove Wrinkles from Clothes (Without Losing 20 Minutes Every Morning)",
         "href": "/blog/how-to-remove-wrinkles-clothes-men",
         "description": "Learn exactly how to remove wrinkles from clothes fast — whether you're steaming, ironing, or working with nothing but a shower."
-      },
-      {
-        "slug": "how-to-iron-dress-shirt",
-        "title": "How to Iron a Dress Shirt Without Ruining It (Or Your Morning)",
-        "href": "/blog/how-to-iron-dress-shirt",
-        "description": "Learn how to iron a dress shirt the right way — fast, crease-free, and without scorching the collar."
       }
     ],
     "how-to-style-blazer-casually-men": [
@@ -1494,6 +1494,12 @@
     ],
     "how-to-remove-wrinkles-clothes-men": [
       {
+        "slug": "how-to-pack-suit-in-suitcase",
+        "title": "How to Pack a Suit in a Suitcase Without Destroying It Before You Even Arrive",
+        "href": "/blog/how-to-pack-suit-in-suitcase",
+        "description": "Learn exactly how to pack a suit in a suitcase so it lands wrinkle-free and ready to wear."
+      },
+      {
         "slug": "how-to-prevent-pilling-on-clothes",
         "title": "How to Prevent Pilling on Clothes (Before Your Best Sweater Looks Like a Tennis Ball)",
         "href": "/blog/how-to-prevent-pilling-on-clothes",
@@ -1504,12 +1510,6 @@
         "title": "How to Care for Leather Shoes (And Actually Make Them Last)",
         "href": "/blog/how-to-care-for-leather-shoes",
         "description": "A practical, no-fluff guide on how to care for leather shoes — covering cleaning, conditioning, polishing, and storage so your shoes last years, not months."
-      },
-      {
-        "slug": "how-to-iron-dress-shirt",
-        "title": "How to Iron a Dress Shirt Without Ruining It (Or Your Morning)",
-        "href": "/blog/how-to-iron-dress-shirt",
-        "description": "Learn how to iron a dress shirt the right way — fast, crease-free, and without scorching the collar."
       }
     ],
     "how-to-dress-big-and-tall-men": [
@@ -1574,6 +1574,12 @@
     ],
     "how-to-prevent-pilling-on-clothes": [
       {
+        "slug": "how-to-pack-suit-in-suitcase",
+        "title": "How to Pack a Suit in a Suitcase Without Destroying It Before You Even Arrive",
+        "href": "/blog/how-to-pack-suit-in-suitcase",
+        "description": "Learn exactly how to pack a suit in a suitcase so it lands wrinkle-free and ready to wear."
+      },
+      {
         "slug": "how-to-remove-wrinkles-clothes-men",
         "title": "How to Remove Wrinkles from Clothes (Without Losing 20 Minutes Every Morning)",
         "href": "/blog/how-to-remove-wrinkles-clothes-men",
@@ -1584,12 +1590,6 @@
         "title": "How to Care for Leather Shoes (And Actually Make Them Last)",
         "href": "/blog/how-to-care-for-leather-shoes",
         "description": "A practical, no-fluff guide on how to care for leather shoes — covering cleaning, conditioning, polishing, and storage so your shoes last years, not months."
-      },
-      {
-        "slug": "how-to-iron-dress-shirt",
-        "title": "How to Iron a Dress Shirt Without Ruining It (Or Your Morning)",
-        "href": "/blog/how-to-iron-dress-shirt",
-        "description": "Learn how to iron a dress shirt the right way — fast, crease-free, and without scorching the collar."
       }
     ],
     "style-mistakes-tall-men": [
@@ -1610,6 +1610,26 @@
         "title": "Smart Casual vs Business Casual: The Only Guide Men Actually Need",
         "href": "/blog/smart-casual-vs-business-casual",
         "description": "Confused about smart casual vs business casual?"
+      }
+    ],
+    "how-to-pack-suit-in-suitcase": [
+      {
+        "slug": "how-to-prevent-pilling-on-clothes",
+        "title": "How to Prevent Pilling on Clothes (Before Your Best Sweater Looks Like a Tennis Ball)",
+        "href": "/blog/how-to-prevent-pilling-on-clothes",
+        "description": "Pilling ruins good knitwear fast."
+      },
+      {
+        "slug": "how-to-remove-wrinkles-clothes-men",
+        "title": "How to Remove Wrinkles from Clothes (Without Losing 20 Minutes Every Morning)",
+        "href": "/blog/how-to-remove-wrinkles-clothes-men",
+        "description": "Learn exactly how to remove wrinkles from clothes fast — whether you're steaming, ironing, or working with nothing but a shower."
+      },
+      {
+        "slug": "how-to-care-for-leather-shoes",
+        "title": "How to Care for Leather Shoes (And Actually Make Them Last)",
+        "href": "/blog/how-to-care-for-leather-shoes",
+        "description": "A practical, no-fluff guide on how to care for leather shoes — covering cleaning, conditioning, polishing, and storage so your shoes last years, not months."
       }
     ]
   }

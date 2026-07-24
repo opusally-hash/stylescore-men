@@ -944,7 +944,7 @@
       "keyword": "how to pack a suit in a suitcase",
       "slug": "how-to-pack-suit-in-suitcase",
       "priority": 72,
-      "status": "draft",
+      "status": "published",
       "cluster": "fabric-care",
       "articleFormat": "how-to guide",
       "secondaryKeywords": [
@@ -952,7 +952,10 @@
         "fold suit without wrinkles",
         "travel with dress clothes"
       ],
-      "scheduledFor": "2026-06-06"
+      "scheduledFor": "2026-06-06",
+      "publishedAt": "2026-07-24",
+      "updatedAt": "2026-07-24",
+      "title": "How to Pack a Suit in a Suitcase Without Destroying It Before You Even Arrive | StyleScore"
     },
     {
       "keyword": "best backpacks for work men",
@@ -2179,6 +2182,14 @@
       }
     ],
     "fabric-care": [
+      {
+        "slug": "how-to-pack-suit-in-suitcase",
+        "title": "How to Pack a Suit in a Suitcase Without Destroying It Before You Even Arrive",
+        "href": "/blog/how-to-pack-suit-in-suitcase",
+        "description": "Learn exactly how to pack a suit in a suitcase so it lands wrinkle-free and ready to wear.",
+        "role": "supporting",
+        "publishedAt": "2026-07-24"
+      },
       {
         "slug": "how-to-prevent-pilling-on-clothes",
         "title": "How to Prevent Pilling on Clothes (Before Your Best Sweater Looks Like a Tennis Ball)",
