@@ -1384,7 +1384,7 @@
       "keyword": "style for men with broad shoulders",
       "slug": "style-for-men-with-broad-shoulders",
       "priority": 72,
-      "status": "draft",
+      "status": "published",
       "cluster": "body-type",
       "articleFormat": "style guide",
       "secondaryKeywords": [
@@ -1392,7 +1392,10 @@
         "jacket fit broad shoulders",
         "balance proportions wide shoulders"
       ],
-      "scheduledFor": "2026-07-04"
+      "scheduledFor": "2026-07-04",
+      "publishedAt": "2026-07-25",
+      "updatedAt": "2026-07-25",
+      "title": "Style for Men with Broad Shoulders: How to Dress the Frame You've Got | StyleScore"
     },
     {
       "keyword": "what to wear to a holiday party men",
@@ -1981,6 +1984,14 @@
       }
     ],
     "body-type": [
+      {
+        "slug": "style-for-men-with-broad-shoulders",
+        "title": "Style for Men with Broad Shoulders: How to Dress the Frame You've Got",
+        "href": "/blog/style-for-men-with-broad-shoulders",
+        "description": "Practical style advice for men with broad shoulders — specific outfit formulas, jacket fit tips, and proportion tricks that actually work on a wide frame.",
+        "role": "supporting",
+        "publishedAt": "2026-07-25"
+      },
       {
         "slug": "how-to-dress-big-and-tall-men",
         "title": "How to Dress for Big and Tall Men: What Actually Works at Your Size",
