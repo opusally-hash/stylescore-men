@@ -599,7 +599,7 @@
       "keyword": "what to wear to a funeral men",
       "slug": "what-to-wear-funeral-men",
       "priority": 71,
-      "status": "draft",
+      "status": "published",
       "cluster": "occasion-dressing",
       "articleFormat": "occasion guide",
       "secondaryKeywords": [
@@ -607,7 +607,10 @@
         "mourning clothes",
         "appropriate funeral outfit"
       ],
-      "scheduledFor": "2026-05-16"
+      "scheduledFor": "2026-05-16",
+      "publishedAt": "2026-07-26",
+      "updatedAt": "2026-07-26",
+      "title": "What to Wear to a Funeral: The Men's Guide That Gets It Right Without Overthinking It | StyleScore"
     },
     {
       "keyword": "how to dress for spring men",
@@ -1910,6 +1913,14 @@
       }
     ],
     "occasion-dressing": [
+      {
+        "slug": "what-to-wear-funeral-men",
+        "title": "What to Wear to a Funeral: The Men's Guide That Gets It Right Without Overthinking It",
+        "href": "/blog/what-to-wear-funeral-men",
+        "description": "Practical, specific funeral attire advice for men aged 25-45.",
+        "role": "supporting",
+        "publishedAt": "2026-07-26"
+      },
       {
         "slug": "what-to-wear-job-interview-men",
         "title": "What to Wear to a Job Interview: The Men's Guide That Gets You Taken Seriously",

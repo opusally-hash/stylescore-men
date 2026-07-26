@@ -164,6 +164,12 @@
     ],
     "wedding-outfit-short-men": [
       {
+        "slug": "what-to-wear-funeral-men",
+        "title": "What to Wear to a Funeral: The Men's Guide That Gets It Right Without Overthinking It",
+        "href": "/blog/what-to-wear-funeral-men",
+        "description": "Practical, specific funeral attire advice for men aged 25-45."
+      },
+      {
         "slug": "what-to-wear-job-interview-men",
         "title": "What to Wear to a Job Interview: The Men's Guide That Gets You Taken Seriously",
         "href": "/blog/what-to-wear-job-interview-men",
@@ -174,12 +180,6 @@
         "title": "What to Wear to a Cocktail Party: The Men's Guide That Actually Answers the Question",
         "href": "/blog/what-to-wear-cocktail-party-men",
         "description": "Confused about cocktail attire for men?"
-      },
-      {
-        "slug": "dress-code-guide-men",
-        "title": "The Only Dress Code Guide Men Actually Need: What to Wear to Every Occasion",
-        "href": "/blog/dress-code-guide-men",
-        "description": "Confused by cocktail attire, black tie optional, or semi formal dress code?"
       }
     ],
     "summer-outfits-short-men": [
@@ -1226,6 +1226,12 @@
     ],
     "what-to-wear-cocktail-party-men": [
       {
+        "slug": "what-to-wear-funeral-men",
+        "title": "What to Wear to a Funeral: The Men's Guide That Gets It Right Without Overthinking It",
+        "href": "/blog/what-to-wear-funeral-men",
+        "description": "Practical, specific funeral attire advice for men aged 25-45."
+      },
+      {
         "slug": "what-to-wear-job-interview-men",
         "title": "What to Wear to a Job Interview: The Men's Guide That Gets You Taken Seriously",
         "href": "/blog/what-to-wear-job-interview-men",
@@ -1236,12 +1242,6 @@
         "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
         "href": "/blog/wedding-outfit-short-men",
         "description": "Wedding dressing rules for shorter men across formality levels."
-      },
-      {
-        "slug": "dress-code-guide-men",
-        "title": "The Only Dress Code Guide Men Actually Need: What to Wear to Every Occasion",
-        "href": "/blog/dress-code-guide-men",
-        "description": "Confused by cocktail attire, black tie optional, or semi formal dress code?"
       }
     ],
     "best-coats-for-men": [
@@ -1386,6 +1386,12 @@
     ],
     "what-to-wear-job-interview-men": [
       {
+        "slug": "what-to-wear-funeral-men",
+        "title": "What to Wear to a Funeral: The Men's Guide That Gets It Right Without Overthinking It",
+        "href": "/blog/what-to-wear-funeral-men",
+        "description": "Practical, specific funeral attire advice for men aged 25-45."
+      },
+      {
         "slug": "wedding-outfit-short-men",
         "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
         "href": "/blog/wedding-outfit-short-men",
@@ -1396,12 +1402,6 @@
         "title": "What to Wear to a Cocktail Party: The Men's Guide That Actually Answers the Question",
         "href": "/blog/what-to-wear-cocktail-party-men",
         "description": "Confused about cocktail attire for men?"
-      },
-      {
-        "slug": "dress-code-guide-men",
-        "title": "The Only Dress Code Guide Men Actually Need: What to Wear to Every Occasion",
-        "href": "/blog/dress-code-guide-men",
-        "description": "Confused by cocktail attire, black tie optional, or semi formal dress code?"
       }
     ],
     "best-sweaters-for-men": [
@@ -1670,6 +1670,26 @@
         "title": "How to Dress for Your Face Shape: The Men's Guide That Actually Gets Specific",
         "href": "/blog/how-to-dress-for-your-face-shape-men",
         "description": "Learn how to dress for your face shape men — with real collar advice, glasses picks, hairstyle guidance, and outfit formulas that work for oval, square, round, and oblong faces."
+      }
+    ],
+    "what-to-wear-funeral-men": [
+      {
+        "slug": "wedding-outfit-short-men",
+        "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
+        "href": "/blog/wedding-outfit-short-men",
+        "description": "Wedding dressing rules for shorter men across formality levels."
+      },
+      {
+        "slug": "what-to-wear-job-interview-men",
+        "title": "What to Wear to a Job Interview: The Men's Guide That Gets You Taken Seriously",
+        "href": "/blog/what-to-wear-job-interview-men",
+        "description": "Exact outfit formulas for what to wear to a job interview men actually land."
+      },
+      {
+        "slug": "what-to-wear-cocktail-party-men",
+        "title": "What to Wear to a Cocktail Party: The Men's Guide That Actually Answers the Question",
+        "href": "/blog/what-to-wear-cocktail-party-men",
+        "description": "Confused about cocktail attire for men?"
       }
     ]
   }
