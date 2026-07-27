@@ -964,7 +964,7 @@
       "keyword": "best backpacks for work men",
       "slug": "best-backpacks-for-work-men",
       "priority": 71,
-      "status": "draft",
+      "status": "published",
       "cluster": "accessories",
       "articleFormat": "buying guide",
       "secondaryKeywords": [
@@ -972,7 +972,10 @@
         "work backpack vs briefcase",
         "laptop backpack stylish"
       ],
-      "scheduledFor": "2026-06-07"
+      "scheduledFor": "2026-06-07",
+      "publishedAt": "2026-07-27",
+      "updatedAt": "2026-07-27",
+      "title": "The Best Backpacks for Work Men Who Don't Want to Look Like They're Still in College | StyleScore"
     },
     {
       "keyword": "how to dress for summer men",
@@ -2181,6 +2184,14 @@
       }
     ],
     "accessories": [
+      {
+        "slug": "best-backpacks-for-work-men",
+        "title": "The Best Backpacks for Work Men Who Don't Want to Look Like They're Still in College",
+        "href": "/blog/best-backpacks-for-work-men",
+        "description": "A sharp, practical guide to the best backpacks for work men — covering fit, outfit formulas, professional picks, and exactly when to ditch the briefcase.",
+        "role": "supporting",
+        "publishedAt": "2026-07-27"
+      },
       {
         "slug": "when-to-wear-tie-men",
         "title": "When to Wear a Tie (And When You're Just Making Things Awkward)",

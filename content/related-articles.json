@@ -972,6 +972,12 @@
     ],
     "best-belts-men-style": [
       {
+        "slug": "best-backpacks-for-work-men",
+        "title": "The Best Backpacks for Work Men Who Don't Want to Look Like They're Still in College",
+        "href": "/blog/best-backpacks-for-work-men",
+        "description": "A sharp, practical guide to the best backpacks for work men — covering fit, outfit formulas, professional picks, and exactly when to ditch the briefcase."
+      },
+      {
         "slug": "when-to-wear-tie-men",
         "title": "When to Wear a Tie (And When You're Just Making Things Awkward)",
         "href": "/blog/when-to-wear-tie-men",
@@ -982,12 +988,6 @@
         "title": "The Sunglasses Guide for Men Who Are Tired of Guessing at the Rack",
         "href": "/blog/sunglasses-guide-men-face-shape",
         "description": "A practical sunglasses guide for men that cuts through the noise—find the right frame for your face shape, skin tone, and lifestyle without overthinking it."
-      },
-      {
-        "slug": "watch-guide-men-style",
-        "title": "The Only Watch Guide for Men Who Actually Want to Wear One Right",
-        "href": "/blog/watch-guide-men-style",
-        "description": "A practical watch guide for men who want sharper style without obsessing over horology."
       }
     ],
     "smart-casual-vs-business-casual": [
@@ -1326,6 +1326,12 @@
     ],
     "sunglasses-guide-men-face-shape": [
       {
+        "slug": "best-backpacks-for-work-men",
+        "title": "The Best Backpacks for Work Men Who Don't Want to Look Like They're Still in College",
+        "href": "/blog/best-backpacks-for-work-men",
+        "description": "A sharp, practical guide to the best backpacks for work men — covering fit, outfit formulas, professional picks, and exactly when to ditch the briefcase."
+      },
+      {
         "slug": "when-to-wear-tie-men",
         "title": "When to Wear a Tie (And When You're Just Making Things Awkward)",
         "href": "/blog/when-to-wear-tie-men",
@@ -1336,12 +1342,6 @@
         "title": "The Best Belts for Men (And How to Stop Getting This Wrong)",
         "href": "/blog/best-belts-men-style",
         "description": "A practical guide to the best belts for men — covering leather belt choices, dress vs casual belt decisions, fit rules, and outfit formulas that actually work."
-      },
-      {
-        "slug": "watch-guide-men-style",
-        "title": "The Only Watch Guide for Men Who Actually Want to Wear One Right",
-        "href": "/blog/watch-guide-men-style",
-        "description": "A practical watch guide for men who want sharper style without obsessing over horology."
       }
     ],
     "how-to-find-your-style-men": [
@@ -1554,6 +1554,12 @@
     ],
     "when-to-wear-tie-men": [
       {
+        "slug": "best-backpacks-for-work-men",
+        "title": "The Best Backpacks for Work Men Who Don't Want to Look Like They're Still in College",
+        "href": "/blog/best-backpacks-for-work-men",
+        "description": "A sharp, practical guide to the best backpacks for work men — covering fit, outfit formulas, professional picks, and exactly when to ditch the briefcase."
+      },
+      {
         "slug": "sunglasses-guide-men-face-shape",
         "title": "The Sunglasses Guide for Men Who Are Tired of Guessing at the Rack",
         "href": "/blog/sunglasses-guide-men-face-shape",
@@ -1564,12 +1570,6 @@
         "title": "The Best Belts for Men (And How to Stop Getting This Wrong)",
         "href": "/blog/best-belts-men-style",
         "description": "A practical guide to the best belts for men — covering leather belt choices, dress vs casual belt decisions, fit rules, and outfit formulas that actually work."
-      },
-      {
-        "slug": "watch-guide-men-style",
-        "title": "The Only Watch Guide for Men Who Actually Want to Wear One Right",
-        "href": "/blog/watch-guide-men-style",
-        "description": "A practical watch guide for men who want sharper style without obsessing over horology."
       }
     ],
     "how-to-prevent-pilling-on-clothes": [
@@ -1690,6 +1690,26 @@
         "title": "What to Wear to a Cocktail Party: The Men's Guide That Actually Answers the Question",
         "href": "/blog/what-to-wear-cocktail-party-men",
         "description": "Confused about cocktail attire for men?"
+      }
+    ],
+    "best-backpacks-for-work-men": [
+      {
+        "slug": "when-to-wear-tie-men",
+        "title": "When to Wear a Tie (And When You're Just Making Things Awkward)",
+        "href": "/blog/when-to-wear-tie-men",
+        "description": "Not sure when to wear a tie in 2024?"
+      },
+      {
+        "slug": "sunglasses-guide-men-face-shape",
+        "title": "The Sunglasses Guide for Men Who Are Tired of Guessing at the Rack",
+        "href": "/blog/sunglasses-guide-men-face-shape",
+        "description": "A practical sunglasses guide for men that cuts through the noise—find the right frame for your face shape, skin tone, and lifestyle without overthinking it."
+      },
+      {
+        "slug": "best-belts-men-style",
+        "title": "The Best Belts for Men (And How to Stop Getting This Wrong)",
+        "href": "/blog/best-belts-men-style",
+        "description": "A practical guide to the best belts for men — covering leather belt choices, dress vs casual belt decisions, fit rules, and outfit formulas that actually work."
       }
     ]
   }
