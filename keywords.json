@@ -1407,7 +1407,7 @@
       "keyword": "what to wear to a holiday party men",
       "slug": "what-to-wear-to-holiday-party-men",
       "priority": 71,
-      "status": "draft",
+      "status": "published",
       "cluster": "occasion-dressing",
       "articleFormat": "occasion guide",
       "secondaryKeywords": [
@@ -1415,7 +1415,10 @@
         "festive attire men",
         "holiday party dress code"
       ],
-      "scheduledFor": "2026-07-05"
+      "scheduledFor": "2026-07-05",
+      "publishedAt": "2026-07-27",
+      "updatedAt": "2026-07-27",
+      "title": "What to Wear to a Holiday Party: The Men's Guide That Actually Fits the Room | StyleScore"
     },
     {
       "keyword": "best bomber jackets for men",
@@ -1916,6 +1919,14 @@
       }
     ],
     "occasion-dressing": [
+      {
+        "slug": "what-to-wear-to-holiday-party-men",
+        "title": "What to Wear to a Holiday Party for Men: The Guide That Actually Fits the Room",
+        "href": "/blog/what-to-wear-to-holiday-party-men",
+        "description": "Confused about what to wear to a holiday party?",
+        "role": "supporting",
+        "publishedAt": "2026-07-27"
+      },
       {
         "slug": "what-to-wear-funeral-men",
         "title": "What to Wear to a Funeral: The Men's Guide That Gets It Right Without Overthinking It",
