@@ -616,7 +616,7 @@
       "keyword": "how to dress for spring men",
       "slug": "how-to-dress-for-spring-men",
       "priority": 70,
-      "status": "draft",
+      "status": "published",
       "cluster": "seasonal",
       "articleFormat": "outfit guide",
       "secondaryKeywords": [
@@ -624,7 +624,10 @@
         "spring wardrobe",
         "transitional spring style"
       ],
-      "scheduledFor": "2026-05-17"
+      "scheduledFor": "2026-05-17",
+      "publishedAt": "2026-07-28",
+      "updatedAt": "2026-07-28",
+      "title": "How to Dress for Spring: The Men's Outfit Guide That Actually Makes Sense | StyleScore"
     },
     {
       "keyword": "how to wash a suit at home",
@@ -2177,6 +2180,14 @@
       }
     ],
     "seasonal": [
+      {
+        "slug": "how-to-dress-for-spring-men",
+        "title": "How to Dress for Spring Men: The Outfit Guide That Actually Makes Sense",
+        "href": "/blog/how-to-dress-for-spring-men",
+        "description": "Learn how to dress for spring men with specific outfit formulas, fit advice, and real wardrobe moves that work between 45°F mornings and 72°F afternoons.",
+        "role": "supporting",
+        "publishedAt": "2026-07-28"
+      },
       {
         "slug": "how-to-dress-for-fall-men",
         "title": "How to Dress for Fall: The Men's Outfit Guide That Works in Real Weather",
