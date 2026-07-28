@@ -984,7 +984,7 @@
       "keyword": "how to dress for summer men",
       "slug": "how-to-dress-for-summer-men",
       "priority": 70,
-      "status": "draft",
+      "status": "published",
       "cluster": "seasonal",
       "articleFormat": "style guide",
       "secondaryKeywords": [
@@ -992,7 +992,10 @@
         "hot weather outfits men",
         "breathable clothes summer"
       ],
-      "scheduledFor": "2026-06-08"
+      "scheduledFor": "2026-06-08",
+      "publishedAt": "2026-07-28",
+      "updatedAt": "2026-07-28",
+      "title": "How to Dress for Summer: The Men's Heat-Proof Style Guide That Actually Works | StyleScore"
     },
     {
       "keyword": "work from home outfit men",
@@ -2180,6 +2183,14 @@
       }
     ],
     "seasonal": [
+      {
+        "slug": "how-to-dress-for-summer-men",
+        "title": "How to Dress for Summer: The Men's Heat-Proof Style Guide That Actually Works",
+        "href": "/blog/how-to-dress-for-summer-men",
+        "description": "Learn exactly how to dress for summer men — with specific outfit formulas, fabric calls, and fit advice that keeps you looking sharp when the temperature spikes.",
+        "role": "supporting",
+        "publishedAt": "2026-07-28"
+      },
       {
         "slug": "how-to-dress-for-spring-men",
         "title": "How to Dress for Spring Men: The Outfit Guide That Actually Makes Sense",

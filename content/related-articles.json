@@ -742,6 +742,12 @@
     ],
     "how-to-dress-for-winter-men": [
       {
+        "slug": "how-to-dress-for-summer-men",
+        "title": "How to Dress for Summer: The Men's Heat-Proof Style Guide That Actually Works",
+        "href": "/blog/how-to-dress-for-summer-men",
+        "description": "Learn exactly how to dress for summer men — with specific outfit formulas, fabric calls, and fit advice that keeps you looking sharp when the temperature spikes."
+      },
+      {
         "slug": "how-to-dress-for-spring-men",
         "title": "How to Dress for Spring Men: The Outfit Guide That Actually Makes Sense",
         "href": "/blog/how-to-dress-for-spring-men",
@@ -752,12 +758,6 @@
         "title": "How to Dress for Fall: The Men's Outfit Guide That Works in Real Weather",
         "href": "/blog/how-to-dress-for-fall-men",
         "description": "Practical advice on how to dress for fall men — specific outfit formulas, layering calls, and fit notes that actually work when the temperature won't make up its mind."
-      },
-      {
-        "slug": "mens-style-test",
-        "title": "Men's Style Quiz: Find Your Style Score Online",
-        "href": "/blog/mens-style-test",
-        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
       }
     ],
     "what-to-wear-with-black-jeans-men": [
@@ -1032,6 +1032,12 @@
     ],
     "how-to-dress-for-fall-men": [
       {
+        "slug": "how-to-dress-for-summer-men",
+        "title": "How to Dress for Summer: The Men's Heat-Proof Style Guide That Actually Works",
+        "href": "/blog/how-to-dress-for-summer-men",
+        "description": "Learn exactly how to dress for summer men — with specific outfit formulas, fabric calls, and fit advice that keeps you looking sharp when the temperature spikes."
+      },
+      {
         "slug": "how-to-dress-for-spring-men",
         "title": "How to Dress for Spring Men: The Outfit Guide That Actually Makes Sense",
         "href": "/blog/how-to-dress-for-spring-men",
@@ -1042,12 +1048,6 @@
         "title": "How to Dress for Winter: The Men's Cold-Weather Style Guide That Actually Works",
         "href": "/blog/how-to-dress-for-winter-men",
         "description": "Learn exactly how to dress for winter as a man — specific outfit formulas, layering systems, fit rules, and wardrobe essentials that actually work when temperatures drop."
-      },
-      {
-        "slug": "mens-style-test",
-        "title": "Men's Style Quiz: Find Your Style Score Online",
-        "href": "/blog/mens-style-test",
-        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
       }
     ],
     "how-to-wear-shorts-men-over-30": [
@@ -1734,6 +1734,12 @@
     ],
     "how-to-dress-for-spring-men": [
       {
+        "slug": "how-to-dress-for-summer-men",
+        "title": "How to Dress for Summer: The Men's Heat-Proof Style Guide That Actually Works",
+        "href": "/blog/how-to-dress-for-summer-men",
+        "description": "Learn exactly how to dress for summer men — with specific outfit formulas, fabric calls, and fit advice that keeps you looking sharp when the temperature spikes."
+      },
+      {
         "slug": "how-to-dress-for-fall-men",
         "title": "How to Dress for Fall: The Men's Outfit Guide That Works in Real Weather",
         "href": "/blog/how-to-dress-for-fall-men",
@@ -1744,12 +1750,26 @@
         "title": "How to Dress for Winter: The Men's Cold-Weather Style Guide That Actually Works",
         "href": "/blog/how-to-dress-for-winter-men",
         "description": "Learn exactly how to dress for winter as a man — specific outfit formulas, layering systems, fit rules, and wardrobe essentials that actually work when temperatures drop."
+      }
+    ],
+    "how-to-dress-for-summer-men": [
+      {
+        "slug": "how-to-dress-for-spring-men",
+        "title": "How to Dress for Spring Men: The Outfit Guide That Actually Makes Sense",
+        "href": "/blog/how-to-dress-for-spring-men",
+        "description": "Learn how to dress for spring men with specific outfit formulas, fit advice, and real wardrobe moves that work between 45°F mornings and 72°F afternoons."
       },
       {
-        "slug": "mens-style-test",
-        "title": "Men's Style Quiz: Find Your Style Score Online",
-        "href": "/blog/mens-style-test",
-        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
+        "slug": "how-to-dress-for-fall-men",
+        "title": "How to Dress for Fall: The Men's Outfit Guide That Works in Real Weather",
+        "href": "/blog/how-to-dress-for-fall-men",
+        "description": "Practical advice on how to dress for fall men — specific outfit formulas, layering calls, and fit notes that actually work when the temperature won't make up its mind."
+      },
+      {
+        "slug": "how-to-dress-for-winter-men",
+        "title": "How to Dress for Winter: The Men's Cold-Weather Style Guide That Actually Works",
+        "href": "/blog/how-to-dress-for-winter-men",
+        "description": "Learn exactly how to dress for winter as a man — specific outfit formulas, layering systems, fit rules, and wardrobe essentials that actually work when temperatures drop."
       }
     ]
   }
