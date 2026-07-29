@@ -22,6 +22,12 @@
     ],
     "mens-style-test": [
       {
+        "slug": "work-from-home-outfit-men",
+        "title": "The Work From Home Outfit Guide for Men Who Actually Have Video Calls",
+        "href": "/blog/work-from-home-outfit-men",
+        "description": "Stop defaulting to sweatpants."
+      },
+      {
         "slug": "best-bomber-jackets-for-men",
         "title": "The Best Bomber Jackets for Men: What to Buy, How It Should Fit, and What to Skip",
         "href": "/blog/best-bomber-jackets-for-men",
@@ -32,15 +38,15 @@
         "title": "How to Dress for Spring Men: The Outfit Guide That Actually Makes Sense",
         "href": "/blog/how-to-dress-for-spring-men",
         "description": "Learn how to dress for spring men with specific outfit formulas, fit advice, and real wardrobe moves that work between 45°F mornings and 72°F afternoons."
-      },
-      {
-        "slug": "how-to-remove-wrinkles-clothes-men",
-        "title": "How to Remove Wrinkles from Clothes (Without Losing 20 Minutes Every Morning)",
-        "href": "/blog/how-to-remove-wrinkles-clothes-men",
-        "description": "Learn exactly how to remove wrinkles from clothes fast — whether you're steaming, ironing, or working with nothing but a shower."
       }
     ],
     "7-signs-dress-well": [
+      {
+        "slug": "work-from-home-outfit-men",
+        "title": "The Work From Home Outfit Guide for Men Who Actually Have Video Calls",
+        "href": "/blog/work-from-home-outfit-men",
+        "description": "Stop defaulting to sweatpants."
+      },
       {
         "slug": "how-to-build-work-wardrobe-men",
         "title": "How to Build a Work Wardrobe That Actually Gets You Taken Seriously",
@@ -52,12 +58,6 @@
         "title": "The Best Sweaters for Men: What to Buy, What to Skip, and How to Wear Them",
         "href": "/blog/best-sweaters-for-men",
         "description": "Looking for the best sweaters for men?"
-      },
-      {
-        "slug": "best-coats-for-men",
-        "title": "The Best Coats for Men: What to Buy, How It Should Fit, and What to Skip",
-        "href": "/blog/best-coats-for-men",
-        "description": "Looking for the best coats for men?"
       }
     ],
     "how-to-dress-better-men-40s": [
@@ -1440,6 +1440,12 @@
     ],
     "how-to-build-work-wardrobe-men": [
       {
+        "slug": "work-from-home-outfit-men",
+        "title": "The Work From Home Outfit Guide for Men Who Actually Have Video Calls",
+        "href": "/blog/work-from-home-outfit-men",
+        "description": "Stop defaulting to sweatpants."
+      },
+      {
         "slug": "mens-style-test",
         "title": "Men's Style Quiz: Find Your Style Score Online",
         "href": "/blog/mens-style-test",
@@ -1790,6 +1796,26 @@
         "title": "Men's Style Quiz: Find Your Style Score Online",
         "href": "/blog/mens-style-test",
         "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
+      }
+    ],
+    "work-from-home-outfit-men": [
+      {
+        "slug": "how-to-build-work-wardrobe-men",
+        "title": "How to Build a Work Wardrobe That Actually Gets You Taken Seriously",
+        "href": "/blog/how-to-build-work-wardrobe-men",
+        "description": "A practical guide on how to build a work wardrobe for men aged 25-45."
+      },
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
+      },
+      {
+        "slug": "7-signs-dress-well",
+        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
+        "href": "/blog/7-signs-dress-well",
+        "description": "Practical signs that separate a sharp look from an average one."
       }
     ]
   }

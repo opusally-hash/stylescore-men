@@ -1001,7 +1001,7 @@
       "keyword": "work from home outfit men",
       "slug": "work-from-home-outfit-men",
       "priority": 69,
-      "status": "draft",
+      "status": "published",
       "cluster": "lifestyle",
       "articleFormat": "outfit guide",
       "secondaryKeywords": [
@@ -1009,7 +1009,10 @@
         "what to wear working from home",
         "comfortable professional clothes"
       ],
-      "scheduledFor": "2026-06-09"
+      "scheduledFor": "2026-06-09",
+      "publishedAt": "2026-07-29",
+      "updatedAt": "2026-07-29",
+      "title": "The Work From Home Outfit Guide for Men Who Actually Have Video Calls | StyleScore"
     },
     {
       "keyword": "how to wear a cardigan men",
@@ -2350,6 +2353,14 @@
       }
     ],
     "lifestyle": [
+      {
+        "slug": "work-from-home-outfit-men",
+        "title": "The Work From Home Outfit Guide for Men Who Actually Have Video Calls",
+        "href": "/blog/work-from-home-outfit-men",
+        "description": "Stop defaulting to sweatpants.",
+        "role": "supporting",
+        "publishedAt": "2026-07-29"
+      },
       {
         "slug": "how-to-build-work-wardrobe-men",
         "title": "How to Build a Work Wardrobe That Actually Gets You Taken Seriously",
