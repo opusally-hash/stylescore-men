@@ -1430,7 +1430,7 @@
       "keyword": "best bomber jackets for men",
       "slug": "best-bomber-jackets-for-men",
       "priority": 70,
-      "status": "draft",
+      "status": "published",
       "cluster": "outerwear",
       "articleFormat": "buying guide",
       "secondaryKeywords": [
@@ -1438,7 +1438,10 @@
         "bomber jacket fit guide",
         "ma-1 jacket men"
       ],
-      "scheduledFor": "2026-07-06"
+      "scheduledFor": "2026-07-06",
+      "publishedAt": "2026-07-29",
+      "updatedAt": "2026-07-29",
+      "title": "The Best Bomber Jackets for Men: What to Buy, How It Should Fit, and What to Skip | StyleScore"
     },
     {
       "keyword": "how to build an investment wardrobe men",
@@ -2301,6 +2304,14 @@
       }
     ],
     "outerwear": [
+      {
+        "slug": "best-bomber-jackets-for-men",
+        "title": "The Best Bomber Jackets for Men: What to Buy, How It Should Fit, and What to Skip",
+        "href": "/blog/best-bomber-jackets-for-men",
+        "description": "Looking for the best bomber jackets for men?",
+        "role": "supporting",
+        "publishedAt": "2026-07-29"
+      },
       {
         "slug": "best-coats-for-men",
         "title": "The Best Coats for Men: What to Buy, How It Should Fit, and What to Skip",

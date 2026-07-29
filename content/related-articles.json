@@ -22,6 +22,12 @@
     ],
     "mens-style-test": [
       {
+        "slug": "best-bomber-jackets-for-men",
+        "title": "The Best Bomber Jackets for Men: What to Buy, How It Should Fit, and What to Skip",
+        "href": "/blog/best-bomber-jackets-for-men",
+        "description": "Looking for the best bomber jackets for men?"
+      },
+      {
         "slug": "how-to-dress-for-spring-men",
         "title": "How to Dress for Spring Men: The Outfit Guide That Actually Makes Sense",
         "href": "/blog/how-to-dress-for-spring-men",
@@ -32,12 +38,6 @@
         "title": "How to Remove Wrinkles from Clothes (Without Losing 20 Minutes Every Morning)",
         "href": "/blog/how-to-remove-wrinkles-clothes-men",
         "description": "Learn exactly how to remove wrinkles from clothes fast — whether you're steaming, ironing, or working with nothing but a shower."
-      },
-      {
-        "slug": "how-to-build-work-wardrobe-men",
-        "title": "How to Build a Work Wardrobe That Actually Gets You Taken Seriously",
-        "href": "/blog/how-to-build-work-wardrobe-men",
-        "description": "A practical guide on how to build a work wardrobe for men aged 25-45."
       }
     ],
     "7-signs-dress-well": [
@@ -1172,6 +1172,12 @@
     ],
     "how-to-style-blazer-casually-men": [
       {
+        "slug": "best-bomber-jackets-for-men",
+        "title": "The Best Bomber Jackets for Men: What to Buy, How It Should Fit, and What to Skip",
+        "href": "/blog/best-bomber-jackets-for-men",
+        "description": "Looking for the best bomber jackets for men?"
+      },
+      {
         "slug": "best-coats-for-men",
         "title": "The Best Coats for Men: What to Buy, How It Should Fit, and What to Skip",
         "href": "/blog/best-coats-for-men",
@@ -1182,12 +1188,6 @@
         "title": "Men's Style Quiz: Find Your Style Score Online",
         "href": "/blog/mens-style-test",
         "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
-      },
-      {
-        "slug": "7-signs-dress-well",
-        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
-        "href": "/blog/7-signs-dress-well",
-        "description": "Practical signs that separate a sharp look from an average one."
       }
     ],
     "style-tips-tall-men": [
@@ -1246,6 +1246,12 @@
     ],
     "best-coats-for-men": [
       {
+        "slug": "best-bomber-jackets-for-men",
+        "title": "The Best Bomber Jackets for Men: What to Buy, How It Should Fit, and What to Skip",
+        "href": "/blog/best-bomber-jackets-for-men",
+        "description": "Looking for the best bomber jackets for men?"
+      },
+      {
         "slug": "how-to-style-blazer-casually-men",
         "title": "How to Style a Blazer Casually (Without Looking Like You Forgot to Change After Work)",
         "href": "/blog/how-to-style-blazer-casually-men",
@@ -1256,12 +1262,6 @@
         "title": "Men's Style Quiz: Find Your Style Score Online",
         "href": "/blog/mens-style-test",
         "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
-      },
-      {
-        "slug": "7-signs-dress-well",
-        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
-        "href": "/blog/7-signs-dress-well",
-        "description": "Practical signs that separate a sharp look from an average one."
       }
     ],
     "how-to-dress-for-your-face-shape-men": [
@@ -1770,6 +1770,26 @@
         "title": "How to Dress for Winter: The Men's Cold-Weather Style Guide That Actually Works",
         "href": "/blog/how-to-dress-for-winter-men",
         "description": "Learn exactly how to dress for winter as a man — specific outfit formulas, layering systems, fit rules, and wardrobe essentials that actually work when temperatures drop."
+      }
+    ],
+    "best-bomber-jackets-for-men": [
+      {
+        "slug": "best-coats-for-men",
+        "title": "The Best Coats for Men: What to Buy, How It Should Fit, and What to Skip",
+        "href": "/blog/best-coats-for-men",
+        "description": "Looking for the best coats for men?"
+      },
+      {
+        "slug": "how-to-style-blazer-casually-men",
+        "title": "How to Style a Blazer Casually (Without Looking Like You Forgot to Change After Work)",
+        "href": "/blog/how-to-style-blazer-casually-men",
+        "description": "Learn how to style a blazer casually with specific outfit formulas, fit rules, and real examples."
+      },
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
       }
     ]
   }
