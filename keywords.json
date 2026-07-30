@@ -1021,7 +1021,7 @@
       "keyword": "how to wear a cardigan men",
       "slug": "how-to-wear-cardigan-men",
       "priority": 68,
-      "status": "draft",
+      "status": "published",
       "cluster": "knitwear",
       "articleFormat": "style guide",
       "secondaryKeywords": [
@@ -1029,7 +1029,10 @@
         "styling a cardigan",
         "when to wear a cardigan"
       ],
-      "scheduledFor": "2026-06-10"
+      "scheduledFor": "2026-06-10",
+      "publishedAt": "2026-07-30",
+      "updatedAt": "2026-07-30",
+      "title": "How to Wear a Cardigan: The Men's Guide That Actually Makes It Work | StyleScore"
     },
     {
       "keyword": "best dress shirts for men",
@@ -2354,6 +2357,14 @@
       }
     ],
     "knitwear": [
+      {
+        "slug": "how-to-wear-cardigan-men",
+        "title": "How to Wear a Cardigan: The Men's Guide That Actually Makes It Work",
+        "href": "/blog/how-to-wear-cardigan-men",
+        "description": "Learn how to wear a cardigan men actually respect — with specific outfit formulas, fit rules, and styling tips that go beyond 'layer it over a shirt.'",
+        "role": "supporting",
+        "publishedAt": "2026-07-30"
+      },
       {
         "slug": "best-sweaters-for-men",
         "title": "The Best Sweaters for Men: What to Buy, What to Skip, and How to Wear Them",
