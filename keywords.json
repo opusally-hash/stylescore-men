@@ -633,7 +633,7 @@
       "keyword": "how to wash a suit at home",
       "slug": "how-to-wash-suit-at-home",
       "priority": 68,
-      "status": "draft",
+      "status": "published",
       "cluster": "fabric-care",
       "articleFormat": "care guide",
       "secondaryKeywords": [
@@ -641,7 +641,10 @@
         "clean suit jacket",
         "maintain suit"
       ],
-      "scheduledFor": "2026-05-18"
+      "scheduledFor": "2026-05-18",
+      "publishedAt": "2026-07-30",
+      "updatedAt": "2026-07-30",
+      "title": "How to Wash a Suit at Home Without Destroying It (Or Your Dry Cleaning Bill) | StyleScore"
     },
     {
       "keyword": "style for skinny guys",
@@ -2265,6 +2268,14 @@
       }
     ],
     "fabric-care": [
+      {
+        "slug": "how-to-wash-suit-at-home",
+        "title": "How to Wash a Suit at Home Without Destroying It (Or Your Dry Cleaning Bill)",
+        "href": "/blog/how-to-wash-suit-at-home",
+        "description": "Learn exactly how to wash a suit at home — from spot-cleaning wool to hand-washing linen — without shrinking the jacket or warping the structure.",
+        "role": "supporting",
+        "publishedAt": "2026-07-30"
+      },
       {
         "slug": "how-to-pack-suit-in-suitcase",
         "title": "How to Pack a Suit in a Suitcase Without Destroying It Before You Even Arrive",

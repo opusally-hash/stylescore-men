@@ -1500,6 +1500,12 @@
     ],
     "how-to-remove-wrinkles-clothes-men": [
       {
+        "slug": "how-to-wash-suit-at-home",
+        "title": "How to Wash a Suit at Home Without Destroying It (Or Your Dry Cleaning Bill)",
+        "href": "/blog/how-to-wash-suit-at-home",
+        "description": "Learn exactly how to wash a suit at home — from spot-cleaning wool to hand-washing linen — without shrinking the jacket or warping the structure."
+      },
+      {
         "slug": "how-to-pack-suit-in-suitcase",
         "title": "How to Pack a Suit in a Suitcase Without Destroying It Before You Even Arrive",
         "href": "/blog/how-to-pack-suit-in-suitcase",
@@ -1510,12 +1516,6 @@
         "title": "How to Prevent Pilling on Clothes (Before Your Best Sweater Looks Like a Tennis Ball)",
         "href": "/blog/how-to-prevent-pilling-on-clothes",
         "description": "Pilling ruins good knitwear fast."
-      },
-      {
-        "slug": "how-to-care-for-leather-shoes",
-        "title": "How to Care for Leather Shoes (And Actually Make Them Last)",
-        "href": "/blog/how-to-care-for-leather-shoes",
-        "description": "A practical, no-fluff guide on how to care for leather shoes — covering cleaning, conditioning, polishing, and storage so your shoes last years, not months."
       }
     ],
     "how-to-dress-big-and-tall-men": [
@@ -1580,6 +1580,12 @@
     ],
     "how-to-prevent-pilling-on-clothes": [
       {
+        "slug": "how-to-wash-suit-at-home",
+        "title": "How to Wash a Suit at Home Without Destroying It (Or Your Dry Cleaning Bill)",
+        "href": "/blog/how-to-wash-suit-at-home",
+        "description": "Learn exactly how to wash a suit at home — from spot-cleaning wool to hand-washing linen — without shrinking the jacket or warping the structure."
+      },
+      {
         "slug": "how-to-pack-suit-in-suitcase",
         "title": "How to Pack a Suit in a Suitcase Without Destroying It Before You Even Arrive",
         "href": "/blog/how-to-pack-suit-in-suitcase",
@@ -1590,12 +1596,6 @@
         "title": "How to Remove Wrinkles from Clothes (Without Losing 20 Minutes Every Morning)",
         "href": "/blog/how-to-remove-wrinkles-clothes-men",
         "description": "Learn exactly how to remove wrinkles from clothes fast — whether you're steaming, ironing, or working with nothing but a shower."
-      },
-      {
-        "slug": "how-to-care-for-leather-shoes",
-        "title": "How to Care for Leather Shoes (And Actually Make Them Last)",
-        "href": "/blog/how-to-care-for-leather-shoes",
-        "description": "A practical, no-fluff guide on how to care for leather shoes — covering cleaning, conditioning, polishing, and storage so your shoes last years, not months."
       }
     ],
     "style-mistakes-tall-men": [
@@ -1620,6 +1620,12 @@
     ],
     "how-to-pack-suit-in-suitcase": [
       {
+        "slug": "how-to-wash-suit-at-home",
+        "title": "How to Wash a Suit at Home Without Destroying It (Or Your Dry Cleaning Bill)",
+        "href": "/blog/how-to-wash-suit-at-home",
+        "description": "Learn exactly how to wash a suit at home — from spot-cleaning wool to hand-washing linen — without shrinking the jacket or warping the structure."
+      },
+      {
         "slug": "how-to-prevent-pilling-on-clothes",
         "title": "How to Prevent Pilling on Clothes (Before Your Best Sweater Looks Like a Tennis Ball)",
         "href": "/blog/how-to-prevent-pilling-on-clothes",
@@ -1630,12 +1636,6 @@
         "title": "How to Remove Wrinkles from Clothes (Without Losing 20 Minutes Every Morning)",
         "href": "/blog/how-to-remove-wrinkles-clothes-men",
         "description": "Learn exactly how to remove wrinkles from clothes fast — whether you're steaming, ironing, or working with nothing but a shower."
-      },
-      {
-        "slug": "how-to-care-for-leather-shoes",
-        "title": "How to Care for Leather Shoes (And Actually Make Them Last)",
-        "href": "/blog/how-to-care-for-leather-shoes",
-        "description": "A practical, no-fluff guide on how to care for leather shoes — covering cleaning, conditioning, polishing, and storage so your shoes last years, not months."
       }
     ],
     "casual-weekend-outfits-short-men": [
@@ -1816,6 +1816,26 @@
         "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
         "href": "/blog/7-signs-dress-well",
         "description": "Practical signs that separate a sharp look from an average one."
+      }
+    ],
+    "how-to-wash-suit-at-home": [
+      {
+        "slug": "how-to-pack-suit-in-suitcase",
+        "title": "How to Pack a Suit in a Suitcase Without Destroying It Before You Even Arrive",
+        "href": "/blog/how-to-pack-suit-in-suitcase",
+        "description": "Learn exactly how to pack a suit in a suitcase so it lands wrinkle-free and ready to wear."
+      },
+      {
+        "slug": "how-to-prevent-pilling-on-clothes",
+        "title": "How to Prevent Pilling on Clothes (Before Your Best Sweater Looks Like a Tennis Ball)",
+        "href": "/blog/how-to-prevent-pilling-on-clothes",
+        "description": "Pilling ruins good knitwear fast."
+      },
+      {
+        "slug": "how-to-remove-wrinkles-clothes-men",
+        "title": "How to Remove Wrinkles from Clothes (Without Losing 20 Minutes Every Morning)",
+        "href": "/blog/how-to-remove-wrinkles-clothes-men",
+        "description": "Learn exactly how to remove wrinkles from clothes fast — whether you're steaming, ironing, or working with nothing but a shower."
       }
     ]
   }
