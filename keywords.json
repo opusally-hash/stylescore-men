@@ -1456,7 +1456,7 @@
       "keyword": "how to build an investment wardrobe men",
       "slug": "how-to-build-investment-wardrobe-men",
       "priority": 68,
-      "status": "draft",
+      "status": "published",
       "cluster": "budget",
       "articleFormat": "how-to guide",
       "secondaryKeywords": [
@@ -1464,7 +1464,10 @@
         "quality vs quantity wardrobe",
         "investment pieces men"
       ],
-      "scheduledFor": "2026-07-07"
+      "scheduledFor": "2026-07-07",
+      "publishedAt": "2026-07-31",
+      "updatedAt": "2026-07-31",
+      "title": "How to Build an Investment Wardrobe as a Man (Without Wasting Money on the Wrong Pieces) | StyleScore"
     },
     {
       "keyword": "minimalist skincare routine men",
@@ -2185,6 +2188,14 @@
       }
     ],
     "budget": [
+      {
+        "slug": "how-to-build-investment-wardrobe-men",
+        "title": "How to Build an Investment Wardrobe as a Man (Without Wasting Money on the Wrong Pieces)",
+        "href": "/blog/how-to-build-investment-wardrobe-men",
+        "description": "Learn how to build an investment wardrobe as a man with specific outfit formulas, fit benchmarks, and a cost-per-wear framework that actually holds up in real life.",
+        "role": "supporting",
+        "publishedAt": "2026-07-31"
+      },
       {
         "slug": "how-to-dress-better-on-a-budget",
         "title": "How to Dress Better on a Budget: The No-Excuses Guide for Men",

@@ -22,6 +22,12 @@
     ],
     "mens-style-test": [
       {
+        "slug": "how-to-build-investment-wardrobe-men",
+        "title": "How to Build an Investment Wardrobe as a Man (Without Wasting Money on the Wrong Pieces)",
+        "href": "/blog/how-to-build-investment-wardrobe-men",
+        "description": "Learn how to build an investment wardrobe as a man with specific outfit formulas, fit benchmarks, and a cost-per-wear framework that actually holds up in real life."
+      },
+      {
         "slug": "how-to-wear-cardigan-men",
         "title": "How to Wear a Cardigan: The Men's Guide That Actually Makes It Work",
         "href": "/blog/how-to-wear-cardigan-men",
@@ -32,16 +38,16 @@
         "title": "The Work From Home Outfit Guide for Men Who Actually Have Video Calls",
         "href": "/blog/work-from-home-outfit-men",
         "description": "Stop defaulting to sweatpants."
-      },
-      {
-        "slug": "best-bomber-jackets-for-men",
-        "title": "The Best Bomber Jackets for Men: What to Buy, How It Should Fit, and What to Skip",
-        "href": "/blog/best-bomber-jackets-for-men",
-        "description": "Looking for the best bomber jackets for men?"
       }
     ],
     "7-signs-dress-well": [
       {
+        "slug": "how-to-build-investment-wardrobe-men",
+        "title": "How to Build an Investment Wardrobe as a Man (Without Wasting Money on the Wrong Pieces)",
+        "href": "/blog/how-to-build-investment-wardrobe-men",
+        "description": "Learn how to build an investment wardrobe as a man with specific outfit formulas, fit benchmarks, and a cost-per-wear framework that actually holds up in real life."
+      },
+      {
         "slug": "how-to-wear-cardigan-men",
         "title": "How to Wear a Cardigan: The Men's Guide That Actually Makes It Work",
         "href": "/blog/how-to-wear-cardigan-men",
@@ -52,12 +58,6 @@
         "title": "The Work From Home Outfit Guide for Men Who Actually Have Video Calls",
         "href": "/blog/work-from-home-outfit-men",
         "description": "Stop defaulting to sweatpants."
-      },
-      {
-        "slug": "how-to-build-work-wardrobe-men",
-        "title": "How to Build a Work Wardrobe That Actually Gets You Taken Seriously",
-        "href": "/blog/how-to-build-work-wardrobe-men",
-        "description": "A practical guide on how to build a work wardrobe for men aged 25-45."
       }
     ],
     "how-to-dress-better-men-40s": [
@@ -727,6 +727,12 @@
       }
     ],
     "how-to-dress-better-on-a-budget": [
+      {
+        "slug": "how-to-build-investment-wardrobe-men",
+        "title": "How to Build an Investment Wardrobe as a Man (Without Wasting Money on the Wrong Pieces)",
+        "href": "/blog/how-to-build-investment-wardrobe-men",
+        "description": "Learn how to build an investment wardrobe as a man with specific outfit formulas, fit benchmarks, and a cost-per-wear framework that actually holds up in real life."
+      },
       {
         "slug": "mens-style-test",
         "title": "Men's Style Quiz: Find Your Style Score Online",
@@ -1850,6 +1856,26 @@
         "title": "The Best Sweaters for Men: What to Buy, What to Skip, and How to Wear Them",
         "href": "/blog/best-sweaters-for-men",
         "description": "Looking for the best sweaters for men?"
+      },
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
+      },
+      {
+        "slug": "7-signs-dress-well",
+        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
+        "href": "/blog/7-signs-dress-well",
+        "description": "Practical signs that separate a sharp look from an average one."
+      }
+    ],
+    "how-to-build-investment-wardrobe-men": [
+      {
+        "slug": "how-to-dress-better-on-a-budget",
+        "title": "How to Dress Better on a Budget: The No-Excuses Guide for Men",
+        "href": "/blog/how-to-dress-better-on-a-budget",
+        "description": "Want to dress better on a budget without buying a whole new wardrobe?"
       },
       {
         "slug": "mens-style-test",
