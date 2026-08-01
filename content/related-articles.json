@@ -626,6 +626,12 @@
     ],
     "capsule-wardrobe-short-men": [
       {
+        "slug": "best-dress-shirts-for-men",
+        "title": "The Best Dress Shirts for Men Who Want to Look Sharp Without Losing Their Mind",
+        "href": "/blog/best-dress-shirts-for-men",
+        "description": "A no-filler buying guide to the best dress shirts for men — covering fit, fabric, brands, and outfit formulas that actually work in real life."
+      },
+      {
         "slug": "best-shorts-for-men",
         "title": "The Best Shorts for Men Who Want to Look Sharp Without Overthinking Summer",
         "href": "/blog/best-shorts-for-men",
@@ -636,12 +642,6 @@
         "title": "The Best Chinos for Men Who Want to Stop Second-Guessing Their Wardrobe",
         "href": "/blog/best-chinos-for-men",
         "description": "A practical buying guide to the best chinos for men — covering fit, fabric, brands worth your money, and outfit formulas that actually work in real life."
-      },
-      {
-        "slug": "what-to-wear-with-black-jeans-men",
-        "title": "What to Wear With Black Jeans: The Men's Outfit Guide That Actually Commits",
-        "href": "/blog/what-to-wear-with-black-jeans-men",
-        "description": "Stop treating black jeans like a fallback."
       }
     ],
     "mens-wardrobe-essentials": [
@@ -1118,6 +1118,12 @@
     ],
     "best-chinos-for-men": [
       {
+        "slug": "best-dress-shirts-for-men",
+        "title": "The Best Dress Shirts for Men Who Want to Look Sharp Without Losing Their Mind",
+        "href": "/blog/best-dress-shirts-for-men",
+        "description": "A no-filler buying guide to the best dress shirts for men — covering fit, fabric, brands, and outfit formulas that actually work in real life."
+      },
+      {
         "slug": "best-shorts-for-men",
         "title": "The Best Shorts for Men Who Want to Look Sharp Without Overthinking Summer",
         "href": "/blog/best-shorts-for-men",
@@ -1128,12 +1134,6 @@
         "title": "The 5'7\" Capsule Wardrobe: 15 Pieces That Actually Work for Shorter Frames",
         "href": "/blog/capsule-wardrobe-short-men",
         "description": "A compact wardrobe built around stronger proportions."
-      },
-      {
-        "slug": "what-to-wear-with-black-jeans-men",
-        "title": "What to Wear With Black Jeans: The Men's Outfit Guide That Actually Commits",
-        "href": "/blog/what-to-wear-with-black-jeans-men",
-        "description": "Stop treating black jeans like a fallback."
       }
     ],
     "best-brands-for-short-men-under-5-8": [
@@ -1312,6 +1312,12 @@
     ],
     "best-shorts-for-men": [
       {
+        "slug": "best-dress-shirts-for-men",
+        "title": "The Best Dress Shirts for Men Who Want to Look Sharp Without Losing Their Mind",
+        "href": "/blog/best-dress-shirts-for-men",
+        "description": "A no-filler buying guide to the best dress shirts for men — covering fit, fabric, brands, and outfit formulas that actually work in real life."
+      },
+      {
         "slug": "capsule-wardrobe-short-men",
         "title": "The 5'7\" Capsule Wardrobe: 15 Pieces That Actually Work for Shorter Frames",
         "href": "/blog/capsule-wardrobe-short-men",
@@ -1322,12 +1328,6 @@
         "title": "The Best Chinos for Men Who Want to Stop Second-Guessing Their Wardrobe",
         "href": "/blog/best-chinos-for-men",
         "description": "A practical buying guide to the best chinos for men — covering fit, fabric, brands worth your money, and outfit formulas that actually work in real life."
-      },
-      {
-        "slug": "what-to-wear-with-black-jeans-men",
-        "title": "What to Wear With Black Jeans: The Men's Outfit Guide That Actually Commits",
-        "href": "/blog/what-to-wear-with-black-jeans-men",
-        "description": "Stop treating black jeans like a fallback."
       }
     ],
     "sunglasses-guide-men-face-shape": [
@@ -1908,6 +1908,26 @@
         "title": "How to Dress for Big and Tall Men: What Actually Works at Your Size",
         "href": "/blog/how-to-dress-big-and-tall-men",
         "description": "Real style advice for big and tall men—specific outfit formulas, fit rules, and brand picks that work at your size."
+      }
+    ],
+    "best-dress-shirts-for-men": [
+      {
+        "slug": "capsule-wardrobe-short-men",
+        "title": "The 5'7\" Capsule Wardrobe: 15 Pieces That Actually Work for Shorter Frames",
+        "href": "/blog/capsule-wardrobe-short-men",
+        "description": "A compact wardrobe built around stronger proportions."
+      },
+      {
+        "slug": "best-shorts-for-men",
+        "title": "The Best Shorts for Men Who Want to Look Sharp Without Overthinking Summer",
+        "href": "/blog/best-shorts-for-men",
+        "description": "A practical buying guide to the best shorts for men — covering fit, length, fabric, and outfit formulas that actually work for real life in 2024."
+      },
+      {
+        "slug": "best-chinos-for-men",
+        "title": "The Best Chinos for Men Who Want to Stop Second-Guessing Their Wardrobe",
+        "href": "/blog/best-chinos-for-men",
+        "description": "A practical buying guide to the best chinos for men — covering fit, fabric, brands worth your money, and outfit formulas that actually work in real life."
       }
     ]
   }

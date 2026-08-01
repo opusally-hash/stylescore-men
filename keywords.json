@@ -1041,7 +1041,7 @@
       "keyword": "best dress shirts for men",
       "slug": "best-dress-shirts-for-men",
       "priority": 67,
-      "status": "draft",
+      "status": "published",
       "cluster": "wardrobe",
       "articleFormat": "buying guide",
       "secondaryKeywords": [
@@ -1049,7 +1049,10 @@
         "where to buy dress shirts",
         "dress shirt brands"
       ],
-      "scheduledFor": "2026-06-11"
+      "scheduledFor": "2026-06-11",
+      "publishedAt": "2026-08-01",
+      "updatedAt": "2026-08-01",
+      "title": "The Best Dress Shirts for Men Who Want to Look Sharp Without Losing Their Mind | StyleScore"
     },
     {
       "keyword": "how to dress like you have money",
@@ -1843,6 +1846,14 @@
       }
     ],
     "wardrobe": [
+      {
+        "slug": "best-dress-shirts-for-men",
+        "title": "The Best Dress Shirts for Men Who Want to Look Sharp Without Losing Their Mind",
+        "href": "/blog/best-dress-shirts-for-men",
+        "description": "A no-filler buying guide to the best dress shirts for men — covering fit, fabric, brands, and outfit formulas that actually work in real life.",
+        "role": "supporting",
+        "publishedAt": "2026-08-01"
+      },
       {
         "slug": "best-shorts-for-men",
         "title": "The Best Shorts for Men Who Want to Look Sharp Without Overthinking Summer",
