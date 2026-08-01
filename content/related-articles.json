@@ -848,6 +848,12 @@
     ],
     "fashion-for-short-men": [
       {
+        "slug": "style-tips-skinny-men",
+        "title": "Style for Skinny Guys: How to Actually Fill Out Your Frame",
+        "href": "/blog/style-tips-skinny-men",
+        "description": "Practical style for skinny guys that goes beyond 'wear layers.' Specific outfit formulas, fit rules, and wardrobe picks that make a lean frame look intentional—not accidental."
+      },
+      {
         "slug": "style-for-men-with-broad-shoulders",
         "title": "Style for Men with Broad Shoulders: How to Dress the Frame You've Got",
         "href": "/blog/style-for-men-with-broad-shoulders",
@@ -858,12 +864,6 @@
         "title": "How to Dress for Big and Tall Men: What Actually Works at Your Size",
         "href": "/blog/how-to-dress-big-and-tall-men",
         "description": "Real style advice for big and tall men—specific outfit formulas, fit rules, and brand picks that work at your size."
-      },
-      {
-        "slug": "how-to-dress-for-your-face-shape-men",
-        "title": "How to Dress for Your Face Shape: The Men's Guide That Actually Gets Specific",
-        "href": "/blog/how-to-dress-for-your-face-shape-men",
-        "description": "Learn how to dress for your face shape men — with real collar advice, glasses picks, hairstyle guidance, and outfit formulas that work for oval, square, round, and oblong faces."
       }
     ],
     "Fashion-for-muscular-men": [
@@ -1532,6 +1532,12 @@
     ],
     "how-to-dress-big-and-tall-men": [
       {
+        "slug": "style-tips-skinny-men",
+        "title": "Style for Skinny Guys: How to Actually Fill Out Your Frame",
+        "href": "/blog/style-tips-skinny-men",
+        "description": "Practical style for skinny guys that goes beyond 'wear layers.' Specific outfit formulas, fit rules, and wardrobe picks that make a lean frame look intentional—not accidental."
+      },
+      {
         "slug": "style-for-men-with-broad-shoulders",
         "title": "Style for Men with Broad Shoulders: How to Dress the Frame You've Got",
         "href": "/blog/style-for-men-with-broad-shoulders",
@@ -1542,12 +1548,6 @@
         "title": "Fashion Tips for Short Men (Look Taller Instantly)",
         "href": "/blog/fashion-for-short-men",
         "description": "The body-type rules that make shorter frames look sharper."
-      },
-      {
-        "slug": "how-to-dress-for-your-face-shape-men",
-        "title": "How to Dress for Your Face Shape: The Men's Guide That Actually Gets Specific",
-        "href": "/blog/how-to-dress-for-your-face-shape-men",
-        "description": "Learn how to dress for your face shape men — with real collar advice, glasses picks, hairstyle guidance, and outfit formulas that work for oval, square, round, and oblong faces."
       }
     ],
     "best-chinos-for-short-men": [
@@ -1672,6 +1672,12 @@
     ],
     "style-for-men-with-broad-shoulders": [
       {
+        "slug": "style-tips-skinny-men",
+        "title": "Style for Skinny Guys: How to Actually Fill Out Your Frame",
+        "href": "/blog/style-tips-skinny-men",
+        "description": "Practical style for skinny guys that goes beyond 'wear layers.' Specific outfit formulas, fit rules, and wardrobe picks that make a lean frame look intentional—not accidental."
+      },
+      {
         "slug": "fashion-for-short-men",
         "title": "Fashion Tips for Short Men (Look Taller Instantly)",
         "href": "/blog/fashion-for-short-men",
@@ -1682,12 +1688,6 @@
         "title": "How to Dress for Big and Tall Men: What Actually Works at Your Size",
         "href": "/blog/how-to-dress-big-and-tall-men",
         "description": "Real style advice for big and tall men—specific outfit formulas, fit rules, and brand picks that work at your size."
-      },
-      {
-        "slug": "how-to-dress-for-your-face-shape-men",
-        "title": "How to Dress for Your Face Shape: The Men's Guide That Actually Gets Specific",
-        "href": "/blog/how-to-dress-for-your-face-shape-men",
-        "description": "Learn how to dress for your face shape men — with real collar advice, glasses picks, hairstyle guidance, and outfit formulas that work for oval, square, round, and oblong faces."
       }
     ],
     "what-to-wear-funeral-men": [
@@ -1888,6 +1888,26 @@
         "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
         "href": "/blog/7-signs-dress-well",
         "description": "Practical signs that separate a sharp look from an average one."
+      }
+    ],
+    "style-tips-skinny-men": [
+      {
+        "slug": "fashion-for-short-men",
+        "title": "Fashion Tips for Short Men (Look Taller Instantly)",
+        "href": "/blog/fashion-for-short-men",
+        "description": "The body-type rules that make shorter frames look sharper."
+      },
+      {
+        "slug": "style-for-men-with-broad-shoulders",
+        "title": "Style for Men with Broad Shoulders: How to Dress the Frame You've Got",
+        "href": "/blog/style-for-men-with-broad-shoulders",
+        "description": "Practical style advice for men with broad shoulders — specific outfit formulas, jacket fit tips, and proportion tricks that actually work on a wide frame."
+      },
+      {
+        "slug": "how-to-dress-big-and-tall-men",
+        "title": "How to Dress for Big and Tall Men: What Actually Works at Your Size",
+        "href": "/blog/how-to-dress-big-and-tall-men",
+        "description": "Real style advice for big and tall men—specific outfit formulas, fit rules, and brand picks that work at your size."
       }
     ]
   }

@@ -650,7 +650,7 @@
       "keyword": "style for skinny guys",
       "slug": "style-tips-skinny-men",
       "priority": 67,
-      "status": "draft",
+      "status": "published",
       "cluster": "body-type",
       "articleFormat": "style guide",
       "secondaryKeywords": [
@@ -658,7 +658,10 @@
         "dressing when skinny",
         "skinny guy wardrobe"
       ],
-      "scheduledFor": "2026-05-19"
+      "scheduledFor": "2026-05-19",
+      "publishedAt": "2026-08-01",
+      "updatedAt": "2026-08-01",
+      "title": "Style for Skinny Guys: How to Actually Fill Out Your Frame | StyleScore"
     },
     {
       "keyword": "how to wear a polo shirt men",
@@ -2030,6 +2033,14 @@
       }
     ],
     "body-type": [
+      {
+        "slug": "style-tips-skinny-men",
+        "title": "Style for Skinny Guys: How to Actually Fill Out Your Frame",
+        "href": "/blog/style-tips-skinny-men",
+        "description": "Practical style for skinny guys that goes beyond 'wear layers.' Specific outfit formulas, fit rules, and wardrobe picks that make a lean frame look intentional—not accidental.",
+        "role": "supporting",
+        "publishedAt": "2026-08-01"
+      },
       {
         "slug": "style-for-men-with-broad-shoulders",
         "title": "Style for Men with Broad Shoulders: How to Dress the Frame You've Got",
