@@ -1479,7 +1479,7 @@
       "keyword": "minimalist skincare routine men",
       "slug": "minimalist-skincare-routine-men",
       "priority": 67,
-      "status": "draft",
+      "status": "published",
       "cluster": "grooming",
       "articleFormat": "how-to guide",
       "secondaryKeywords": [
@@ -1487,7 +1487,10 @@
         "3 step skincare routine men",
         "skincare for men who hate skincare"
       ],
-      "scheduledFor": "2026-07-08"
+      "scheduledFor": "2026-07-08",
+      "publishedAt": "2026-08-02",
+      "updatedAt": "2026-08-02",
+      "title": "The Minimalist Skincare Routine for Men Who Don't Want to Think About It | StyleScore"
     }
   ],
   "clusters": {
@@ -1812,6 +1815,14 @@
       }
     ],
     "grooming": [
+      {
+        "slug": "minimalist-skincare-routine-men",
+        "title": "The Minimalist Skincare Routine for Men Who Don't Want to Think About It",
+        "href": "/blog/minimalist-skincare-routine-men",
+        "description": "A no-fluff minimalist skincare routine for men that actually works.",
+        "role": "supporting",
+        "publishedAt": "2026-08-02"
+      },
       {
         "slug": "mens-grooming-routine-beginners",
         "title": "Men's Grooming Routine for Beginners",
