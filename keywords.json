@@ -1058,7 +1058,7 @@
       "keyword": "how to dress like you have money",
       "slug": "how-to-dress-like-you-have-money",
       "priority": 66,
-      "status": "draft",
+      "status": "published",
       "cluster": "common-style-problems",
       "articleFormat": "how-to guide",
       "secondaryKeywords": [
@@ -1066,7 +1066,10 @@
         "quiet luxury men",
         "dressing wealthy"
       ],
-      "scheduledFor": "2026-06-12"
+      "scheduledFor": "2026-06-12",
+      "publishedAt": "2026-08-03",
+      "updatedAt": "2026-08-03",
+      "title": "How to Dress Like You Have Money (Without Spending Like It) | StyleScore"
     },
     {
       "keyword": "what is a french tuck",
@@ -2163,6 +2166,14 @@
       }
     ],
     "common-style-problems": [
+      {
+        "slug": "how-to-dress-like-you-have-money",
+        "title": "How to Dress Like You Have Money (Without Spending Like It)",
+        "href": "/blog/how-to-dress-like-you-have-money",
+        "description": "Learn how to dress like you have money with specific outfit formulas, fit rules, and practical examples.",
+        "role": "supporting",
+        "publishedAt": "2026-08-03"
+      },
       {
         "slug": "style-mistakes-tall-men",
         "title": "The Style Mistakes Tall Men Make (And Why Most Guides Get It Wrong)",

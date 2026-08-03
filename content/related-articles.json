@@ -102,6 +102,12 @@
     ],
     "why-men-look-bad-in-clothes": [
       {
+        "slug": "how-to-dress-like-you-have-money",
+        "title": "How to Dress Like You Have Money (Without Spending Like It)",
+        "href": "/blog/how-to-dress-like-you-have-money",
+        "description": "Learn how to dress like you have money with specific outfit formulas, fit rules, and practical examples."
+      },
+      {
         "slug": "style-mistakes-tall-men",
         "title": "The Style Mistakes Tall Men Make (And Why Most Guides Get It Wrong)",
         "href": "/blog/style-mistakes-tall-men",
@@ -112,12 +118,6 @@
         "title": "How to Find Your Style as a Man (Without Overthinking It)",
         "href": "/blog/how-to-find-your-style-men",
         "description": "A practical, no-fluff guide to finding your personal style as a man."
-      },
-      {
-        "slug": "smart-casual-vs-business-casual",
-        "title": "Smart Casual vs Business Casual: The Only Guide Men Actually Need",
-        "href": "/blog/smart-casual-vs-business-casual",
-        "description": "Confused about smart casual vs business casual?"
       }
     ],
     "how-to-improve-style": [
@@ -1364,6 +1364,12 @@
     ],
     "how-to-find-your-style-men": [
       {
+        "slug": "how-to-dress-like-you-have-money",
+        "title": "How to Dress Like You Have Money (Without Spending Like It)",
+        "href": "/blog/how-to-dress-like-you-have-money",
+        "description": "Learn how to dress like you have money with specific outfit formulas, fit rules, and practical examples."
+      },
+      {
         "slug": "style-mistakes-tall-men",
         "title": "The Style Mistakes Tall Men Make (And Why Most Guides Get It Wrong)",
         "href": "/blog/style-mistakes-tall-men",
@@ -1374,12 +1380,6 @@
         "title": "Why Most Men Look Bad in Clothes (And How to Fix It)",
         "href": "/blog/why-men-look-bad-in-clothes",
         "description": "The real reasons outfits feel weak even when the pieces seem fine."
-      },
-      {
-        "slug": "smart-casual-vs-business-casual",
-        "title": "Smart Casual vs Business Casual: The Only Guide Men Actually Need",
-        "href": "/blog/smart-casual-vs-business-casual",
-        "description": "Confused about smart casual vs business casual?"
       }
     ],
     "best-t-shirts-for-short-men": [
@@ -1624,6 +1624,12 @@
     ],
     "style-mistakes-tall-men": [
       {
+        "slug": "how-to-dress-like-you-have-money",
+        "title": "How to Dress Like You Have Money (Without Spending Like It)",
+        "href": "/blog/how-to-dress-like-you-have-money",
+        "description": "Learn how to dress like you have money with specific outfit formulas, fit rules, and practical examples."
+      },
+      {
         "slug": "why-men-look-bad-in-clothes",
         "title": "Why Most Men Look Bad in Clothes (And How to Fix It)",
         "href": "/blog/why-men-look-bad-in-clothes",
@@ -1634,12 +1640,6 @@
         "title": "How to Find Your Style as a Man (Without Overthinking It)",
         "href": "/blog/how-to-find-your-style-men",
         "description": "A practical, no-fluff guide to finding your personal style as a man."
-      },
-      {
-        "slug": "smart-casual-vs-business-casual",
-        "title": "Smart Casual vs Business Casual: The Only Guide Men Actually Need",
-        "href": "/blog/smart-casual-vs-business-casual",
-        "description": "Confused about smart casual vs business casual?"
       }
     ],
     "how-to-pack-suit-in-suitcase": [
@@ -1960,6 +1960,26 @@
         "title": "Men's Grooming Basics (Most Ignored Style Upgrade)",
         "href": "/blog/mens-grooming-basics",
         "description": "The maintenance habits that make every outfit land better."
+      }
+    ],
+    "how-to-dress-like-you-have-money": [
+      {
+        "slug": "why-men-look-bad-in-clothes",
+        "title": "Why Most Men Look Bad in Clothes (And How to Fix It)",
+        "href": "/blog/why-men-look-bad-in-clothes",
+        "description": "The real reasons outfits feel weak even when the pieces seem fine."
+      },
+      {
+        "slug": "style-mistakes-tall-men",
+        "title": "The Style Mistakes Tall Men Make (And Why Most Guides Get It Wrong)",
+        "href": "/blog/style-mistakes-tall-men",
+        "description": "Tall guys face specific fit and proportion problems that generic style advice ignores."
+      },
+      {
+        "slug": "how-to-find-your-style-men",
+        "title": "How to Find Your Style as a Man (Without Overthinking It)",
+        "href": "/blog/how-to-find-your-style-men",
+        "description": "A practical, no-fluff guide to finding your personal style as a man."
       }
     ]
   }
