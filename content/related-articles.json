@@ -398,6 +398,12 @@
     ],
     "how-clothes-should-fit-short-men": [
       {
+        "slug": "what-is-french-tuck-men",
+        "title": "What Is a French Tuck — And Why It Fixes More Outfits Than You'd Expect",
+        "href": "/blog/what-is-french-tuck-men",
+        "description": "What is a french tuck, how to do it right, and which outfits actually need it."
+      },
+      {
         "slug": "casual-weekend-outfits-short-men",
         "title": "Casual Weekend Outfits for Short Men: Outfit Formulas That Actually Work",
         "href": "/blog/casual-weekend-outfits-short-men",
@@ -408,12 +414,6 @@
         "title": "Best Chinos for Short Men: Fit Rules That Make the Difference",
         "href": "/blog/best-chinos-for-short-men",
         "description": "The best chinos for short men come down to three fit variables most guys ignore."
-      },
-      {
-        "slug": "alteration-guide-short-men",
-        "title": "The Alteration Guide for Short Men: What to Fix First and What to Skip",
-        "href": "/blog/alteration-guide-short-men",
-        "description": "A practical alteration guide for short men covering the exact tailoring fixes that change how your clothes read on a shorter frame—ranked by impact, not theory."
       }
     ],
     "dress-shoes-for-short-men": [
@@ -934,6 +934,12 @@
     ],
     "how-to-tuck-in-shirt-properly-men": [
       {
+        "slug": "what-is-french-tuck-men",
+        "title": "What Is a French Tuck — And Why It Fixes More Outfits Than You'd Expect",
+        "href": "/blog/what-is-french-tuck-men",
+        "description": "What is a french tuck, how to do it right, and which outfits actually need it."
+      },
+      {
         "slug": "how-clothes-should-fit-short-men",
         "title": "How Clothes Should Actually Fit If You're 5'6\"",
         "href": "/blog/how-clothes-should-fit-short-men",
@@ -944,15 +950,15 @@
         "title": "Trouser Rise, Pant Break, and Inseam: The Short Man's Cheat Sheet",
         "href": "/blog/trouser-rise-pant-break-short-men",
         "description": "The trouser guide for shorter men who need the numbers, not guesses."
-      },
-      {
-        "slug": "style-mistakes-men",
-        "title": "10 Style Mistakes Most Men Make",
-        "href": "/blog/style-mistakes-men",
-        "description": "Common mistakes that ruin fit, shoes, grooming, and coordination."
       }
     ],
     "trouser-rise-pant-break-short-men": [
+      {
+        "slug": "what-is-french-tuck-men",
+        "title": "What Is a French Tuck — And Why It Fixes More Outfits Than You'd Expect",
+        "href": "/blog/what-is-french-tuck-men",
+        "description": "What is a french tuck, how to do it right, and which outfits actually need it."
+      },
       {
         "slug": "how-to-tuck-in-shirt-properly-men",
         "title": "How to Tuck In a Shirt Properly (And Actually Keep It Tucked)",
@@ -1980,6 +1986,26 @@
         "title": "How to Find Your Style as a Man (Without Overthinking It)",
         "href": "/blog/how-to-find-your-style-men",
         "description": "A practical, no-fluff guide to finding your personal style as a man."
+      }
+    ],
+    "what-is-french-tuck-men": [
+      {
+        "slug": "how-clothes-should-fit-short-men",
+        "title": "How Clothes Should Actually Fit If You're 5'6\"",
+        "href": "/blog/how-clothes-should-fit-short-men",
+        "description": "Specific fit landmarks for shirts, trousers, and jackets."
+      },
+      {
+        "slug": "how-to-tuck-in-shirt-properly-men",
+        "title": "How to Tuck In a Shirt Properly (And Actually Keep It Tucked)",
+        "href": "/blog/how-to-tuck-in-shirt-properly-men",
+        "description": "Learn how to tuck in a shirt properly with specific methods, fit callouts, and outfit formulas that work in real life — not just on a runway."
+      },
+      {
+        "slug": "trouser-rise-pant-break-short-men",
+        "title": "Trouser Rise, Pant Break, and Inseam: The Short Man's Cheat Sheet",
+        "href": "/blog/trouser-rise-pant-break-short-men",
+        "description": "The trouser guide for shorter men who need the numbers, not guesses."
       }
     ]
   }

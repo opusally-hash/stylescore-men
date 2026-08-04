@@ -1075,7 +1075,7 @@
       "keyword": "what is a french tuck",
       "slug": "what-is-french-tuck-men",
       "priority": 65,
-      "status": "draft",
+      "status": "published",
       "cluster": "fit-proportion",
       "articleFormat": "how-to guide",
       "secondaryKeywords": [
@@ -1083,7 +1083,10 @@
         "half tuck shirt men",
         "front tuck vs full tuck"
       ],
-      "scheduledFor": "2026-06-13"
+      "scheduledFor": "2026-06-13",
+      "publishedAt": "2026-08-04",
+      "updatedAt": "2026-08-04",
+      "title": "What Is a French Tuck — And Why It Fixes More Outfits Than You'd Expect | StyleScore"
     },
     {
       "keyword": "best socks for men",
@@ -1742,6 +1745,14 @@
       }
     ],
     "fit-proportion": [
+      {
+        "slug": "what-is-french-tuck-men",
+        "title": "What Is a French Tuck — And Why It Fixes More Outfits Than You'd Expect",
+        "href": "/blog/what-is-french-tuck-men",
+        "description": "What is a french tuck, how to do it right, and which outfits actually need it.",
+        "role": "supporting",
+        "publishedAt": "2026-08-04"
+      },
       {
         "slug": "how-to-tuck-in-shirt-properly-men",
         "title": "How to Tuck In a Shirt Properly (And Actually Keep It Tucked)",
