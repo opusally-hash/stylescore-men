@@ -22,6 +22,12 @@
     ],
     "mens-style-test": [
       {
+        "slug": "streetwear-to-smart-casual-transition",
+        "title": "How to Transition from Streetwear to Smart Casual Without Losing Your Identity",
+        "href": "/blog/streetwear-to-smart-casual-transition",
+        "description": "Ready to dress more mature without going full corporate?"
+      },
+      {
         "slug": "how-to-build-investment-wardrobe-men",
         "title": "How to Build an Investment Wardrobe as a Man (Without Wasting Money on the Wrong Pieces)",
         "href": "/blog/how-to-build-investment-wardrobe-men",
@@ -32,12 +38,6 @@
         "title": "How to Wear a Cardigan: The Men's Guide That Actually Makes It Work",
         "href": "/blog/how-to-wear-cardigan-men",
         "description": "Learn how to wear a cardigan men actually respect — with specific outfit formulas, fit rules, and styling tips that go beyond 'layer it over a shirt.'"
-      },
-      {
-        "slug": "work-from-home-outfit-men",
-        "title": "The Work From Home Outfit Guide for Men Who Actually Have Video Calls",
-        "href": "/blog/work-from-home-outfit-men",
-        "description": "Stop defaulting to sweatpants."
       }
     ],
     "7-signs-dress-well": [
@@ -1470,6 +1470,12 @@
     ],
     "how-to-build-work-wardrobe-men": [
       {
+        "slug": "streetwear-to-smart-casual-transition",
+        "title": "How to Transition from Streetwear to Smart Casual Without Losing Your Identity",
+        "href": "/blog/streetwear-to-smart-casual-transition",
+        "description": "Ready to dress more mature without going full corporate?"
+      },
+      {
         "slug": "work-from-home-outfit-men",
         "title": "The Work From Home Outfit Guide for Men Who Actually Have Video Calls",
         "href": "/blog/work-from-home-outfit-men",
@@ -1480,12 +1486,6 @@
         "title": "Men's Style Quiz: Find Your Style Score Online",
         "href": "/blog/mens-style-test",
         "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
-      },
-      {
-        "slug": "7-signs-dress-well",
-        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
-        "href": "/blog/7-signs-dress-well",
-        "description": "Practical signs that separate a sharp look from an average one."
       }
     ],
     "loafers-vs-boat-shoes-men": [
@@ -1830,6 +1830,12 @@
     ],
     "work-from-home-outfit-men": [
       {
+        "slug": "streetwear-to-smart-casual-transition",
+        "title": "How to Transition from Streetwear to Smart Casual Without Losing Your Identity",
+        "href": "/blog/streetwear-to-smart-casual-transition",
+        "description": "Ready to dress more mature without going full corporate?"
+      },
+      {
         "slug": "how-to-build-work-wardrobe-men",
         "title": "How to Build a Work Wardrobe That Actually Gets You Taken Seriously",
         "href": "/blog/how-to-build-work-wardrobe-men",
@@ -1840,12 +1846,6 @@
         "title": "Men's Style Quiz: Find Your Style Score Online",
         "href": "/blog/mens-style-test",
         "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
-      },
-      {
-        "slug": "7-signs-dress-well",
-        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
-        "href": "/blog/7-signs-dress-well",
-        "description": "Practical signs that separate a sharp look from an average one."
       }
     ],
     "how-to-wash-suit-at-home": [
@@ -2026,6 +2026,26 @@
         "title": "The Sunglasses Guide for Men Who Are Tired of Guessing at the Rack",
         "href": "/blog/sunglasses-guide-men-face-shape",
         "description": "A practical sunglasses guide for men that cuts through the noise—find the right frame for your face shape, skin tone, and lifestyle without overthinking it."
+      }
+    ],
+    "streetwear-to-smart-casual-transition": [
+      {
+        "slug": "work-from-home-outfit-men",
+        "title": "The Work From Home Outfit Guide for Men Who Actually Have Video Calls",
+        "href": "/blog/work-from-home-outfit-men",
+        "description": "Stop defaulting to sweatpants."
+      },
+      {
+        "slug": "how-to-build-work-wardrobe-men",
+        "title": "How to Build a Work Wardrobe That Actually Gets You Taken Seriously",
+        "href": "/blog/how-to-build-work-wardrobe-men",
+        "description": "A practical guide on how to build a work wardrobe for men aged 25-45."
+      },
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
       }
     ]
   }

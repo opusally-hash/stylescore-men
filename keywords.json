@@ -1109,7 +1109,7 @@
       "keyword": "how to transition from streetwear to smart casual",
       "slug": "streetwear-to-smart-casual-transition",
       "priority": 63,
-      "status": "draft",
+      "status": "published",
       "cluster": "lifestyle",
       "articleFormat": "how-to guide",
       "secondaryKeywords": [
@@ -1117,7 +1117,10 @@
         "growing out of streetwear",
         "streetwear to business casual"
       ],
-      "scheduledFor": "2026-06-15"
+      "scheduledFor": "2026-06-15",
+      "publishedAt": "2026-08-05",
+      "updatedAt": "2026-08-05",
+      "title": "How to Transition from Streetwear to Smart Casual Without Losing Your Identity | StyleScore"
     },
     {
       "keyword": "what to wear to a graduation men",
@@ -2452,6 +2455,14 @@
       }
     ],
     "lifestyle": [
+      {
+        "slug": "streetwear-to-smart-casual-transition",
+        "title": "How to Transition from Streetwear to Smart Casual Without Losing Your Identity",
+        "href": "/blog/streetwear-to-smart-casual-transition",
+        "description": "Ready to dress more mature without going full corporate?",
+        "role": "supporting",
+        "publishedAt": "2026-08-05"
+      },
       {
         "slug": "work-from-home-outfit-men",
         "title": "The Work From Home Outfit Guide for Men Who Actually Have Video Calls",
