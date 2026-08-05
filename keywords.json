@@ -1092,7 +1092,7 @@
       "keyword": "best socks for men",
       "slug": "best-socks-for-men",
       "priority": 64,
-      "status": "draft",
+      "status": "published",
       "cluster": "accessories",
       "articleFormat": "buying guide",
       "secondaryKeywords": [
@@ -1100,7 +1100,10 @@
         "quality socks worth buying",
         "no show socks vs ankle socks"
       ],
-      "scheduledFor": "2026-06-14"
+      "scheduledFor": "2026-06-14",
+      "publishedAt": "2026-08-05",
+      "updatedAt": "2026-08-05",
+      "title": "The Best Socks for Men (Because the Wrong Pair Is Quietly Wrecking Your Outfit) | StyleScore"
     },
     {
       "keyword": "how to transition from streetwear to smart casual",
@@ -2295,6 +2298,14 @@
       }
     ],
     "accessories": [
+      {
+        "slug": "best-socks-for-men",
+        "title": "The Best Socks for Men (Because the Wrong Pair Is Quietly Wrecking Your Outfit)",
+        "href": "/blog/best-socks-for-men",
+        "description": "A practical buying guide to the best socks for men — from dress socks to no-shows — with specific outfit formulas, fit advice, and brands worth your money.",
+        "role": "supporting",
+        "publishedAt": "2026-08-05"
+      },
       {
         "slug": "best-backpacks-for-work-men",
         "title": "The Best Backpacks for Work Men Who Don't Want to Look Like They're Still in College",

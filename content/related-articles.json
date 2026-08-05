@@ -1350,6 +1350,12 @@
     ],
     "sunglasses-guide-men-face-shape": [
       {
+        "slug": "best-socks-for-men",
+        "title": "The Best Socks for Men (Because the Wrong Pair Is Quietly Wrecking Your Outfit)",
+        "href": "/blog/best-socks-for-men",
+        "description": "A practical buying guide to the best socks for men — from dress socks to no-shows — with specific outfit formulas, fit advice, and brands worth your money."
+      },
+      {
         "slug": "best-backpacks-for-work-men",
         "title": "The Best Backpacks for Work Men Who Don't Want to Look Like They're Still in College",
         "href": "/blog/best-backpacks-for-work-men",
@@ -1360,12 +1366,6 @@
         "title": "When to Wear a Tie (And When You're Just Making Things Awkward)",
         "href": "/blog/when-to-wear-tie-men",
         "description": "Not sure when to wear a tie in 2024?"
-      },
-      {
-        "slug": "best-belts-men-style",
-        "title": "The Best Belts for Men (And How to Stop Getting This Wrong)",
-        "href": "/blog/best-belts-men-style",
-        "description": "A practical guide to the best belts for men — covering leather belt choices, dress vs casual belt decisions, fit rules, and outfit formulas that actually work."
       }
     ],
     "how-to-find-your-style-men": [
@@ -1590,6 +1590,12 @@
     ],
     "when-to-wear-tie-men": [
       {
+        "slug": "best-socks-for-men",
+        "title": "The Best Socks for Men (Because the Wrong Pair Is Quietly Wrecking Your Outfit)",
+        "href": "/blog/best-socks-for-men",
+        "description": "A practical buying guide to the best socks for men — from dress socks to no-shows — with specific outfit formulas, fit advice, and brands worth your money."
+      },
+      {
         "slug": "best-backpacks-for-work-men",
         "title": "The Best Backpacks for Work Men Who Don't Want to Look Like They're Still in College",
         "href": "/blog/best-backpacks-for-work-men",
@@ -1600,12 +1606,6 @@
         "title": "The Sunglasses Guide for Men Who Are Tired of Guessing at the Rack",
         "href": "/blog/sunglasses-guide-men-face-shape",
         "description": "A practical sunglasses guide for men that cuts through the noise—find the right frame for your face shape, skin tone, and lifestyle without overthinking it."
-      },
-      {
-        "slug": "best-belts-men-style",
-        "title": "The Best Belts for Men (And How to Stop Getting This Wrong)",
-        "href": "/blog/best-belts-men-style",
-        "description": "A practical guide to the best belts for men — covering leather belt choices, dress vs casual belt decisions, fit rules, and outfit formulas that actually work."
       }
     ],
     "how-to-prevent-pilling-on-clothes": [
@@ -1730,6 +1730,12 @@
     ],
     "best-backpacks-for-work-men": [
       {
+        "slug": "best-socks-for-men",
+        "title": "The Best Socks for Men (Because the Wrong Pair Is Quietly Wrecking Your Outfit)",
+        "href": "/blog/best-socks-for-men",
+        "description": "A practical buying guide to the best socks for men — from dress socks to no-shows — with specific outfit formulas, fit advice, and brands worth your money."
+      },
+      {
         "slug": "when-to-wear-tie-men",
         "title": "When to Wear a Tie (And When You're Just Making Things Awkward)",
         "href": "/blog/when-to-wear-tie-men",
@@ -1740,12 +1746,6 @@
         "title": "The Sunglasses Guide for Men Who Are Tired of Guessing at the Rack",
         "href": "/blog/sunglasses-guide-men-face-shape",
         "description": "A practical sunglasses guide for men that cuts through the noise—find the right frame for your face shape, skin tone, and lifestyle without overthinking it."
-      },
-      {
-        "slug": "best-belts-men-style",
-        "title": "The Best Belts for Men (And How to Stop Getting This Wrong)",
-        "href": "/blog/best-belts-men-style",
-        "description": "A practical guide to the best belts for men — covering leather belt choices, dress vs casual belt decisions, fit rules, and outfit formulas that actually work."
       }
     ],
     "what-to-wear-to-holiday-party-men": [
@@ -2006,6 +2006,26 @@
         "title": "Trouser Rise, Pant Break, and Inseam: The Short Man's Cheat Sheet",
         "href": "/blog/trouser-rise-pant-break-short-men",
         "description": "The trouser guide for shorter men who need the numbers, not guesses."
+      }
+    ],
+    "best-socks-for-men": [
+      {
+        "slug": "best-backpacks-for-work-men",
+        "title": "The Best Backpacks for Work Men Who Don't Want to Look Like They're Still in College",
+        "href": "/blog/best-backpacks-for-work-men",
+        "description": "A sharp, practical guide to the best backpacks for work men — covering fit, outfit formulas, professional picks, and exactly when to ditch the briefcase."
+      },
+      {
+        "slug": "when-to-wear-tie-men",
+        "title": "When to Wear a Tie (And When You're Just Making Things Awkward)",
+        "href": "/blog/when-to-wear-tie-men",
+        "description": "Not sure when to wear a tie in 2024?"
+      },
+      {
+        "slug": "sunglasses-guide-men-face-shape",
+        "title": "The Sunglasses Guide for Men Who Are Tired of Guessing at the Rack",
+        "href": "/blog/sunglasses-guide-men-face-shape",
+        "description": "A practical sunglasses guide for men that cuts through the noise—find the right frame for your face shape, skin tone, and lifestyle without overthinking it."
       }
     ]
   }
