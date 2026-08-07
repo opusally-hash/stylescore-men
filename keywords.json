@@ -1143,7 +1143,7 @@
       "keyword": "how to shop at thrift stores for men",
       "slug": "how-to-thrift-shop-men",
       "priority": 61,
-      "status": "draft",
+      "status": "published",
       "cluster": "budget",
       "articleFormat": "how-to guide",
       "secondaryKeywords": [
@@ -1151,7 +1151,10 @@
         "buying secondhand clothes",
         "what to look for thrift shopping"
       ],
-      "scheduledFor": "2026-06-17"
+      "scheduledFor": "2026-06-17",
+      "publishedAt": "2026-08-07",
+      "updatedAt": "2026-08-07",
+      "title": "How to Shop at Thrift Stores for Men: The Practical Guide to Finding Real Clothes in the Chaos | StyleScore"
     },
     {
       "keyword": "best rain jacket for men",
@@ -2260,6 +2263,14 @@
       }
     ],
     "budget": [
+      {
+        "slug": "how-to-thrift-shop-men",
+        "title": "How to Shop at Thrift Stores for Men (Without Spending Three Hours Leaving Empty-Handed)",
+        "href": "/blog/how-to-thrift-shop-men",
+        "description": "Learn exactly how to shop at thrift stores for men with specific fit calls, outfit formulas, and what to look for so you stop wasting time and start finding great pieces.",
+        "role": "supporting",
+        "publishedAt": "2026-08-07"
+      },
       {
         "slug": "how-to-build-investment-wardrobe-men",
         "title": "How to Build an Investment Wardrobe as a Man (Without Wasting Money on the Wrong Pieces)",

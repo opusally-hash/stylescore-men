@@ -22,6 +22,12 @@
     ],
     "mens-style-test": [
       {
+        "slug": "how-to-thrift-shop-men",
+        "title": "How to Shop at Thrift Stores for Men (Without Spending Three Hours Leaving Empty-Handed)",
+        "href": "/blog/how-to-thrift-shop-men",
+        "description": "Learn exactly how to shop at thrift stores for men with specific fit calls, outfit formulas, and what to look for so you stop wasting time and start finding great pieces."
+      },
+      {
         "slug": "streetwear-to-smart-casual-transition",
         "title": "How to Transition from Streetwear to Smart Casual Without Losing Your Identity",
         "href": "/blog/streetwear-to-smart-casual-transition",
@@ -32,12 +38,6 @@
         "title": "How to Build an Investment Wardrobe as a Man (Without Wasting Money on the Wrong Pieces)",
         "href": "/blog/how-to-build-investment-wardrobe-men",
         "description": "Learn how to build an investment wardrobe as a man with specific outfit formulas, fit benchmarks, and a cost-per-wear framework that actually holds up in real life."
-      },
-      {
-        "slug": "how-to-wear-cardigan-men",
-        "title": "How to Wear a Cardigan: The Men's Guide That Actually Makes It Work",
-        "href": "/blog/how-to-wear-cardigan-men",
-        "description": "Learn how to wear a cardigan men actually respect — with specific outfit formulas, fit rules, and styling tips that go beyond 'layer it over a shirt.'"
       }
     ],
     "7-signs-dress-well": [
@@ -740,6 +740,12 @@
     ],
     "how-to-dress-better-on-a-budget": [
       {
+        "slug": "how-to-thrift-shop-men",
+        "title": "How to Shop at Thrift Stores for Men (Without Spending Three Hours Leaving Empty-Handed)",
+        "href": "/blog/how-to-thrift-shop-men",
+        "description": "Learn exactly how to shop at thrift stores for men with specific fit calls, outfit formulas, and what to look for so you stop wasting time and start finding great pieces."
+      },
+      {
         "slug": "how-to-build-investment-wardrobe-men",
         "title": "How to Build an Investment Wardrobe as a Man (Without Wasting Money on the Wrong Pieces)",
         "href": "/blog/how-to-build-investment-wardrobe-men",
@@ -750,12 +756,6 @@
         "title": "Men's Style Quiz: Find Your Style Score Online",
         "href": "/blog/mens-style-test",
         "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
-      },
-      {
-        "slug": "7-signs-dress-well",
-        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
-        "href": "/blog/7-signs-dress-well",
-        "description": "Practical signs that separate a sharp look from an average one."
       }
     ],
     "how-to-dress-for-winter-men": [
@@ -1890,6 +1890,12 @@
     ],
     "how-to-build-investment-wardrobe-men": [
       {
+        "slug": "how-to-thrift-shop-men",
+        "title": "How to Shop at Thrift Stores for Men (Without Spending Three Hours Leaving Empty-Handed)",
+        "href": "/blog/how-to-thrift-shop-men",
+        "description": "Learn exactly how to shop at thrift stores for men with specific fit calls, outfit formulas, and what to look for so you stop wasting time and start finding great pieces."
+      },
+      {
         "slug": "how-to-dress-better-on-a-budget",
         "title": "How to Dress Better on a Budget: The No-Excuses Guide for Men",
         "href": "/blog/how-to-dress-better-on-a-budget",
@@ -1900,12 +1906,6 @@
         "title": "Men's Style Quiz: Find Your Style Score Online",
         "href": "/blog/mens-style-test",
         "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
-      },
-      {
-        "slug": "7-signs-dress-well",
-        "title": "7 Signs You Dress Well as a Man (And How to Improve Fast)",
-        "href": "/blog/7-signs-dress-well",
-        "description": "Practical signs that separate a sharp look from an average one."
       }
     ],
     "style-tips-skinny-men": [
@@ -2066,6 +2066,26 @@
         "title": "What to Wear to a Funeral: The Men's Guide That Gets It Right Without Overthinking It",
         "href": "/blog/what-to-wear-funeral-men",
         "description": "Practical, specific funeral attire advice for men aged 25-45."
+      }
+    ],
+    "how-to-thrift-shop-men": [
+      {
+        "slug": "how-to-build-investment-wardrobe-men",
+        "title": "How to Build an Investment Wardrobe as a Man (Without Wasting Money on the Wrong Pieces)",
+        "href": "/blog/how-to-build-investment-wardrobe-men",
+        "description": "Learn how to build an investment wardrobe as a man with specific outfit formulas, fit benchmarks, and a cost-per-wear framework that actually holds up in real life."
+      },
+      {
+        "slug": "how-to-dress-better-on-a-budget",
+        "title": "How to Dress Better on a Budget: The No-Excuses Guide for Men",
+        "href": "/blog/how-to-dress-better-on-a-budget",
+        "description": "Want to dress better on a budget without buying a whole new wardrobe?"
+      },
+      {
+        "slug": "mens-style-test",
+        "title": "Men's Style Quiz: Find Your Style Score Online",
+        "href": "/blog/mens-style-test",
+        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
       }
     ]
   }
