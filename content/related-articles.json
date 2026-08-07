@@ -164,6 +164,12 @@
     ],
     "wedding-outfit-short-men": [
       {
+        "slug": "what-to-wear-graduation-men",
+        "title": "What to Wear to a Graduation: The Men's Guide That Actually Reads the Room",
+        "href": "/blog/what-to-wear-graduation-men",
+        "description": "Wondering what to wear to a graduation as a man?"
+      },
+      {
         "slug": "what-to-wear-to-holiday-party-men",
         "title": "What to Wear to a Holiday Party for Men: The Guide That Actually Fits the Room",
         "href": "/blog/what-to-wear-to-holiday-party-men",
@@ -174,12 +180,6 @@
         "title": "What to Wear to a Funeral: The Men's Guide That Gets It Right Without Overthinking It",
         "href": "/blog/what-to-wear-funeral-men",
         "description": "Practical, specific funeral attire advice for men aged 25-45."
-      },
-      {
-        "slug": "what-to-wear-job-interview-men",
-        "title": "What to Wear to a Job Interview: The Men's Guide That Gets You Taken Seriously",
-        "href": "/blog/what-to-wear-job-interview-men",
-        "description": "Exact outfit formulas for what to wear to a job interview men actually land."
       }
     ],
     "summer-outfits-short-men": [
@@ -1710,6 +1710,12 @@
     ],
     "what-to-wear-funeral-men": [
       {
+        "slug": "what-to-wear-graduation-men",
+        "title": "What to Wear to a Graduation: The Men's Guide That Actually Reads the Room",
+        "href": "/blog/what-to-wear-graduation-men",
+        "description": "Wondering what to wear to a graduation as a man?"
+      },
+      {
         "slug": "what-to-wear-to-holiday-party-men",
         "title": "What to Wear to a Holiday Party for Men: The Guide That Actually Fits the Room",
         "href": "/blog/what-to-wear-to-holiday-party-men",
@@ -1720,12 +1726,6 @@
         "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
         "href": "/blog/wedding-outfit-short-men",
         "description": "Wedding dressing rules for shorter men across formality levels."
-      },
-      {
-        "slug": "what-to-wear-job-interview-men",
-        "title": "What to Wear to a Job Interview: The Men's Guide That Gets You Taken Seriously",
-        "href": "/blog/what-to-wear-job-interview-men",
-        "description": "Exact outfit formulas for what to wear to a job interview men actually land."
       }
     ],
     "best-backpacks-for-work-men": [
@@ -1750,6 +1750,12 @@
     ],
     "what-to-wear-to-holiday-party-men": [
       {
+        "slug": "what-to-wear-graduation-men",
+        "title": "What to Wear to a Graduation: The Men's Guide That Actually Reads the Room",
+        "href": "/blog/what-to-wear-graduation-men",
+        "description": "Wondering what to wear to a graduation as a man?"
+      },
+      {
         "slug": "wedding-outfit-short-men",
         "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
         "href": "/blog/wedding-outfit-short-men",
@@ -1760,12 +1766,6 @@
         "title": "What to Wear to a Funeral: The Men's Guide That Gets It Right Without Overthinking It",
         "href": "/blog/what-to-wear-funeral-men",
         "description": "Practical, specific funeral attire advice for men aged 25-45."
-      },
-      {
-        "slug": "what-to-wear-job-interview-men",
-        "title": "What to Wear to a Job Interview: The Men's Guide That Gets You Taken Seriously",
-        "href": "/blog/what-to-wear-job-interview-men",
-        "description": "Exact outfit formulas for what to wear to a job interview men actually land."
       }
     ],
     "how-to-dress-for-spring-men": [
@@ -2046,6 +2046,26 @@
         "title": "Men's Style Quiz: Find Your Style Score Online",
         "href": "/blog/mens-style-test",
         "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
+      }
+    ],
+    "what-to-wear-graduation-men": [
+      {
+        "slug": "wedding-outfit-short-men",
+        "title": "What to Wear to a Wedding When You're the Shortest Guy in the Room",
+        "href": "/blog/wedding-outfit-short-men",
+        "description": "Wedding dressing rules for shorter men across formality levels."
+      },
+      {
+        "slug": "what-to-wear-to-holiday-party-men",
+        "title": "What to Wear to a Holiday Party for Men: The Guide That Actually Fits the Room",
+        "href": "/blog/what-to-wear-to-holiday-party-men",
+        "description": "Confused about what to wear to a holiday party?"
+      },
+      {
+        "slug": "what-to-wear-funeral-men",
+        "title": "What to Wear to a Funeral: The Men's Guide That Gets It Right Without Overthinking It",
+        "href": "/blog/what-to-wear-funeral-men",
+        "description": "Practical, specific funeral attire advice for men aged 25-45."
       }
     ]
   }

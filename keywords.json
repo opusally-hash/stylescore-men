@@ -1126,7 +1126,7 @@
       "keyword": "what to wear to a graduation men",
       "slug": "what-to-wear-graduation-men",
       "priority": 62,
-      "status": "draft",
+      "status": "published",
       "cluster": "occasion-dressing",
       "articleFormat": "occasion guide",
       "secondaryKeywords": [
@@ -1134,7 +1134,10 @@
         "what to wear under graduation gown",
         "college graduation attire"
       ],
-      "scheduledFor": "2026-06-16"
+      "scheduledFor": "2026-06-16",
+      "publishedAt": "2026-08-07",
+      "updatedAt": "2026-08-07",
+      "title": "What to Wear to a Graduation: The Men's Guide That Actually Reads the Room | StyleScore"
     },
     {
       "keyword": "how to shop at thrift stores for men",
@@ -1985,6 +1988,14 @@
       }
     ],
     "occasion-dressing": [
+      {
+        "slug": "what-to-wear-graduation-men",
+        "title": "What to Wear to a Graduation: The Men's Guide That Actually Reads the Room",
+        "href": "/blog/what-to-wear-graduation-men",
+        "description": "Wondering what to wear to a graduation as a man?",
+        "role": "supporting",
+        "publishedAt": "2026-08-07"
+      },
       {
         "slug": "what-to-wear-to-holiday-party-men",
         "title": "What to Wear to a Holiday Party for Men: The Guide That Actually Fits the Room",
