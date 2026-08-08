@@ -1196,6 +1196,12 @@
     ],
     "how-to-style-blazer-casually-men": [
       {
+        "slug": "best-rain-jacket-men",
+        "title": "The Best Rain Jacket for Men: A Practical Buying Guide for 2024",
+        "href": "/blog/best-rain-jacket-men",
+        "description": "Looking for the best rain jacket for men?"
+      },
+      {
         "slug": "best-bomber-jackets-for-men",
         "title": "The Best Bomber Jackets for Men: What to Buy, How It Should Fit, and What to Skip",
         "href": "/blog/best-bomber-jackets-for-men",
@@ -1206,12 +1212,6 @@
         "title": "The Best Coats for Men: What to Buy, How It Should Fit, and What to Skip",
         "href": "/blog/best-coats-for-men",
         "description": "Looking for the best coats for men?"
-      },
-      {
-        "slug": "mens-style-test",
-        "title": "Men's Style Quiz: Find Your Style Score Online",
-        "href": "/blog/mens-style-test",
-        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
       }
     ],
     "style-tips-tall-men": [
@@ -1270,6 +1270,12 @@
     ],
     "best-coats-for-men": [
       {
+        "slug": "best-rain-jacket-men",
+        "title": "The Best Rain Jacket for Men: A Practical Buying Guide for 2024",
+        "href": "/blog/best-rain-jacket-men",
+        "description": "Looking for the best rain jacket for men?"
+      },
+      {
         "slug": "best-bomber-jackets-for-men",
         "title": "The Best Bomber Jackets for Men: What to Buy, How It Should Fit, and What to Skip",
         "href": "/blog/best-bomber-jackets-for-men",
@@ -1280,12 +1286,6 @@
         "title": "How to Style a Blazer Casually (Without Looking Like You Forgot to Change After Work)",
         "href": "/blog/how-to-style-blazer-casually-men",
         "description": "Learn how to style a blazer casually with specific outfit formulas, fit rules, and real examples."
-      },
-      {
-        "slug": "mens-style-test",
-        "title": "Men's Style Quiz: Find Your Style Score Online",
-        "href": "/blog/mens-style-test",
-        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
       }
     ],
     "how-to-dress-for-your-face-shape-men": [
@@ -1810,6 +1810,12 @@
     ],
     "best-bomber-jackets-for-men": [
       {
+        "slug": "best-rain-jacket-men",
+        "title": "The Best Rain Jacket for Men: A Practical Buying Guide for 2024",
+        "href": "/blog/best-rain-jacket-men",
+        "description": "Looking for the best rain jacket for men?"
+      },
+      {
         "slug": "best-coats-for-men",
         "title": "The Best Coats for Men: What to Buy, How It Should Fit, and What to Skip",
         "href": "/blog/best-coats-for-men",
@@ -1820,12 +1826,6 @@
         "title": "How to Style a Blazer Casually (Without Looking Like You Forgot to Change After Work)",
         "href": "/blog/how-to-style-blazer-casually-men",
         "description": "Learn how to style a blazer casually with specific outfit formulas, fit rules, and real examples."
-      },
-      {
-        "slug": "mens-style-test",
-        "title": "Men's Style Quiz: Find Your Style Score Online",
-        "href": "/blog/mens-style-test",
-        "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
       }
     ],
     "work-from-home-outfit-men": [
@@ -2086,6 +2086,26 @@
         "title": "Men's Style Quiz: Find Your Style Score Online",
         "href": "/blog/mens-style-test",
         "description": "Take the quiz and get a score across fit, grooming, shoes, and occasion dressing."
+      }
+    ],
+    "best-rain-jacket-men": [
+      {
+        "slug": "best-bomber-jackets-for-men",
+        "title": "The Best Bomber Jackets for Men: What to Buy, How It Should Fit, and What to Skip",
+        "href": "/blog/best-bomber-jackets-for-men",
+        "description": "Looking for the best bomber jackets for men?"
+      },
+      {
+        "slug": "best-coats-for-men",
+        "title": "The Best Coats for Men: What to Buy, How It Should Fit, and What to Skip",
+        "href": "/blog/best-coats-for-men",
+        "description": "Looking for the best coats for men?"
+      },
+      {
+        "slug": "how-to-style-blazer-casually-men",
+        "title": "How to Style a Blazer Casually (Without Looking Like You Forgot to Change After Work)",
+        "href": "/blog/how-to-style-blazer-casually-men",
+        "description": "Learn how to style a blazer casually with specific outfit formulas, fit rules, and real examples."
       }
     ]
   }

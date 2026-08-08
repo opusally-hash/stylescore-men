@@ -1160,7 +1160,7 @@
       "keyword": "best rain jacket for men",
       "slug": "best-rain-jacket-men",
       "priority": 60,
-      "status": "draft",
+      "status": "published",
       "cluster": "outerwear",
       "articleFormat": "buying guide",
       "secondaryKeywords": [
@@ -1168,7 +1168,10 @@
         "stylish rain coat",
         "rain jacket vs umbrella"
       ],
-      "scheduledFor": "2026-06-18"
+      "scheduledFor": "2026-06-18",
+      "publishedAt": "2026-08-08",
+      "updatedAt": "2026-08-08",
+      "title": "The Best Rain Jacket for Men in 2024: What to Buy, How It Should Fit, and What to Skip | StyleScore"
     },
     {
       "keyword": "how to wear oversized clothing short men",
@@ -2423,6 +2426,14 @@
       }
     ],
     "outerwear": [
+      {
+        "slug": "best-rain-jacket-men",
+        "title": "The Best Rain Jacket for Men: A Practical Buying Guide for 2024",
+        "href": "/blog/best-rain-jacket-men",
+        "description": "Looking for the best rain jacket for men?",
+        "role": "supporting",
+        "publishedAt": "2026-08-08"
+      },
       {
         "slug": "best-bomber-jackets-for-men",
         "title": "The Best Bomber Jackets for Men: What to Buy, How It Should Fit, and What to Skip",
